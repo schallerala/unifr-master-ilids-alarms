@@ -1,0 +1,17 @@
+VideoPath:      POSIX path from the root of the SZTE folder
+                [example: './video/SZTEA101a.mov']
+VideoLength:    Frame count in the clip, for example, './video/SZTEA101a.mov' has
+                a frame rate of approx. 25 and a duration of 37'12":
+                (minutes * 60 + seconds) * frame rate = (37 * 60 + 12) * 25 = 55'800
+                (difference is due to the fact that the last second is not complete)
+                [example: 55789]
+Name:           Name of the video file without extension
+                [example: 'SZTEA101a']
+Datarate:       _Not certain to get what it expresses_
+                [example: 54900]
+AspectRatio:    Ratio between width and height expressed in a string seperated by a
+                colon like this 'W:H'
+                [example: '4:3']
+format.X.Y.Z:   Fields extracted using ffprobe CLI
+stream.X.Y.Z:   Fields extracted using ffprobe CLI concerning the single video stream
+                of the video

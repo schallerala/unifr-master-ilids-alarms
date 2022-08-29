@@ -1,0 +1,4 @@
+i-LIDS
+Scenario: Sterile Zone
+Dataset: Training
+Version: 1.0
