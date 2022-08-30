@@ -2,6 +2,23 @@
 #   filename:  index-library.tmp.json
 #   timestamp: 2022-08-14T13:21:27+00:00
 
+"""
+Can be generated with the help of datamodel_code_generator like so:
+
+# Extract only part of the produced structure (IlidsLibraryIndex.Library)
+ilids_library_xml = deep_get(index_xml, "IlidsLibraryIndex.Library")
+
+datamodel_code_generator.generate(
+    json.dumps(ilids_library_xml),
+    input_file_type=datamodel_code_generator.InputFileType.Json,
+    output=Path(".") / "sztr.py",
+    target_python_version=datamodel_code_generator.PythonVersion.PY_310,
+    class_name="IlidsLibrary"
+)
+
+# However, a few adaptation are done to improve the typing of certain fields
+"""
+
 from __future__ import annotations
 
 from typing import List, Optional, Union
@@ -11,9 +28,9 @@ from pydantic import BaseModel
 
 class Alarm(BaseModel):
     AlarmDescription: Optional[str]
-    AlarmDuration: str
-    Distance: str
-    StartTime: str
+    AlarmDuration: time
+    Distance: int
+    StartTime: time
     SubjectApproachType: str
     SubjectDescription: str
     SubjectOrientation: Optional[str] = None
@@ -28,19 +45,19 @@ class Distractions(BaseModel):
 
 
 class Weather(BaseModel):
-    Fog: str
-    Rain: Optional[str] = None
-    Snow: str
+    Fog: bool
+    Rain: Optional[bool] = None
+    Snow: bool
     TimeOfDay: str
     Clouds: Optional[str] = None
 
 
 class ClipItem(BaseModel):
-    AlarmEvents: str
+    AlarmEvents: int
     Alarms: Optional[Alarms] = None
     Distractions: Optional[Distractions] = None
-    Duration: str
-    Stage: str
+    Duration: time
+    Stage: int
     Weather: Weather
     filename: str
 

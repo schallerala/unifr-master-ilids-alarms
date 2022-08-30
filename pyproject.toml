@@ -3,9 +3,9 @@ name = "ilids"
 version = "0.1.0"
 description = "ilids-dataset-preprocessing"
 authors = ["Alain Schaller <alain.schaller@unifr.ch>"]
+packages = [{include = "ilids", from = "src"}]
 
 [tool.poetry.dependencies]
-Pillow = "^9.2.0"
 black = "^22.6.0"
 chardet = "<5.0.0"
 datamodel-code-generator = "^0.13.0"
@@ -15,15 +15,24 @@ ipykernel = "^6.15.1"
 jupyter = "^1.0.0"
 pandas = "^1.4.3"
 papermill = "^2.3.4"
+Pillow = "^9.2.0"
 pydantic = "^1.9.1"
 python = "^3.10"
 tqdm = "^4.64.0"
-xmltodict = "^0.13.0"
 typer = {extras = ["all"], version = "^0.6.1"}
+xmltodict = "^0.13.0"
 
 [tool.poetry.dev-dependencies]
+black = {version = "^22.6.0", allow-prereleases = true}
+isort = "^5.10.1"
+PyHamcrest = "^2.0.4"
+pytest = "^7.1.2"
 taskipy = "^1.10.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.taskipy.tasks]
+format = "black src tests && isort src tests"
+test = "pytest"

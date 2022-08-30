@@ -2,6 +2,27 @@
 #   filename:  <stdin>
 #   timestamp: 2022-08-14T13:21:22+00:00
 
+"""
+Can be generated with the help of datamodel_code_generator like so:
+
+# Execute ffprobe on the 5 first video to produce their json output
+# concatenate them inside a json array with a root element,
+# and generate their pydantic models
+raw_json_output = [
+    get_stream_info_with_ffprobe(path)
+    for path in [*video_file_paths, ...]
+]
+
+raw_ffprobe_json = f'{{"videos": [{",".join(raw_json_output)}]}}'
+datamodel_code_generator.generate(
+    raw_ffprobe_json,
+    input_file_type=datamodel_code_generator.InputFileType.Json,
+    output=Path(".") / "ffprobe.py",
+    target_python_version=datamodel_code_generator.PythonVersion.PY_310,
+    class_name="VideosRoot"
+)
+"""
+
 from __future__ import annotations
 
 from typing import List
@@ -95,10 +116,6 @@ class Format(BaseModel):
     tags: Tags1
 
 
-class Video(BaseModel):
+class FfprobeVideo(BaseModel):
     streams: List[Stream]
     format: Format
-
-
-class VideosRoot(BaseModel):
-    videos: List[Video]
