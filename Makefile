@@ -1,18 +1,15 @@
-
+DECORD_CMAKE_USER_CUDA := $(shell if which -s nvcc; then echo "ON"; else echo "0"; fi)
 
 build:
 	-mkdir $@
 
 build/decord: build
-	git clone --recursive https://github.com/schallerala/decord $@
+	test -d $@ || git clone --recursive https://github.com/schallerala/decord $@
 
 build/decord/build: build/decord
-	-mkdir $@
+	test -d $@ || mkdir $@
 	@# https://github.com/dmlc/decord
-	cd $@; \
-	if which nvcc; then cmake .. -DUSE_CUDA=ON -DCMAKE_BUILD_TYPE=Release; \
-	else cmake .. -DCMAKE_BUILD_TYPE=Release; \
-	fi;
+	cd $@ && cmake .. -DUSE_CUDA=$(DECORD_CMAKE_USER_CUDA) -DCMAKE_BUILD_TYPE=Release
 
 clean-decord:
 	-rm -rf build/decord
