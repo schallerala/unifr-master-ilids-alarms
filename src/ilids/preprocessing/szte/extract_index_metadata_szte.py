@@ -23,22 +23,94 @@ Folder structure:
 
 This concentrates on the **index.xml** file.
 """
-import glob
+import json
 from pathlib import Path
-from typing import Any, Dict, List
 
 import pandas as pd
 import typer
 
-from ilids.models import DataFrameDescription
-from ilids.models.ffprobe import FfprobeVideo
-from ilids.subcommand.ffprobe import get_stream_info
+from ilids.models.szte import IlidsLibrary
+from ilids.utils.dict import deep_get
 from ilids.utils.xml import read_xml
 
 
-def extract_video_metadata_szte() -> None:
-    pass
+"""Commands structure:
+
+    szte-index
+       ├── all              # avoids parsing 3 times the index.xml file
+       ├── clips            # print out the clips information
+       ├── alarms           # print out the alarms information
+       └── distractions      # print out the distractions
+"""
+
+
+typer_app = typer.Typer()
+
+
+def _read_index_xml(index: Path) -> IlidsLibrary:
+    index_xml = read_xml(index)
+
+    # Extract only part of the produced structure (IlidsLibraryIndex.Library)
+    ilids_library_xml = deep_get(index_xml, "IlidsLibraryIndex.Library")
+
+    library = IlidsLibrary.parse_obj(ilids_library_xml)
+
+    return library
+
+
+# def _change_clip_filename_extension(lib: IlidsLibrary, extension_from: str, extension_to: str) -> IlidsLibrary:
+#     extension_from = f".{extension_from.lstrip('.')}"
+#     extension_to = extension_to.lstrip('.')
+
+#     for clip in lib.clip:
+#         if clip.filename.endswith(extension_from):
+#             clip.filename = f"{clip.filename.lstrip(extension_from)}.{extension_to}"
+
+#     return lib
+
+
+@typer_app.command()
+def all(index_xml: Path, meta_output: Path, clips_output: Path, alarms_output: Path, distractions_output: Path) -> None:
+    lib = _read_index_xml(index_xml)
+
+    with open(meta_output, "w") as meta_fb:
+        json.dump(dict(scenario=lib.scenario, dataset=lib.dataset, version=lib.libversion), meta_fb)
+
+    clips_df = pd.json_normalize(lib.get_clips_information_dict()).set_index("filename")
+    clips_df.to_csv(clips_output)
+
+    alarms_df = pd.json_normalize(lib.flat_map_alarms_dict()).set_index("filename")
+    alarms_df.to_csv(alarms_output)
+
+    distractions_df = pd.json_normalize(lib.flat_map_distractions_dict()).set_index("filename")
+    distractions_df.to_csv(distractions_output)
+
+
+@typer_app.command()
+def clips(index_xml: Path) -> None:
+    lib = _read_index_xml(index_xml)
+
+    clips_df = pd.json_normalize(lib.get_clips_information_dict()).set_index("filename")
+    print(clips_df.to_csv())
+
+
+@typer_app.command()
+def alarms(index_xml: Path) -> None:
+    lib = _read_index_xml(index_xml)
+
+    alarms_df = pd.json_normalize(lib.flat_map_alarms_dict()).set_index("filename")
+    print(alarms_df.to_csv())
+
+
+@typer_app.command()
+def distractions(index_xml: Path) -> None:
+    lib = _read_index_xml(index_xml)
+
+    distractions_df = pd.json_normalize(lib.flat_map_distractions_dict()).set_index("filename")
+    print(distractions_df.to_csv())
+
+
 
 
 if __name__ == "__main__":
-    typer.run(extract_video_metadata_szte)
+    typer_app()

@@ -30,12 +30,11 @@ from typing import Any, Dict, List
 import pandas as pd
 import typer
 
-from ilids.models import DataFrameDescription
 from ilids.models.ffprobe import FfprobeVideo
 from ilids.subcommand.ffprobe import get_stream_info
 from ilids.utils.xml import read_xml
 
-_VIDEOS_CSV_FIELDS_DESCRIPTION = """\
+_VIDEOS_CSV_FIELDS_DESCRIPTION = """
 VideoPath:      POSIX path from the root of the SZTE folder
                 [example: './video/SZTEA101a.mov']
 VideoLength:    Frame count in the clip, for example, './video/SZTEA101a.mov' has
@@ -52,7 +51,7 @@ AspectRatio:    Ratio between width and height expressed in a string seperated b
                 [example: '4:3']
 format.X.Y.Z:   Fields extracted using ffprobe CLI
 stream.X.Y.Z:   Fields extracted using ffprobe CLI concerning the single video stream
-                of the video\
+                of the video
 """
 
 
@@ -139,17 +138,14 @@ def _merge_xml_video_df_and_ffprobes(
 
 def _extract_video_descriptions(
     video_folder: Path, video_extension: str
-) -> DataFrameDescription:
+) -> pd.DataFrame:
     ilids_video_xml_df = _extract_videos_from_xml_files(video_folder)
     ilids_video_xml_df = _keep_relevant_videos_columns(ilids_video_xml_df)
     ilids_video_xml_df = _cleanup_videos_data(ilids_video_xml_df)
     ffprobes = _ffprobe_videos(video_folder, video_extension)
 
-    return DataFrameDescription(
-        description=_VIDEOS_CSV_FIELDS_DESCRIPTION,
-        data_frame=_merge_xml_video_df_and_ffprobes(
-            ilids_video_xml_df, ffprobes, video_extension
-        ),
+    return _merge_xml_video_df_and_ffprobes(
+        ilids_video_xml_df, ffprobes, video_extension
     )
 
 
