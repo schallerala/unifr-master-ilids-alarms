@@ -1,7 +1,7 @@
 import typer
 
-import ilids.preprocessing.szte.extract_index_metadata_szte as szte_index
-import ilids.preprocessing.szte.extract_video_metadata_szte as szte_video
+import ilids.commands.szte.extract_index_metadata_szte as szte_index
+import ilids.commands.szte.extract_video_metadata_szte as szte_video
 
 typer_app = typer.Typer()
 

@@ -31,7 +31,7 @@ import pandas as pd
 import typer
 
 from ilids.models.ffprobe import FfprobeVideo
-from ilids.subcommand.ffprobe import get_stream_info
+from ilids.invocations.ffprobe import get_stream_info
 from ilids.utils.xml import read_xml
 
 typer_app = typer.Typer()

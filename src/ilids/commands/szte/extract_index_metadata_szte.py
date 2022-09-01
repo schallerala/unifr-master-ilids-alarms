@@ -41,7 +41,8 @@ typer_app = typer.Typer()
        ├── all              # avoids parsing 3 times the index.xml file
        ├── clips            # print out the clips information
        ├── alarms           # print out the alarms information
-       └── distractions      # print out the distractions
+       ├── distractions     # print out the distractions
+       └── meta             # print details on the library
 """
 
 
@@ -151,6 +152,15 @@ def distractions(index_xml: Path) -> None:
         "filename"
     )
     print(distractions_df.to_csv())
+
+
+@typer_app.command()
+def meta(index_xml: Path) -> None:
+    lib = _read_index_xml(index_xml)
+
+    print(json.dumps(
+        dict(scenario=lib.scenario, dataset=lib.dataset, version=lib.libversion),
+    ))
 
 
 if __name__ == "__main__":

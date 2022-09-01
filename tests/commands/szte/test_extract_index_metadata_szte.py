@@ -8,7 +8,7 @@ import pytest
 from hamcrest import *
 from typer.testing import CliRunner
 
-from ilids.preprocessing.szte.extract_index_metadata_szte import typer_app
+from ilids.commands.szte.extract_index_metadata_szte import typer_app
 
 runner = CliRunner()
 
