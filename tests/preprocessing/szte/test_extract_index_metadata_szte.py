@@ -1,3 +1,4 @@
+import io
 import json
 from pathlib import Path
 from typing import List
@@ -84,6 +85,66 @@ def test_need_force_to_overwrite(tmp_path, paths_to_create: List[bool]):
 
 
 @pytest.mark.szte_files(("index.xml", "index"))
+@pytest.mark.parametrize(
+    "force_arg",
+    ("-f", "--force"),
+)
+def test_force_and_overwrite(
+    index: Path,
+    meta_tmp_file: Path,
+    clips_tmp_file: Path,
+    alarms_tmp_file: Path,
+    distractions_tmp_file: Path,
+    force_arg,
+):
+
+    meta_tmp_file.touch()
+    clips_tmp_file.touch()
+    alarms_tmp_file.touch()
+    distractions_tmp_file.touch()
+
+    result = runner.invoke(
+        typer_app,
+        [
+            "all",
+            force_arg,
+            str(index),
+            str(meta_tmp_file),
+            str(clips_tmp_file),
+            str(alarms_tmp_file),
+            str(distractions_tmp_file),
+        ],
+    )
+    assert result.exit_code == 0
+
+    assert meta_tmp_file.exists() and meta_tmp_file.is_file()
+    assert clips_tmp_file.exists() and clips_tmp_file.is_file()
+    assert alarms_tmp_file.exists() and alarms_tmp_file.is_file()
+    assert distractions_tmp_file.exists() and distractions_tmp_file.is_file()
+
+    with open(meta_tmp_file, "r") as f:
+        meta = json.load(f)
+        assert_that(meta, has_key("scenario"))
+        assert_that(meta, has_key("version"))
+        assert_that(meta, has_key("dataset"))
+
+    with open(clips_tmp_file, "r") as f:
+        df = pd.read_csv(f)
+        assert_that(len(df), greater_than(10))
+        assert_that(len(df.columns), greater_than_or_equal_to(9))
+
+    with open(alarms_tmp_file, "r") as f:
+        df = pd.read_csv(f)
+        assert_that(len(df), greater_than(10))
+        assert_that(len(df.columns), greater_than_or_equal_to(8))
+
+    with open(distractions_tmp_file, "r") as f:
+        df = pd.read_csv(f)
+        assert_that(len(df), greater_than(10))
+        assert_that(len(df.columns), greater_than_or_equal_to(2))
+
+
+@pytest.mark.szte_files(("index.xml", "index"))
 def test_invoke_all(
     index: Path,
     meta_tmp_file: Path,
@@ -129,3 +190,51 @@ def test_invoke_all(
         df = pd.read_csv(f)
         assert_that(len(df), greater_than(10))
         assert_that(len(df.columns), greater_than_or_equal_to(2))
+
+
+@pytest.mark.szte_files(("index.xml", "index"))
+def test_invoke_clips(index: Path):
+    result = runner.invoke(
+        typer_app,
+        [
+            "clips",
+            str(index),
+        ],
+    )
+    assert result.exit_code == 0
+
+    df = pd.read_csv(io.StringIO(result.stdout))
+    assert_that(len(df), greater_than(10))
+    assert_that(len(df.columns), greater_than_or_equal_to(9))
+
+
+@pytest.mark.szte_files(("index.xml", "index"))
+def test_invoke_alarms(index: Path):
+    result = runner.invoke(
+        typer_app,
+        [
+            "alarms",
+            str(index),
+        ],
+    )
+    assert result.exit_code == 0
+
+    df = pd.read_csv(io.StringIO(result.stdout))
+    assert_that(len(df), greater_than(10))
+    assert_that(len(df.columns), greater_than_or_equal_to(8))
+
+
+@pytest.mark.szte_files(("index.xml", "index"))
+def test_invoke_distractions(index: Path):
+    result = runner.invoke(
+        typer_app,
+        [
+            "distractions",
+            str(index),
+        ],
+    )
+    assert result.exit_code == 0
+
+    df = pd.read_csv(io.StringIO(result.stdout))
+    assert_that(len(df), greater_than(10))
+    assert_that(len(df.columns), greater_than_or_equal_to(2))

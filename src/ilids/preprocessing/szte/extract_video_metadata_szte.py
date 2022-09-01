@@ -34,7 +34,19 @@ from ilids.models.ffprobe import FfprobeVideo
 from ilids.subcommand.ffprobe import get_stream_info
 from ilids.utils.xml import read_xml
 
-_VIDEOS_CSV_FIELDS_DESCRIPTION = """
+typer_app = typer.Typer()
+
+"""Commands structure:
+
+    szte-videos
+       ├── merged       # print out merged ilids video's metadata and ffprobe results
+       ├── original     # print out ilids (relevant) video's metadata
+       ├── ffprobe      # print out ffprobe results
+       └── meta         # print out file's description
+"""
+
+
+_VIDEOS_CSV_FIELDS_DESCRIPTION = """\
 VideoPath:      POSIX path from the root of the SZTE folder
                 [example: './video/SZTEA101a.mov']
 VideoLength:    Frame count in the clip, for example, './video/SZTEA101a.mov' has
@@ -51,7 +63,7 @@ AspectRatio:    Ratio between width and height expressed in a string seperated b
                 [example: '4:3']
 format.X.Y.Z:   Fields extracted using ffprobe CLI
 stream.X.Y.Z:   Fields extracted using ffprobe CLI concerning the single video stream
-                of the video
+                of the video\
 """
 
 
@@ -136,22 +148,52 @@ def _merge_xml_video_df_and_ffprobes(
     return merged_df
 
 
-def _extract_video_descriptions(
-    video_folder: Path, video_extension: str
-) -> pd.DataFrame:
+@typer_app.command()
+def merged(video_folder: Path, video_extension: str = ".mov"):
+    assert (
+        video_folder.exists() and video_folder.is_dir()
+    ), "Expecting video folder as first argument"
+
     ilids_video_xml_df = _extract_videos_from_xml_files(video_folder)
     ilids_video_xml_df = _keep_relevant_videos_columns(ilids_video_xml_df)
     ilids_video_xml_df = _cleanup_videos_data(ilids_video_xml_df)
     ffprobes = _ffprobe_videos(video_folder, video_extension)
 
-    return _merge_xml_video_df_and_ffprobes(
-        ilids_video_xml_df, ffprobes, video_extension
-    )
+    df = _merge_xml_video_df_and_ffprobes(ilids_video_xml_df, ffprobes, video_extension)
+
+    print(df.to_csv())
 
 
-def extract_video_metadata_szte() -> None:
-    pass
+@typer_app.command()
+def original(video_folder: Path):
+    assert (
+        video_folder.exists() and video_folder.is_dir()
+    ), "Expecting video folder as first argument"
+
+    ilids_video_xml_df = _extract_videos_from_xml_files(video_folder)
+    ilids_video_xml_df = _keep_relevant_videos_columns(ilids_video_xml_df)
+    ilids_video_xml_df = _cleanup_videos_data(ilids_video_xml_df)
+
+    print(ilids_video_xml_df.to_csv())
+
+
+@typer_app.command()
+def ffprobe(video_folder: Path, video_extension: str = ".mov"):
+    assert (
+        video_folder.exists() and video_folder.is_dir()
+    ), "Expecting video folder as first argument"
+
+    ffprobes = _ffprobe_videos(video_folder, video_extension)
+
+    df = pd.json_normalize([ffprobe.dict() for ffprobe in ffprobes])
+
+    print(df.to_csv())
+
+
+@typer_app.command()
+def meta():
+    print(_VIDEOS_CSV_FIELDS_DESCRIPTION)
 
 
 if __name__ == "__main__":
-    typer.run(extract_video_metadata_szte)
+    typer_app()

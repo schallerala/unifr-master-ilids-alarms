@@ -33,6 +33,8 @@ from ilids.models.szte import IlidsLibrary
 from ilids.utils.dict import deep_get
 from ilids.utils.xml import read_xml
 
+typer_app = typer.Typer()
+
 """Commands structure:
 
     szte-index
@@ -41,9 +43,6 @@ from ilids.utils.xml import read_xml
        ├── alarms           # print out the alarms information
        └── distractions      # print out the distractions
 """
-
-
-typer_app = typer.Typer()
 
 
 def _read_index_xml(index: Path) -> IlidsLibrary:
@@ -75,7 +74,9 @@ def all_cli(  # only to avoid shadowing builtin method
     clips_output: Path,
     alarms_output: Path,
     distractions_output: Path,
-    force: bool = typer.Option(False, help="Force override existing files"),
+    force: bool = typer.Option(
+        False, "--force", "-f", help="Force override existing files"
+    ),
 ) -> None:
     assert index_xml.exists(), "Expecting an existing index.xml file"
 
