@@ -45,8 +45,11 @@ class Distractions(BaseModel):
     Distraction: Union[str, List[str]]
 
     def unsqueeze(self) -> List[str]:
-        return self.Distraction if isinstance(self.Distraction, list) else [self.Distraction]
-
+        return (
+            self.Distraction
+            if isinstance(self.Distraction, list)
+            else [self.Distraction]
+        )
 
 
 class Weather(BaseModel):
@@ -80,10 +83,14 @@ class ClipItem(BaseModel):
         )
 
     def get_distractions_dict(self) -> List[Dict]:
-        return [] if self.Distractions is None else [
-            dict(filename=self.filename, distraction=distraction)
-            for distraction in self.Distractions.unsqueeze()
-        ]
+        return (
+            []
+            if self.Distractions is None
+            else [
+                dict(filename=self.filename, distraction=distraction)
+                for distraction in self.Distractions.unsqueeze()
+            ]
+        )
 
 
 class IlidsLibrary(BaseModel):
