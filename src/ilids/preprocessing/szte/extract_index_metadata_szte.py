@@ -33,7 +33,6 @@ from ilids.models.szte import IlidsLibrary
 from ilids.utils.dict import deep_get
 from ilids.utils.xml import read_xml
 
-
 """Commands structure:
 
     szte-index
@@ -69,12 +68,51 @@ def _read_index_xml(index: Path) -> IlidsLibrary:
 #     return lib
 
 
-@typer_app.command()
-def all(index_xml: Path, meta_output: Path, clips_output: Path, alarms_output: Path, distractions_output: Path) -> None:
+@typer_app.command(name="all")
+def all_cli(  # only to avoid shadowing builtin method
+    index_xml: Path,
+    meta_output: Path,
+    clips_output: Path,
+    alarms_output: Path,
+    distractions_output: Path,
+    force: bool = typer.Option(False, help="Force override existing files"),
+) -> None:
+    assert index_xml.exists(), "Expecting an existing index.xml file"
+
+    assert (
+        meta_output.parent.exists() and meta_output.parent.is_dir()
+    ), "Expecting parent of meta.json to exist and be a folder"
+    assert (
+        clips_output.parent.exists() and clips_output.parent.is_dir()
+    ), "Expecting parent of clips.csv to exist and be a folder"
+    assert (
+        alarms_output.parent.exists() and alarms_output.parent.is_dir()
+    ), "Expecting parent of alarms.csv to exist and be a folder"
+    assert (
+        distractions_output.parent.exists() and distractions_output.parent.is_dir()
+    ), "Expecting parent of distractions.csv to exist and be a folder"
+
+    if not force:
+        assert (
+            not meta_output.exists()
+        ), "meta.json exists already, use --force, -f to override"
+        assert (
+            not clips_output.exists()
+        ), "clips.csv exists already, use --force, -f to override"
+        assert (
+            not alarms_output.exists()
+        ), "alarms.csv exists already, use --force, -f to override"
+        assert (
+            not distractions_output.exists()
+        ), "distractions.csv exists already, use --force, -f to override"
+
     lib = _read_index_xml(index_xml)
 
     with open(meta_output, "w") as meta_fb:
-        json.dump(dict(scenario=lib.scenario, dataset=lib.dataset, version=lib.libversion), meta_fb)
+        json.dump(
+            dict(scenario=lib.scenario, dataset=lib.dataset, version=lib.libversion),
+            meta_fb,
+        )
 
     clips_df = pd.json_normalize(lib.get_clips_information_dict()).set_index("filename")
     clips_df.to_csv(clips_output)
@@ -82,7 +120,9 @@ def all(index_xml: Path, meta_output: Path, clips_output: Path, alarms_output: P
     alarms_df = pd.json_normalize(lib.flat_map_alarms_dict()).set_index("filename")
     alarms_df.to_csv(alarms_output)
 
-    distractions_df = pd.json_normalize(lib.flat_map_distractions_dict()).set_index("filename")
+    distractions_df = pd.json_normalize(lib.flat_map_distractions_dict()).set_index(
+        "filename"
+    )
     distractions_df.to_csv(distractions_output)
 
 
@@ -106,10 +146,10 @@ def alarms(index_xml: Path) -> None:
 def distractions(index_xml: Path) -> None:
     lib = _read_index_xml(index_xml)
 
-    distractions_df = pd.json_normalize(lib.flat_map_distractions_dict()).set_index("filename")
+    distractions_df = pd.json_normalize(lib.flat_map_distractions_dict()).set_index(
+        "filename"
+    )
     print(distractions_df.to_csv())
-
-
 
 
 if __name__ == "__main__":
