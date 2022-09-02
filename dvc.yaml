@@ -1,0 +1,12 @@
+stages:
+  szte-metadata:
+    cmd: make szte
+    deps:  # find src scripts -name "*szte*" -not -path "*/__pycache__/*"
+    - SZTE
+    - src/ilids/models/szte.py
+    - src/ilids/commands/szte
+    - src/ilids/commands/szte/extract_index_metadata_szte.py
+    - src/ilids/commands/szte/extract_video_metadata_szte.py
+    - src/ilids/preprocessing/szte
+    outs:
+    - szte-metadata
