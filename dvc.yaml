@@ -10,3 +10,14 @@ stages:
     - src/ilids/preprocessing/szte
     outs:
     - szte-metadata
+  sztr-metadata:
+    cmd: make sztr
+    deps:  # find src scripts -name "*sztr*" -not -path "*/__pycache__/*"
+    - SZTE
+    - src/ilids/models/sztr.py
+    - src/ilids/commands/sztr
+    - src/ilids/commands/sztr/extract_index_metadata_sztr.py
+    - src/ilids/commands/sztr/extract_video_metadata_sztr.py
+    - src/ilids/preprocessing/sztr
+    outs:
+    - sztr-metadata

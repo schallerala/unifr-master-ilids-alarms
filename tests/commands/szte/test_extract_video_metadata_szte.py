@@ -54,4 +54,6 @@ def test_invoke_meta():
     )
     assert result.exit_code == 0
 
-    assert_that(len(result.stdout.splitlines()), greater_than_or_equal_to(7))
+    assert_that(
+        len(result.stdout.splitlines()), greater_than_or_equal_to(7)
+    )  # 7 being the number of "fields"

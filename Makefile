@@ -8,12 +8,12 @@ help: ## print this help
 # Extract metadata
 
 
+## SZTE ##########
+
 SZTE_METADATA_FOLDER := szte-metadata
 
 $(SZTE_METADATA_FOLDER):
 	-mkdir $@
-
-## SZTE ##########
 
 SZTE_METADATA_OUTPUTS := $(shell echo $(SZTE_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
@@ -46,6 +46,46 @@ szte-clean:  ## clean szte-metadata folder
 	rmdir $(SZTE_METADATA_FOLDER)
 
 .PHONY: szte-clean
+
+
+## SZTR ##########
+
+SZTR_METADATA_FOLDER := sztr-metadata
+
+$(SZTR_METADATA_FOLDER):
+	-mkdir $@
+
+SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
+
+$(SZTR_METADATA_OUTPUTS): SZTR/index.xml $(SZTR_METADATA_FOLDER)
+	poetry run python scripts/extract_metadata.py sztr-index all $< $(SZTR_METADATA_OUTPUTS)
+	make $(SZTR_METADATA_FOLDER)/videos.csv
+
+# $(SZTR_METADATA_FOLDER)/clips.csv: SZTR/index.xml $(SZTR_METADATA_FOLDER)
+# 	poetry run python scripts/extract_metadata.py sztr-index clips SZTR/index.xml > $@
+
+# $(SZTR_METADATA_FOLDER)/alarms.csv: SZTR/index.xml $(SZTR_METADATA_FOLDER)
+# 	poetry run python scripts/extract_metadata.py sztr-index alarms SZTR/index.xml > $@
+
+# $(SZTR_METADATA_FOLDER)/distractions.csv: SZTR/index.xml $(SZTR_METADATA_FOLDER)
+# 	poetry run python scripts/extract_metadata.py sztr-index distractions SZTR/index.xml > $@
+
+# $(SZTR_METADATA_FOLDER)/meta.json: SZTR/index.xml $(SZTR_METADATA_FOLDER)
+# 	poetry run python scripts/extract_metadata.py sztr-index meta SZTR/index.xml > $@
+
+$(SZTR_METADATA_FOLDER)/videos.csv: SZTR/video $(SZTR_METADATA_FOLDER)
+	poetry run python scripts/extract_metadata.py sztr-videos ffprobe SZTR/video > $@
+
+
+sztr: $(SZTR_METADATA_OUTPUTS) $(SZTR_METADATA_FOLDER)/videos.csv  ## extract all metadata of SZTR
+
+.PHONY: sztr
+
+sztr-clean:  ## clean sztr-metadata folder
+	rm $(SZTR_METADATA_FOLDER)/*
+	rmdir $(SZTR_METADATA_FOLDER)
+
+.PHONY: sztr-clean
 
 
 #########################

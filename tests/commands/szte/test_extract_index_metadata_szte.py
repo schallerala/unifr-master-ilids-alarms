@@ -238,3 +238,20 @@ def test_invoke_distractions(index: Path):
     df = pd.read_csv(io.StringIO(result.stdout))
     assert_that(len(df), greater_than(10))
     assert_that(len(df.columns), greater_than_or_equal_to(2))
+
+
+@pytest.mark.szte_files(("index.xml", "index"))
+def test_invoke_meta(index: Path):
+    result = runner.invoke(
+        typer_app,
+        [
+            "meta",
+            str(index),
+        ],
+    )
+    assert result.exit_code == 0
+
+    meta = json.loads(result.stdout)
+    assert_that(meta, has_key("scenario"))
+    assert_that(meta, has_key("version"))
+    assert_that(meta, has_key("dataset"))
