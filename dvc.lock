@@ -8,26 +8,20 @@ stages:
       size: 332322712428
       nfiles: 499
     - path: src/ilids/commands/szte
-      md5: 6b45e66b1a63ea9b1125b06babf740f9.dir
-      size: 10389
+      md5: c8556c56098c5f276d56c96496c488f8.dir
+      size: 10653
       nfiles: 6
-    - path: src/ilids/commands/szte/extract_index_metadata_szte.py
-      md5: 36d5893a1301933945c2e06f99b1f809
-      size: 3651
-    - path: src/ilids/commands/szte/extract_video_metadata_szte.py
-      md5: a22d3b7eb3e97d6584095ebde6e0b33e
-      size: 1895
     - path: src/ilids/models/szte.py
       md5: f6a2648ba6c57af9e119945edd295e5c
       size: 2918
     - path: src/ilids/preprocessing/szte
-      md5: e5374a197ab48f925a04a69674cf3cb1.dir
-      size: 12174
+      md5: c2beb2072727405f13a24d15c32ec082.dir
+      size: 10955
       nfiles: 6
     outs:
-    - path: szte-metadata
-      md5: 0ec172996f86a18ee4bef685399441c0.dir
-      size: 38764
+    - path: results/szte-metadata
+      md5: 1f229333f38a94042d644acb1f904629.dir
+      size: 38429
       nfiles: 5
   sztr-metadata:
     cmd: make sztr
@@ -37,24 +31,62 @@ stages:
       size: 332322712428
       nfiles: 499
     - path: src/ilids/commands/sztr
-      md5: c2b1372baf2728b05a51af15099766a0.dir
-      size: 8740
+      md5: 3669e7debeb8bcf883104357aaa3dab7.dir
+      size: 8945
       nfiles: 6
-    - path: src/ilids/commands/sztr/extract_index_metadata_sztr.py
-      md5: 8bf014e611a52f3adb58e937b0732283
-      size: 3651
-    - path: src/ilids/commands/sztr/extract_video_metadata_sztr.py
-      md5: 66b3c2fb22a88b6aa8765554505529ef
-      size: 868
     - path: src/ilids/models/sztr.py
-      md5: 2d07f0390e32329bafcecde5ef2edeb1
-      size: 2913
+      md5: 19ba1181504527ebec65851eb1e125f0
+      size: 2883
     - path: src/ilids/preprocessing/sztr
       md5: 7bcf5151af07929377daecdd6c151e4f.dir
       size: 7172
       nfiles: 7
     outs:
-    - path: sztr-metadata
-      md5: 638244684402678e00fd9b6d1267f875.dir
-      size: 363775
+    - path: results/sztr-metadata
+      md5: 50177896c07b3a5b7c1f01ad02d6a1bb.dir
+      size: 143283
+      nfiles: 5
+  ilids-metadata:
+    cmd: make ilids
+    deps:
+    - path: SZTE
+      md5: e28af20ca4949791baf507c49168f2c3.dir
+      size: 332322712428
+      nfiles: 499
+    - path: SZTR
+      md5: 5862e7934a078574e066618c8bfaf2d1.dir
+      size: 341439097229
+      nfiles: 842
+    - path: src/ilids/commands/ilids_indexes.py
+      md5: 96861e9e2e3ac8012426adf6b0143bc8
+      size: 7778
+    - path: src/ilids/commands/ilids_videos.py
+      md5: 7340575a4dcd7dc84ccbd10cf0c6cd4b
+      size: 1569
+    - path: src/ilids/commands/szte
+      md5: c8556c56098c5f276d56c96496c488f8.dir
+      size: 10653
+      nfiles: 6
+    - path: src/ilids/commands/sztr
+      md5: 3669e7debeb8bcf883104357aaa3dab7.dir
+      size: 8945
+      nfiles: 6
+    - path: src/ilids/models/szte.py
+      md5: f6a2648ba6c57af9e119945edd295e5c
+      size: 2918
+    - path: src/ilids/models/sztr.py
+      md5: 19ba1181504527ebec65851eb1e125f0
+      size: 2883
+    - path: src/ilids/preprocessing/szte
+      md5: c2beb2072727405f13a24d15c32ec082.dir
+      size: 10955
+      nfiles: 6
+    - path: src/ilids/preprocessing/sztr
+      md5: 7bcf5151af07929377daecdd6c151e4f.dir
+      size: 7172
+      nfiles: 7
+    outs:
+    - path: results/ilids-metadata
+      md5: 743963b2ee5c50d2d030ff052e6876ff.dir
+      size: 169904
       nfiles: 5

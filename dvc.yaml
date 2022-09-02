@@ -5,19 +5,30 @@ stages:
     - SZTE
     - src/ilids/models/szte.py
     - src/ilids/commands/szte
-    - src/ilids/commands/szte/extract_index_metadata_szte.py
-    - src/ilids/commands/szte/extract_video_metadata_szte.py
     - src/ilids/preprocessing/szte
     outs:
-    - szte-metadata
+    - results/szte-metadata
   sztr-metadata:
     cmd: make sztr
     deps:  # find src scripts -name "*sztr*" -not -path "*/__pycache__/*"
     - SZTE
     - src/ilids/models/sztr.py
     - src/ilids/commands/sztr
-    - src/ilids/commands/sztr/extract_index_metadata_sztr.py
-    - src/ilids/commands/sztr/extract_video_metadata_sztr.py
     - src/ilids/preprocessing/sztr
     outs:
-    - sztr-metadata
+    - results/sztr-metadata
+  ilids-metadata:
+    cmd: make ilids
+    deps:
+    - SZTE
+    - SZTR
+    - src/ilids/models/szte.py
+    - src/ilids/models/sztr.py
+    - src/ilids/commands/sztr
+    - src/ilids/commands/szte
+    - src/ilids/commands/ilids_indexes.py
+    - src/ilids/commands/ilids_videos.py
+    - src/ilids/preprocessing/szte
+    - src/ilids/preprocessing/sztr
+    outs:
+    - results/ilids-metadata

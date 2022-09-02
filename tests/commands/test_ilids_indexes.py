@@ -8,7 +8,7 @@ import pytest
 from hamcrest import *
 from typer.testing import CliRunner
 
-from ilids.commands.sztr.extract_index_metadata_sztr import typer_app
+from ilids.commands.ilids_indexes import typer_app
 
 runner = CliRunner()
 
@@ -39,18 +39,33 @@ def distractions_tmp_file(tmp_path):
     yield from _tmp_file_builder(tmp_path, "distractions.csv")
 
 
+@pytest.mark.parametrize(
+    "paths_to_create_input",
+    (
+        [True, False],
+        [False, True],
+    ),
+)
 def test_no_input(
     tmp_path,
+    paths_to_create_input: List[bool],
     meta_tmp_file: Path,
     clips_tmp_file: Path,
     alarms_tmp_file: Path,
     distractions_tmp_file: Path,
 ):
+    index_inputs = [
+        (Path(tmp_path) / f"{i}.xml") for i, _create in enumerate(paths_to_create_input)
+    ]
+    for i, create in enumerate(paths_to_create_input):
+        if create:
+            index_inputs[i].touch()
+
     result = runner.invoke(
         typer_app,
         [
             "all",
-            Path(tmp_path) / "input.txt",
+            *[str(input) for input in index_inputs],
             str(meta_tmp_file),
             str(clips_tmp_file),
             str(alarms_tmp_file),
@@ -77,20 +92,27 @@ def test_need_force_to_overwrite(tmp_path, paths_to_create: List[bool]):
         if create:
             outputs[i].touch()
 
-    index = Path(tmp_path) / "input.txt"
-    index.touch()
+    index1 = Path(tmp_path) / "input1.xml"
+    index1.touch()
 
-    result = runner.invoke(typer_app, ["all", str(index), *[str(p) for p in outputs]])
+    index2 = Path(tmp_path) / "input2.xml"
+    index2.touch()
+
+    result = runner.invoke(
+        typer_app, ["all", str(index1), str(index2), *[str(p) for p in outputs]]
+    )
     assert result.exit_code == 1
 
 
-@pytest.mark.sztr_files(("index.xml", "index"))
+@pytest.mark.szte_files(("index.xml", "index_szte"))
+@pytest.mark.sztr_files(("index.xml", "index_sztr"))
 @pytest.mark.parametrize(
     "force_arg",
     ("-f", "--force"),
 )
 def test_force_and_overwrite(
-    index: Path,
+    index_szte: Path,
+    index_sztr: Path,
     meta_tmp_file: Path,
     clips_tmp_file: Path,
     alarms_tmp_file: Path,
@@ -108,7 +130,8 @@ def test_force_and_overwrite(
         [
             "all",
             force_arg,
-            str(index),
+            str(index_szte),
+            str(index_sztr),
             str(meta_tmp_file),
             str(clips_tmp_file),
             str(alarms_tmp_file),
@@ -124,9 +147,8 @@ def test_force_and_overwrite(
 
     with open(meta_tmp_file, "r") as f:
         meta = json.load(f)
-        assert_that(meta, has_key("scenario"))
-        assert_that(meta, has_key("version"))
-        assert_that(meta, has_key("dataset"))
+        assert_that(meta, has_key("szte"))
+        assert_that(meta, has_key("sztr"))
 
     with open(clips_tmp_file, "r") as f:
         df = pd.read_csv(f)
@@ -144,9 +166,11 @@ def test_force_and_overwrite(
         assert_that(len(df.columns), greater_than_or_equal_to(2))
 
 
-@pytest.mark.sztr_files(("index.xml", "index"))
+@pytest.mark.szte_files(("index.xml", "index_szte"))
+@pytest.mark.sztr_files(("index.xml", "index_sztr"))
 def test_invoke_all(
-    index: Path,
+    index_szte: Path,
+    index_sztr: Path,
     meta_tmp_file: Path,
     clips_tmp_file: Path,
     alarms_tmp_file: Path,
@@ -156,7 +180,8 @@ def test_invoke_all(
         typer_app,
         [
             "all",
-            str(index),
+            str(index_szte),
+            str(index_sztr),
             str(meta_tmp_file),
             str(clips_tmp_file),
             str(alarms_tmp_file),
@@ -172,9 +197,8 @@ def test_invoke_all(
 
     with open(meta_tmp_file, "r") as f:
         meta = json.load(f)
-        assert_that(meta, has_key("scenario"))
-        assert_that(meta, has_key("version"))
-        assert_that(meta, has_key("dataset"))
+        assert_that(meta, has_key("szte"))
+        assert_that(meta, has_key("sztr"))
 
     with open(clips_tmp_file, "r") as f:
         df = pd.read_csv(f)
@@ -192,13 +216,18 @@ def test_invoke_all(
         assert_that(len(df.columns), greater_than_or_equal_to(2))
 
 
-@pytest.mark.sztr_files(("index.xml", "index"))
-def test_invoke_clips(index: Path):
+@pytest.mark.szte_files(("index.xml", "index_szte"))
+@pytest.mark.sztr_files(("index.xml", "index_sztr"))
+def test_invoke_clips(
+    index_szte: Path,
+    index_sztr: Path,
+):
     result = runner.invoke(
         typer_app,
         [
             "clips",
-            str(index),
+            str(index_szte),
+            str(index_sztr),
         ],
     )
     assert result.exit_code == 0, result.stderr
@@ -208,13 +237,18 @@ def test_invoke_clips(index: Path):
     assert_that(len(df.columns), greater_than_or_equal_to(9))
 
 
-@pytest.mark.sztr_files(("index.xml", "index"))
-def test_invoke_alarms(index: Path):
+@pytest.mark.szte_files(("index.xml", "index_szte"))
+@pytest.mark.sztr_files(("index.xml", "index_sztr"))
+def test_invoke_alarms(
+    index_szte: Path,
+    index_sztr: Path,
+):
     result = runner.invoke(
         typer_app,
         [
             "alarms",
-            str(index),
+            str(index_szte),
+            str(index_sztr),
         ],
     )
     assert result.exit_code == 0, result.stderr
@@ -224,13 +258,18 @@ def test_invoke_alarms(index: Path):
     assert_that(len(df.columns), greater_than_or_equal_to(8))
 
 
-@pytest.mark.sztr_files(("index.xml", "index"))
-def test_invoke_distractions(index: Path):
+@pytest.mark.szte_files(("index.xml", "index_szte"))
+@pytest.mark.sztr_files(("index.xml", "index_sztr"))
+def test_invoke_distractions(
+    index_szte: Path,
+    index_sztr: Path,
+):
     result = runner.invoke(
         typer_app,
         [
             "distractions",
-            str(index),
+            str(index_szte),
+            str(index_sztr),
         ],
     )
     assert result.exit_code == 0, result.stderr
@@ -240,18 +279,22 @@ def test_invoke_distractions(index: Path):
     assert_that(len(df.columns), greater_than_or_equal_to(2))
 
 
-@pytest.mark.sztr_files(("index.xml", "index"))
-def test_invoke_meta(index: Path):
+@pytest.mark.szte_files(("index.xml", "index_szte"))
+@pytest.mark.sztr_files(("index.xml", "index_sztr"))
+def test_invoke_meta(
+    index_szte: Path,
+    index_sztr: Path,
+):
     result = runner.invoke(
         typer_app,
         [
             "meta",
-            str(index),
+            str(index_szte),
+            str(index_sztr),
         ],
     )
     assert result.exit_code == 0, result.stderr
 
     meta = json.loads(result.stdout)
-    assert_that(meta, has_key("scenario"))
-    assert_that(meta, has_key("version"))
-    assert_that(meta, has_key("dataset"))
+    assert_that(meta, has_key("szte"))
+    assert_that(meta, has_key("sztr"))

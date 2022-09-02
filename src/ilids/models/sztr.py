@@ -22,7 +22,7 @@ datamodel_code_generator.generate(
 from __future__ import annotations
 
 from datetime import time
-from typing import List, Optional, Union, Dict
+from typing import Dict, List, Optional, Union
 
 from pydantic import BaseModel
 
@@ -76,9 +76,7 @@ class ClipItem(BaseModel):
         return (
             []
             if self.AlarmEvents == 0
-            else [
-                dict(filename=self.filename, **self.Alarms.Alarm.dict())
-            ]
+            else [dict(filename=self.filename, **self.Alarms.Alarm.dict())]
         )
 
     def get_distractions_dict(self) -> List[Dict]:

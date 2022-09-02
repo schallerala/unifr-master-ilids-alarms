@@ -5,14 +5,18 @@ help: ## print this help
 # Data Preparation
 #########################
 
-# Extract metadata
+RESULTS_FOLDER := results
 
+$(RESULTS_FOLDER):
+	mkdir $@
+
+# Extract metadata
 
 ## SZTE ##########
 
-SZTE_METADATA_FOLDER := szte-metadata
+SZTE_METADATA_FOLDER := $(RESULTS_FOLDER)/szte-metadata
 
-$(SZTE_METADATA_FOLDER):
+$(SZTE_METADATA_FOLDER): $(RESULTS_FOLDER)
 	-mkdir $@
 
 SZTE_METADATA_OUTPUTS := $(shell echo $(SZTE_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
@@ -21,38 +25,25 @@ $(SZTE_METADATA_OUTPUTS): SZTE/index.xml $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-index all $< $(SZTE_METADATA_OUTPUTS)
 	make $(SZTE_METADATA_FOLDER)/videos.csv
 
-# $(SZTE_METADATA_FOLDER)/clips.csv: SZTE/index.xml $(SZTE_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py szte-index clips SZTE/index.xml > $@
-
-# $(SZTE_METADATA_FOLDER)/alarms.csv: SZTE/index.xml $(SZTE_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py szte-index alarms SZTE/index.xml > $@
-
-# $(SZTE_METADATA_FOLDER)/distractions.csv: SZTE/index.xml $(SZTE_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py szte-index distractions SZTE/index.xml > $@
-
-# $(SZTE_METADATA_FOLDER)/meta.json: SZTE/index.xml $(SZTE_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py szte-index meta SZTE/index.xml > $@
-
 $(SZTE_METADATA_FOLDER)/videos.csv: SZTE/video $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-videos merged SZTE/video > $@
-
 
 szte: $(SZTE_METADATA_OUTPUTS) $(SZTE_METADATA_FOLDER)/videos.csv  ## extract all metadata of SZTE
 
 .PHONY: szte
 
 szte-clean:  ## clean szte-metadata folder
-	rm $(SZTE_METADATA_FOLDER)/*
-	rmdir $(SZTE_METADATA_FOLDER)
+	-rm $(SZTE_METADATA_FOLDER)/*
+	-rmdir $(SZTE_METADATA_FOLDER)
 
 .PHONY: szte-clean
 
 
 ## SZTR ##########
 
-SZTR_METADATA_FOLDER := sztr-metadata
+SZTR_METADATA_FOLDER := $(RESULTS_FOLDER)/sztr-metadata
 
-$(SZTR_METADATA_FOLDER):
+$(SZTR_METADATA_FOLDER): $(RESULTS_FOLDER)
 	-mkdir $@
 
 SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
@@ -60,18 +51,6 @@ SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.c
 $(SZTR_METADATA_OUTPUTS): SZTR/index.xml $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-index all $< $(SZTR_METADATA_OUTPUTS)
 	make $(SZTR_METADATA_FOLDER)/videos.csv
-
-# $(SZTR_METADATA_FOLDER)/clips.csv: SZTR/index.xml $(SZTR_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py sztr-index clips SZTR/index.xml > $@
-
-# $(SZTR_METADATA_FOLDER)/alarms.csv: SZTR/index.xml $(SZTR_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py sztr-index alarms SZTR/index.xml > $@
-
-# $(SZTR_METADATA_FOLDER)/distractions.csv: SZTR/index.xml $(SZTR_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py sztr-index distractions SZTR/index.xml > $@
-
-# $(SZTR_METADATA_FOLDER)/meta.json: SZTR/index.xml $(SZTR_METADATA_FOLDER)
-# 	poetry run python scripts/extract_metadata.py sztr-index meta SZTR/index.xml > $@
 
 $(SZTR_METADATA_FOLDER)/videos.csv: SZTR/video $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-videos ffprobe SZTR/video > $@
@@ -81,11 +60,63 @@ sztr: $(SZTR_METADATA_OUTPUTS) $(SZTR_METADATA_FOLDER)/videos.csv  ## extract al
 
 .PHONY: sztr
 
+
+
+### Extra to extract SZTR/SZTR.mdb
+HAS_MDB_TOOLS := $(shell if which -s mdb-tables22 && which -s mdb-export; then echo "OK"; fi)
+
+ifneq ($(strip $(HAS_MDB_TOOLS)),)
+$(SZTR_METADATA_FOLDER)/mdb: SZTR/SZTR.mdb $(SZTR_METADATA_FOLDER)
+	mkdir $@
+
+SZTR_MDB_TABLES := $(shell mdb-tables --single-column SZTR/SZTR.mdb | awk '{ print  "$(SZTR_METADATA_FOLDER)/mdb/" $$1 ".csv"}' | xargs)
+
+$(SZTR_MDB_TABLES): SZTR/SZTR.mdb $(SZTR_METADATA_FOLDER)/mdb
+	mdb-export $< $(shell basename $@ .csv) > $@
+
+sztr-mdb: $(SZTR_MDB_TABLES)  ## export tables from mdb file
+else
+sztr-mdb:
+	echo "Missing mdb-tables and mdb-export CLI tools: https://github.com/mdbtools/mdbtools/"
+endif
+
+
+
 sztr-clean:  ## clean sztr-metadata folder
-	rm $(SZTR_METADATA_FOLDER)/*
-	rmdir $(SZTR_METADATA_FOLDER)
+	-rm $(SZTR_METADATA_FOLDER)/*
+	-rmdir $(SZTR_METADATA_FOLDER)
 
 .PHONY: sztr-clean
+
+
+###################
+## ILIDS ##########
+## Produce a merged result (and keep only what both SZTE and SZTR can produce as
+## they aren't structured the same way)
+
+ILIDS_METADATA_FOLDER := $(RESULTS_FOLDER)/ilids-metadata
+
+$(ILIDS_METADATA_FOLDER): $(RESULTS_FOLDER)
+	-mkdir $@
+
+ILIDS_METADATA_OUTPUTS := $(shell echo $(ILIDS_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
+
+$(ILIDS_METADATA_OUTPUTS): SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_FOLDER)
+	poetry run python scripts/extract_metadata.py ilids-indexes all SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_OUTPUTS)
+	make $(ILIDS_METADATA_FOLDER)/videos.csv
+
+$(ILIDS_METADATA_FOLDER)/videos.csv: SZTE/video SZTR/video $(ILIDS_METADATA_FOLDER)
+	poetry run python scripts/extract_metadata.py ilids-videos ffprobe SZTE/video SZTR/video > $@
+
+ilids: $(ILIDS_METADATA_OUTPUTS) $(ILIDS_METADATA_FOLDER)/videos.csv  ## extract all metadata of ILIDS
+
+.PHONY: ilids
+
+ilids-clean:  ## clean ilids-metadata folder
+	-rm $(ILIDS_METADATA_FOLDER)/*
+	-rmdir $(ILIDS_METADATA_FOLDER)
+
+.PHONY: ilids-clean
 
 
 #########################

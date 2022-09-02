@@ -4,11 +4,12 @@ with ffprobe executions.
 """
 import glob
 from pathlib import Path
-from typing import Any, Dict, List
+from typing import List
 
 import pandas as pd
 
 from ilids.models import FfprobeVideo
+from ilids.preprocessing.common import ffprobe_videos_to_df
 from ilids.utils.xml import read_xml
 
 VIDEOS_CSV_FIELDS_DESCRIPTION = """\
@@ -58,26 +59,10 @@ def _cleanup_video_path_posix_style(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
-def merge_xml_video_df_and_ffprobes(
-    ilids_video_xml_df: pd.DataFrame, ffprobes: List[FfprobeVideo], video_extension: str
+def merge_xml_video_and_ffprobes_dfs(
+    ilids_video_xml_df: pd.DataFrame, ffprobe_df: pd.DataFrame, video_extension: str
 ) -> pd.DataFrame:
-    assert len(ilids_video_xml_df) == len(ffprobes)
-
-    def dict_and_flatten_video_streams(video: FfprobeVideo) -> Dict[str, Any]:
-        """As only a SINGLE video stream is expected in the videos, squeeze the stream list
-        to then convert in DataFrame
-        """
-        dic: Dict[str, Any] = video.dict()
-        streams = dic.pop("streams")
-
-        assert len(streams) == 1, "Expected a unique stream in the given video"
-
-        dic["stream"] = streams[0]
-
-        return dic
-
-    ffprobe_objs = [dict_and_flatten_video_streams(video) for video in ffprobes]
-    ffprobe_df = pd.json_normalize(ffprobe_objs)
+    assert len(ilids_video_xml_df) == len(ffprobe_df)
 
     # Add a column to *join* the 2 DataFrames
     ffprobe_df["Name"] = ffprobe_df["format.filename"].str.removesuffix(

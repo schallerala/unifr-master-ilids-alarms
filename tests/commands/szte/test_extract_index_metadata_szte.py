@@ -115,7 +115,7 @@ def test_force_and_overwrite(
             str(distractions_tmp_file),
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     assert meta_tmp_file.exists() and meta_tmp_file.is_file()
     assert clips_tmp_file.exists() and clips_tmp_file.is_file()
@@ -163,7 +163,7 @@ def test_invoke_all(
             str(distractions_tmp_file),
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     assert meta_tmp_file.exists() and meta_tmp_file.is_file()
     assert clips_tmp_file.exists() and clips_tmp_file.is_file()
@@ -201,7 +201,7 @@ def test_invoke_clips(index: Path):
             str(index),
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     df = pd.read_csv(io.StringIO(result.stdout))
     assert_that(len(df), greater_than(10))
@@ -217,7 +217,7 @@ def test_invoke_alarms(index: Path):
             str(index),
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     df = pd.read_csv(io.StringIO(result.stdout))
     assert_that(len(df), greater_than(10))
@@ -233,7 +233,7 @@ def test_invoke_distractions(index: Path):
             str(index),
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     df = pd.read_csv(io.StringIO(result.stdout))
     assert_that(len(df), greater_than(10))
@@ -249,7 +249,7 @@ def test_invoke_meta(index: Path):
             str(index),
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     meta = json.loads(result.stdout)
     assert_that(meta, has_key("scenario"))

@@ -81,6 +81,8 @@ def all_cli(  # only to avoid shadowing builtin method
 
 @typer_app.command()
 def clips(index_xml: Path) -> None:
+    assert index_xml.exists(), "Expecting an existing index.xml file"
+
     lib = read_index_xml(index_xml)
 
     clips_df = pd.json_normalize(lib.get_clips_information_dict()).set_index("filename")
@@ -89,6 +91,8 @@ def clips(index_xml: Path) -> None:
 
 @typer_app.command()
 def alarms(index_xml: Path) -> None:
+    assert index_xml.exists(), "Expecting an existing index.xml file"
+
     lib = read_index_xml(index_xml)
 
     alarms_df = pd.json_normalize(lib.flat_map_alarms_dict()).set_index("filename")
@@ -97,6 +101,8 @@ def alarms(index_xml: Path) -> None:
 
 @typer_app.command()
 def distractions(index_xml: Path) -> None:
+    assert index_xml.exists(), "Expecting an existing index.xml file"
+
     lib = read_index_xml(index_xml)
 
     distractions_df = pd.json_normalize(lib.flat_map_distractions_dict()).set_index(
@@ -107,6 +113,8 @@ def distractions(index_xml: Path) -> None:
 
 @typer_app.command()
 def meta(index_xml: Path) -> None:
+    assert index_xml.exists(), "Expecting an existing index.xml file"
+
     lib = read_index_xml(index_xml)
 
     print(

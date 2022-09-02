@@ -1,8 +1,6 @@
 import glob
 import io
-import json
 from pathlib import Path
-from typing import List
 
 import pandas as pd
 import pytest
@@ -38,7 +36,7 @@ def test_invoke(video_folder: Path, command):
             str(video_folder),
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     df = pd.read_csv(io.StringIO(result.stdout))
     assert_that(len(df), is_(len(glob.glob(str(video_folder / "*.mov")))))
@@ -52,7 +50,7 @@ def test_invoke_meta():
             "meta",
         ],
     )
-    assert result.exit_code == 0
+    assert result.exit_code == 0, result.stderr
 
     assert_that(
         len(result.stdout.splitlines()), greater_than_or_equal_to(7)

@@ -23,15 +23,31 @@ xmltodict = "^0.13.0"
 black = {version = "^22.6.0", allow-prereleases = true}
 datamodel-code-generator = "^0.13.0"
 isort = "^5.10.1"
+mypy = "^0.971"
 PyHamcrest = "^2.0.4"
+pylint = "^2.15.0"
 pytest = "^7.1.2"
 pytest-cov = "^3.0.0"
 taskipy = "^1.10.2"
+vulture = "^2.5"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.isort]
+multi_line_output = 3
+profile = "black"
+
+[tool.vulture]
+min_confidence = 80
+sort_by_size = true
+
 [tool.taskipy.tasks]
 format = "black src tests && isort src tests"
 test = "pytest"
+
+analyse = "task dead && task types && task lint"
+dead = "vulture src tests --min-confidence 90"
+lint = "pylint src tests"
+types = "mypy src --ignore-missing-imports"
