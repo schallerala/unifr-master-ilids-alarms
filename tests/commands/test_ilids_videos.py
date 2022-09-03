@@ -7,7 +7,7 @@ import pytest
 from hamcrest import *
 from typer.testing import CliRunner
 
-from ilids.commands.sztr.extract_video_metadata_sztr import typer_app
+from ilids.commands.ilids_videos import typer_app
 
 runner = CliRunner()
 
@@ -20,14 +20,17 @@ def test_no_input(tmp_path):
     assert result.exit_code == 1
 
 
-@pytest.mark.sztr_files(("video", "video_folder"))
-def test_invoke(video_folder: Path):
-    result = runner.invoke(typer_app, ["ffprobe", str(video_folder)])
+@pytest.mark.szte_files(("video", "szte_video_folder"))
+@pytest.mark.sztr_files(("video", "sztr_video_folder"))
+def test_invoke(szte_video_folder: Path, sztr_video_folder: Path):
+    result = runner.invoke(typer_app, ["ffprobe", str(szte_video_folder), str(sztr_video_folder)])
     assert result.exit_code == 0, result.stderr
 
     df = pd.read_csv(io.StringIO(result.stdout))
-    assert_that(len(df), is_(len(glob.glob(str(video_folder / "*.mov")))))
-    assert_that(len(df.columns), greater_than_or_equal_to(5))
+    szte_videos = len(glob.glob(str(szte_video_folder / "*.mov")))
+    sztr_videos = len(glob.glob(str(sztr_video_folder / "*.mov")))
+    assert_that(len(df), is_(szte_videos + sztr_videos))
+    assert_that(len(df.columns), greater_than_or_equal_to(25))
 
 
 def test_invoke_meta():
