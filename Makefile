@@ -75,7 +75,7 @@ sztr: $(SZTR_METADATA_OUTPUTS) $(SZTR_METADATA_FOLDER)/videos.csv  ## extract al
 
 
 ### Extra to extract SZTR/SZTR.mdb
-HAS_MDB_TOOLS := $(shell if which -s mdb-tables22 && which -s mdb-export; then echo "OK"; fi)
+HAS_MDB_TOOLS := $(shell if which -s mdb-tables && which -s mdb-export; then echo "OK"; fi)
 
 ifneq ($(strip $(HAS_MDB_TOOLS)),)
 $(SZTR_METADATA_FOLDER)/mdb: SZTR/SZTR.mdb $(SZTR_METADATA_FOLDER)
@@ -91,6 +91,8 @@ else
 sztr-mdb:
 	echo "Missing mdb-tables and mdb-export CLI tools: https://github.com/mdbtools/mdbtools/"
 endif
+
+.PHONE: sztr-mdb
 
 
 
