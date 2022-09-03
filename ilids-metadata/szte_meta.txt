@@ -1,4 +1,0 @@
-i-LIDS
-Scenario: Sterile Zone
-Dataset: Test
-Version: 1.0

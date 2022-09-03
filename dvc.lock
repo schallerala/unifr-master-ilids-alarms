@@ -19,8 +19,8 @@ stages:
       size: 10955
       nfiles: 6
     outs:
-    - path: results/szte-metadata
-      md5: 1f229333f38a94042d644acb1f904629.dir
+    - path: data/szte-metadata
+      md5: d525880754041f8b392de947ded3a3cd.dir
       size: 38429
       nfiles: 5
   sztr-metadata:
@@ -42,8 +42,8 @@ stages:
       size: 7172
       nfiles: 7
     outs:
-    - path: results/sztr-metadata
-      md5: 50177896c07b3a5b7c1f01ad02d6a1bb.dir
+    - path: data/sztr-metadata
+      md5: f69efd0733668cafb145da70cd7c312d.dir
       size: 143283
       nfiles: 5
   ilids-metadata:
@@ -86,7 +86,7 @@ stages:
       size: 7172
       nfiles: 7
     outs:
-    - path: results/ilids-metadata
-      md5: 743963b2ee5c50d2d030ff052e6876ff.dir
+    - path: data/ilids-metadata
+      md5: d2962fd844f080cf4334536f032797bb.dir
       size: 169904
       nfiles: 5

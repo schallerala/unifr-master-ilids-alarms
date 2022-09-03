@@ -5,25 +5,31 @@ help: ## print this help
 # Data Preparation
 #########################
 
-RESULTS_FOLDER := results
+DATA_FOLDER := data
 
-$(RESULTS_FOLDER):
+$(DATA_FOLDER):
 	mkdir $@
 
 # Extract metadata
 
 ## SZTE ##########
 
-SZTE_METADATA_FOLDER := $(RESULTS_FOLDER)/szte-metadata
+SZTE_METADATA_FOLDER := $(DATA_FOLDER)/szte-metadata
 
-$(SZTE_METADATA_FOLDER): $(RESULTS_FOLDER)
-	-mkdir $@
+$(SZTE_METADATA_FOLDER): $(DATA_FOLDER)
+	mkdir $@
 
 SZTE_METADATA_OUTPUTS := $(shell echo $(SZTE_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
 $(SZTE_METADATA_OUTPUTS): SZTE/index.xml $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-index all $< $(SZTE_METADATA_OUTPUTS)
+
 	make $(SZTE_METADATA_FOLDER)/videos.csv
+
+	# correct video extension to .mov as in the index.xml, they reference videos with .qtl
+	for file in $(shell echo $(SZTE_METADATA_FOLDER)/*); do \
+		sed -i '' 's/\.qtl/\.mov/g' $$file; \
+	done
 
 $(SZTE_METADATA_FOLDER)/videos.csv: SZTE/video $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-videos merged SZTE/video > $@
@@ -41,16 +47,22 @@ szte-clean:  ## clean szte-metadata folder
 
 ## SZTR ##########
 
-SZTR_METADATA_FOLDER := $(RESULTS_FOLDER)/sztr-metadata
+SZTR_METADATA_FOLDER := $(DATA_FOLDER)/sztr-metadata
 
-$(SZTR_METADATA_FOLDER): $(RESULTS_FOLDER)
+$(SZTR_METADATA_FOLDER): $(DATA_FOLDER)
 	-mkdir $@
 
 SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
 $(SZTR_METADATA_OUTPUTS): SZTR/index.xml $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-index all $< $(SZTR_METADATA_OUTPUTS)
+
 	make $(SZTR_METADATA_FOLDER)/videos.csv
+
+	# correct video extension to .mov as in the index.xml, they reference videos with .qtl
+	for file in $(shell echo $(SZTR_METADATA_FOLDER)/*); do \
+		sed -i '' 's/\.qtl/\.mov/g' $$file; \
+	done
 
 $(SZTR_METADATA_FOLDER)/videos.csv: SZTR/video $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-videos ffprobe SZTR/video > $@
@@ -94,9 +106,9 @@ sztr-clean:  ## clean sztr-metadata folder
 ## Produce a merged result (and keep only what both SZTE and SZTR can produce as
 ## they aren't structured the same way)
 
-ILIDS_METADATA_FOLDER := $(RESULTS_FOLDER)/ilids-metadata
+ILIDS_METADATA_FOLDER := $(DATA_FOLDER)/ilids-metadata
 
-$(ILIDS_METADATA_FOLDER): $(RESULTS_FOLDER)
+$(ILIDS_METADATA_FOLDER): $(DATA_FOLDER)
 	-mkdir $@
 
 ILIDS_METADATA_OUTPUTS := $(shell echo $(ILIDS_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
@@ -104,6 +116,11 @@ ILIDS_METADATA_OUTPUTS := $(shell echo $(ILIDS_METADATA_FOLDER)/{meta.json,clips
 $(ILIDS_METADATA_OUTPUTS): SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py ilids-indexes all SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_OUTPUTS)
 	make $(ILIDS_METADATA_FOLDER)/videos.csv
+
+	# correct video extension to .mov as in the index.xml, they reference videos with .qtl
+	for file in $(shell echo $(ILIDS_METADATA_FOLDER)/*); do \
+		sed -i '' 's/\.qtl/\.mov/g' $$file; \
+	done
 
 $(ILIDS_METADATA_FOLDER)/videos.csv: SZTE/video SZTR/video $(ILIDS_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py ilids-videos ffprobe SZTE/video SZTR/video > $@
