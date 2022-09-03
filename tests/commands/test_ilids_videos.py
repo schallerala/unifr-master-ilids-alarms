@@ -23,7 +23,9 @@ def test_no_input(tmp_path):
 @pytest.mark.szte_files(("video", "szte_video_folder"))
 @pytest.mark.sztr_files(("video", "sztr_video_folder"))
 def test_invoke(szte_video_folder: Path, sztr_video_folder: Path):
-    result = runner.invoke(typer_app, ["ffprobe", str(szte_video_folder), str(sztr_video_folder)])
+    result = runner.invoke(
+        typer_app, ["ffprobe", str(szte_video_folder), str(sztr_video_folder)]
+    )
     assert result.exit_code == 0, result.stderr
 
     df = pd.read_csv(io.StringIO(result.stdout))
