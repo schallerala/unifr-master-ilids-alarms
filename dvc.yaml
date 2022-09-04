@@ -32,13 +32,3 @@ stages:
     - src/ilids/preprocessing/sztr
     outs:
     - data/ilids-metadata
-  sequences:
-    cmd: make sequences
-    deps:
-    - notebooks/generate-sequences-alarms-FP.ipynb
-    - data/handcrafted-metadata/szte_distractions.extended.corrected.csv
-    - data/ilids-metadata/alarms.csv
-    - data/ilids-metadata/clips.csv
-    - data/ilids-metadata/videos.csv
-    outs:
-    - data/handcrafted-metadata/tp_fp_sequences.csv
