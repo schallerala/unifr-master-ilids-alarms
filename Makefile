@@ -8,7 +8,7 @@ help: ## print this help
 DATA_FOLDER := data
 
 $(DATA_FOLDER):
-	mkdir $@
+	-mkdir $@
 
 # Extract metadata
 
@@ -17,7 +17,7 @@ $(DATA_FOLDER):
 SZTE_METADATA_FOLDER := $(DATA_FOLDER)/szte-metadata
 
 $(SZTE_METADATA_FOLDER): $(DATA_FOLDER)
-	mkdir $@
+	-mkdir $@
 
 SZTE_METADATA_OUTPUTS := $(shell echo $(SZTE_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
@@ -79,7 +79,7 @@ HAS_MDB_TOOLS := $(shell if which -s mdb-tables && which -s mdb-export; then ech
 
 ifneq ($(strip $(HAS_MDB_TOOLS)),)
 $(SZTR_METADATA_FOLDER)/mdb: SZTR/SZTR.mdb $(SZTR_METADATA_FOLDER)
-	mkdir $@
+	-mkdir $@
 
 SZTR_MDB_TABLES := $(shell mdb-tables --single-column SZTR/SZTR.mdb | awk '{ print  "$(SZTR_METADATA_FOLDER)/mdb/" $$1 ".csv"}' | xargs)
 
@@ -136,6 +136,29 @@ ilids-clean:  ## clean ilids-metadata folder
 	-rmdir $(ILIDS_METADATA_FOLDER)
 
 .PHONY: ilids-clean
+
+
+###################
+## TP/FP ##########
+## Produce sequences of video to feed into a model
+
+HANDCRAFTED_METADATA_FOLDER := $(DATA_FOLDER)/handcrafted-metadata
+
+$(HANDCRAFTED_METADATA_FOLDER): $(DATA_FOLDER)
+	-mkdir $(HANDCRAFTED_METADATA_FOLDER)
+
+$(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv: $(HANDCRAFTED_METADATA_FOLDER)/szte_distractions.extended.corrected.csv $(ILIDS_METADATA_FOLDER)/alarms.csv $(ILIDS_METADATA_FOLDER)/clips.csv $(ILIDS_METADATA_FOLDER)/videos.csv notebooks/generate-sequences-alarms-FP.ipynb
+	poetry run jupyter nbconvert --execute notebooks/generate-sequences-alarms-FP.ipynb --stdout --to python > /dev/null
+
+
+sequences: $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv  ## produce sequences of short clips to feed into a model
+
+.PHONY: sequences
+
+sequences-clean:
+	rm $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv
+
+.PHONY: sequences-clean
 
 
 #########################
