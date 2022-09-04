@@ -31,6 +31,10 @@ $(SZTE_METADATA_OUTPUTS): SZTE/index.xml $(SZTE_METADATA_FOLDER)
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
+	@# Make sure to touch all files at the same time to avoid files to be newer than its
+	@# folder
+	touch $(SZTE_METADATA_FOLDER)/*
+
 $(SZTE_METADATA_FOLDER)/videos.csv: SZTE/video $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-videos merged SZTE/video > $@
 
@@ -63,6 +67,10 @@ $(SZTR_METADATA_OUTPUTS): SZTR/index.xml $(SZTR_METADATA_FOLDER)
 	for file in $(shell echo $(SZTR_METADATA_FOLDER)/*); do \
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
+
+	@# Make sure to touch all files at the same time to avoid files to be newer than its
+	@# folder
+	touch $(SZTR_METADATA_FOLDER)/*
 
 $(SZTR_METADATA_FOLDER)/videos.csv: SZTR/video $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-videos ffprobe SZTR/video > $@
@@ -123,6 +131,10 @@ $(ILIDS_METADATA_OUTPUTS): SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_FOLDER
 	for file in $(shell echo $(ILIDS_METADATA_FOLDER)/*); do \
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
+
+	@# Make sure to touch all files at the same time to avoid files to be newer than its
+	@# folder
+	touch $(ILIDS_METADATA_FOLDER)/*
 
 $(ILIDS_METADATA_FOLDER)/videos.csv: SZTE/video SZTR/video $(ILIDS_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py ilids-videos ffprobe SZTE/video SZTR/video > $@
