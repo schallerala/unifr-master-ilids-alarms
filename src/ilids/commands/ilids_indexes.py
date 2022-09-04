@@ -4,7 +4,8 @@ from pathlib import Path
 import pandas as pd
 import typer
 
-from ilids.preprocessing.szte.index_xml import read_index_xml
+from ilids.preprocessing.szte.index_xml import read_index_xml as read_szte_index_xml
+from ilids.preprocessing.sztr.index_xml import read_index_xml as read_sztr_index_xml
 
 typer_app = typer.Typer()
 
@@ -16,7 +17,7 @@ typer_app = typer.Typer()
        ├── alarms           # print out the alarms information
        ├── distractions     # print out the distractions
        └── meta             # print details on the library
-       
+
 Will merge the result of the sub-commands 'szte-index' and 'sztr-index'
 """
 
@@ -63,8 +64,8 @@ def all_cli(  # only to avoid shadowing builtin method
             not distractions_output.exists()
         ), "distractions.csv exists already, use --force, -f to override"
 
-    lib_szte = read_index_xml(szrte_index_xml)
-    lib_sztr = read_index_xml(szrte_index_xml)
+    lib_szte = read_szte_index_xml(szrte_index_xml)
+    lib_sztr = read_sztr_index_xml(szrtr_index_xml)
 
     with open(meta_output, "w") as meta_fb:
         json.dump(
@@ -94,7 +95,7 @@ def all_cli(  # only to avoid shadowing builtin method
     sztr_clips_df = pd.json_normalize(lib_sztr.get_clips_information_dict()).set_index(
         "filename"
     )
-    szte_clips_df.index = "SZTR/" + szte_clips_df.index
+    sztr_clips_df.index = "SZTR/" + sztr_clips_df.index
     clips_df = pd.concat([szte_clips_df, sztr_clips_df])
     clips_df.to_csv(clips_output)
 
@@ -129,8 +130,8 @@ def clips(
     assert szrte_index_xml.exists(), "Expecting an existing SZTE index.xml file"
     assert szrtr_index_xml.exists(), "Expecting an existing SZTR index.xml file"
 
-    lib_szte = read_index_xml(szrte_index_xml)
-    lib_sztr = read_index_xml(szrte_index_xml)
+    lib_szte = read_szte_index_xml(szrte_index_xml)
+    lib_sztr = read_sztr_index_xml(szrtr_index_xml)
 
     szte_clips_df = pd.json_normalize(lib_szte.get_clips_information_dict()).set_index(
         "filename"
@@ -152,8 +153,8 @@ def alarms(
     assert szrte_index_xml.exists(), "Expecting an existing SZTE index.xml file"
     assert szrtr_index_xml.exists(), "Expecting an existing SZTR index.xml file"
 
-    lib_szte = read_index_xml(szrte_index_xml)
-    lib_sztr = read_index_xml(szrte_index_xml)
+    lib_szte = read_szte_index_xml(szrte_index_xml)
+    lib_sztr = read_sztr_index_xml(szrtr_index_xml)
 
     szte_alarms_df = pd.json_normalize(lib_szte.flat_map_alarms_dict()).set_index(
         "filename"
@@ -175,8 +176,8 @@ def distractions(
     assert szrte_index_xml.exists(), "Expecting an existing SZTE index.xml file"
     assert szrtr_index_xml.exists(), "Expecting an existing SZTR index.xml file"
 
-    lib_szte = read_index_xml(szrte_index_xml)
-    lib_sztr = read_index_xml(szrte_index_xml)
+    lib_szte = read_szte_index_xml(szrte_index_xml)
+    lib_sztr = read_sztr_index_xml(szrtr_index_xml)
 
     szte_distractions_df = pd.json_normalize(
         lib_szte.flat_map_distractions_dict()
@@ -198,8 +199,8 @@ def meta(
     assert szrte_index_xml.exists(), "Expecting an existing SZTE index.xml file"
     assert szrtr_index_xml.exists(), "Expecting an existing SZTR index.xml file"
 
-    lib_szte = read_index_xml(szrte_index_xml)
-    lib_sztr = read_index_xml(szrte_index_xml)
+    lib_szte = read_szte_index_xml(szrte_index_xml)
+    lib_sztr = read_sztr_index_xml(szrtr_index_xml)
 
     print(
         json.dumps(
