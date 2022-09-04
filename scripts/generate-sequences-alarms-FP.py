@@ -109,7 +109,7 @@ TP = alarms_df[
         "SubjectOrientation",
     ]
 ]
-TP["Comment"] = "TP"
+TP["Classification"] = "TP"
 
 
 # In[11]:
@@ -124,7 +124,7 @@ distractions_df = distractions_df.rename(
     }
 )
 distractions_df = distractions_df[["StartTime", "EndTime", "Duration", "Distraction"]]
-distractions_df["Comment"] = "FP"
+distractions_df["Classification"] = "FP"
 
 
 # In[12]:
@@ -144,7 +144,9 @@ SEQUENCES.tail()
 
 
 def apply_interval(df: pd.DataFrame) -> pd.arrays.IntervalArray:
-    return pd.arrays.IntervalArray.from_arrays(df["StartTime"], df["EndTime"], closed="both")
+    return pd.arrays.IntervalArray.from_arrays(
+        df["StartTime"], df["EndTime"], closed="both"
+    )
 
 
 # In[15]:
@@ -157,9 +159,7 @@ SEQUENCES.head()
 # In[16]:
 
 
-def check_in_sequences(
-    df: pd.DataFrame, reference: pd.DataFrame
-) -> np.ndarray:
+def check_in_sequences(df: pd.DataFrame, reference: pd.DataFrame) -> np.ndarray:
     # For matching filename and
     #   startTime <= start <= endTime or
     #   startTime <= end <= endTime
@@ -184,7 +184,9 @@ def check_in_sequences(
 
     def check_df_row(row, reference: pd.DataFrame):
         sub_reference = reference.loc[reference.index.intersection([row.name])]
-        return any(sub_reference["Interval"].array.contains(row["StartTime"])) or any(sub_reference["Interval"].array.contains(row["EndTime"]))
+        return any(sub_reference["Interval"].array.contains(row["StartTime"])) or any(
+            sub_reference["Interval"].array.contains(row["EndTime"])
+        )
 
     return df.apply(check_df_row, axis=1, args=(reference,))
 
@@ -212,7 +214,7 @@ def generate_new_false_positive_intervals(N: int) -> pd.DataFrame:
         index=video_files,
     )
     fp_df["EndTime"] = fp_df["StartTime"] + fp_df["Duration"]
-    fp_df["Comment"] = "FP"
+    fp_df["Classification"] = "FP"
 
     return fp_df
 
@@ -252,7 +254,11 @@ def drop_intersect_interval(
 TARGET_SEQUENCES = 2 * len(alarms_df)
 missing_fp = TARGET_SEQUENCES - len(SEQUENCES)
 
-progress = tqdm(total=TARGET_SEQUENCES, desc="Generating unique non overlapping sequences", initial=len(SEQUENCES))
+progress = tqdm(
+    total=TARGET_SEQUENCES,
+    desc="Generating unique non overlapping sequences",
+    initial=len(SEQUENCES),
+)
 while missing_fp > 0:
     fp_df = generate_new_false_positive_intervals(missing_fp)
     drop_invalid_intervals(fp_df)
@@ -284,12 +290,16 @@ SEQUENCES.index.rename("filename", inplace=True)
 
 
 # Change to way time related column will be serialized in the new csv
-SEQUENCES["StartTime"] = SEQUENCES["StartTime"].dt.seconds.apply(lambda secs: strftime("%H:%M:%S", gmtime(secs)))
-SEQUENCES["EndTime"] = SEQUENCES["EndTime"].dt.seconds.apply(lambda secs: strftime("%H:%M:%S", gmtime(secs)))
-SEQUENCES["Duration"] = SEQUENCES["Duration"].dt.seconds.apply(lambda secs: strftime("%H:%M:%S", gmtime(secs)))
+SEQUENCES["StartTime"] = SEQUENCES["StartTime"].dt.seconds.apply(
+    lambda secs: strftime("%H:%M:%S", gmtime(secs))
+)
+SEQUENCES["EndTime"] = SEQUENCES["EndTime"].dt.seconds.apply(
+    lambda secs: strftime("%H:%M:%S", gmtime(secs))
+)
+SEQUENCES["Duration"] = SEQUENCES["Duration"].dt.seconds.apply(
+    lambda secs: strftime("%H:%M:%S", gmtime(secs))
+)
 SEQUENCES.drop(columns="Interval", inplace=True)
 
-SEQUENCES.to_csv(
-    hand_distractions_csv.parent / "tp_fp_sequences.csv"
-)
+SEQUENCES.to_csv(hand_distractions_csv.parent / "tp_fp_sequences.csv")
 

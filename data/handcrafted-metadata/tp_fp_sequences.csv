@@ -1,4 +1,4 @@
-filename,StartTime,EndTime,Duration,Distance,SubjectApproachType,SubjectDescription,SubjectOrientation,Comment,Distraction,Stage,Weather.Clouds,Weather.Fog,Weather.Rain,Weather.Snow,Weather.TimeOfDay
+filename,StartTime,EndTime,Duration,Distance,SubjectApproachType,SubjectDescription,SubjectOrientation,Classification,Distraction,Stage,Weather.Clouds,Weather.Fog,Weather.Rain,Weather.Snow,Weather.TimeOfDay
 SZTE/video/SZTEA101a.mov,00:05:37,00:06:37,00:01:00,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
 SZTE/video/SZTEA101a.mov,00:08:58,00:10:06,00:01:08,15.0,Crawl,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
 SZTE/video/SZTEA101a.mov,00:12:12,00:13:12,00:01:00,10.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn

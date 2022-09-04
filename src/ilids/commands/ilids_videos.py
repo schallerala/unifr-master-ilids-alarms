@@ -32,11 +32,15 @@ def ffprobe(
     szte_ffprobes_df = ffprobe_videos_to_df(
         ffprobe_videos(szte_video_folder, video_extension)
     )
-    szte_ffprobes_df["format.filename"] = "SZTE/video/" + szte_ffprobes_df["format.filename"]
+    szte_ffprobes_df["format.filename"] = (
+        "SZTE/video/" + szte_ffprobes_df["format.filename"]
+    )
     sztr_ffprobes_df = ffprobe_videos_to_df(
         ffprobe_videos(sztr_video_folder, video_extension)
     )
-    sztr_ffprobes_df["format.filename"] = "SZTR/video/" + sztr_ffprobes_df["format.filename"]
+    sztr_ffprobes_df["format.filename"] = (
+        "SZTR/video/" + sztr_ffprobes_df["format.filename"]
+    )
 
     df = pd.concat([szte_ffprobes_df, sztr_ffprobes_df])
     df = df.set_index("format.filename")
