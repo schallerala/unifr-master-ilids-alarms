@@ -91,33 +91,33 @@ def all_cli(  # only to avoid shadowing builtin method
     szte_clips_df = pd.json_normalize(lib_szte.get_clips_information_dict()).set_index(
         "filename"
     )
-    szte_clips_df.index = "SZTE/" + szte_clips_df.index
+    szte_clips_df.index = "SZTE/video/" + szte_clips_df.index
     sztr_clips_df = pd.json_normalize(lib_sztr.get_clips_information_dict()).set_index(
         "filename"
     )
-    sztr_clips_df.index = "SZTR/" + sztr_clips_df.index
+    sztr_clips_df.index = "SZTR/video/" + sztr_clips_df.index
     clips_df = pd.concat([szte_clips_df, sztr_clips_df])
     clips_df.to_csv(clips_output)
 
     szte_alarms_df = pd.json_normalize(lib_szte.flat_map_alarms_dict()).set_index(
         "filename"
     )
-    szte_alarms_df.index = "SZTE/" + szte_alarms_df.index
+    szte_alarms_df.index = "SZTE/video/" + szte_alarms_df.index
     sztr_alarms_df = pd.json_normalize(lib_sztr.flat_map_alarms_dict()).set_index(
         "filename"
     )
-    sztr_alarms_df.index = "SZTR/" + sztr_alarms_df.index
+    sztr_alarms_df.index = "SZTR/video/" + sztr_alarms_df.index
     alarms_df = pd.concat([szte_alarms_df, sztr_alarms_df])
     alarms_df.to_csv(alarms_output)
 
     szte_distractions_df = pd.json_normalize(
         lib_szte.flat_map_distractions_dict()
     ).set_index("filename")
-    szte_distractions_df.index = "SZTE/" + szte_distractions_df.index
+    szte_distractions_df.index = "SZTE/video/" + szte_distractions_df.index
     sztr_distractions_df = pd.json_normalize(
         lib_sztr.flat_map_distractions_dict()
     ).set_index("filename")
-    sztr_distractions_df.index = "SZTR/" + sztr_distractions_df.index
+    sztr_distractions_df.index = "SZTR/video/" + sztr_distractions_df.index
     distractions_df = pd.concat([szte_distractions_df, sztr_distractions_df])
     distractions_df.to_csv(distractions_output)
 
@@ -136,11 +136,11 @@ def clips(
     szte_clips_df = pd.json_normalize(lib_szte.get_clips_information_dict()).set_index(
         "filename"
     )
-    szte_clips_df.index = "SZTE/" + szte_clips_df.index
+    szte_clips_df.index = "SZTE/video/" + szte_clips_df.index
     sztr_clips_df = pd.json_normalize(lib_sztr.get_clips_information_dict()).set_index(
         "filename"
     )
-    sztr_clips_df.index = "SZTR/" + sztr_clips_df.index
+    sztr_clips_df.index = "SZTR/video/" + sztr_clips_df.index
     clips_df = pd.concat([szte_clips_df, sztr_clips_df])
     print(clips_df.to_csv())
 
@@ -159,11 +159,11 @@ def alarms(
     szte_alarms_df = pd.json_normalize(lib_szte.flat_map_alarms_dict()).set_index(
         "filename"
     )
-    szte_alarms_df.index = "SZTE/" + szte_alarms_df.index
+    szte_alarms_df.index = "SZTE/video/" + szte_alarms_df.index
     sztr_alarms_df = pd.json_normalize(lib_sztr.flat_map_alarms_dict()).set_index(
         "filename"
     )
-    sztr_alarms_df.index = "SZTR/" + sztr_alarms_df.index
+    sztr_alarms_df.index = "SZTR/video/" + sztr_alarms_df.index
     alarms_df = pd.concat([szte_alarms_df, sztr_alarms_df])
     print(alarms_df.to_csv())
 
@@ -182,11 +182,11 @@ def distractions(
     szte_distractions_df = pd.json_normalize(
         lib_szte.flat_map_distractions_dict()
     ).set_index("filename")
-    szte_distractions_df.index = "SZTE/" + szte_distractions_df.index
+    szte_distractions_df.index = "SZTE/video/" + szte_distractions_df.index
     sztr_distractions_df = pd.json_normalize(
         lib_sztr.flat_map_distractions_dict()
     ).set_index("filename")
-    sztr_distractions_df.index = "SZTR/" + sztr_distractions_df.index
+    sztr_distractions_df.index = "SZTR/video/" + sztr_distractions_df.index
     distractions_df = pd.concat([szte_distractions_df, sztr_distractions_df])
     print(distractions_df.to_csv())
 

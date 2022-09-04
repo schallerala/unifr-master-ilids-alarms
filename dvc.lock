@@ -58,11 +58,11 @@ stages:
       size: 341439097229
       nfiles: 842
     - path: src/ilids/commands/ilids_indexes.py
-      md5: 39fd0cf346b22b2f6f525c7b6e64242b
-      size: 7929
+      md5: dd4534466eb757899599f24184b3f27e
+      size: 8001
     - path: src/ilids/commands/ilids_videos.py
-      md5: e40c965297bd53471e90b26d3951b8c9
-      size: 1569
+      md5: 8b94d30f62c2f931109c4b082bc3e964
+      size: 1527
     - path: src/ilids/commands/szte
       md5: c8556c56098c5f276d56c96496c488f8.dir
       size: 10653
@@ -87,6 +87,6 @@ stages:
       nfiles: 7
     outs:
     - path: data/ilids-metadata
-      md5: 7ff672c54abc57943620386383f04c34.dir
-      size: 184113
+      md5: 95b22cd209656c752c2108790f5d0d11.dir
+      size: 190599
       nfiles: 5

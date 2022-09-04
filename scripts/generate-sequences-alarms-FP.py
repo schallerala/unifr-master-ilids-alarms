@@ -109,12 +109,7 @@ TP = alarms_df[
         "SubjectOrientation",
     ]
 ]
-
-
-# In[10]:
-
-
-TP.index.value_counts()
+TP["Comment"] = "TP"
 
 
 # In[11]:
@@ -129,6 +124,7 @@ distractions_df = distractions_df.rename(
     }
 )
 distractions_df = distractions_df[["StartTime", "EndTime", "Duration", "Distraction"]]
+distractions_df["Comment"] = "FP"
 
 
 # In[12]:
