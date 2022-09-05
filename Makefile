@@ -183,6 +183,29 @@ sequences-clean:
 
 DECORD_CMAKE_USER_CUDA := $(shell if which -s nvcc; then echo "ON"; else echo "0"; fi)
 
+ifeq ($(OS),Windows_NT)
+    # CCFLAGS += -D WIN32
+    # ifeq ($(PROCESSOR_ARCHITEW6432),AMD64)
+    #     CCFLAGS += -D AMD64
+    # else
+    #     ifeq ($(PROCESSOR_ARCHITECTURE),AMD64)
+    #         CCFLAGS += -D AMD64
+    #     endif
+    #     ifeq ($(PROCESSOR_ARCHITECTURE),x86)
+    #         CCFLAGS += -D IA32
+    #     endif
+    # endif
+else
+    UNAME_S := $(shell uname -s)
+    ifeq ($(UNAME_S),Darwin)
+        DECORD_CMAKE_FLAGS :=
+    endif
+    ifeq ($(UNAME_S),Linux)
+        DECORD_CMAKE_FLAGS := -DUSE_CUDA=$(DECORD_CMAKE_USER_CUDA)
+    endif
+endif
+
+
 build:
 	-mkdir $@
 
@@ -192,7 +215,7 @@ build/decord: build
 build/decord/build: build/decord
 	test -d $@ || mkdir $@
 	@# https://github.com/dmlc/decord
-	cd $@ && cmake .. -DUSE_CUDA=$(DECORD_CMAKE_USER_CUDA) -DCMAKE_BUILD_TYPE=Release
+	cd $@ && cmake .. $(DECORD_CMAKE_FLAGS) -DCMAKE_BUILD_TYPE=Release
 
 clean-decord:  ## clean everything related to decord and remove it from the depencendies
 	-rm -rf build/decord
@@ -204,6 +227,6 @@ install-decord:  ## clone, build and add decord's dependency to the poetry proje
 	make build/decord/build
 	cd build/decord/build && make
 	cd build/decord/python && make clean && make build-wheel
-	poetry add build/decord/python/decord*.whl
+	poetry add build/decord/python
 
 .PHONY: install-decord
