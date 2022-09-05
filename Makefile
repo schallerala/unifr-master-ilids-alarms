@@ -26,12 +26,12 @@ $(DATA_FOLDER):
 
 SZTE_METADATA_FOLDER := $(DATA_FOLDER)/szte-metadata
 
-$(SZTE_METADATA_FOLDER): $(DATA_FOLDER)
+$(SZTE_METADATA_FOLDER): | $(DATA_FOLDER)
 	-mkdir $@
 
 SZTE_METADATA_OUTPUTS := $(shell echo $(SZTE_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
-$(SZTE_METADATA_OUTPUTS): SZTE/index.xml $(SZTE_METADATA_FOLDER)
+$(SZTE_METADATA_OUTPUTS): SZTE/index.xml | $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-index all $< $(SZTE_METADATA_OUTPUTS)
 
 	make $(SZTE_METADATA_FOLDER)/videos.csv
@@ -41,11 +41,7 @@ $(SZTE_METADATA_OUTPUTS): SZTE/index.xml $(SZTE_METADATA_FOLDER)
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
-	@# Make sure to touch all files at the same time to avoid files to be newer than its
-	@# folder
-	touch $(SZTE_METADATA_FOLDER)/*
-
-$(SZTE_METADATA_FOLDER)/videos.csv: SZTE/video $(SZTE_METADATA_FOLDER)
+$(SZTE_METADATA_FOLDER)/videos.csv: SZTE/video | $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-videos merged SZTE/video > $@
 
 szte: $(SZTE_METADATA_OUTPUTS) $(SZTE_METADATA_FOLDER)/videos.csv  ## extract all metadata of SZTE
@@ -63,12 +59,12 @@ szte-clean:  ## clean szte-metadata folder
 
 SZTR_METADATA_FOLDER := $(DATA_FOLDER)/sztr-metadata
 
-$(SZTR_METADATA_FOLDER): $(DATA_FOLDER)
+$(SZTR_METADATA_FOLDER): | $(DATA_FOLDER)
 	-mkdir $@
 
 SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
-$(SZTR_METADATA_OUTPUTS): SZTR/index.xml $(SZTR_METADATA_FOLDER)
+$(SZTR_METADATA_OUTPUTS): SZTR/index.xml | $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-index all $< $(SZTR_METADATA_OUTPUTS)
 
 	make $(SZTR_METADATA_FOLDER)/videos.csv
@@ -78,11 +74,7 @@ $(SZTR_METADATA_OUTPUTS): SZTR/index.xml $(SZTR_METADATA_FOLDER)
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
-	@# Make sure to touch all files at the same time to avoid files to be newer than its
-	@# folder
-	touch $(SZTR_METADATA_FOLDER)/*
-
-$(SZTR_METADATA_FOLDER)/videos.csv: SZTR/video $(SZTR_METADATA_FOLDER)
+$(SZTR_METADATA_FOLDER)/videos.csv: SZTR/video | $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-videos ffprobe SZTR/video > $@
 
 
@@ -96,12 +88,12 @@ sztr: $(SZTR_METADATA_OUTPUTS) $(SZTR_METADATA_FOLDER)/videos.csv  ## extract al
 HAS_MDB_TOOLS := $(shell if which -s mdb-tables && which -s mdb-export; then echo "OK"; fi)
 
 ifneq ($(strip $(HAS_MDB_TOOLS)),)
-$(SZTR_METADATA_FOLDER)/mdb: SZTR/SZTR.mdb $(SZTR_METADATA_FOLDER)
+$(SZTR_METADATA_FOLDER)/mdb: SZTR/SZTR.mdb | $(SZTR_METADATA_FOLDER)
 	-mkdir $@
 
 SZTR_MDB_TABLES := $(shell mdb-tables --single-column SZTR/SZTR.mdb | awk '{ print  "$(SZTR_METADATA_FOLDER)/mdb/" $$1 ".csv"}' | xargs)
 
-$(SZTR_MDB_TABLES): SZTR/SZTR.mdb $(SZTR_METADATA_FOLDER)/mdb
+$(SZTR_MDB_TABLES): SZTR/SZTR.mdb | $(SZTR_METADATA_FOLDER)/mdb
 	mdb-export $< $(shell basename $@ .csv) > $@
 
 sztr-mdb: $(SZTR_MDB_TABLES)  ## export tables from mdb file
@@ -128,12 +120,12 @@ sztr-clean:  ## clean sztr-metadata folder
 
 ILIDS_METADATA_FOLDER := $(DATA_FOLDER)/ilids-metadata
 
-$(ILIDS_METADATA_FOLDER): $(DATA_FOLDER)
+$(ILIDS_METADATA_FOLDER): | $(DATA_FOLDER)
 	-mkdir $@
 
 ILIDS_METADATA_OUTPUTS := $(shell echo $(ILIDS_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
-$(ILIDS_METADATA_OUTPUTS): SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_FOLDER)
+$(ILIDS_METADATA_OUTPUTS): SZTE/index.xml SZTR/index.xml | $(ILIDS_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py ilids-indexes all SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_OUTPUTS)
 	make $(ILIDS_METADATA_FOLDER)/videos.csv
 
@@ -142,11 +134,7 @@ $(ILIDS_METADATA_OUTPUTS): SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_FOLDER
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
-	@# Make sure to touch all files at the same time to avoid files to be newer than its
-	@# folder
-	touch $(ILIDS_METADATA_FOLDER)/*
-
-$(ILIDS_METADATA_FOLDER)/videos.csv: SZTE/video SZTR/video $(ILIDS_METADATA_FOLDER)
+$(ILIDS_METADATA_FOLDER)/videos.csv: SZTE/video SZTR/video | $(ILIDS_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py ilids-videos ffprobe SZTE/video SZTR/video > $@
 
 ilids: $(ILIDS_METADATA_OUTPUTS) $(ILIDS_METADATA_FOLDER)/videos.csv  ## extract all metadata of ILIDS
@@ -166,14 +154,14 @@ ilids-clean:  ## clean ilids-metadata folder
 
 HANDCRAFTED_METADATA_FOLDER := $(DATA_FOLDER)/handcrafted-metadata
 
-$(HANDCRAFTED_METADATA_FOLDER): $(DATA_FOLDER)
+$(HANDCRAFTED_METADATA_FOLDER): | $(DATA_FOLDER)
 	-mkdir $(HANDCRAFTED_METADATA_FOLDER)
 
 scripts/generate-sequences-alarms-FP.py: notebooks/generate-sequences-alarms-FP.ipynb
 	poetry run jupyter nbconvert notebooks/generate-sequences-alarms-FP.ipynb --stdout --to python > $@
 
 
-$(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv: scripts/generate-sequences-alarms-FP.py $(HANDCRAFTED_METADATA_FOLDER)/szte_distractions.extended.corrected.csv $(ILIDS_METADATA_FOLDER)/alarms.csv $(ILIDS_METADATA_FOLDER)/clips.csv $(ILIDS_METADATA_FOLDER)/videos.csv
+$(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv: scripts/generate-sequences-alarms-FP.py $(HANDCRAFTED_METADATA_FOLDER)/szte_distractions.extended.corrected.csv $(ILIDS_METADATA_FOLDER)/alarms.csv $(ILIDS_METADATA_FOLDER)/clips.csv $(ILIDS_METADATA_FOLDER)/videos.csv | $(HANDCRAFTED_METADATA_FOLDER)
 	@# as the paths are hardcoded in the jupyter notebook, need to mimic the same paths
 	@# by changing to the scripts directory
 	cd scripts && poetry run python generate-sequences-alarms-FP.py
