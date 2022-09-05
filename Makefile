@@ -1,6 +1,16 @@
 help: ## print this help
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-40s\033[0m %s\n", $$1, $$2}'
 
+.PHONY: help
+
+short: data/handcrafted-metadata/tp_fp_sequences.csv
+	rm data/handcrafted-metadata/short_sequences_tp.csv
+	rm data/handcrafted-metadata/short_sequences_fp.csv
+	csvq --out data/handcrafted-metadata/short_sequences_tp.csv 'SELECT `format.filename` AS filename, `format.duration` as 'video_duration', StartTime, EndTime, Distance, SubjectApproachType, SubjectDescription, SubjectOrientation , Classification, Distraction, Stage, `Weather.Clouds` ,`Weather.Fog` ,`Weather.Rain` ,`Weather.Snow` ,`Weather.TimeOfDay` from `data/ilids-metadata/videos.csv` as v JOIN `data/handcrafted-metadata/tp_fp_sequences.csv` AS seq  ON seq.filename = v.`format.filename` WHERE Classification = "TP" ORDER BY `format.duration` LIMIT 5'
+	csvq --out data/handcrafted-metadata/short_sequences_fp.csv 'SELECT `format.filename` AS filename, `format.duration` as 'video_duration', StartTime, EndTime, Distance, SubjectApproachType, SubjectDescription, SubjectOrientation , Classification, Distraction, Stage, `Weather.Clouds` ,`Weather.Fog` ,`Weather.Rain` ,`Weather.Snow` ,`Weather.TimeOfDay` from `data/ilids-metadata/videos.csv` as v JOIN `data/handcrafted-metadata/tp_fp_sequences.csv` AS seq  ON seq.filename = v.`format.filename` WHERE Classification = "FP" ORDER BY `format.duration` LIMIT 5'
+
+.PHONY: short
+
 #########################
 # Data Preparation
 #########################
