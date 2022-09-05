@@ -94,7 +94,7 @@ distractions_df["duration"] = pd.to_timedelta(distractions_df["duration"])
 len(alarms_df), len(distractions_df)
 
 
-# In[9]:
+# In[ ]:
 
 
 alarms_df = alarms_df.rename(columns={"AlarmDuration": "Duration"})
@@ -112,7 +112,7 @@ TP = alarms_df[
 TP["Classification"] = "TP"
 
 
-# In[11]:
+# In[ ]:
 
 
 distractions_df = distractions_df.rename(
@@ -127,20 +127,20 @@ distractions_df = distractions_df[["StartTime", "EndTime", "Duration", "Distract
 distractions_df["Classification"] = "FP"
 
 
-# In[12]:
+# In[ ]:
 
 
 SEQUENCES = pd.concat([TP, distractions_df])
 SEQUENCES.head()
 
 
-# In[13]:
+# In[ ]:
 
 
 SEQUENCES.tail()
 
 
-# In[14]:
+# In[ ]:
 
 
 def apply_interval(df: pd.DataFrame) -> pd.arrays.IntervalArray:
@@ -149,14 +149,14 @@ def apply_interval(df: pd.DataFrame) -> pd.arrays.IntervalArray:
     )
 
 
-# In[15]:
+# In[ ]:
 
 
 SEQUENCES["Interval"] = apply_interval(SEQUENCES)
 SEQUENCES.head()
 
 
-# In[16]:
+# In[ ]:
 
 
 def check_in_sequences(df: pd.DataFrame, reference: pd.DataFrame) -> np.ndarray:
@@ -184,14 +184,16 @@ def check_in_sequences(df: pd.DataFrame, reference: pd.DataFrame) -> np.ndarray:
 
     def check_df_row(row, reference: pd.DataFrame):
         sub_reference = reference.loc[reference.index.intersection([row.name])]
-        return any(sub_reference["Interval"].array.contains(row["StartTime"])) or any(
-            sub_reference["Interval"].array.contains(row["EndTime"])
-        )
+
+        if len(sub_reference) == 0:
+            return False
+
+        return sub_reference["Interval"].array.overlaps(pd.Interval(row["StartTime"], row["EndTime"], closed="both")).any()
 
     return df.apply(check_df_row, axis=1, args=(reference,))
 
 
-# In[17]:
+# In[ ]:
 
 
 def generate_new_false_positive_intervals(N: int) -> pd.DataFrame:
@@ -219,7 +221,7 @@ def generate_new_false_positive_intervals(N: int) -> pd.DataFrame:
     return fp_df
 
 
-# In[18]:
+# In[ ]:
 
 
 def drop_invalid_intervals(df: pd.DataFrame, inplace=True) -> pd.DataFrame:
@@ -233,7 +235,7 @@ def drop_invalid_intervals(df: pd.DataFrame, inplace=True) -> pd.DataFrame:
     return df
 
 
-# In[19]:
+# In[ ]:
 
 
 def drop_intersect_interval(
@@ -248,7 +250,7 @@ def drop_intersect_interval(
     return df
 
 
-# In[20]:
+# In[ ]:
 
 
 TARGET_SEQUENCES = 2 * len(alarms_df)
@@ -273,20 +275,45 @@ while missing_fp > 0:
     progress.update(n=len(fp_df))
 
 
-# In[21]:
+# In[ ]:
+
+
+TARGET_SEQUENCES = 2 * len(alarms_df)
+missing_fp = TARGET_SEQUENCES - len(SEQUENCES)
+
+progress = tqdm(
+    total=TARGET_SEQUENCES,
+    desc="Generating unique non overlapping sequences",
+    initial=len(SEQUENCES),
+)
+while missing_fp > 0:
+    fp_df = generate_new_false_positive_intervals(missing_fp)
+    drop_invalid_intervals(fp_df)
+    drop_intersect_interval(fp_df, SEQUENCES)
+
+    fp_df["Interval"] = apply_interval(fp_df)
+
+    SEQUENCES = pd.concat([SEQUENCES, fp_df])
+
+    missing_fp = TARGET_SEQUENCES - len(SEQUENCES)
+
+    progress.update(n=len(fp_df))
+
+
+# In[ ]:
 
 
 SEQUENCES.tail()
 
 
-# In[22]:
+# In[ ]:
 
 
 SEQUENCES = SEQUENCES.join(clips_df)
 SEQUENCES.index.rename("filename", inplace=True)
 
 
-# In[23]:
+# In[ ]:
 
 
 # Change to way time related column will be serialized in the new csv
