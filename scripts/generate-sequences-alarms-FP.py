@@ -188,7 +188,13 @@ def check_in_sequences(df: pd.DataFrame, reference: pd.DataFrame) -> np.ndarray:
         if len(sub_reference) == 0:
             return False
 
-        return sub_reference["Interval"].array.overlaps(pd.Interval(row["StartTime"], row["EndTime"], closed="both")).any()
+        return (
+            sub_reference["Interval"]
+            .array.overlaps(
+                pd.Interval(row["StartTime"], row["EndTime"], closed="both")
+            )
+            .any()
+        )
 
     return df.apply(check_df_row, axis=1, args=(reference,))
 
