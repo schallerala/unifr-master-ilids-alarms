@@ -8,6 +8,7 @@ packages = [{include = "ilids", from = "src"}]
 [tool.poetry.dependencies]
 chardet = "<5.0.0"
 decord = {path = "build/decord/python"}
+einops = "^0.4.1"
 ipykernel = "^6.15.1"
 joblib = "^1.1.0"
 jupyter = "^1.0.0"
