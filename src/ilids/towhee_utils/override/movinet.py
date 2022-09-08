@@ -1,23 +1,22 @@
+import csv
 import logging
 import os
-import csv
 from pathlib import Path
-from typing import List, Dict, Optional, Tuple
+from typing import Dict, List, Optional, Tuple
 
-import torch
 import numpy
+import torch
 from einops import rearrange
-
 from towhee import register
+from towhee.models.movinet.movinet import create_model
+from towhee.models.utils.video_transforms import get_configs, transform_video
 from towhee.operator.base import NNOperator
 from towhee.types.video_frame import VideoFrame
-from towhee.models.utils.video_transforms import get_configs, transform_video
-from towhee.models.movinet.movinet import create_model
 
 log = logging.getLogger()
 
 
-@register(name="ilids/movinet", output_schema=['labels', 'scores', 'features'])
+@register(name="ilids/movinet", output_schema=["labels", "scores", "features"])
 class Movinet(NNOperator):
     """
     Generate a list of class labels given a video input data.
@@ -42,21 +41,25 @@ class Movinet(NNOperator):
         topk (`int=5`):
             The number of classification labels to be returned (ordered by possibility from high to low).
     """
-    def __init__(self,
-                 model_name: str = 'movineta0',
-                 causal: bool = False,
-                 skip_preprocess: bool = False,
-                 classmap: Dict[int, str] = None,
-                 topk: int = 5,
-                 ):
+
+    def __init__(
+        self,
+        model_name: str = "movineta0",
+        causal: bool = False,
+        skip_preprocess: bool = False,
+        classmap: Dict[int, str] = None,
+        topk: int = 5,
+    ):
         super().__init__(framework="pytorch")
         self.model_name = model_name
         self.causal = causal
         self.skip_preprocess = skip_preprocess
         self.topk = topk
-        self.dataset_name = 'kinetics_600'
+        self.dataset_name = "kinetics_600"
         if classmap is None:
-            class_file = os.path.join(str(Path(__file__).parent), 'kinetics_600'+'.csv')
+            class_file = os.path.join(
+                str(Path(__file__).parent), "kinetics_600" + ".csv"
+            )
             csvFile = open(class_file, "r")
             reader = csv.reader(csvFile)
             self.classmap = {}
@@ -67,17 +70,22 @@ class Movinet(NNOperator):
             csvFile.close()
         else:
             self.classmap = classmap
-        self.device = 'cuda' if torch.cuda.is_available() else 'cpu'
-        self.model = create_model(model_name=model_name, pretrained=True, causal=self.causal, device=self.device)
+        self.device = "cuda" if torch.cuda.is_available() else "cpu"
+        self.model = create_model(
+            model_name=model_name,
+            pretrained=True,
+            causal=self.causal,
+            device=self.device,
+        )
         self.input_mean = [0.43216, 0.394666, 0.37645]
         self.input_std = [0.22803, 0.22145, 0.216989]
         self.transform_cfgs = get_configs(
-                side_size=172,
-                crop_size=172,
-                num_frames=13,
-                mean=self.input_mean,
-                std=self.input_std,
-                )
+            side_size=172,
+            crop_size=172,
+            num_frames=13,
+            mean=self.input_mean,
+            std=self.input_std,
+        )
         self.model.eval()
 
     def save_model(self):
@@ -87,7 +95,14 @@ class Movinet(NNOperator):
         raise NotImplementedError
 
     def supported_model_names(self) -> List[str]:
-        return ["movineta0", "movineta1", "movineta2", "movineta3", "movineta4", "movineta5"]
+        return [
+            "movineta0",
+            "movineta1",
+            "movineta2",
+            "movineta3",
+            "movineta4",
+            "movineta5",
+        ]
 
     def __call__(self, video: List[VideoFrame]):
         """
@@ -100,7 +115,9 @@ class Movinet(NNOperator):
                 A tuple of lists (labels, scores, features, head_output).
         """
         # Convert list of towhee.types.Image to numpy.ndarray in float32
-        video = numpy.stack([img.astype(numpy.float32)/255. for img in video], axis=0)
+        video = numpy.stack(
+            [img.astype(numpy.float32) / 255.0 for img in video], axis=0
+        )
         assert len(video.shape) == 4
         video = rearrange(video, "t w h c -> c t w h")
         # video = video.transpose(3, 0, 1, 2)  # twhc -> ctwh
@@ -109,17 +126,14 @@ class Movinet(NNOperator):
         if self.skip_preprocess:
             self.transform_cfgs.update(num_frames=None)
 
-        data = transform_video(
-                    video=video,
-                    **self.transform_cfgs
-                    )
+        data = transform_video(video=video, **self.transform_cfgs)
         inputs = data.to(self.device)[None, ...]
 
         self.model.clean_activation_buffers()
         feats = self.model.forward_features(inputs)
         outs = self.model.head(feats)
 
-        features = outs.flatten(1).to('cpu').squeeze(0).detach().numpy()
+        features = outs.flatten(1).to("cpu").squeeze(0).detach().numpy()
 
         post_act = torch.nn.Softmax(dim=1)
         preds = post_act(outs)

@@ -1,10 +1,9 @@
 from logging import getLogger
-from typing import List, Dict
+from typing import Dict, List
 
 from towhee import register
 from towhee.operator import PyOperator
 from towhee.types import VideoFrame
-
 
 logger = getLogger(__name__)
 

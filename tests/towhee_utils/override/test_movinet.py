@@ -2,14 +2,12 @@ import numpy
 import torch
 import towhee
 from hamcrest import *
-
 from towhee import ops
 from towhee.engine import OperatorRegistry
-
 from towhee.functional.entity import Entity
+from utils.matchers import is_tensor_with_shape
 
 from ilids.towhee_utils.override.movinet import Movinet
-from utils.matchers import is_tensor_with_shape
 
 
 def test_get_movinet_override():
@@ -35,8 +33,13 @@ def test_get_override_movinet_from_chain_call():
             model_name="movineta0"
         )
         .select["path", "labels", "scores", "features"]()
-    )[0]  # get first as only executing on a single video
+    )[
+        0
+    ]  # get first as only executing on a single video
 
     assert_that(entity, has_property("labels", has_length(5)))
     assert_that(entity, has_property("scores", has_length(5)))
-    assert_that(entity, has_property("features", all_of(instance_of(numpy.ndarray), has_length(600))))
+    assert_that(
+        entity,
+        has_property("features", all_of(instance_of(numpy.ndarray), has_length(600))),
+    )
