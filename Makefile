@@ -3,6 +3,8 @@ help: ## print this help
 
 .PHONY: help
 
+# TODO add help messages of phony targets
+
 short: data/handcrafted-metadata/tp_fp_sequences.csv
 	rm data/handcrafted-metadata/short_sequences_tp.csv
 	rm data/handcrafted-metadata/short_sequences_fp.csv
@@ -20,7 +22,78 @@ DATA_FOLDER := data
 $(DATA_FOLDER):
 	-mkdir $@
 
+
+
+# SZTE & SZTR metadata
+######################
+
+ILIDS_INITIAL_FOLDER := $(DATA_FOLDER)/initial-ilids
+SZTE_INITIAL_FOLDER := $(ILIDS_INITIAL_FOLDER)/SZTE
+SZTR_INITIAL_FOLDER := $(ILIDS_INITIAL_FOLDER)/SZTR
+
+SZTE_INTERMEDIATE_FOLDER := $(DATA_FOLDER)/SZTE
+SZTR_INTERMEDIATE_FOLDER := $(DATA_FOLDER)/SZTR
+
+$(SZTE_INTERMEDIATE_FOLDER) $(SZTR_INTERMEDIATE_FOLDER): | $(DATA_FOLDER)
+	-mkdir $@
+
+
+$(SZTE_INTERMEDIATE_FOLDER)/index.xml: $(SZTE_INITIAL_FOLDER)/index.xml | $(SZTE_INTERMEDIATE_FOLDER)
+	cp $< $@
+
+$(SZTR_INTERMEDIATE_FOLDER)/index.xml: $(SZTR_INITIAL_FOLDER)/index.xml | $(SZTR_INTERMEDIATE_FOLDER)
+	cp $< $@
+
+$(SZTR_INTERMEDIATE_FOLDER)/SZTR.mdb: $(SZTR_INITIAL_FOLDER)/SZTR.mdb | $(SZTR_INTERMEDIATE_FOLDER)
+	cp $< $@
+
+
+copy-initial-metadata-szte: $(SZTE_INTERMEDIATE_FOLDER)/index.xml
+
+copy-initial-metadata-sztr: $(SZTR_INTERMEDIATE_FOLDER)/index.xml $(SZTR_INTERMEDIATE_FOLDER)/SZTR.mdb
+
+copy-initial-metadata: copy-initial-metadata-szte copy-initial-metadata-sztr
+
+.PHONY: copy-initial-metadata copy-initial-metadata-szte copy-initial-metadata-sztr
+
+
+# Scale & Compress videos
+#########################
+
+SZTE_INTERMEDIATE_VIDEO_FOLDER := $(SZTE_INTERMEDIATE_FOLDER)/video
+SZTR_INTERMEDIATE_VIDEO_FOLDER := $(SZTR_INTERMEDIATE_FOLDER)/video
+
+
+SZTE_INITIAL_VIDEOS := $(wildcard $(SZTE_INITIAL_FOLDER)/video/*.mov)
+SZTR_INITIAL_VIDEOS := $(wildcard $(SZTR_INITIAL_FOLDER)/video/*.mov)
+
+SZTE_INTERMEDIATE_VIDEOS := $(patsubst $(ILIDS_INITIAL_FOLDER)/%,$(DATA_FOLDER)/%,$(SZTE_INITIAL_VIDEOS))
+SZTR_INTERMEDIATE_VIDEOS := $(patsubst $(ILIDS_INITIAL_FOLDER)/%,$(DATA_FOLDER)/%,$(SZTR_INITIAL_VIDEOS))
+
+
+$(SZTE_INTERMEDIATE_VIDEO_FOLDER): | $(SZTE_INTERMEDIATE_FOLDER)
+	-mkdir $@
+$(SZTR_INTERMEDIATE_VIDEO_FOLDER): | $(SZTR_INTERMEDIATE_FOLDER)
+	-mkdir $@
+
+
+$(SZTE_INTERMEDIATE_VIDEO_FOLDER)/%.mov: $(SZTE_INITIAL_FOLDER)/video/%.mov | $(SZTE_INTERMEDIATE_VIDEO_FOLDER)
+	poetry run python scripts/initial_ilids.py video-utils encode-scale $< $(@D)
+
+$(SZTR_INTERMEDIATE_VIDEO_FOLDER)/%.mov: $(SZTR_INITIAL_FOLDER)/video/%.mov | $(SZTR_INTERMEDIATE_VIDEO_FOLDER)
+	poetry run python scripts/initial_ilids.py video-utils encode-scale $< $(@D)
+
+
+compress-initial-szte: $(SZTE_INTERMEDIATE_VIDEOS)
+compress-initial-sztr: $(SZTR_INTERMEDIATE_VIDEOS)
+
+compress-initial: compress-initial-szte compress-initial-sztr
+
+.PHONY: compress-initial-szte compress-initial-sztr compress-initial
+
+
 # Extract metadata
+##################
 
 ## SZTE ##########
 
@@ -31,7 +104,7 @@ $(SZTE_METADATA_FOLDER): | $(DATA_FOLDER)
 
 SZTE_METADATA_OUTPUTS := $(shell echo $(SZTE_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
-$(SZTE_METADATA_OUTPUTS): SZTE/index.xml | $(SZTE_METADATA_FOLDER)
+$(SZTE_METADATA_OUTPUTS) &:: data/SZTE/index.xml | $(SZTE_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py szte-index all $< $(SZTE_METADATA_OUTPUTS)
 
 	make $(SZTE_METADATA_FOLDER)/videos.csv
@@ -41,8 +114,8 @@ $(SZTE_METADATA_OUTPUTS): SZTE/index.xml | $(SZTE_METADATA_FOLDER)
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
-$(SZTE_METADATA_FOLDER)/videos.csv: SZTE/video | $(SZTE_METADATA_FOLDER)
-	poetry run python scripts/extract_metadata.py szte-videos merged SZTE/video > $@
+$(SZTE_METADATA_FOLDER)/videos.csv: data/SZTE/video | $(SZTE_METADATA_FOLDER)
+	poetry run python scripts/extract_metadata.py szte-videos merged data/SZTE/video > $@
 
 szte: $(SZTE_METADATA_OUTPUTS) $(SZTE_METADATA_FOLDER)/videos.csv  ## extract all metadata of SZTE
 
@@ -64,7 +137,7 @@ $(SZTR_METADATA_FOLDER): | $(DATA_FOLDER)
 
 SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
-$(SZTR_METADATA_OUTPUTS): SZTR/index.xml | $(SZTR_METADATA_FOLDER)
+$(SZTR_METADATA_OUTPUTS) &:: data/SZTR/index.xml | $(SZTR_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py sztr-index all $< $(SZTR_METADATA_OUTPUTS)
 
 	make $(SZTR_METADATA_FOLDER)/videos.csv
@@ -74,8 +147,8 @@ $(SZTR_METADATA_OUTPUTS): SZTR/index.xml | $(SZTR_METADATA_FOLDER)
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
-$(SZTR_METADATA_FOLDER)/videos.csv: SZTR/video | $(SZTR_METADATA_FOLDER)
-	poetry run python scripts/extract_metadata.py sztr-videos ffprobe SZTR/video > $@
+$(SZTR_METADATA_FOLDER)/videos.csv: data/SZTR/video | $(SZTR_METADATA_FOLDER)
+	poetry run python scripts/extract_metadata.py sztr-videos ffprobe data/SZTR/video > $@
 
 
 sztr: $(SZTR_METADATA_OUTPUTS) $(SZTR_METADATA_FOLDER)/videos.csv  ## extract all metadata of SZTR
@@ -84,17 +157,17 @@ sztr: $(SZTR_METADATA_OUTPUTS) $(SZTR_METADATA_FOLDER)/videos.csv  ## extract al
 
 
 
-### Extra to extract SZTR/SZTR.mdb
+### Extra to extract data/SZTR/SZTR.mdb
 HAS_MDB_TOOLS := $(shell if which -s mdb-tables && which -s mdb-export; then echo "OK"; fi)
 
 ifneq ($(strip $(HAS_MDB_TOOLS)),)
-$(SZTR_METADATA_FOLDER)/mdb: SZTR/SZTR.mdb | $(SZTR_METADATA_FOLDER)
+$(SZTR_METADATA_FOLDER)/mdb: data/SZTR/SZTR.mdb | $(SZTR_METADATA_FOLDER)
 	-mkdir $@
 
-SZTR_MDB_TABLES := $(shell mdb-tables --single-column SZTR/SZTR.mdb | awk '{ print  "$(SZTR_METADATA_FOLDER)/mdb/" $$1 ".csv"}' | xargs)
+SZTR_MDB_TABLES := $(shell mdb-tables --single-column data/SZTR/SZTR.mdb | awk '{ print  "$(SZTR_METADATA_FOLDER)/mdb/" $$1 ".csv"}' | xargs)
 
-$(SZTR_MDB_TABLES): SZTR/SZTR.mdb | $(SZTR_METADATA_FOLDER)/mdb
-	mdb-export $< $(shell basename $@ .csv) > $@
+$(SZTR_MDB_TABLES): data/SZTR/SZTR.mdb | $(SZTR_METADATA_FOLDER)/mdb
+	mdb-export $< $(patsubst %.csv,%,$(@F)) > $@
 
 sztr-mdb: $(SZTR_MDB_TABLES)  ## export tables from mdb file
 else
@@ -125,7 +198,7 @@ $(ILIDS_METADATA_FOLDER): | $(DATA_FOLDER)
 
 ILIDS_METADATA_OUTPUTS := $(shell echo $(ILIDS_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
-$(ILIDS_METADATA_OUTPUTS): SZTE/index.xml SZTR/index.xml | $(ILIDS_METADATA_FOLDER)
+$(ILIDS_METADATA_OUTPUTS) &:: SZTE/index.xml SZTR/index.xml | $(ILIDS_METADATA_FOLDER)
 	poetry run python scripts/extract_metadata.py ilids-indexes all SZTE/index.xml SZTR/index.xml $(ILIDS_METADATA_OUTPUTS)
 	make $(ILIDS_METADATA_FOLDER)/videos.csv
 
@@ -230,3 +303,21 @@ install-decord:  ## clone, build and add decord's dependency to the poetry proje
 	poetry add build/decord/python
 
 .PHONY: install-decord
+
+
+
+#########################
+# Utils
+#########################
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+cpu_count:
+	@sysctl -n hw.ncpu
+endif
+ifeq ($(UNAME_S),Linux)
+cpu_count:
+	@nproc
+endif
+
+.PHONY: cpu_count

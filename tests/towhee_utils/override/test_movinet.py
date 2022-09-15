@@ -1,11 +1,13 @@
+from pathlib import Path
+
 import numpy
+import pytest
 import torch
 import towhee
 from hamcrest import *
 from towhee import ops
 from towhee.engine import OperatorRegistry
 from towhee.functional.entity import Entity
-from utils.matchers import is_tensor_with_shape
 
 from ilids.towhee_utils.override.movinet import Movinet
 
@@ -25,9 +27,10 @@ def test_get_movinet_override():
     assert_that(override_of_movinet.metainfo["output_schema"].features, is_not(None))
 
 
-def test_get_override_movinet_from_chain_call():
+@pytest.mark.sztr_files((Path("video") / "SZTRA203a17.mov", "input_path"))
+def test_get_override_movinet_from_chain_call(input_path: Path):
     entity: Entity = (
-        towhee.glob["path"]("data/sequences/SZTR_video_SZTRA102b13_00_00_20_TP.mp4")
+        towhee.glob["path"](str(input_path))
         .video_decode.ffmpeg["path", "frames"]()
         .ilids.movinet["frames", ("labels", "scores", "features")](
             model_name="movineta0"
