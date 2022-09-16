@@ -1,0 +1,15 @@
+stages:
+  szte-intermediate:
+    cmd: make -j$(make cpu_count) szte-intermediate
+    deps:
+    - SZTE
+    - ../../src/ilids/commands/videos
+    outs:
+    - ../SZTE
+  sztr-intermediate:
+    cmd: make -j$(make cpu_count) sztr-intermediate
+    deps:
+    - SZTR
+    - ../../src/ilids/commands/videos
+    outs:
+    - ../SZTR

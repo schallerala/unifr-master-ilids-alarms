@@ -10,14 +10,12 @@ import pytest
 
 @pytest.fixture()
 def szte_path() -> Path:
-    # TODO change path when 2 step dvc is in place
-    return Path(os.getcwd()) / "data" / "initial-ilids" / "SZTE"
+    return Path(os.getcwd()) / "data" / "SZTE"
 
 
 @pytest.fixture()
 def sztr_path() -> Path:
-    # TODO change path when 2 step dvc is in place
-    return Path(os.getcwd()) / "data" / "initial-ilids" / "SZTR"
+    return Path(os.getcwd()) / "data" / "SZTR"
 
 
 def _data_file_marker_builder(request, marker_name: str, parent_folder: Path):

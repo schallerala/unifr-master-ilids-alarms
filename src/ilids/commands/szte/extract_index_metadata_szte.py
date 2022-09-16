@@ -122,7 +122,3 @@ def meta(index_xml: Path) -> None:
             dict(scenario=lib.scenario, dataset=lib.dataset, version=lib.libversion),
         )
     )
-
-
-if __name__ == "__main__":
-    typer_app()

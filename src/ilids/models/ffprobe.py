@@ -25,7 +25,7 @@ datamodel_code_generator.generate(
 
 from __future__ import annotations
 
-from typing import List
+from typing import List, Optional
 
 from pydantic import BaseModel
 
@@ -51,7 +51,7 @@ class Disposition(BaseModel):
 
 
 class Tags(BaseModel):
-    creation_time: str
+    creation_time: Optional[str]
     language: str
     handler_name: str
     vendor_id: str
@@ -98,8 +98,12 @@ class Stream(BaseModel):
 
 
 class Tags1(BaseModel):
-    creation_time: str
-    premiere_version: str
+    creation_time: Optional[str]
+    premiere_version: Optional[str]
+    major_brand: Optional[str]
+    minor_version: Optional[str]
+    compatible_brands: Optional[str]
+    encoder: Optional[str]
 
 
 class Format(BaseModel):

@@ -1,0 +1,34 @@
+schema: '2.0'
+stages:
+  szte-intermediate:
+    cmd: make -j$(make cpu_count) szte-intermediate
+    deps:
+    - path: ../../src/ilids/commands/videos
+      md5: dbde473fec409b1106aeefe7fe05aedc.dir
+      size: 8284
+      nfiles: 5
+    - path: SZTE
+      md5: e28af20ca4949791baf507c49168f2c3.dir
+      size: 332322712428
+      nfiles: 499
+    outs:
+    - path: ../SZTE
+      md5: 9691d3d59d297f065541c50540960b31.dir
+      size: 743536350
+      nfiles: 34
+  sztr-intermediate:
+    cmd: make -j$(make cpu_count) sztr-intermediate
+    deps:
+    - path: ../../src/ilids/commands/videos
+      md5: dbde473fec409b1106aeefe7fe05aedc.dir
+      size: 8284
+      nfiles: 5
+    - path: SZTE
+      md5: e28af20ca4949791baf507c49168f2c3.dir
+      size: 332322712428
+      nfiles: 499
+    outs:
+    - path: ../SZTR
+      md5: 5d3fdde33c8c9a1cf80ed5d5f5c6d43f.dir
+      size: 745011617
+      nfiles: 238

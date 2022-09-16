@@ -4,12 +4,12 @@ import pytest
 from joblib import Parallel, cpu_count, delayed
 from typer.testing import CliRunner
 
-from ilids.commands.video_utils import typer_app
+from ilids.commands.videos.videos_compress import typer_app
 
 runner = CliRunner()
 
 
-def test_encode_scale_all_default_all_cores(create_ilids_sample_video, tmp_path: Path):
+def test_all_default_all_cores(create_ilids_sample_video, tmp_path: Path):
     input_video_paths = Parallel(n_jobs=cpu_count())(
         delayed(create_ilids_sample_video)() for _ in range(4)
     )
@@ -18,7 +18,7 @@ def test_encode_scale_all_default_all_cores(create_ilids_sample_video, tmp_path:
 
     result = runner.invoke(
         typer_app,
-        ["encode-scale-all", *str_video_paths, str(tmp_path), "-p", "prefix_all_"],
+        ["all", *str_video_paths, str(tmp_path), "-p", "prefix_all_"],
     )
 
     assert result.exit_code == 0
@@ -36,13 +36,13 @@ def test_encode_scale_all_default_all_cores(create_ilids_sample_video, tmp_path:
         input_video_path.unlink()
 
 
-def test_encode_scale_all_single_job(create_ilids_sample_video, tmp_path: Path):
+def test_all_single_job(create_ilids_sample_video, tmp_path: Path):
     video_path = create_ilids_sample_video()
 
     result = runner.invoke(
         typer_app,
         [
-            "encode-scale-all",
+            "all",
             str(video_path),
             str(tmp_path),
             "-p",
@@ -61,11 +61,11 @@ def test_encode_scale_all_single_job(create_ilids_sample_video, tmp_path: Path):
     assert output_file_path.stat().st_size > 0
 
 
-def test_encode_scall_all_fail__nonexistent_files(tmp_path: Path):
+def test_all_fail__nonexistent_files(tmp_path: Path):
     result = runner.invoke(
         typer_app,
         [
-            "encode-scale-all",
+            "all",
             str(tmp_path / "blabla.mov"),
             str(tmp_path),
             "-p",
@@ -76,7 +76,7 @@ def test_encode_scall_all_fail__nonexistent_files(tmp_path: Path):
     assert result.exit_code == 1
 
 
-def test_encode_scall_all_fail__nonexistent_output_folder(
+def test_all_fail__nonexistent_output_folder(
     create_ilids_sample_video, tmp_path: Path
 ):
     input_video = create_ilids_sample_video()
@@ -84,7 +84,7 @@ def test_encode_scall_all_fail__nonexistent_output_folder(
     result = runner.invoke(
         typer_app,
         [
-            "encode-scale-all",
+            "all",
             str(input_video),
             str(tmp_path / "output"),
             "-p",
@@ -95,7 +95,7 @@ def test_encode_scall_all_fail__nonexistent_output_folder(
     assert result.exit_code == 1
 
 
-def test_encode_scall_all_fail__output_is_not_folder(
+def test_all_fail__output_is_not_folder(
     create_ilids_sample_video, tmp_path: Path
 ):
     input_video = create_ilids_sample_video()
@@ -106,7 +106,7 @@ def test_encode_scall_all_fail__output_is_not_folder(
     result = runner.invoke(
         typer_app,
         [
-            "encode-scale-all",
+            "all",
             str(input_video),
             str(pseudo_output_folder),
             "-p",
@@ -119,26 +119,26 @@ def test_encode_scall_all_fail__output_is_not_folder(
     assert result.exit_code == 1
 
 
-def test_encode_scall_all_fail__existing_output(
+def test_all_fail__existing_output(
     create_ilids_sample_video, tmp_path: Path
 ):
     input_video = create_ilids_sample_video()
 
     result = runner.invoke(
-        typer_app, ["encode-scale-all", str(input_video), str(tmp_path)]
+        typer_app, ["all", str(input_video), str(tmp_path)]
     )
 
     assert result.exit_code == 1
 
 
-def test_encode_scall_all_fail__fail_with_invalid_input_video(tmp_path: Path):
+def test_all_fail__fail_with_invalid_input_video(tmp_path: Path):
     input_video = tmp_path / "fake.mov"
     input_video.touch()
 
     result = runner.invoke(
         typer_app,
         [
-            "encode-scale-all",
+            "all",
             str(input_video),
             str(tmp_path),
             "-p",
@@ -154,14 +154,14 @@ def test_encode_scall_all_fail__fail_with_invalid_input_video(tmp_path: Path):
 
 
 @pytest.mark.parametrize("prefix_option", ["-p", "--prefix"])
-def test_encode_scale_with_prefix(
+def test_single_with_prefix(
     create_ilids_sample_video, tmp_path: Path, prefix_option: str
 ):
     video_path = create_ilids_sample_video()
 
     result = runner.invoke(
         typer_app,
-        ["encode-scale", str(video_path), str(tmp_path), prefix_option, "prefix_"],
+        ["single", str(video_path), str(tmp_path), prefix_option, "prefix_"],
     )
 
     assert result.exit_code == 0

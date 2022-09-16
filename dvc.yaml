@@ -2,7 +2,7 @@ stages:
   szte-metadata:
     cmd: make szte
     deps:  # find src scripts -name "*szte*" -not -path "*/__pycache__/*"
-    - SZTE
+    - data/SZTE
     - src/ilids/models/szte.py
     - src/ilids/commands/szte
     - src/ilids/preprocessing/szte
@@ -11,7 +11,7 @@ stages:
   sztr-metadata:
     cmd: make sztr
     deps:  # find src scripts -name "*sztr*" -not -path "*/__pycache__/*"
-    - SZTE
+    - data/SZTR
     - src/ilids/models/sztr.py
     - src/ilids/commands/sztr
     - src/ilids/preprocessing/sztr
@@ -20,14 +20,13 @@ stages:
   ilids-metadata:
     cmd: make ilids
     deps:
-    - SZTE
-    - SZTR
+    - data/SZTE
+    - data/SZTR
     - src/ilids/models/szte.py
     - src/ilids/models/sztr.py
     - src/ilids/commands/sztr
     - src/ilids/commands/szte
-    - src/ilids/commands/ilids_indexes.py
-    - src/ilids/commands/ilids_videos.py
+    - src/ilids/commands/ilids_aggregate
     - src/ilids/preprocessing/szte
     - src/ilids/preprocessing/sztr
     outs:

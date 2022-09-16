@@ -7,7 +7,7 @@ import pytest
 from hamcrest import *
 from typer.testing import CliRunner
 
-from ilids.commands.ilids_videos import typer_app
+from ilids.commands.ilids_aggregate.ilids_videos import typer_app
 
 runner = CliRunner()
 

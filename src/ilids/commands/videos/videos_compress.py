@@ -11,8 +11,8 @@ from ilids.utils.progress_parallel import ProgressParallel
 typer_app = typer.Typer()
 
 
-@typer_app.command(name="encode-scale-all")
-def encode_scale_all(
+@typer_app.command(name="all")
+def command_all(
     input_videos: List[Path],
     output_folder: Path,
     output_file_prefix: Optional[str] = Option(None, "--prefix", "-p"),
@@ -99,7 +99,7 @@ def encode_scale_all(
 
 
 @typer_app.command()
-def encode_scale(
+def single(
     input_video: Path,
     output_folder: Path,
     output_file_prefix: Optional[str] = Option(None, "--prefix", "-p"),
