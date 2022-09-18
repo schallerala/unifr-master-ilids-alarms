@@ -76,9 +76,7 @@ def test_all_fail__nonexistent_files(tmp_path: Path):
     assert result.exit_code == 1
 
 
-def test_all_fail__nonexistent_output_folder(
-    create_ilids_sample_video, tmp_path: Path
-):
+def test_all_fail__nonexistent_output_folder(create_ilids_sample_video, tmp_path: Path):
     input_video = create_ilids_sample_video()
 
     result = runner.invoke(
@@ -95,9 +93,7 @@ def test_all_fail__nonexistent_output_folder(
     assert result.exit_code == 1
 
 
-def test_all_fail__output_is_not_folder(
-    create_ilids_sample_video, tmp_path: Path
-):
+def test_all_fail__output_is_not_folder(create_ilids_sample_video, tmp_path: Path):
     input_video = create_ilids_sample_video()
 
     pseudo_output_folder = tmp_path / "file.txt"
@@ -119,14 +115,10 @@ def test_all_fail__output_is_not_folder(
     assert result.exit_code == 1
 
 
-def test_all_fail__existing_output(
-    create_ilids_sample_video, tmp_path: Path
-):
+def test_all_fail__existing_output(create_ilids_sample_video, tmp_path: Path):
     input_video = create_ilids_sample_video()
 
-    result = runner.invoke(
-        typer_app, ["all", str(input_video), str(tmp_path)]
-    )
+    result = runner.invoke(typer_app, ["all", str(input_video), str(tmp_path)])
 
     assert result.exit_code == 1
 

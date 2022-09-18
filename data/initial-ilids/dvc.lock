@@ -23,12 +23,12 @@ stages:
       md5: dbde473fec409b1106aeefe7fe05aedc.dir
       size: 8284
       nfiles: 5
-    - path: SZTE
-      md5: e28af20ca4949791baf507c49168f2c3.dir
-      size: 332322712428
-      nfiles: 499
+    - path: SZTR
+      md5: 5862e7934a078574e066618c8bfaf2d1.dir
+      size: 341439097229
+      nfiles: 842
     outs:
     - path: ../SZTR
-      md5: 5d3fdde33c8c9a1cf80ed5d5f5c6d43f.dir
-      size: 745011617
-      nfiles: 238
+      md5: 360f760e7d64af44144281976b833f2b.dir
+      size: 745017765
+      nfiles: 239

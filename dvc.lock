@@ -1,0 +1,90 @@
+schema: '2.0'
+stages:
+  sztr-metadata:
+    cmd: make sztr
+    deps:
+    - path: data/SZTR
+      md5: 5d3fdde33c8c9a1cf80ed5d5f5c6d43f.dir
+      size: 745011617
+      nfiles: 238
+    - path: src/ilids/commands/sztr
+      md5: 20a8d1c2feae64cd66c11f0c99685e6b.dir
+      size: 8767
+      nfiles: 6
+    - path: src/ilids/models/sztr.py
+      md5: 19ba1181504527ebec65851eb1e125f0
+      size: 2883
+    - path: src/ilids/preprocessing/sztr
+      md5: 7bcf5151af07929377daecdd6c151e4f.dir
+      size: 7172
+      nfiles: 7
+    outs:
+    - path: data/sztr-metadata
+      md5: dac4e0ea8f57b6e64a47190905b2046e.dir
+      size: 140003
+      nfiles: 5
+  szte-metadata:
+    cmd: make szte
+    deps:
+    - path: data/SZTE
+      md5: df90be17ba3eb13ed166738faf0925b8.dir
+      size: 743645624
+      nfiles: 67
+    - path: src/ilids/commands/szte
+      md5: 577bcac1bc6761771c5d3501ae52b60a.dir
+      size: 10470
+      nfiles: 6
+    - path: src/ilids/models/szte.py
+      md5: f6a2648ba6c57af9e119945edd295e5c
+      size: 2918
+    - path: src/ilids/preprocessing/szte
+      md5: c2beb2072727405f13a24d15c32ec082.dir
+      size: 10955
+      nfiles: 6
+    outs:
+    - path: data/szte-metadata
+      md5: 0de7afad0e0e838fb9911ed256129363.dir
+      size: 38058
+      nfiles: 5
+  ilids-metadata:
+    cmd: make ilids
+    deps:
+    - path: data/SZTE
+      md5: df90be17ba3eb13ed166738faf0925b8.dir
+      size: 743645624
+      nfiles: 67
+    - path: data/SZTR
+      md5: 5d3fdde33c8c9a1cf80ed5d5f5c6d43f.dir
+      size: 745011617
+      nfiles: 238
+    - path: src/ilids/commands/ilids_aggregate
+      md5: 263f7c48d0bb76377acf3d8bd8cb86ea.dir
+      size: 15099
+      nfiles: 6
+    - path: src/ilids/commands/szte
+      md5: 577bcac1bc6761771c5d3501ae52b60a.dir
+      size: 10470
+      nfiles: 6
+    - path: src/ilids/commands/sztr
+      md5: 20a8d1c2feae64cd66c11f0c99685e6b.dir
+      size: 8767
+      nfiles: 6
+    - path: src/ilids/models/szte.py
+      md5: f6a2648ba6c57af9e119945edd295e5c
+      size: 2918
+    - path: src/ilids/models/sztr.py
+      md5: 19ba1181504527ebec65851eb1e125f0
+      size: 2883
+    - path: src/ilids/preprocessing/szte
+      md5: c2beb2072727405f13a24d15c32ec082.dir
+      size: 10955
+      nfiles: 6
+    - path: src/ilids/preprocessing/sztr
+      md5: 7bcf5151af07929377daecdd6c151e4f.dir
+      size: 7172
+      nfiles: 7
+    outs:
+    - path: data/ilids-metadata
+      md5: 834ceca5b506a88d76284bb276a15947.dir
+      size: 186848
+      nfiles: 5

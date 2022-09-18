@@ -135,7 +135,3 @@ def single(
     ), f"Issue to scale and compress {str(input_video)} to {str(output_video)}"
 
     print("Done successfully")
-
-
-if __name__ == "__main__":
-    typer_app()

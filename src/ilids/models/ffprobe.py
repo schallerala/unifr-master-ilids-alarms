@@ -52,7 +52,7 @@ class Disposition(BaseModel):
 
 class Tags(BaseModel):
     creation_time: Optional[str]
-    language: str
+    language: Optional[str]
     handler_name: str
     vendor_id: str
     encoder: str
@@ -77,8 +77,8 @@ class Stream(BaseModel):
     display_aspect_ratio: str
     pix_fmt: str
     level: int
-    color_range: str
-    color_space: str
+    color_range: Optional[str]
+    color_space: Optional[str]
     chroma_location: str
     field_order: str
     refs: int
@@ -96,6 +96,15 @@ class Stream(BaseModel):
     disposition: Disposition
     tags: Tags
 
+    @property
+    def avg_fps(self) -> float:
+        # expect a "X/1" notation, with X being the average fps
+        avg_frame_rate = self.avg_frame_rate
+
+        num, den = avg_frame_rate.split("/")
+
+        return float(num) / float(den)
+
 
 class Tags1(BaseModel):
     creation_time: Optional[str]
@@ -112,10 +121,10 @@ class Format(BaseModel):
     nb_programs: int
     format_name: str
     format_long_name: str
-    start_time: str
-    duration: str
+    start_time: Optional[float]
+    duration: float
     size: str
-    bit_rate: str
+    bit_rate: Optional[str]
     probe_score: int
     tags: Tags1
 

@@ -29,13 +29,12 @@ def _ffmpeg_select(frames_sequence: List[int]) -> str:
     return eq_chain
 
 
-def _ffmpeg_setpts(multiplicative: float, shift: Optional[float] = None) -> str:
-    # change the 'setpts' filter to correct the shift in frames in case of any.
-    # Else, starting timestamp will be "FIRST FRAME" / N (and you will miss most of the desired sequence)
-    if shift:
-        return f"{multiplicative}*PTS-{shift}"
-
-    return f"{multiplicative}*PTS"
+def _ffmpeg_setpts(fps: int) -> str:
+    # change the 'setpts' filter to correct the new time base of the extracted frames
+    # References:
+    #   - https://youtu.be/ckCuy7dmyPI
+    #   - http://underpop.online.fr/f/ffmpeg/help/setpts_002c-asetpts.htm.gz
+    return f"N/({fps}*TB)"
 
 
 # Adapted from CLIP4Clip: https://github.com/ArrowLuo/CLIP4Clip/blob/master/preprocess/compress_video.py
@@ -91,7 +90,7 @@ def scale_compress_select_sequence(
     input_video_path: Path,
     output_video_path: Path,
     frames_sequence: List[int],
-    N: int,
+    fps: int,
     overwrite: bool = False,
     new_short_side: int = 224,
     video_codec: str = "libx264",
@@ -112,7 +111,7 @@ def scale_compress_select_sequence(
         #       get list of codecs with ffmpeg -codecs
         f"ffmpeg -i {str(input_video_path)} "
         f"-frames:v {len(frames_sequence)} "
-        f"-vf \"select={_ffmpeg_select(frames_sequence)},setpts={_ffmpeg_setpts(1 / N, frames_sequence[0] / N)},scale='if(gt(a,1),trunc(oh*a/2)*2,{new_short_side})':'if(gt(a,1),{new_short_side},trunc(ow*a/2)*2)'\" "
+        f"-vf \"select={_ffmpeg_select(frames_sequence)},setpts={_ffmpeg_setpts(fps)},scale='if(gt(a,1),trunc(oh*a/2)*2,{new_short_side})':'if(gt(a,1),{new_short_side},trunc(ow*a/2)*2)'\" "
         f"-map 0:v "
         f"-vcodec {video_codec} "
         f"{'-y' if overwrite else ''} "

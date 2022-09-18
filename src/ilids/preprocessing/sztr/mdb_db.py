@@ -49,5 +49,3 @@ It is expected to find the tables with its columns like so:
 In short, no very relevant data to find here, as it can be more easily extracted from
 the index.xml file.
 """
-
-pass  # Read last sentence of the module docstring

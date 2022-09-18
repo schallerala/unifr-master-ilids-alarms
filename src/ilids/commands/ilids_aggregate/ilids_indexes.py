@@ -222,7 +222,3 @@ def meta(
             )
         )
     )
-
-
-if __name__ == "__main__":
-    typer_app()

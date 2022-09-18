@@ -51,7 +51,3 @@ def ffprobe(
 @typer_app.command()
 def meta():
     print(VIDEOS_CSV_FIELDS_DESCRIPTION)
-
-
-if __name__ == "__main__":
-    typer_app()

@@ -1,0 +1,65 @@
+from pathlib import Path
+
+from hamcrest import *
+import pytest
+from typer.testing import CliRunner
+
+from ilids.cli.ffprobe import get_stream_info
+from ilids.commands.videos.frames_extraction import typer_app
+
+runner = CliRunner()
+
+
+def test_extract(create_sample_video, tmp_path: Path):
+    # create a video of 2 minutes
+    input_video_path = create_sample_video(120, (720, 576), 25, ".mov")
+
+    output_file = tmp_path / "output.mov"
+
+    result = runner.invoke(
+        typer_app,
+        [str(input_video_path), "00:00:46", "00:01:48", "12", "-o", str(output_file)],
+    )
+
+    assert result.exit_code == 0
+
+    assert output_file.exists()
+
+    output_info = get_stream_info(output_file)
+
+    assert len(output_info.streams) == 1
+
+    assert_that(output_info.streams[0].avg_fps, is_(close_to(25, 0.1)))
+    assert_that(output_info.streams[0].height, is_(224))
+    assert_that(output_info.streams[0].width, is_(280))
+    assert_that(output_info.format.start_time, is_(close_to(0, 0.001)))
+    new_duration = (48 + 60 - 46 + 1) / 12
+    assert_that(output_info.format.duration, is_(close_to(new_duration, 0.1)))
+
+
+@pytest.mark.long
+def test_extract__long_video_with_start_time_0(create_sample_video, tmp_path: Path):
+    # create a video of 80 minutes
+    input_video_path = create_sample_video(80 * 60, (280, 224), 25, ".mov")
+
+    output_file = tmp_path / "output.mov"
+
+    result = runner.invoke(
+        typer_app,
+        [str(input_video_path), "01:12:46", "01:13:48", "12", "-o", str(output_file)],
+    )
+
+    assert result.exit_code == 0
+
+    assert output_file.exists()
+
+    output_info = get_stream_info(output_file)
+
+    assert len(output_info.streams) == 1
+
+    assert_that(output_info.streams[0].avg_fps, is_(close_to(25, 0.1)))
+    assert_that(output_info.streams[0].height, is_(224))
+    assert_that(output_info.streams[0].width, is_(280))
+    assert_that(output_info.format.start_time, is_(close_to(0, 0.001)))
+    new_duration = (48 + 60 - 46 + 1) / 12
+    assert_that(output_info.format.duration, is_(close_to(new_duration, 0.1)))
