@@ -220,7 +220,7 @@ extract-all-sequences:
 else
 
 # Field 1 is the output file
-ALL_SEQUENCES_FILES := $(shell awk -F',' 'NR > 1 && $$1 { print "$(SEQUENCES_TARGET_FOLDER)/" $$1 }' $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | head -5)
+ALL_SEQUENCES_FILES := $(shell awk -F',' 'NR > 1 && $$1 { print "$(SEQUENCES_TARGET_FOLDER)/" $$1 }' $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv)
 
 .SECONDEXPANSION:
 
