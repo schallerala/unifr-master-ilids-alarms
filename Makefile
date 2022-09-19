@@ -3,13 +3,6 @@ help: ## print this help
 
 .PHONY: help
 
-short: data/handcrafted-metadata/tp_fp_sequences.csv
-	rm data/handcrafted-metadata/short_sequences_tp.csv
-	rm data/handcrafted-metadata/short_sequences_fp.csv
-	csvq --out data/handcrafted-metadata/short_sequences_tp.csv 'SELECT `format.filename` AS filename, `format.duration` as 'video_duration', StartTime, EndTime, Distance, SubjectApproachType, SubjectDescription, SubjectOrientation , Classification, Distraction, Stage, `Weather.Clouds` ,`Weather.Fog` ,`Weather.Rain` ,`Weather.Snow` ,`Weather.TimeOfDay` from `data/ilids-metadata/videos.csv` as v JOIN `data/handcrafted-metadata/tp_fp_sequences.csv` AS seq  ON seq.filename = v.`format.filename` WHERE Classification = "TP" ORDER BY `format.duration` LIMIT 5'
-	csvq --out data/handcrafted-metadata/short_sequences_fp.csv 'SELECT `format.filename` AS filename, `format.duration` as 'video_duration', StartTime, EndTime, Distance, SubjectApproachType, SubjectDescription, SubjectOrientation , Classification, Distraction, Stage, `Weather.Clouds` ,`Weather.Fog` ,`Weather.Rain` ,`Weather.Snow` ,`Weather.TimeOfDay` from `data/ilids-metadata/videos.csv` as v JOIN `data/handcrafted-metadata/tp_fp_sequences.csv` AS seq  ON seq.filename = v.`format.filename` WHERE Classification = "FP" ORDER BY `format.duration` LIMIT 5'
-
-.PHONY: short
 
 #########################
 # Data Preparation
@@ -18,7 +11,7 @@ short: data/handcrafted-metadata/tp_fp_sequences.csv
 DATA_FOLDER := data
 
 $(DATA_FOLDER):
-	-mkdir $@
+	mkdir $@
 
 
 # Extract metadata from *intermediate*
@@ -62,7 +55,7 @@ szte-clean:  ## clean szte-metadata folder
 SZTR_METADATA_FOLDER := $(DATA_FOLDER)/sztr-metadata
 
 $(SZTR_METADATA_FOLDER): | $(DATA_FOLDER)
-	-mkdir $@
+	mkdir $@
 
 SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
@@ -123,7 +116,7 @@ sztr-clean:  ## clean sztr-metadata folder
 ILIDS_METADATA_FOLDER := $(DATA_FOLDER)/ilids-metadata
 
 $(ILIDS_METADATA_FOLDER): | $(DATA_FOLDER)
-	-mkdir $@
+	mkdir $@
 
 ILIDS_METADATA_OUTPUTS := $(shell echo $(ILIDS_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
 
@@ -157,7 +150,7 @@ ilids-clean:  ## clean ilids-metadata folder
 HANDCRAFTED_METADATA_FOLDER := $(DATA_FOLDER)/handcrafted-metadata
 
 $(HANDCRAFTED_METADATA_FOLDER): | $(DATA_FOLDER)
-	-mkdir $(HANDCRAFTED_METADATA_FOLDER)
+	mkdir $@
 
 scripts/generate-sequences-alarms-FP.py: notebooks/generate-sequences-alarms-FP.ipynb
 	poetry run jupyter nbconvert notebooks/generate-sequences-alarms-FP.ipynb --stdout --to python > $@
@@ -180,6 +173,75 @@ sequences-clean:
 
 
 #########################
+## SEQUENCES
+## Extract all sequences from TP FP generation from above
+## (make sequnces must have been run eariler on)
+
+### Ease pattern matching by "gathering" all videos in a single folder with symbolic links
+VIDEOS_SYMLINK_TARGET_FOLDER := $(DATA_FOLDER)/videos
+
+$(VIDEOS_SYMLINK_TARGET_FOLDER): | $(DATA_FOLDER)
+	mkdir $@
+
+ifeq (,$(wildcard $(ILIDS_METADATA_FOLDER)/videos.csv))
+symlink-videos:
+	$(warning All i-LIDS metadata not extracted yet)
+else
+# i-LIDS videos.csv exists
+ALL_VIDEOS := $(shell awk -F',' 'NR > 1 && $$1 { print "data/" $$1 }' $(ILIDS_METADATA_FOLDER)/videos.csv)
+
+ALL_VIDEOS_SYMLINK_SZTE := $(patsubst data/SZTE/video/%,$(VIDEOS_SYMLINK_TARGET_FOLDER)/%,$(filter data/SZTE/%,$(ALL_VIDEOS)))
+ALL_VIDEOS_SYMLINK_SZTR := $(patsubst data/SZTR/video/%,$(VIDEOS_SYMLINK_TARGET_FOLDER)/%,$(filter data/SZTR/%,$(ALL_VIDEOS)))
+
+# Matches all SZTE files
+$(VIDEOS_SYMLINK_TARGET_FOLDER)/SZTE%.mov: $(DATA_FOLDER)/SZTE/video/SZTE%.mov | $(VIDEOS_SYMLINK_TARGET_FOLDER)
+	cd $(dir $@) && ln -s $(patsubst data/%,../%,$<) $(@F)
+# Matches all SZTR files
+$(VIDEOS_SYMLINK_TARGET_FOLDER)/SZTR%.mov: $(DATA_FOLDER)/SZTR/video/SZTR%.mov | $(VIDEOS_SYMLINK_TARGET_FOLDER)
+	cd $(dir $@) && ln -s $(patsubst data/%,../%,$<) $(@F)
+
+symlink-videos: $(ALL_VIDEOS_SYMLINK_SZTE) $(ALL_VIDEOS_SYMLINK_SZTR)
+endif
+
+.PHONY: symlink-videos
+
+######################
+### Proper extraction of sequences
+
+SEQUENCES_TARGET_FOLDER := $(DATA_FOLDER)/sequences
+
+$(SEQUENCES_TARGET_FOLDER): | $(DATA_FOLDER)
+	mkdir $@
+
+ifeq (,$(wildcard $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv))
+# File doesn't exist yet
+extract-all-sequences:
+	$(error '$(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv' doesn't exist yet, run 'make sequences' first)
+else
+
+# Field 1 is the output file
+ALL_SEQUENCES_FILES := $(shell awk -F',' 'NR > 1 && $$1 { print "$(SEQUENCES_TARGET_FOLDER)/" $$1 }' $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | head -5)
+
+.SECONDEXPANSION:
+
+# Gets $(1): %.mov -> SZTEA101a_00_02_42.mov
+# returns SZTEA101a.mov
+define give_requirement_without_start_time
+$(shell echo $(1) | sed -E 's/(_[0-9]{2}){3}//')
+endef
+
+$(SEQUENCES_TARGET_FOLDER)/%.mov: data/videos/$$(call give_requirement_without_start_time,$$(@F)) $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | $(SEQUENCES_TARGET_FOLDER)
+	@# -m1: stop reading a file after 1 matching line
+	@grep -m1 '$(@F)' $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | \
+	awk -F',' '{ print "data/" $$2 " " $$3 " " $$4 " 12 -o $@" }' | tee /dev/stderr | \
+	xargs -L 1 poetry run ilids_cmd videos frames extract
+
+extract-all-sequences: $(ALL_SEQUENCES_FILES)
+endif
+
+.PHONY: extract-all-sequences
+
+#########################
 # Build & Install Decord
 #########################
 
@@ -197,6 +259,7 @@ ifeq ($(OS),Windows_NT)
     #         CCFLAGS += -D IA32
     #     endif
     # endif
+$(error Windows isn't supported to install Decord)
 else
     UNAME_S := $(shell uname -s)
     ifeq ($(UNAME_S),Darwin)
