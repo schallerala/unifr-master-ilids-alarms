@@ -326,7 +326,14 @@ SEQUENCES.index.rename("filename", inplace=True)
 filename_series = SEQUENCES.index.to_series()
 SEQUENCES["filename"] = filename_series
 
-new_index_series = filename_series.apply(lambda f: Path(f).stem) + "_" + SEQUENCES["StartTime"].dt.seconds.apply(lambda secs: strftime("%H_%M_%S", gmtime(secs))) + filename_series.apply(lambda f: Path(f).suffix)
+new_index_series = (
+    filename_series.apply(lambda f: Path(f).stem)
+    + "_"
+    + SEQUENCES["StartTime"].dt.seconds.apply(
+        lambda secs: strftime("%H_%M_%S", gmtime(secs))
+    )
+    + filename_series.apply(lambda f: Path(f).suffix)
+)
 
 new_index_series.rename("id_sequence", inplace=True)
 

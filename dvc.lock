@@ -88,3 +88,26 @@ stages:
       md5: 55e1442f0d549f6a56f864674aacf266.dir
       size: 184323
       nfiles: 5
+  sequences:
+    cmd: make -j$(make cpu_count) extract-all-sequences
+    deps:
+    - path: data/SZTE
+      md5: df90be17ba3eb13ed166738faf0925b8.dir
+      size: 743645624
+      nfiles: 67
+    - path: data/SZTR
+      md5: 5d3fdde33c8c9a1cf80ed5d5f5c6d43f.dir
+      size: 745011617
+      nfiles: 238
+    - path: data/ilids-metadata
+      md5: 55e1442f0d549f6a56f864674aacf266.dir
+      size: 184323
+      nfiles: 5
+    - path: src/ilids/commands/videos/frames_extraction.py
+      md5: c44a11f8c9a1f8550aa40ecea80dd5ee
+      size: 2732
+    outs:
+    - path: data/sequences
+      md5: b1c127feb413fc726700cff63136e504.dir
+      size: 386129
+      nfiles: 3
