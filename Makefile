@@ -295,3 +295,22 @@ install-decord:  ## clone, build and add decord's dependency to the poetry proje
 	poetry add build/decord/python
 
 .PHONY: install-decord
+
+
+
+
+#########################
+# Utils
+#########################
+
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+cpu_count:
+	@sysctl -n hw.ncpu
+endif
+ifeq ($(UNAME_S),Linux)
+cpu_count:
+	@nproc
+endif
+
+.PHONY: cpu_count
