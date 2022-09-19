@@ -1,17 +1,17 @@
 id_sequence,filename,StartTime,EndTime,Duration,Distance,SubjectApproachType,SubjectDescription,SubjectOrientation,Classification,Distraction,Stage,Weather.Clouds,Weather.Fog,Weather.Rain,Weather.Snow,Weather.TimeOfDay
-SZTEA101a_00_02_42.mov,SZTE/video/SZTEA101a.mov,00:05:37,00:06:37,00:01:00,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_05_37.mov,SZTE/video/SZTEA101a.mov,00:08:58,00:10:06,00:01:08,15.0,Crawl,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_08_58.mov,SZTE/video/SZTEA101a.mov,00:12:12,00:13:12,00:01:00,10.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_12_12.mov,SZTE/video/SZTEA101a.mov,00:15:14,00:16:52,00:01:38,15.0,Creep walk,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_15_14.mov,SZTE/video/SZTEA101a.mov,00:18:41,00:19:33,00:00:52,30.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_16_59.mov,SZTE/video/SZTEA101a.mov,00:21:32,00:22:25,00:00:53,15.0,Crouch Run,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_18_41.mov,SZTE/video/SZTEA101a.mov,00:24:44,00:25:51,00:01:07,15.0,Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_21_32.mov,SZTE/video/SZTEA101a.mov,00:27:58,00:28:59,00:01:01,15.0,Walk,Two people,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_24_44.mov,SZTE/video/SZTEA101a.mov,00:31:14,00:33:43,00:02:29,15.0,Creep walk,One Person,Diagonal,TP,,1,None,False,False,False,Dawn
-SZTEA101a_00_27_58.mov,SZTE/video/SZTEA101a.mov,00:35:51,00:36:22,00:00:31,10.0,Walk With Ladder,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_02_42.mov,SZTE/video/SZTEA101a.mov,00:02:42,00:04:05,00:01:23,,,,,FP,,1,None,False,False,False,Dawn
+SZTEA101a_00_05_37.mov,SZTE/video/SZTEA101a.mov,00:05:37,00:06:37,00:01:00,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_08_58.mov,SZTE/video/SZTEA101a.mov,00:08:58,00:10:06,00:01:08,15.0,Crawl,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_12_12.mov,SZTE/video/SZTEA101a.mov,00:12:12,00:13:12,00:01:00,10.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_15_14.mov,SZTE/video/SZTEA101a.mov,00:15:14,00:16:52,00:01:38,15.0,Creep walk,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_16_59.mov,SZTE/video/SZTEA101a.mov,00:16:59,00:17:58,00:00:59,,,,,FP,,1,None,False,False,False,Dawn
+SZTEA101a_00_18_41.mov,SZTE/video/SZTEA101a.mov,00:18:41,00:19:33,00:00:52,30.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_21_32.mov,SZTE/video/SZTEA101a.mov,00:21:32,00:22:25,00:00:53,15.0,Crouch Run,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_24_44.mov,SZTE/video/SZTEA101a.mov,00:24:44,00:25:51,00:01:07,15.0,Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_27_58.mov,SZTE/video/SZTEA101a.mov,00:27:58,00:28:59,00:01:01,15.0,Walk,Two people,Perpendicular,TP,,1,None,False,False,False,Dawn
 SZTEA101a_00_29_31.mov,SZTE/video/SZTEA101a.mov,00:29:31,00:30:00,00:00:29,,,,,FP,Camera switch from monochrome to colour,1,None,False,False,False,Dawn
-SZTEA101a_00_31_14.mov,SZTE/video/SZTEA101a.mov,00:02:42,00:04:05,00:01:23,,,,,FP,,1,None,False,False,False,Dawn
-SZTEA101a_00_35_51.mov,SZTE/video/SZTEA101a.mov,00:16:59,00:17:58,00:00:59,,,,,FP,,1,None,False,False,False,Dawn
+SZTEA101a_00_31_14.mov,SZTE/video/SZTEA101a.mov,00:31:14,00:33:43,00:02:29,15.0,Creep walk,One Person,Diagonal,TP,,1,None,False,False,False,Dawn
+SZTEA101a_00_35_51.mov,SZTE/video/SZTEA101a.mov,00:35:51,00:36:22,00:00:31,10.0,Walk With Ladder,One Person,Perpendicular,TP,,1,None,False,False,False,Dawn
 SZTEA101b_00_07_45.mov,SZTE/video/SZTEA101b.mov,00:07:45,00:09:16,00:01:31,15.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
 SZTEA101b_00_10_40.mov,SZTE/video/SZTEA101b.mov,00:10:40,00:12:26,00:01:46,10.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
 SZTEA101b_00_13_56.mov,SZTE/video/SZTEA101b.mov,00:13:56,00:14:55,00:00:59,10.0,Run,One Person,Diagonal,TP,,1,Overcast,False,False,False,Dusk
@@ -21,365 +21,365 @@ SZTEA101b_00_21_12.mov,SZTE/video/SZTEA101b.mov,00:21:12,00:22:18,00:01:06,10.0,
 SZTEA101b_00_24_02.mov,SZTE/video/SZTEA101b.mov,00:24:02,00:25:39,00:01:37,30.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
 SZTEA101b_00_26_51.mov,SZTE/video/SZTEA101b.mov,00:26:51,00:27:43,00:00:52,30.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
 SZTEA101b_00_29_16.mov,SZTE/video/SZTEA101b.mov,00:29:16,00:30:57,00:01:41,30.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTEA101b_00_31_23.mov,SZTE/video/SZTEA101b.mov,00:32:26,00:33:55,00:01:29,15.0,Body Drag,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTEA101b_00_32_26.mov,SZTE/video/SZTEA101b.mov,00:35:29,00:36:49,00:01:20,15.0,Walk,One Person,Diagonal,TP,,1,Overcast,False,False,False,Dusk
-SZTEA101b_00_35_29.mov,SZTE/video/SZTEA101b.mov,00:38:29,00:39:27,00:00:58,10.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTEA101b_00_38_29.mov,SZTE/video/SZTEA101b.mov,00:41:47,00:42:58,00:01:11,10.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTEA101b_00_41_47.mov,SZTE/video/SZTEA101b.mov,00:45:54,00:46:59,00:01:05,30.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTEA101b_00_45_54.mov,SZTE/video/SZTEA101b.mov,00:48:48,00:49:30,00:00:42,15.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTEA101b_00_48_48.mov,SZTE/video/SZTEA101b.mov,00:31:23,00:31:46,00:00:23,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTEA102a_00_01_30.mov,SZTE/video/SZTEA102a.mov,00:05:01,00:06:09,00:01:08,10.0,Crouch Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_05_01.mov,SZTE/video/SZTEA102a.mov,00:08:01,00:08:58,00:00:57,15.0,Crouch Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_08_01.mov,SZTE/video/SZTEA102a.mov,00:11:15,00:12:06,00:00:51,10.0,Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_09_00.mov,SZTE/video/SZTEA102a.mov,00:13:50,00:14:46,00:00:56,10.0,Walk,Two people,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_11_15.mov,SZTE/video/SZTEA102a.mov,00:16:09,00:17:10,00:01:01,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_13_50.mov,SZTE/video/SZTEA102a.mov,00:18:56,00:20:18,00:01:22,10.0,Crawl,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_16_09.mov,SZTE/video/SZTEA102a.mov,00:21:18,00:22:39,00:01:21,30.0,Body Drag,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_18_56.mov,SZTE/video/SZTEA102a.mov,00:23:50,00:24:44,00:00:54,30.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_21_18.mov,SZTE/video/SZTEA102a.mov,00:26:22,00:28:29,00:02:07,10.0,Creep walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_23_50.mov,SZTE/video/SZTEA102a.mov,00:29:46,00:30:48,00:01:02,30.0,Log Roll,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_26_22.mov,SZTE/video/SZTEA102a.mov,00:31:58,00:32:41,00:00:43,10.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_29_46.mov,SZTE/video/SZTEA102a.mov,00:34:05,00:34:55,00:00:50,10.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_31_58.mov,SZTE/video/SZTEA102a.mov,00:36:18,00:36:39,00:00:21,30.0,Walk With Ladder,One Person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTEA102a_00_34_05.mov,SZTE/video/SZTEA102a.mov,00:01:30,00:03:39,00:02:09,,,,,FP,,1,None,False,False,False,Day
-SZTEA102a_00_36_18.mov,SZTE/video/SZTEA102a.mov,00:09:00,00:09:19,00:00:19,,,,,FP,,1,None,False,False,False,Day
-SZTEA102b_00_03_32.mov,SZTE/video/SZTEA102b.mov,00:05:08,00:06:20,00:01:12,15.0,Walk,One Person,Diagonal,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_05_08.mov,SZTE/video/SZTEA102b.mov,00:07:50,00:09:22,00:01:32,10.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_07_50.mov,SZTE/video/SZTEA102b.mov,00:10:36,00:11:56,00:01:20,15.0,Body Drag,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_10_36.mov,SZTE/video/SZTEA102b.mov,00:13:10,00:14:04,00:00:54,30.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_13_10.mov,SZTE/video/SZTEA102b.mov,00:15:22,00:16:05,00:00:43,30.0,Crouch Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_15_22.mov,SZTE/video/SZTEA102b.mov,00:17:48,00:18:40,00:00:52,30.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_17_48.mov,SZTE/video/SZTEA102b.mov,00:20:09,00:21:16,00:01:07,30.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_20_09.mov,SZTE/video/SZTEA102b.mov,00:22:49,00:24:09,00:01:20,15.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_22_49.mov,SZTE/video/SZTEA102b.mov,00:25:33,00:26:23,00:00:50,10.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_25_33.mov,SZTE/video/SZTEA102b.mov,00:28:27,00:29:16,00:00:49,15.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_28_27.mov,SZTE/video/SZTEA102b.mov,00:30:44,00:31:34,00:00:50,15.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_30_44.mov,SZTE/video/SZTEA102b.mov,00:32:57,00:33:55,00:00:58,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_32_57.mov,SZTE/video/SZTEA102b.mov,00:35:28,00:36:39,00:01:11,30.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_35_28.mov,SZTE/video/SZTEA102b.mov,00:37:59,00:39:11,00:01:12,10.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_37_59.mov,SZTE/video/SZTEA102b.mov,00:40:37,00:41:36,00:00:59,10.0,Log Roll,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_39_20.mov,SZTE/video/SZTEA102b.mov,00:43:05,00:43:52,00:00:47,15.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_40_37.mov,SZTE/video/SZTEA102b.mov,00:45:14,00:45:47,00:00:33,10.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTEA102b_00_43_05.mov,SZTE/video/SZTEA102b.mov,00:39:20,00:39:28,00:00:08,,,,,FP,Vehicle,1,Overcast,False,False,False,Day
-SZTEA102b_00_45_14.mov,SZTE/video/SZTEA102b.mov,00:03:32,00:04:14,00:00:42,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEA101b_00_31_23.mov,SZTE/video/SZTEA101b.mov,00:31:23,00:31:46,00:00:23,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTEA101b_00_32_26.mov,SZTE/video/SZTEA101b.mov,00:32:26,00:33:55,00:01:29,15.0,Body Drag,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
+SZTEA101b_00_35_29.mov,SZTE/video/SZTEA101b.mov,00:35:29,00:36:49,00:01:20,15.0,Walk,One Person,Diagonal,TP,,1,Overcast,False,False,False,Dusk
+SZTEA101b_00_38_29.mov,SZTE/video/SZTEA101b.mov,00:38:29,00:39:27,00:00:58,10.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
+SZTEA101b_00_41_47.mov,SZTE/video/SZTEA101b.mov,00:41:47,00:42:58,00:01:11,10.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
+SZTEA101b_00_45_54.mov,SZTE/video/SZTEA101b.mov,00:45:54,00:46:59,00:01:05,30.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
+SZTEA101b_00_48_48.mov,SZTE/video/SZTEA101b.mov,00:48:48,00:49:30,00:00:42,15.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
+SZTEA102a_00_01_30.mov,SZTE/video/SZTEA102a.mov,00:01:30,00:03:39,00:02:09,,,,,FP,,1,None,False,False,False,Day
+SZTEA102a_00_05_01.mov,SZTE/video/SZTEA102a.mov,00:05:01,00:06:09,00:01:08,10.0,Crouch Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_08_01.mov,SZTE/video/SZTEA102a.mov,00:08:01,00:08:58,00:00:57,15.0,Crouch Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_09_00.mov,SZTE/video/SZTEA102a.mov,00:09:00,00:09:19,00:00:19,,,,,FP,,1,None,False,False,False,Day
+SZTEA102a_00_11_15.mov,SZTE/video/SZTEA102a.mov,00:11:15,00:12:06,00:00:51,10.0,Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_13_50.mov,SZTE/video/SZTEA102a.mov,00:13:50,00:14:46,00:00:56,10.0,Walk,Two people,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_16_09.mov,SZTE/video/SZTEA102a.mov,00:16:09,00:17:10,00:01:01,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_18_56.mov,SZTE/video/SZTEA102a.mov,00:18:56,00:20:18,00:01:22,10.0,Crawl,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_21_18.mov,SZTE/video/SZTEA102a.mov,00:21:18,00:22:39,00:01:21,30.0,Body Drag,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_23_50.mov,SZTE/video/SZTEA102a.mov,00:23:50,00:24:44,00:00:54,30.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_26_22.mov,SZTE/video/SZTEA102a.mov,00:26:22,00:28:29,00:02:07,10.0,Creep walk,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_29_46.mov,SZTE/video/SZTEA102a.mov,00:29:46,00:30:48,00:01:02,30.0,Log Roll,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_31_58.mov,SZTE/video/SZTEA102a.mov,00:31:58,00:32:41,00:00:43,10.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_34_05.mov,SZTE/video/SZTEA102a.mov,00:34:05,00:34:55,00:00:50,10.0,Run,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102a_00_36_18.mov,SZTE/video/SZTEA102a.mov,00:36:18,00:36:39,00:00:21,30.0,Walk With Ladder,One Person,Perpendicular,TP,,1,None,False,False,False,Day
+SZTEA102b_00_03_32.mov,SZTE/video/SZTEA102b.mov,00:03:32,00:04:14,00:00:42,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_05_08.mov,SZTE/video/SZTEA102b.mov,00:05:08,00:06:20,00:01:12,15.0,Walk,One Person,Diagonal,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_07_50.mov,SZTE/video/SZTEA102b.mov,00:07:50,00:09:22,00:01:32,10.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_10_36.mov,SZTE/video/SZTEA102b.mov,00:10:36,00:11:56,00:01:20,15.0,Body Drag,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_13_10.mov,SZTE/video/SZTEA102b.mov,00:13:10,00:14:04,00:00:54,30.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_15_22.mov,SZTE/video/SZTEA102b.mov,00:15:22,00:16:05,00:00:43,30.0,Crouch Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_17_48.mov,SZTE/video/SZTEA102b.mov,00:17:48,00:18:40,00:00:52,30.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_20_09.mov,SZTE/video/SZTEA102b.mov,00:20:09,00:21:16,00:01:07,30.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_22_49.mov,SZTE/video/SZTEA102b.mov,00:22:49,00:24:09,00:01:20,15.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_25_33.mov,SZTE/video/SZTEA102b.mov,00:25:33,00:26:23,00:00:50,10.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_28_27.mov,SZTE/video/SZTEA102b.mov,00:28:27,00:29:16,00:00:49,15.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_30_44.mov,SZTE/video/SZTEA102b.mov,00:30:44,00:31:34,00:00:50,15.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_32_57.mov,SZTE/video/SZTEA102b.mov,00:32:57,00:33:55,00:00:58,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_35_28.mov,SZTE/video/SZTEA102b.mov,00:35:28,00:36:39,00:01:11,30.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_37_59.mov,SZTE/video/SZTEA102b.mov,00:37:59,00:39:11,00:01:12,10.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_39_20.mov,SZTE/video/SZTEA102b.mov,00:39:20,00:39:28,00:00:08,,,,,FP,Vehicle,1,Overcast,False,False,False,Day
+SZTEA102b_00_40_37.mov,SZTE/video/SZTEA102b.mov,00:40:37,00:41:36,00:00:59,10.0,Log Roll,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_43_05.mov,SZTE/video/SZTEA102b.mov,00:43:05,00:43:52,00:00:47,15.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTEA102b_00_45_14.mov,SZTE/video/SZTEA102b.mov,00:45:14,00:45:47,00:00:33,10.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Overcast,False,False,False,Day
 SZTEA103a_00_06_17.mov,SZTE/video/SZTEA103a.mov,00:06:17,00:07:19,00:01:02,15.0,Walk,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
 SZTEA103a_00_08_46.mov,SZTE/video/SZTEA103a.mov,00:08:46,00:09:40,00:00:54,15.0,Walk,Two people,Perpendicular,TP,,1,Some,False,False,False,Day
 SZTEA103a_00_11_21.mov,SZTE/video/SZTEA103a.mov,00:11:21,00:12:18,00:00:57,10.0,Run,One Person,Diagonal,TP,,1,Some,False,False,False,Day
 SZTEA103a_00_13_38.mov,SZTE/video/SZTEA103a.mov,00:13:38,00:14:28,00:00:50,15.0,Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
 SZTEA103a_00_16_19.mov,SZTE/video/SZTEA103a.mov,00:16:19,00:17:24,00:01:05,30.0,Walk,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
 SZTEA103a_00_18_38.mov,SZTE/video/SZTEA103a.mov,00:18:38,00:19:42,00:01:04,30.0,Walk,Two people,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_20_12.mov,SZTE/video/SZTEA103a.mov,00:21:23,00:22:33,00:01:10,10.0,Creep walk,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_21_23.mov,SZTE/video/SZTEA103a.mov,00:23:55,00:24:50,00:00:55,10.0,Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_23_55.mov,SZTE/video/SZTEA103a.mov,00:26:10,00:27:12,00:01:02,30.0,Crouch Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_26_10.mov,SZTE/video/SZTEA103a.mov,00:28:50,00:29:57,00:01:07,15.0,Walk,One Person,Diagonal,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_28_50.mov,SZTE/video/SZTEA103a.mov,00:31:50,00:32:53,00:01:03,30.0,Creep walk,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_31_50.mov,SZTE/video/SZTEA103a.mov,00:34:09,00:35:12,00:01:03,15.0,Crouch Walk,One Person,Diagonal,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_34_09.mov,SZTE/video/SZTEA103a.mov,00:36:41,00:37:49,00:01:08,15.0,Crawl,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_36_41.mov,SZTE/video/SZTEA103a.mov,00:39:36,00:40:59,00:01:23,10.0,Body Drag,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_39_36.mov,SZTE/video/SZTEA103a.mov,00:42:09,00:43:06,00:00:57,30.0,Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_42_09.mov,SZTE/video/SZTEA103a.mov,00:44:25,00:45:15,00:00:50,10.0,Crouch Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_44_25.mov,SZTE/video/SZTEA103a.mov,00:46:44,00:47:14,00:00:30,10.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTEA103a_00_46_44.mov,SZTE/video/SZTEA103a.mov,00:20:12,00:20:59,00:00:47,,,,,FP,,1,Some,False,False,False,Day
-SZTEA104a_00_00_00.mov,SZTE/video/SZTEA104a.mov,00:07:11,00:08:08,00:00:57,15.0,Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_07_11.mov,SZTE/video/SZTEA104a.mov,00:09:51,00:10:44,00:00:53,15.0,Walk,Two people,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_09_51.mov,SZTE/video/SZTEA104a.mov,00:12:51,00:14:27,00:01:36,10.0,Creep walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_12_51.mov,SZTE/video/SZTEA104a.mov,00:15:58,00:17:03,00:01:05,10.0,Crouch Walk,One Person,Diagonal,TP,,1,,False,False,False,Night
-SZTEA104a_00_14_57.mov,SZTE/video/SZTEA104a.mov,00:18:52,00:20:04,00:01:12,30.0,Body Drag,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_15_58.mov,SZTE/video/SZTEA104a.mov,00:21:34,00:23:14,00:01:40,15.0,Body Drag,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_18_52.mov,SZTE/video/SZTEA104a.mov,00:25:05,00:26:28,00:01:23,10.0,Body Drag,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_21_34.mov,SZTE/video/SZTEA104a.mov,00:28:38,00:29:26,00:00:48,15.0,Run,One Person,Diagonal,TP,,1,,False,False,False,Night
-SZTEA104a_00_25_05.mov,SZTE/video/SZTEA104a.mov,00:30:59,00:31:57,00:00:58,15.0,Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_28_38.mov,SZTE/video/SZTEA104a.mov,00:33:20,00:34:17,00:00:57,30.0,Crouch Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_30_59.mov,SZTE/video/SZTEA104a.mov,00:35:33,00:36:33,00:01:00,10.0,Crouch Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_33_20.mov,SZTE/video/SZTEA104a.mov,00:38:04,00:38:55,00:00:51,30.0,Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_35_33.mov,SZTE/video/SZTEA104a.mov,00:41:08,00:42:03,00:00:55,30.0,Walk,Two people,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_38_04.mov,SZTE/video/SZTEA104a.mov,00:43:42,00:45:09,00:01:27,30.0,Creep walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_41_08.mov,SZTE/video/SZTEA104a.mov,00:47:00,00:47:54,00:00:54,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_43_42.mov,SZTE/video/SZTEA104a.mov,00:49:38,00:50:38,00:01:00,10.0,Crouch Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_47_00.mov,SZTE/video/SZTEA104a.mov,00:52:17,00:53:26,00:01:09,15.0,Crawl,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_49_38.mov,SZTE/video/SZTEA104a.mov,00:54:49,00:56:13,00:01:24,10.0,Crawl,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_52_17.mov,SZTE/video/SZTEA104a.mov,00:57:37,00:59:08,00:01:31,10.0,Log Roll,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_54_49.mov,SZTE/video/SZTEA104a.mov,01:00:46,01:01:58,00:01:12,10.0,Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_00_57_37.mov,SZTE/video/SZTEA104a.mov,01:03:28,01:04:31,00:01:03,30.0,Walk,One Person,Diagonal,TP,,1,,False,False,False,Night
-SZTEA104a_01_00_46.mov,SZTE/video/SZTEA104a.mov,01:06:12,01:07:21,00:01:09,10.0,Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_03_28.mov,SZTE/video/SZTEA104a.mov,01:09:31,01:10:25,00:00:54,10.0,Walk,Two people,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_06_12.mov,SZTE/video/SZTEA104a.mov,01:13:07,01:14:48,00:01:41,30.0,Creep walk,One Person,Diagonal,TP,,1,,False,False,False,Night
-SZTEA104a_01_09_31.mov,SZTE/video/SZTEA104a.mov,01:16:14,01:17:46,00:01:32,15.0,Creep walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_13_07.mov,SZTE/video/SZTEA104a.mov,01:19:26,01:20:29,00:01:03,15.0,Crouch Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_16_14.mov,SZTE/video/SZTEA104a.mov,01:22:06,01:23:10,00:01:04,30.0,Crawl,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_19_26.mov,SZTE/video/SZTEA104a.mov,01:24:54,01:25:59,00:01:05,30.0,Log Roll,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_22_06.mov,SZTE/video/SZTEA104a.mov,01:27:12,01:28:02,00:00:50,30.0,Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_24_54.mov,SZTE/video/SZTEA104a.mov,01:29:50,01:30:41,00:00:51,15.0,Crouch Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_27_12.mov,SZTE/video/SZTEA104a.mov,01:31:51,01:32:18,00:00:27,15.0,Walk With Ladder,One Person,Perpendicular,TP,,1,,False,False,False,Night
-SZTEA104a_01_29_50.mov,SZTE/video/SZTEA104a.mov,00:00:00,00:00:49,00:00:49,,,,,FP,Bats,1,,False,False,False,Night
-SZTEA104a_01_31_51.mov,SZTE/video/SZTEA104a.mov,00:14:57,00:15:34,00:00:37,,,,,FP,,1,,False,False,False,Night
-SZTEA105a_00_06_53.mov,SZTE/video/SZTEA105a.mov,00:10:37,00:11:41,00:01:04,10.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_09_07.mov,SZTE/video/SZTEA105a.mov,00:13:40,00:14:26,00:00:46,10.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_10_37.mov,SZTE/video/SZTEA105a.mov,00:16:24,00:17:33,00:01:09,30.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_13_40.mov,SZTE/video/SZTEA105a.mov,00:18:56,00:20:03,00:01:07,15.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_16_24.mov,SZTE/video/SZTEA105a.mov,00:21:25,00:22:27,00:01:02,30.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_18_56.mov,SZTE/video/SZTEA105a.mov,00:23:55,00:24:48,00:00:53,10.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_21_25.mov,SZTE/video/SZTEA105a.mov,00:26:32,00:27:31,00:00:59,30.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_23_55.mov,SZTE/video/SZTEA105a.mov,00:29:03,00:30:02,00:00:59,15.0,Run,One Person,Diagonal,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_24_50.mov,SZTE/video/SZTEA105a.mov,00:32:03,00:32:57,00:00:54,15.0,Crouch Run,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_26_32.mov,SZTE/video/SZTEA105a.mov,00:35:05,00:35:28,00:00:23,15.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_29_03.mov,SZTE/video/SZTEA105a.mov,00:24:50,00:25:19,00:00:29,,,,,FP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_32_03.mov,SZTE/video/SZTEA105a.mov,00:06:53,00:07:42,00:00:49,,,,,FP,,1,Overcast,False,False,True,Day
-SZTEA105a_00_35_05.mov,SZTE/video/SZTEA105a.mov,00:09:07,00:10:20,00:01:13,,,,,FP,,1,Overcast,False,False,True,Day
-SZTEA201a_00_02_42.mov,SZTE/video/SZTEA201a.mov,00:05:35,00:06:37,00:01:02,10.0,Crouch Walk,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_05_35.mov,SZTE/video/SZTEA201a.mov,00:08:58,00:10:06,00:01:08,15.0,Crawl,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_06_49.mov,SZTE/video/SZTEA201a.mov,00:12:13,00:13:12,00:00:59,30.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_07_27.mov,SZTE/video/SZTEA201a.mov,00:15:15,00:16:52,00:01:37,15.0,Creep walk,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_08_58.mov,SZTE/video/SZTEA201a.mov,00:18:41,00:19:33,00:00:52,10.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_11_32.mov,SZTE/video/SZTEA201a.mov,00:21:32,00:22:25,00:00:53,15.0,Crouch Run,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_12_13.mov,SZTE/video/SZTEA201a.mov,00:24:44,00:25:51,00:01:07,15.0,Walk,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_15_15.mov,SZTE/video/SZTEA201a.mov,00:27:58,00:29:00,00:01:02,15.0,Walk,Two people,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_18_41.mov,SZTE/video/SZTEA201a.mov,00:31:29,00:33:43,00:02:14,15.0,Creep walk,One Person,Diagonal,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_21_32.mov,SZTE/video/SZTEA201a.mov,00:35:52,00:36:21,00:00:29,30.0,Walk With Ladder,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTEA201a_00_24_44.mov,SZTE/video/SZTEA201a.mov,00:30:26,00:31:02,00:00:36,,,,,FP,,2,None,False,False,False,Dawn
-SZTEA201a_00_27_58.mov,SZTE/video/SZTEA201a.mov,00:06:49,00:07:13,00:00:24,,,,,FP,,2,None,False,False,False,Dawn
-SZTEA201a_00_30_26.mov,SZTE/video/SZTEA201a.mov,00:02:42,00:03:54,00:01:12,,,,,FP,,2,None,False,False,False,Dawn
-SZTEA201a_00_31_29.mov,SZTE/video/SZTEA201a.mov,00:07:27,00:08:31,00:01:04,,,,,FP,,2,None,False,False,False,Dawn
-SZTEA201a_00_35_52.mov,SZTE/video/SZTEA201a.mov,00:11:32,00:12:05,00:00:33,,,,,FP,,2,None,False,False,False,Dawn
-SZTEA201b_00_04_24.mov,SZTE/video/SZTEA201b.mov,00:07:45,00:09:16,00:01:31,15.0,Creep walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_07_45.mov,SZTE/video/SZTEA201b.mov,00:10:53,00:12:27,00:01:34,30.0,Creep walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_10_53.mov,SZTE/video/SZTEA201b.mov,00:13:56,00:14:55,00:00:59,30.0,Run,One Person,Diagonal,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_13_56.mov,SZTE/video/SZTEA201b.mov,00:16:17,00:17:23,00:01:06,15.0,Run,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_16_17.mov,SZTE/video/SZTEA201b.mov,00:18:49,00:19:55,00:01:06,10.0,Crouch Run,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_18_49.mov,SZTE/video/SZTEA201b.mov,00:21:13,00:22:19,00:01:06,30.0,Crouch Run,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_21_13.mov,SZTE/video/SZTEA201b.mov,00:24:00,00:25:39,00:01:39,10.0,Walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_24_00.mov,SZTE/video/SZTEA201b.mov,00:26:50,00:27:43,00:00:53,10.0,Walk,Two people,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_26_50.mov,SZTE/video/SZTEA201b.mov,00:29:06,00:30:58,00:01:52,10.0,Creep walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_29_06.mov,SZTE/video/SZTEA201b.mov,00:32:27,00:33:55,00:01:28,15.0,Body Drag,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_32_27.mov,SZTE/video/SZTEA201b.mov,00:35:31,00:36:49,00:01:18,15.0,Walk,One Person,Diagonal,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_35_31.mov,SZTE/video/SZTEA201b.mov,00:38:30,00:39:27,00:00:57,30.0,Walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_38_30.mov,SZTE/video/SZTEA201b.mov,00:41:49,00:42:58,00:01:09,30.0,Walk,Two people,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_40_43.mov,SZTE/video/SZTEA201b.mov,00:45:50,00:46:59,00:01:09,10.0,Crawl,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_41_49.mov,SZTE/video/SZTEA201b.mov,00:48:48,00:49:30,00:00:42,15.0,Walk With Ladder,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_45_50.mov,SZTE/video/SZTEA201b.mov,00:40:43,00:41:08,00:00:25,,,,,FP,Bats,2,Overcast,False,False,False,Dusk
-SZTEA201b_00_48_48.mov,SZTE/video/SZTEA201b.mov,00:04:24,00:06:32,00:02:08,,,,,FP,,2,Overcast,False,False,False,Dusk
+SZTEA103a_00_20_12.mov,SZTE/video/SZTEA103a.mov,00:20:12,00:20:59,00:00:47,,,,,FP,,1,Some,False,False,False,Day
+SZTEA103a_00_21_23.mov,SZTE/video/SZTEA103a.mov,00:21:23,00:22:33,00:01:10,10.0,Creep walk,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_23_55.mov,SZTE/video/SZTEA103a.mov,00:23:55,00:24:50,00:00:55,10.0,Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_26_10.mov,SZTE/video/SZTEA103a.mov,00:26:10,00:27:12,00:01:02,30.0,Crouch Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_28_50.mov,SZTE/video/SZTEA103a.mov,00:28:50,00:29:57,00:01:07,15.0,Walk,One Person,Diagonal,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_31_50.mov,SZTE/video/SZTEA103a.mov,00:31:50,00:32:53,00:01:03,30.0,Creep walk,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_34_09.mov,SZTE/video/SZTEA103a.mov,00:34:09,00:35:12,00:01:03,15.0,Crouch Walk,One Person,Diagonal,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_36_41.mov,SZTE/video/SZTEA103a.mov,00:36:41,00:37:49,00:01:08,15.0,Crawl,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_39_36.mov,SZTE/video/SZTEA103a.mov,00:39:36,00:40:59,00:01:23,10.0,Body Drag,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_42_09.mov,SZTE/video/SZTEA103a.mov,00:42:09,00:43:06,00:00:57,30.0,Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_44_25.mov,SZTE/video/SZTEA103a.mov,00:44:25,00:45:15,00:00:50,10.0,Crouch Run,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA103a_00_46_44.mov,SZTE/video/SZTEA103a.mov,00:46:44,00:47:14,00:00:30,10.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Some,False,False,False,Day
+SZTEA104a_00_00_00.mov,SZTE/video/SZTEA104a.mov,00:00:00,00:00:49,00:00:49,,,,,FP,Bats,1,,False,False,False,Night
+SZTEA104a_00_07_11.mov,SZTE/video/SZTEA104a.mov,00:07:11,00:08:08,00:00:57,15.0,Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_09_51.mov,SZTE/video/SZTEA104a.mov,00:09:51,00:10:44,00:00:53,15.0,Walk,Two people,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_12_51.mov,SZTE/video/SZTEA104a.mov,00:12:51,00:14:27,00:01:36,10.0,Creep walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_14_57.mov,SZTE/video/SZTEA104a.mov,00:14:57,00:15:34,00:00:37,,,,,FP,,1,,False,False,False,Night
+SZTEA104a_00_15_58.mov,SZTE/video/SZTEA104a.mov,00:15:58,00:17:03,00:01:05,10.0,Crouch Walk,One Person,Diagonal,TP,,1,,False,False,False,Night
+SZTEA104a_00_18_52.mov,SZTE/video/SZTEA104a.mov,00:18:52,00:20:04,00:01:12,30.0,Body Drag,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_21_34.mov,SZTE/video/SZTEA104a.mov,00:21:34,00:23:14,00:01:40,15.0,Body Drag,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_25_05.mov,SZTE/video/SZTEA104a.mov,00:25:05,00:26:28,00:01:23,10.0,Body Drag,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_28_38.mov,SZTE/video/SZTEA104a.mov,00:28:38,00:29:26,00:00:48,15.0,Run,One Person,Diagonal,TP,,1,,False,False,False,Night
+SZTEA104a_00_30_59.mov,SZTE/video/SZTEA104a.mov,00:30:59,00:31:57,00:00:58,15.0,Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_33_20.mov,SZTE/video/SZTEA104a.mov,00:33:20,00:34:17,00:00:57,30.0,Crouch Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_35_33.mov,SZTE/video/SZTEA104a.mov,00:35:33,00:36:33,00:01:00,10.0,Crouch Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_38_04.mov,SZTE/video/SZTEA104a.mov,00:38:04,00:38:55,00:00:51,30.0,Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_41_08.mov,SZTE/video/SZTEA104a.mov,00:41:08,00:42:03,00:00:55,30.0,Walk,Two people,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_43_42.mov,SZTE/video/SZTEA104a.mov,00:43:42,00:45:09,00:01:27,30.0,Creep walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_47_00.mov,SZTE/video/SZTEA104a.mov,00:47:00,00:47:54,00:00:54,30.0,Crouch Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_49_38.mov,SZTE/video/SZTEA104a.mov,00:49:38,00:50:38,00:01:00,10.0,Crouch Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_52_17.mov,SZTE/video/SZTEA104a.mov,00:52:17,00:53:26,00:01:09,15.0,Crawl,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_54_49.mov,SZTE/video/SZTEA104a.mov,00:54:49,00:56:13,00:01:24,10.0,Crawl,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_00_57_37.mov,SZTE/video/SZTEA104a.mov,00:57:37,00:59:08,00:01:31,10.0,Log Roll,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_00_46.mov,SZTE/video/SZTEA104a.mov,01:00:46,01:01:58,00:01:12,10.0,Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_03_28.mov,SZTE/video/SZTEA104a.mov,01:03:28,01:04:31,00:01:03,30.0,Walk,One Person,Diagonal,TP,,1,,False,False,False,Night
+SZTEA104a_01_06_12.mov,SZTE/video/SZTEA104a.mov,01:06:12,01:07:21,00:01:09,10.0,Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_09_31.mov,SZTE/video/SZTEA104a.mov,01:09:31,01:10:25,00:00:54,10.0,Walk,Two people,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_13_07.mov,SZTE/video/SZTEA104a.mov,01:13:07,01:14:48,00:01:41,30.0,Creep walk,One Person,Diagonal,TP,,1,,False,False,False,Night
+SZTEA104a_01_16_14.mov,SZTE/video/SZTEA104a.mov,01:16:14,01:17:46,00:01:32,15.0,Creep walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_19_26.mov,SZTE/video/SZTEA104a.mov,01:19:26,01:20:29,00:01:03,15.0,Crouch Walk,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_22_06.mov,SZTE/video/SZTEA104a.mov,01:22:06,01:23:10,00:01:04,30.0,Crawl,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_24_54.mov,SZTE/video/SZTEA104a.mov,01:24:54,01:25:59,00:01:05,30.0,Log Roll,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_27_12.mov,SZTE/video/SZTEA104a.mov,01:27:12,01:28:02,00:00:50,30.0,Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_29_50.mov,SZTE/video/SZTEA104a.mov,01:29:50,01:30:41,00:00:51,15.0,Crouch Run,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA104a_01_31_51.mov,SZTE/video/SZTEA104a.mov,01:31:51,01:32:18,00:00:27,15.0,Walk With Ladder,One Person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEA105a_00_06_53.mov,SZTE/video/SZTEA105a.mov,00:06:53,00:07:42,00:00:49,,,,,FP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_09_07.mov,SZTE/video/SZTEA105a.mov,00:09:07,00:10:20,00:01:13,,,,,FP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_10_37.mov,SZTE/video/SZTEA105a.mov,00:10:37,00:11:41,00:01:04,10.0,Walk,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_13_40.mov,SZTE/video/SZTEA105a.mov,00:13:40,00:14:26,00:00:46,10.0,Walk,Two people,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_16_24.mov,SZTE/video/SZTEA105a.mov,00:16:24,00:17:33,00:01:09,30.0,Creep walk,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_18_56.mov,SZTE/video/SZTEA105a.mov,00:18:56,00:20:03,00:01:07,15.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_21_25.mov,SZTE/video/SZTEA105a.mov,00:21:25,00:22:27,00:01:02,30.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_23_55.mov,SZTE/video/SZTEA105a.mov,00:23:55,00:24:48,00:00:53,10.0,Run,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_24_50.mov,SZTE/video/SZTEA105a.mov,00:24:50,00:25:19,00:00:29,,,,,FP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_26_32.mov,SZTE/video/SZTEA105a.mov,00:26:32,00:27:31,00:00:59,30.0,Crawl,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_29_03.mov,SZTE/video/SZTEA105a.mov,00:29:03,00:30:02,00:00:59,15.0,Run,One Person,Diagonal,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_32_03.mov,SZTE/video/SZTEA105a.mov,00:32:03,00:32:57,00:00:54,15.0,Crouch Run,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA105a_00_35_05.mov,SZTE/video/SZTEA105a.mov,00:35:05,00:35:28,00:00:23,15.0,Walk With Ladder,One Person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTEA201a_00_02_42.mov,SZTE/video/SZTEA201a.mov,00:02:42,00:03:54,00:01:12,,,,,FP,,2,None,False,False,False,Dawn
+SZTEA201a_00_05_35.mov,SZTE/video/SZTEA201a.mov,00:05:35,00:06:37,00:01:02,10.0,Crouch Walk,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_06_49.mov,SZTE/video/SZTEA201a.mov,00:06:49,00:07:13,00:00:24,,,,,FP,,2,None,False,False,False,Dawn
+SZTEA201a_00_07_27.mov,SZTE/video/SZTEA201a.mov,00:07:27,00:08:31,00:01:04,,,,,FP,,2,None,False,False,False,Dawn
+SZTEA201a_00_08_58.mov,SZTE/video/SZTEA201a.mov,00:08:58,00:10:06,00:01:08,15.0,Crawl,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_11_32.mov,SZTE/video/SZTEA201a.mov,00:11:32,00:12:05,00:00:33,,,,,FP,,2,None,False,False,False,Dawn
+SZTEA201a_00_12_13.mov,SZTE/video/SZTEA201a.mov,00:12:13,00:13:12,00:00:59,30.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_15_15.mov,SZTE/video/SZTEA201a.mov,00:15:15,00:16:52,00:01:37,15.0,Creep walk,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_18_41.mov,SZTE/video/SZTEA201a.mov,00:18:41,00:19:33,00:00:52,10.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_21_32.mov,SZTE/video/SZTEA201a.mov,00:21:32,00:22:25,00:00:53,15.0,Crouch Run,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_24_44.mov,SZTE/video/SZTEA201a.mov,00:24:44,00:25:51,00:01:07,15.0,Walk,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_27_58.mov,SZTE/video/SZTEA201a.mov,00:27:58,00:29:00,00:01:02,15.0,Walk,Two people,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_30_26.mov,SZTE/video/SZTEA201a.mov,00:30:26,00:31:02,00:00:36,,,,,FP,,2,None,False,False,False,Dawn
+SZTEA201a_00_31_29.mov,SZTE/video/SZTEA201a.mov,00:31:29,00:33:43,00:02:14,15.0,Creep walk,One Person,Diagonal,TP,,2,None,False,False,False,Dawn
+SZTEA201a_00_35_52.mov,SZTE/video/SZTEA201a.mov,00:35:52,00:36:21,00:00:29,30.0,Walk With Ladder,One Person,Perpendicular,TP,,2,None,False,False,False,Dawn
+SZTEA201b_00_04_24.mov,SZTE/video/SZTEA201b.mov,00:04:24,00:06:32,00:02:08,,,,,FP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_07_45.mov,SZTE/video/SZTEA201b.mov,00:07:45,00:09:16,00:01:31,15.0,Creep walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_10_53.mov,SZTE/video/SZTEA201b.mov,00:10:53,00:12:27,00:01:34,30.0,Creep walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_13_56.mov,SZTE/video/SZTEA201b.mov,00:13:56,00:14:55,00:00:59,30.0,Run,One Person,Diagonal,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_16_17.mov,SZTE/video/SZTEA201b.mov,00:16:17,00:17:23,00:01:06,15.0,Run,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_18_49.mov,SZTE/video/SZTEA201b.mov,00:18:49,00:19:55,00:01:06,10.0,Crouch Run,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_21_13.mov,SZTE/video/SZTEA201b.mov,00:21:13,00:22:19,00:01:06,30.0,Crouch Run,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_24_00.mov,SZTE/video/SZTEA201b.mov,00:24:00,00:25:39,00:01:39,10.0,Walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_26_50.mov,SZTE/video/SZTEA201b.mov,00:26:50,00:27:43,00:00:53,10.0,Walk,Two people,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_29_06.mov,SZTE/video/SZTEA201b.mov,00:29:06,00:30:58,00:01:52,10.0,Creep walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_32_27.mov,SZTE/video/SZTEA201b.mov,00:32:27,00:33:55,00:01:28,15.0,Body Drag,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_35_31.mov,SZTE/video/SZTEA201b.mov,00:35:31,00:36:49,00:01:18,15.0,Walk,One Person,Diagonal,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_38_30.mov,SZTE/video/SZTEA201b.mov,00:38:30,00:39:27,00:00:57,30.0,Walk,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_40_43.mov,SZTE/video/SZTEA201b.mov,00:40:43,00:41:08,00:00:25,,,,,FP,Bats,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_41_49.mov,SZTE/video/SZTEA201b.mov,00:41:49,00:42:58,00:01:09,30.0,Walk,Two people,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_45_50.mov,SZTE/video/SZTEA201b.mov,00:45:50,00:46:59,00:01:09,10.0,Crawl,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTEA201b_00_48_48.mov,SZTE/video/SZTEA201b.mov,00:48:48,00:49:30,00:00:42,15.0,Walk With Ladder,One Person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
 SZTEA202a_00_05_01.mov,SZTE/video/SZTEA202a.mov,00:05:01,00:06:08,00:01:07,30.0,Crouch Walk,One Person,Perpendicular,TP,,2,None,False,False,False,Day
 SZTEA202a_00_08_00.mov,SZTE/video/SZTEA202a.mov,00:08:00,00:08:57,00:00:57,15.0,Crouch Run,One Person,Perpendicular,TP,,2,None,False,False,False,Day
 SZTEA202a_00_11_16.mov,SZTE/video/SZTEA202a.mov,00:11:16,00:12:05,00:00:49,30.0,Walk,One Person,Perpendicular,TP,,2,None,False,False,False,Day
 SZTEA202a_00_13_50.mov,SZTE/video/SZTEA202a.mov,00:13:50,00:14:44,00:00:54,30.0,Walk,Two people,Perpendicular,TP,,2,None,False,False,False,Day
 SZTEA202a_00_16_06.mov,SZTE/video/SZTEA202a.mov,00:16:06,00:17:08,00:01:02,10.0,Crouch Walk,One Person,Perpendicular,TP,,2,None,False,False,False,Day
 SZTEA202a_00_18_58.mov,SZTE/video/SZTEA202a.mov,00:18:58,00:19:57,00:00:59,30.0,Crawl,One Person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTEA202a_00_20_02.mov,SZTE/video/SZTEA202a.mov,00:21:12,00:22:38,00:01:26,10.0,Body Drag,One Person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTEA202a_00_21_12.mov,SZTE/video/SZTEA202a.mov,00:23:48,00:24:43,00:00:55,10.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTEA202a_00_23_48.mov,SZTE/video/SZTEA202a.mov,00:26:21,00:28:28,00:02:07,30.0,Creep walk,One Person,Diagonal,TP,,2,None,False,False,False,Day
-SZTEA202a_00_26_21.mov,SZTE/video/SZTEA202a.mov,00:29:43,00:30:47,00:01:04,10.0,Log Roll,One Person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTEA202a_00_29_43.mov,SZTE/video/SZTEA202a.mov,00:31:57,00:32:40,00:00:43,30.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTEA202a_00_31_57.mov,SZTE/video/SZTEA202a.mov,00:34:04,00:34:54,00:00:50,30.0,Crouch Run,One Person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTEA202a_00_34_04.mov,SZTE/video/SZTEA202a.mov,00:36:15,00:36:37,00:00:22,10.0,Walk With Ladder,One Person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTEA202a_00_36_15.mov,SZTE/video/SZTEA202a.mov,00:20:02,00:20:28,00:00:26,,,,,FP,,2,None,False,False,False,Day
-SZTEA202b_00_00_03.mov,SZTE/video/SZTEA202b.mov,00:05:16,00:06:25,00:01:09,15.0,Walk,One Person,Diagonal,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_05_16.mov,SZTE/video/SZTEA202b.mov,00:08:07,00:09:26,00:01:19,30.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_08_07.mov,SZTE/video/SZTEA202b.mov,00:10:41,00:12:01,00:01:20,15.0,Body Drag,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_10_41.mov,SZTE/video/SZTEA202b.mov,00:13:14,00:14:09,00:00:55,10.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_13_14.mov,SZTE/video/SZTEA202b.mov,00:15:26,00:16:10,00:00:44,10.0,Crouch Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_15_26.mov,SZTE/video/SZTEA202b.mov,00:17:52,00:18:45,00:00:53,10.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_17_52.mov,SZTE/video/SZTEA202b.mov,00:20:12,00:21:21,00:01:09,10.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_20_12.mov,SZTE/video/SZTEA202b.mov,00:22:54,00:24:14,00:01:20,15.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_22_54.mov,SZTE/video/SZTEA202b.mov,00:25:38,00:26:28,00:00:50,30.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_25_38.mov,SZTE/video/SZTEA202b.mov,00:28:32,00:29:21,00:00:49,15.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_28_32.mov,SZTE/video/SZTEA202b.mov,00:30:49,00:31:39,00:00:50,15.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_30_49.mov,SZTE/video/SZTEA202b.mov,00:33:01,00:34:00,00:00:59,10.0,Crouch Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_33_01.mov,SZTE/video/SZTEA202b.mov,00:35:30,00:36:43,00:01:13,10.0,Crawl,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_35_30.mov,SZTE/video/SZTEA202b.mov,00:38:08,00:39:15,00:01:07,30.0,Crawl,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_38_08.mov,SZTE/video/SZTEA202b.mov,00:40:44,00:41:41,00:00:57,30.0,Log Roll,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_40_44.mov,SZTE/video/SZTEA202b.mov,00:43:09,00:43:56,00:00:47,15.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_43_09.mov,SZTE/video/SZTEA202b.mov,00:45:20,00:45:38,00:00:18,30.0,Walk With Ladder,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA202b_00_45_20.mov,SZTE/video/SZTEA202b.mov,00:00:03,00:01:51,00:01:48,,,,,FP,,2,Some,False,False,False,Day
-SZTEA203a_00_03_23.mov,SZTE/video/SZTEA203a.mov,00:06:14,00:07:16,00:01:02,15.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_06_14.mov,SZTE/video/SZTEA203a.mov,00:08:42,00:09:36,00:00:54,15.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_08_42.mov,SZTE/video/SZTEA203a.mov,00:11:18,00:12:15,00:00:57,30.0,Run,One Person,Diagonal,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_11_18.mov,SZTE/video/SZTEA203a.mov,00:13:34,00:14:24,00:00:50,15.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_13_34.mov,SZTE/video/SZTEA203a.mov,00:16:15,00:17:21,00:01:06,10.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_16_15.mov,SZTE/video/SZTEA203a.mov,00:18:33,00:19:39,00:01:06,10.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_18_33.mov,SZTE/video/SZTEA203a.mov,00:21:25,00:22:29,00:01:04,30.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_21_25.mov,SZTE/video/SZTEA203a.mov,00:23:52,00:24:46,00:00:54,30.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_23_52.mov,SZTE/video/SZTEA203a.mov,00:26:06,00:27:08,00:01:02,10.0,Crouch Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_26_06.mov,SZTE/video/SZTEA203a.mov,00:28:48,00:29:53,00:01:05,15.0,Walk,One Person,Diagonal,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_28_48.mov,SZTE/video/SZTEA203a.mov,00:31:43,00:32:50,00:01:07,10.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_30_28.mov,SZTE/video/SZTEA203a.mov,00:34:03,00:35:08,00:01:05,15.0,Crouch Walk,One Person,Diagonal,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_31_43.mov,SZTE/video/SZTEA203a.mov,00:36:37,00:37:46,00:01:09,15.0,Crawl,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_34_03.mov,SZTE/video/SZTEA203a.mov,00:39:42,00:40:55,00:01:13,30.0,Body Drag,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_36_37.mov,SZTE/video/SZTEA203a.mov,00:42:05,00:43:02,00:00:57,10.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_39_42.mov,SZTE/video/SZTEA203a.mov,00:44:22,00:45:11,00:00:49,30.0,Crouch Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_42_05.mov,SZTE/video/SZTEA203a.mov,00:46:41,00:47:10,00:00:29,30.0,Walk With Ladder,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTEA203a_00_44_22.mov,SZTE/video/SZTEA203a.mov,00:30:28,00:30:52,00:00:24,,,,,FP,,2,Some,False,False,False,Day
-SZTEA203a_00_46_41.mov,SZTE/video/SZTEA203a.mov,00:03:23,00:05:44,00:02:21,,,,,FP,,2,Some,False,False,False,Day
-SZTEA204a_00_00_12.mov,SZTE/video/SZTEA204a.mov,00:07:06,00:08:03,00:00:57,15.0,Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_07_06.mov,SZTE/video/SZTEA204a.mov,00:09:45,00:10:39,00:00:54,15.0,Walk,Two people,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_09_45.mov,SZTE/video/SZTEA204a.mov,00:12:54,00:14:22,00:01:28,30.0,Creep walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_12_54.mov,SZTE/video/SZTEA204a.mov,00:15:54,00:16:58,00:01:04,30.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_15_54.mov,SZTE/video/SZTEA204a.mov,00:18:41,00:19:59,00:01:18,10.0,Body Drag,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_18_41.mov,SZTE/video/SZTEA204a.mov,00:21:29,00:23:10,00:01:41,15.0,Body Drag,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_21_29.mov,SZTE/video/SZTEA204a.mov,00:25:07,00:26:23,00:01:16,30.0,Body Drag,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_23_25.mov,SZTE/video/SZTEA204a.mov,00:28:33,00:29:22,00:00:49,15.0,Run,One Person,Diagonal,TP,,2,,False,False,False,Night
-SZTEA204a_00_25_07.mov,SZTE/video/SZTEA204a.mov,00:30:54,00:31:51,00:00:57,15.0,Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_28_33.mov,SZTE/video/SZTEA204a.mov,00:33:15,00:34:12,00:00:57,10.0,Crouch Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_30_54.mov,SZTE/video/SZTEA204a.mov,00:35:29,00:36:28,00:00:59,30.0,Crouch Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_33_15.mov,SZTE/video/SZTEA204a.mov,00:37:57,00:38:50,00:00:53,10.0,Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_35_29.mov,SZTE/video/SZTEA204a.mov,00:41:01,00:41:58,00:00:57,10.0,Walk,Two people,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_37_57.mov,SZTE/video/SZTEA204a.mov,00:43:28,00:45:04,00:01:36,10.0,Creep walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_41_01.mov,SZTE/video/SZTEA204a.mov,00:46:53,00:47:49,00:00:56,10.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_43_28.mov,SZTE/video/SZTEA204a.mov,00:49:35,00:50:33,00:00:58,30.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_46_53.mov,SZTE/video/SZTEA204a.mov,00:52:12,00:53:21,00:01:09,15.0,Crawl,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_49_35.mov,SZTE/video/SZTEA204a.mov,00:54:48,00:56:08,00:01:20,30.0,Crawl,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_52_12.mov,SZTE/video/SZTEA204a.mov,00:57:37,00:59:04,00:01:27,30.0,Log Roll,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_54_48.mov,SZTE/video/SZTEA204a.mov,01:00:41,01:01:53,00:01:12,30.0,Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_00_57_37.mov,SZTE/video/SZTEA204a.mov,01:03:22,01:04:25,00:01:03,10.0,Walk,One Person,Diagonal,TP,,2,,False,False,False,Night
-SZTEA204a_01_00_41.mov,SZTE/video/SZTEA204a.mov,01:06:08,01:07:16,00:01:08,30.0,Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_03_22.mov,SZTE/video/SZTEA204a.mov,01:09:28,01:10:19,00:00:51,30.0,Walk,Two people,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_06_08.mov,SZTE/video/SZTEA204a.mov,01:13:00,01:14:42,00:01:42,10.0,Creep walk,One Person,Diagonal,TP,,2,,False,False,False,Night
-SZTEA204a_01_09_28.mov,SZTE/video/SZTEA204a.mov,01:16:10,01:17:42,00:01:32,15.0,Creep walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_13_00.mov,SZTE/video/SZTEA204a.mov,01:19:21,01:20:24,00:01:03,15.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_16_10.mov,SZTE/video/SZTEA204a.mov,01:21:56,01:23:04,00:01:08,10.0,Crawl,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_19_21.mov,SZTE/video/SZTEA204a.mov,01:24:45,01:25:54,00:01:09,10.0,Log Roll,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_21_56.mov,SZTE/video/SZTEA204a.mov,01:27:06,01:27:57,00:00:51,10.0,Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_24_45.mov,SZTE/video/SZTEA204a.mov,01:29:45,01:30:36,00:00:51,15.0,Crouch Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_26_20.mov,SZTE/video/SZTEA204a.mov,01:31:46,01:32:12,00:00:26,15.0,Walk With Ladder,One Person,Perpendicular,TP,,2,,False,False,False,Night
-SZTEA204a_01_27_06.mov,SZTE/video/SZTEA204a.mov,01:26:20,01:26:40,00:00:20,,,,,FP,Bats,2,,False,False,False,Night
-SZTEA204a_01_29_45.mov,SZTE/video/SZTEA204a.mov,00:23:25,00:24:36,00:01:11,,,,,FP,,2,,False,False,False,Night
-SZTEA204a_01_31_46.mov,SZTE/video/SZTEA204a.mov,00:00:12,00:02:10,00:01:58,,,,,FP,,2,,False,False,False,Night
-SZTEN101a_00_02_20.mov,SZTE/video/SZTEN101a.mov,00:08:14,00:08:35,00:00:21,,,,,FP,Bag,1,Overcast,False,False,False,Day
-SZTEN101a_00_03_29.mov,SZTE/video/SZTEN101a.mov,00:07:17,00:08:27,00:01:10,,,,,FP,Squirrel,1,Overcast,False,False,False,Day
-SZTEN101a_00_07_17.mov,SZTE/video/SZTEN101a.mov,00:09:10,00:09:57,00:00:47,,,,,FP,,1,Overcast,False,False,False,Day
-SZTEN101a_00_08_14.mov,SZTE/video/SZTEN101a.mov,00:02:20,00:02:47,00:00:27,,,,,FP,,1,Overcast,False,False,False,Day
-SZTEN101a_00_09_10.mov,SZTE/video/SZTEN101a.mov,00:03:29,00:05:00,00:01:31,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEA202a_00_20_02.mov,SZTE/video/SZTEA202a.mov,00:20:02,00:20:28,00:00:26,,,,,FP,,2,None,False,False,False,Day
+SZTEA202a_00_21_12.mov,SZTE/video/SZTEA202a.mov,00:21:12,00:22:38,00:01:26,10.0,Body Drag,One Person,Perpendicular,TP,,2,None,False,False,False,Day
+SZTEA202a_00_23_48.mov,SZTE/video/SZTEA202a.mov,00:23:48,00:24:43,00:00:55,10.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Day
+SZTEA202a_00_26_21.mov,SZTE/video/SZTEA202a.mov,00:26:21,00:28:28,00:02:07,30.0,Creep walk,One Person,Diagonal,TP,,2,None,False,False,False,Day
+SZTEA202a_00_29_43.mov,SZTE/video/SZTEA202a.mov,00:29:43,00:30:47,00:01:04,10.0,Log Roll,One Person,Perpendicular,TP,,2,None,False,False,False,Day
+SZTEA202a_00_31_57.mov,SZTE/video/SZTEA202a.mov,00:31:57,00:32:40,00:00:43,30.0,Run,One Person,Perpendicular,TP,,2,None,False,False,False,Day
+SZTEA202a_00_34_04.mov,SZTE/video/SZTEA202a.mov,00:34:04,00:34:54,00:00:50,30.0,Crouch Run,One Person,Perpendicular,TP,,2,None,False,False,False,Day
+SZTEA202a_00_36_15.mov,SZTE/video/SZTEA202a.mov,00:36:15,00:36:37,00:00:22,10.0,Walk With Ladder,One Person,Perpendicular,TP,,2,None,False,False,False,Day
+SZTEA202b_00_00_03.mov,SZTE/video/SZTEA202b.mov,00:00:03,00:01:51,00:01:48,,,,,FP,,2,Some,False,False,False,Day
+SZTEA202b_00_05_16.mov,SZTE/video/SZTEA202b.mov,00:05:16,00:06:25,00:01:09,15.0,Walk,One Person,Diagonal,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_08_07.mov,SZTE/video/SZTEA202b.mov,00:08:07,00:09:26,00:01:19,30.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_10_41.mov,SZTE/video/SZTEA202b.mov,00:10:41,00:12:01,00:01:20,15.0,Body Drag,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_13_14.mov,SZTE/video/SZTEA202b.mov,00:13:14,00:14:09,00:00:55,10.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_15_26.mov,SZTE/video/SZTEA202b.mov,00:15:26,00:16:10,00:00:44,10.0,Crouch Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_17_52.mov,SZTE/video/SZTEA202b.mov,00:17:52,00:18:45,00:00:53,10.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_20_12.mov,SZTE/video/SZTEA202b.mov,00:20:12,00:21:21,00:01:09,10.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_22_54.mov,SZTE/video/SZTEA202b.mov,00:22:54,00:24:14,00:01:20,15.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_25_38.mov,SZTE/video/SZTEA202b.mov,00:25:38,00:26:28,00:00:50,30.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_28_32.mov,SZTE/video/SZTEA202b.mov,00:28:32,00:29:21,00:00:49,15.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_30_49.mov,SZTE/video/SZTEA202b.mov,00:30:49,00:31:39,00:00:50,15.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_33_01.mov,SZTE/video/SZTEA202b.mov,00:33:01,00:34:00,00:00:59,10.0,Crouch Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_35_30.mov,SZTE/video/SZTEA202b.mov,00:35:30,00:36:43,00:01:13,10.0,Crawl,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_38_08.mov,SZTE/video/SZTEA202b.mov,00:38:08,00:39:15,00:01:07,30.0,Crawl,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_40_44.mov,SZTE/video/SZTEA202b.mov,00:40:44,00:41:41,00:00:57,30.0,Log Roll,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_43_09.mov,SZTE/video/SZTEA202b.mov,00:43:09,00:43:56,00:00:47,15.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA202b_00_45_20.mov,SZTE/video/SZTEA202b.mov,00:45:20,00:45:38,00:00:18,30.0,Walk With Ladder,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_03_23.mov,SZTE/video/SZTEA203a.mov,00:03:23,00:05:44,00:02:21,,,,,FP,,2,Some,False,False,False,Day
+SZTEA203a_00_06_14.mov,SZTE/video/SZTEA203a.mov,00:06:14,00:07:16,00:01:02,15.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_08_42.mov,SZTE/video/SZTEA203a.mov,00:08:42,00:09:36,00:00:54,15.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_11_18.mov,SZTE/video/SZTEA203a.mov,00:11:18,00:12:15,00:00:57,30.0,Run,One Person,Diagonal,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_13_34.mov,SZTE/video/SZTEA203a.mov,00:13:34,00:14:24,00:00:50,15.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_16_15.mov,SZTE/video/SZTEA203a.mov,00:16:15,00:17:21,00:01:06,10.0,Walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_18_33.mov,SZTE/video/SZTEA203a.mov,00:18:33,00:19:39,00:01:06,10.0,Walk,Two people,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_21_25.mov,SZTE/video/SZTEA203a.mov,00:21:25,00:22:29,00:01:04,30.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_23_52.mov,SZTE/video/SZTEA203a.mov,00:23:52,00:24:46,00:00:54,30.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_26_06.mov,SZTE/video/SZTEA203a.mov,00:26:06,00:27:08,00:01:02,10.0,Crouch Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_28_48.mov,SZTE/video/SZTEA203a.mov,00:28:48,00:29:53,00:01:05,15.0,Walk,One Person,Diagonal,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_30_28.mov,SZTE/video/SZTEA203a.mov,00:30:28,00:30:52,00:00:24,,,,,FP,,2,Some,False,False,False,Day
+SZTEA203a_00_31_43.mov,SZTE/video/SZTEA203a.mov,00:31:43,00:32:50,00:01:07,10.0,Creep walk,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_34_03.mov,SZTE/video/SZTEA203a.mov,00:34:03,00:35:08,00:01:05,15.0,Crouch Walk,One Person,Diagonal,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_36_37.mov,SZTE/video/SZTEA203a.mov,00:36:37,00:37:46,00:01:09,15.0,Crawl,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_39_42.mov,SZTE/video/SZTEA203a.mov,00:39:42,00:40:55,00:01:13,30.0,Body Drag,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_42_05.mov,SZTE/video/SZTEA203a.mov,00:42:05,00:43:02,00:00:57,10.0,Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_44_22.mov,SZTE/video/SZTEA203a.mov,00:44:22,00:45:11,00:00:49,30.0,Crouch Run,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA203a_00_46_41.mov,SZTE/video/SZTEA203a.mov,00:46:41,00:47:10,00:00:29,30.0,Walk With Ladder,One Person,Perpendicular,TP,,2,Some,False,False,False,Day
+SZTEA204a_00_00_12.mov,SZTE/video/SZTEA204a.mov,00:00:12,00:02:10,00:01:58,,,,,FP,,2,,False,False,False,Night
+SZTEA204a_00_07_06.mov,SZTE/video/SZTEA204a.mov,00:07:06,00:08:03,00:00:57,15.0,Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_09_45.mov,SZTE/video/SZTEA204a.mov,00:09:45,00:10:39,00:00:54,15.0,Walk,Two people,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_12_54.mov,SZTE/video/SZTEA204a.mov,00:12:54,00:14:22,00:01:28,30.0,Creep walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_15_54.mov,SZTE/video/SZTEA204a.mov,00:15:54,00:16:58,00:01:04,30.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_18_41.mov,SZTE/video/SZTEA204a.mov,00:18:41,00:19:59,00:01:18,10.0,Body Drag,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_21_29.mov,SZTE/video/SZTEA204a.mov,00:21:29,00:23:10,00:01:41,15.0,Body Drag,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_23_25.mov,SZTE/video/SZTEA204a.mov,00:23:25,00:24:36,00:01:11,,,,,FP,,2,,False,False,False,Night
+SZTEA204a_00_25_07.mov,SZTE/video/SZTEA204a.mov,00:25:07,00:26:23,00:01:16,30.0,Body Drag,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_28_33.mov,SZTE/video/SZTEA204a.mov,00:28:33,00:29:22,00:00:49,15.0,Run,One Person,Diagonal,TP,,2,,False,False,False,Night
+SZTEA204a_00_30_54.mov,SZTE/video/SZTEA204a.mov,00:30:54,00:31:51,00:00:57,15.0,Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_33_15.mov,SZTE/video/SZTEA204a.mov,00:33:15,00:34:12,00:00:57,10.0,Crouch Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_35_29.mov,SZTE/video/SZTEA204a.mov,00:35:29,00:36:28,00:00:59,30.0,Crouch Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_37_57.mov,SZTE/video/SZTEA204a.mov,00:37:57,00:38:50,00:00:53,10.0,Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_41_01.mov,SZTE/video/SZTEA204a.mov,00:41:01,00:41:58,00:00:57,10.0,Walk,Two people,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_43_28.mov,SZTE/video/SZTEA204a.mov,00:43:28,00:45:04,00:01:36,10.0,Creep walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_46_53.mov,SZTE/video/SZTEA204a.mov,00:46:53,00:47:49,00:00:56,10.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_49_35.mov,SZTE/video/SZTEA204a.mov,00:49:35,00:50:33,00:00:58,30.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_52_12.mov,SZTE/video/SZTEA204a.mov,00:52:12,00:53:21,00:01:09,15.0,Crawl,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_54_48.mov,SZTE/video/SZTEA204a.mov,00:54:48,00:56:08,00:01:20,30.0,Crawl,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_00_57_37.mov,SZTE/video/SZTEA204a.mov,00:57:37,00:59:04,00:01:27,30.0,Log Roll,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_00_41.mov,SZTE/video/SZTEA204a.mov,01:00:41,01:01:53,00:01:12,30.0,Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_03_22.mov,SZTE/video/SZTEA204a.mov,01:03:22,01:04:25,00:01:03,10.0,Walk,One Person,Diagonal,TP,,2,,False,False,False,Night
+SZTEA204a_01_06_08.mov,SZTE/video/SZTEA204a.mov,01:06:08,01:07:16,00:01:08,30.0,Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_09_28.mov,SZTE/video/SZTEA204a.mov,01:09:28,01:10:19,00:00:51,30.0,Walk,Two people,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_13_00.mov,SZTE/video/SZTEA204a.mov,01:13:00,01:14:42,00:01:42,10.0,Creep walk,One Person,Diagonal,TP,,2,,False,False,False,Night
+SZTEA204a_01_16_10.mov,SZTE/video/SZTEA204a.mov,01:16:10,01:17:42,00:01:32,15.0,Creep walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_19_21.mov,SZTE/video/SZTEA204a.mov,01:19:21,01:20:24,00:01:03,15.0,Crouch Walk,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_21_56.mov,SZTE/video/SZTEA204a.mov,01:21:56,01:23:04,00:01:08,10.0,Crawl,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_24_45.mov,SZTE/video/SZTEA204a.mov,01:24:45,01:25:54,00:01:09,10.0,Log Roll,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_26_20.mov,SZTE/video/SZTEA204a.mov,01:26:20,01:26:40,00:00:20,,,,,FP,Bats,2,,False,False,False,Night
+SZTEA204a_01_27_06.mov,SZTE/video/SZTEA204a.mov,01:27:06,01:27:57,00:00:51,10.0,Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_29_45.mov,SZTE/video/SZTEA204a.mov,01:29:45,01:30:36,00:00:51,15.0,Crouch Run,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEA204a_01_31_46.mov,SZTE/video/SZTEA204a.mov,01:31:46,01:32:12,00:00:26,15.0,Walk With Ladder,One Person,Perpendicular,TP,,2,,False,False,False,Night
+SZTEN101a_00_02_20.mov,SZTE/video/SZTEN101a.mov,00:02:20,00:02:47,00:00:27,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEN101a_00_03_29.mov,SZTE/video/SZTEN101a.mov,00:03:29,00:05:00,00:01:31,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEN101a_00_07_17.mov,SZTE/video/SZTEN101a.mov,00:07:17,00:08:27,00:01:10,,,,,FP,Squirrel,1,Overcast,False,False,False,Day
+SZTEN101a_00_08_14.mov,SZTE/video/SZTEN101a.mov,00:08:14,00:08:35,00:00:21,,,,,FP,Bag,1,Overcast,False,False,False,Day
+SZTEN101a_00_09_10.mov,SZTE/video/SZTEN101a.mov,00:09:10,00:09:57,00:00:47,,,,,FP,,1,Overcast,False,False,False,Day
 SZTEN101b_00_01_00.mov,SZTE/video/SZTEN101b.mov,00:01:00,00:01:50,00:00:50,,,,,FP,Rabbits,1,None,False,False,False,Day
-SZTEN101b_00_02_32.mov,SZTE/video/SZTEN101b.mov,00:12:50,00:14:12,00:01:22,,,,,FP,Shadow through fence,1,None,False,False,False,Day
-SZTEN101b_00_12_50.mov,SZTE/video/SZTEN101b.mov,00:22:32,00:22:32,00:01:23,,,,,FP,Shadow through fence,1,None,False,False,False,Day
+SZTEN101b_00_02_32.mov,SZTE/video/SZTEN101b.mov,00:02:32,00:03:42,00:01:10,,,,,FP,,1,None,False,False,False,Day
+SZTEN101b_00_12_50.mov,SZTE/video/SZTEN101b.mov,00:12:50,00:14:12,00:01:22,,,,,FP,Shadow through fence,1,None,False,False,False,Day
 SZTEN101b_00_14_47.mov,SZTE/video/SZTEN101b.mov,00:14:47,00:16:37,00:01:50,,,,,FP,,1,None,False,False,False,Day
-SZTEN101b_00_19_52.mov,SZTE/video/SZTEN101b.mov,00:02:32,00:03:42,00:01:10,,,,,FP,,1,None,False,False,False,Day
-SZTEN101b_00_22_32.mov,SZTE/video/SZTEN101b.mov,00:19:52,00:20:35,00:00:43,,,,,FP,,1,None,False,False,False,Day
+SZTEN101b_00_19_52.mov,SZTE/video/SZTEN101b.mov,00:19:52,00:20:35,00:00:43,,,,,FP,,1,None,False,False,False,Day
+SZTEN101b_00_22_32.mov,SZTE/video/SZTEN101b.mov,00:22:32,00:22:32,00:01:23,,,,,FP,Shadow through fence,1,None,False,False,False,Day
 SZTEN101b_00_24_44.mov,SZTE/video/SZTEN101b.mov,00:24:44,00:26:50,00:02:06,,,,,FP,,1,None,False,False,False,Day
 SZTEN101c_00_01_52.mov,SZTE/video/SZTEN101c.mov,00:01:52,00:01:52,00:00:28,,,,,FP,Rabbits,1,None,False,False,False,Dusk
-SZTEN101c_00_07_26.mov,SZTE/video/SZTEN101c.mov,00:25:03,00:25:15,00:00:12,,,,,FP,Camera switch from colour to monochrome,1,None,False,False,False,Dusk
-SZTEN101c_00_10_13.mov,SZTE/video/SZTEN101c.mov,00:07:26,00:09:44,00:02:18,,,,,FP,,1,None,False,False,False,Dusk
-SZTEN101c_00_15_08.mov,SZTE/video/SZTEN101c.mov,00:18:58,00:20:30,00:01:32,,,,,FP,,1,None,False,False,False,Dusk
-SZTEN101c_00_18_46.mov,SZTE/video/SZTEN101c.mov,00:10:13,00:11:35,00:01:22,,,,,FP,,1,None,False,False,False,Dusk
-SZTEN101c_00_18_58.mov,SZTE/video/SZTEN101c.mov,00:18:46,00:19:54,00:01:08,,,,,FP,,1,None,False,False,False,Dusk
-SZTEN101c_00_22_37.mov,SZTE/video/SZTEN101c.mov,00:15:08,00:16:41,00:01:33,,,,,FP,,1,None,False,False,False,Dusk
-SZTEN101c_00_25_03.mov,SZTE/video/SZTEN101c.mov,00:22:37,00:24:21,00:01:44,,,,,FP,,1,None,False,False,False,Dusk
+SZTEN101c_00_07_26.mov,SZTE/video/SZTEN101c.mov,00:07:26,00:09:44,00:02:18,,,,,FP,,1,None,False,False,False,Dusk
+SZTEN101c_00_10_13.mov,SZTE/video/SZTEN101c.mov,00:10:13,00:11:35,00:01:22,,,,,FP,,1,None,False,False,False,Dusk
+SZTEN101c_00_15_08.mov,SZTE/video/SZTEN101c.mov,00:15:08,00:16:41,00:01:33,,,,,FP,,1,None,False,False,False,Dusk
+SZTEN101c_00_18_46.mov,SZTE/video/SZTEN101c.mov,00:18:46,00:19:54,00:01:08,,,,,FP,,1,None,False,False,False,Dusk
+SZTEN101c_00_18_58.mov,SZTE/video/SZTEN101c.mov,00:18:58,00:20:30,00:01:32,,,,,FP,,1,None,False,False,False,Dusk
+SZTEN101c_00_22_37.mov,SZTE/video/SZTEN101c.mov,00:22:37,00:24:21,00:01:44,,,,,FP,,1,None,False,False,False,Dusk
+SZTEN101c_00_25_03.mov,SZTE/video/SZTEN101c.mov,00:25:03,00:25:15,00:00:12,,,,,FP,Camera switch from colour to monochrome,1,None,False,False,False,Dusk
 SZTEN101d_00_04_18.mov,SZTE/video/SZTEN101d.mov,00:04:18,00:04:18,00:01:29,,,,,FP,Rabbits,1,None,False,False,False,Dawn
 SZTEN101d_00_14_04.mov,SZTE/video/SZTEN101d.mov,00:14:04,00:14:04,00:00:33,,,,,FP,Rabbits,1,None,False,False,False,Dawn
-SZTEN101d_00_18_27.mov,SZTE/video/SZTEN101d.mov,00:24:23,00:25:36,00:01:13,,,,,FP,Birds,1,None,False,False,False,Dawn
-SZTEN101d_00_24_23.mov,SZTE/video/SZTEN101d.mov,00:18:27,00:19:42,00:01:15,,,,,FP,,1,None,False,False,False,Dawn
+SZTEN101d_00_18_27.mov,SZTE/video/SZTEN101d.mov,00:18:27,00:19:42,00:01:15,,,,,FP,,1,None,False,False,False,Dawn
+SZTEN101d_00_24_23.mov,SZTE/video/SZTEN101d.mov,00:24:23,00:25:36,00:01:13,,,,,FP,Birds,1,None,False,False,False,Dawn
 SZTEN101d_00_25_41.mov,SZTE/video/SZTEN101d.mov,00:25:41,00:27:57,00:02:16,,,,,FP,,1,None,False,False,False,Dawn
 SZTEN102a_00_00_00.mov,SZTE/video/SZTEN102a.mov,00:00:00,00:02:21,00:02:21,,,,,FP,Birds,1,Some,False,False,False,Day
 SZTEN102a_00_07_53.mov,SZTE/video/SZTEN102a.mov,00:07:53,00:07:53,00:00:36,,,,,FP,Birds,1,Some,False,False,False,Day
-SZTEN102a_00_13_06.mov,SZTE/video/SZTEN102a.mov,00:19:35,00:20:39,00:01:04,,,,,FP,Birds,1,Some,False,False,False,Day
-SZTEN102a_00_19_35.mov,SZTE/video/SZTEN102a.mov,00:27:24,00:28:25,00:01:01,,,,,FP,Birds,1,Some,False,False,False,Day
-SZTEN102a_00_21_58.mov,SZTE/video/SZTEN102a.mov,00:34:11,00:35:49,00:01:38,,,,,FP,,1,Some,False,False,False,Day
-SZTEN102a_00_23_11.mov,SZTE/video/SZTEN102a.mov,00:32:46,00:35:14,00:02:28,,,,,FP,,1,Some,False,False,False,Day
-SZTEN102a_00_27_24.mov,SZTE/video/SZTEN102a.mov,00:21:58,00:22:22,00:00:24,,,,,FP,,1,Some,False,False,False,Day
-SZTEN102a_00_32_46.mov,SZTE/video/SZTEN102a.mov,00:41:17,00:42:45,00:01:28,,,,,FP,,1,Some,False,False,False,Day
-SZTEN102a_00_34_11.mov,SZTE/video/SZTEN102a.mov,00:13:06,00:13:52,00:00:46,,,,,FP,,1,Some,False,False,False,Day
-SZTEN102a_00_41_17.mov,SZTE/video/SZTEN102a.mov,00:23:11,00:25:36,00:02:25,,,,,FP,,1,Some,False,False,False,Day
+SZTEN102a_00_13_06.mov,SZTE/video/SZTEN102a.mov,00:13:06,00:13:52,00:00:46,,,,,FP,,1,Some,False,False,False,Day
+SZTEN102a_00_19_35.mov,SZTE/video/SZTEN102a.mov,00:19:35,00:20:39,00:01:04,,,,,FP,Birds,1,Some,False,False,False,Day
+SZTEN102a_00_21_58.mov,SZTE/video/SZTEN102a.mov,00:21:58,00:22:22,00:00:24,,,,,FP,,1,Some,False,False,False,Day
+SZTEN102a_00_23_11.mov,SZTE/video/SZTEN102a.mov,00:23:11,00:25:36,00:02:25,,,,,FP,,1,Some,False,False,False,Day
+SZTEN102a_00_27_24.mov,SZTE/video/SZTEN102a.mov,00:27:24,00:28:25,00:01:01,,,,,FP,Birds,1,Some,False,False,False,Day
+SZTEN102a_00_32_46.mov,SZTE/video/SZTEN102a.mov,00:32:46,00:35:14,00:02:28,,,,,FP,,1,Some,False,False,False,Day
+SZTEN102a_00_34_11.mov,SZTE/video/SZTEN102a.mov,00:34:11,00:35:49,00:01:38,,,,,FP,,1,Some,False,False,False,Day
+SZTEN102a_00_41_17.mov,SZTE/video/SZTEN102a.mov,00:41:17,00:42:45,00:01:28,,,,,FP,,1,Some,False,False,False,Day
 SZTEN102b_00_11_05.mov,SZTE/video/SZTEN102b.mov,00:11:05,00:12:25,00:01:20,,,,,FP,Birds,1,Overcast,False,True,False,Day
-SZTEN102b_00_13_58.mov,SZTE/video/SZTEN102b.mov,00:24:25,00:26:12,00:01:47,,,,,FP,,1,Overcast,False,True,False,Day
+SZTEN102b_00_13_58.mov,SZTE/video/SZTEN102b.mov,00:13:58,00:15:16,00:01:18,,,,,FP,,1,Overcast,False,True,False,Day
 SZTEN102b_00_17_15.mov,SZTE/video/SZTEN102b.mov,00:17:15,00:18:11,00:00:56,,,,,FP,,1,Overcast,False,True,False,Day
 SZTEN102b_00_20_43.mov,SZTE/video/SZTEN102b.mov,00:20:43,00:22:13,00:01:30,,,,,FP,,1,Overcast,False,True,False,Day
-SZTEN102b_00_24_25.mov,SZTE/video/SZTEN102b.mov,00:26:14,00:27:13,00:00:59,,,,,FP,,1,Overcast,False,True,False,Day
-SZTEN102b_00_26_14.mov,SZTE/video/SZTEN102b.mov,00:13:58,00:15:16,00:01:18,,,,,FP,,1,Overcast,False,True,False,Day
-SZTEN102c_00_02_44.mov,SZTE/video/SZTEN102c.mov,00:06:05,00:08:16,00:02:11,,,,,FP,,1,Overcast,False,False,True,Day
-SZTEN102c_00_06_05.mov,SZTE/video/SZTEN102c.mov,00:24:45,00:25:52,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
+SZTEN102b_00_24_25.mov,SZTE/video/SZTEN102b.mov,00:24:25,00:26:12,00:01:47,,,,,FP,,1,Overcast,False,True,False,Day
+SZTEN102b_00_26_14.mov,SZTE/video/SZTEN102b.mov,00:26:14,00:27:13,00:00:59,,,,,FP,,1,Overcast,False,True,False,Day
+SZTEN102c_00_02_44.mov,SZTE/video/SZTEN102c.mov,00:02:44,00:03:51,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
+SZTEN102c_00_06_05.mov,SZTE/video/SZTEN102c.mov,00:06:05,00:08:16,00:02:11,,,,,FP,,1,Overcast,False,False,True,Day
 SZTEN102c_00_11_35.mov,SZTE/video/SZTEN102c.mov,00:11:35,00:12:11,00:00:36,,,,,FP,,1,Overcast,False,False,True,Day
 SZTEN102c_00_17_07.mov,SZTE/video/SZTEN102c.mov,00:17:07,00:17:31,00:00:24,,,,,FP,,1,Overcast,False,False,True,Day
-SZTEN102c_00_24_45.mov,SZTE/video/SZTEN102c.mov,00:02:44,00:03:51,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
+SZTEN102c_00_24_45.mov,SZTE/video/SZTEN102c.mov,00:24:45,00:25:52,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
 SZTEN102d_00_00_31.mov,SZTE/video/SZTEN102d.mov,00:00:31,00:00:37,00:00:06,,,,,FP,Foxes,1,Overcast,False,False,False,Dusk
 SZTEN102d_00_01_54.mov,SZTE/video/SZTEN102d.mov,00:01:54,00:02:08,00:00:14,,,,,FP,Camera switch from colour to monochrome,1,Overcast,False,False,False,Dusk
 SZTEN102d_00_03_30.mov,SZTE/video/SZTEN102d.mov,00:03:30,00:03:44,00:00:14,,,,,FP,Rabbits,1,Overcast,False,False,False,Dusk
-SZTEN102d_00_04_31.mov,SZTE/video/SZTEN102d.mov,00:12:09,00:12:36,00:00:27,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTEN102d_00_06_42.mov,SZTE/video/SZTEN102d.mov,00:04:31,00:06:28,00:01:57,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTEN102d_00_12_09.mov,SZTE/video/SZTEN102d.mov,00:06:42,00:07:02,00:00:20,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTEN103a_00_01_26.mov,SZTE/video/SZTEN103a.mov,00:29:26,00:30:04,00:00:38,,,,,FP,,1,,False,False,False,Night
-SZTEN103a_00_05_54.mov,SZTE/video/SZTEN103a.mov,00:19:01,00:21:22,00:02:21,,,,,FP,,1,,False,False,False,Night
-SZTEN103a_00_19_01.mov,SZTE/video/SZTEN103a.mov,00:01:26,00:03:07,00:01:41,,,,,FP,,1,,False,False,False,Night
-SZTEN103a_00_29_26.mov,SZTE/video/SZTEN103a.mov,00:36:06,00:36:33,00:00:27,,,,,FP,,1,,False,False,False,Night
-SZTEN103a_00_36_06.mov,SZTE/video/SZTEN103a.mov,00:05:54,00:07:10,00:01:16,,,,,FP,,1,,False,False,False,Night
-SZTEN103b_00_06_08.mov,SZTE/video/SZTEN103b.mov,00:25:25,00:27:25,00:02:00,,,,,FP,,1,Overcast,False,False,False,Day
-SZTEN103b_00_16_55.mov,SZTE/video/SZTEN103b.mov,00:06:08,00:07:19,00:01:11,,,,,FP,,1,Overcast,False,False,False,Day
-SZTEN103b_00_25_25.mov,SZTE/video/SZTEN103b.mov,00:16:55,00:18:49,00:01:54,,,,,FP,,1,Overcast,False,False,False,Day
-SZTEN201a_00_03_09.mov,SZTE/video/SZTEN201a.mov,00:09:24,00:09:56,00:00:32,,,,,FP,Bag,2,Overcast,False,False,False,Day
-SZTEN201a_00_03_22.mov,SZTE/video/SZTEN201a.mov,00:11:48,00:12:10,00:00:22,,,,,FP,Bag,2,Overcast,False,False,False,Day
-SZTEN201a_00_04_12.mov,SZTE/video/SZTEN201a.mov,00:08:17,00:08:47,00:00:30,,,,,FP,,2,Overcast,False,False,False,Day
-SZTEN201a_00_06_20.mov,SZTE/video/SZTEN201a.mov,00:04:12,00:05:52,00:01:40,,,,,FP,,2,Overcast,False,False,False,Day
-SZTEN201a_00_08_17.mov,SZTE/video/SZTEN201a.mov,00:03:09,00:04:10,00:01:01,,,,,FP,,2,Overcast,False,False,False,Day
-SZTEN201a_00_09_24.mov,SZTE/video/SZTEN201a.mov,00:03:22,00:03:52,00:00:30,,,,,FP,,2,Overcast,False,False,False,Day
-SZTEN201a_00_11_48.mov,SZTE/video/SZTEN201a.mov,00:06:20,00:08:09,00:01:49,,,,,FP,,2,Overcast,False,False,False,Day
-SZTEN201b_00_00_26.mov,SZTE/video/SZTEN201b.mov,00:12:30,00:14:15,00:01:45,,,,,FP,Shadow through fence,2,None,False,False,False,Day
-SZTEN201b_00_04_45.mov,SZTE/video/SZTEN201b.mov,00:22:32,00:24:24,00:01:52,,,,,FP,Shadow through fence,2,None,False,False,False,Day
-SZTEN201b_00_12_30.mov,SZTE/video/SZTEN201b.mov,00:00:26,00:02:33,00:02:07,,,,,FP,,2,None,False,False,False,Day
-SZTEN201b_00_18_35.mov,SZTE/video/SZTEN201b.mov,00:24:50,00:26:22,00:01:32,,,,,FP,,2,None,False,False,False,Day
-SZTEN201b_00_22_32.mov,SZTE/video/SZTEN201b.mov,00:18:35,00:19:33,00:00:58,,,,,FP,,2,None,False,False,False,Day
-SZTEN201b_00_24_50.mov,SZTE/video/SZTEN201b.mov,00:04:45,00:05:53,00:01:08,,,,,FP,,2,None,False,False,False,Day
-SZTEN201c_00_02_31.mov,SZTE/video/SZTEN201c.mov,00:15:31,00:15:31,00:02:01,,,,,FP,Rabbits,2,None,False,False,False,Dusk
-SZTEN201c_00_08_50.mov,SZTE/video/SZTEN201c.mov,00:25:40,00:26:32,00:00:52,,,,,FP,,2,None,False,False,False,Dusk
-SZTEN201c_00_11_09.mov,SZTE/video/SZTEN201c.mov,00:21:02,00:22:19,00:01:17,,,,,FP,,2,None,False,False,False,Dusk
-SZTEN201c_00_15_31.mov,SZTE/video/SZTEN201c.mov,00:08:50,00:10:01,00:01:11,,,,,FP,,2,None,False,False,False,Dusk
-SZTEN201c_00_21_02.mov,SZTE/video/SZTEN201c.mov,00:02:31,00:03:13,00:00:42,,,,,FP,,2,None,False,False,False,Dusk
-SZTEN201c_00_25_40.mov,SZTE/video/SZTEN201c.mov,00:11:09,00:12:00,00:00:51,,,,,FP,,2,None,False,False,False,Dusk
+SZTEN102d_00_04_31.mov,SZTE/video/SZTEN102d.mov,00:04:31,00:06:28,00:01:57,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTEN102d_00_06_42.mov,SZTE/video/SZTEN102d.mov,00:06:42,00:07:02,00:00:20,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTEN102d_00_12_09.mov,SZTE/video/SZTEN102d.mov,00:12:09,00:12:36,00:00:27,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTEN103a_00_01_26.mov,SZTE/video/SZTEN103a.mov,00:01:26,00:03:07,00:01:41,,,,,FP,,1,,False,False,False,Night
+SZTEN103a_00_05_54.mov,SZTE/video/SZTEN103a.mov,00:05:54,00:07:10,00:01:16,,,,,FP,,1,,False,False,False,Night
+SZTEN103a_00_19_01.mov,SZTE/video/SZTEN103a.mov,00:19:01,00:21:22,00:02:21,,,,,FP,,1,,False,False,False,Night
+SZTEN103a_00_29_26.mov,SZTE/video/SZTEN103a.mov,00:29:26,00:30:04,00:00:38,,,,,FP,,1,,False,False,False,Night
+SZTEN103a_00_36_06.mov,SZTE/video/SZTEN103a.mov,00:36:06,00:36:33,00:00:27,,,,,FP,,1,,False,False,False,Night
+SZTEN103b_00_06_08.mov,SZTE/video/SZTEN103b.mov,00:06:08,00:07:19,00:01:11,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEN103b_00_16_55.mov,SZTE/video/SZTEN103b.mov,00:16:55,00:18:49,00:01:54,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEN103b_00_25_25.mov,SZTE/video/SZTEN103b.mov,00:25:25,00:27:25,00:02:00,,,,,FP,,1,Overcast,False,False,False,Day
+SZTEN201a_00_03_09.mov,SZTE/video/SZTEN201a.mov,00:03:09,00:04:10,00:01:01,,,,,FP,,2,Overcast,False,False,False,Day
+SZTEN201a_00_03_22.mov,SZTE/video/SZTEN201a.mov,00:03:22,00:03:52,00:00:30,,,,,FP,,2,Overcast,False,False,False,Day
+SZTEN201a_00_04_12.mov,SZTE/video/SZTEN201a.mov,00:04:12,00:05:52,00:01:40,,,,,FP,,2,Overcast,False,False,False,Day
+SZTEN201a_00_06_20.mov,SZTE/video/SZTEN201a.mov,00:06:20,00:08:09,00:01:49,,,,,FP,,2,Overcast,False,False,False,Day
+SZTEN201a_00_08_17.mov,SZTE/video/SZTEN201a.mov,00:08:17,00:08:47,00:00:30,,,,,FP,,2,Overcast,False,False,False,Day
+SZTEN201a_00_09_24.mov,SZTE/video/SZTEN201a.mov,00:09:24,00:09:56,00:00:32,,,,,FP,Bag,2,Overcast,False,False,False,Day
+SZTEN201a_00_11_48.mov,SZTE/video/SZTEN201a.mov,00:11:48,00:12:10,00:00:22,,,,,FP,Bag,2,Overcast,False,False,False,Day
+SZTEN201b_00_00_26.mov,SZTE/video/SZTEN201b.mov,00:00:26,00:02:33,00:02:07,,,,,FP,,2,None,False,False,False,Day
+SZTEN201b_00_04_45.mov,SZTE/video/SZTEN201b.mov,00:04:45,00:05:53,00:01:08,,,,,FP,,2,None,False,False,False,Day
+SZTEN201b_00_12_30.mov,SZTE/video/SZTEN201b.mov,00:12:30,00:14:15,00:01:45,,,,,FP,Shadow through fence,2,None,False,False,False,Day
+SZTEN201b_00_18_35.mov,SZTE/video/SZTEN201b.mov,00:18:35,00:19:33,00:00:58,,,,,FP,,2,None,False,False,False,Day
+SZTEN201b_00_22_32.mov,SZTE/video/SZTEN201b.mov,00:22:32,00:24:24,00:01:52,,,,,FP,Shadow through fence,2,None,False,False,False,Day
+SZTEN201b_00_24_50.mov,SZTE/video/SZTEN201b.mov,00:24:50,00:26:22,00:01:32,,,,,FP,,2,None,False,False,False,Day
+SZTEN201c_00_02_31.mov,SZTE/video/SZTEN201c.mov,00:02:31,00:03:13,00:00:42,,,,,FP,,2,None,False,False,False,Dusk
+SZTEN201c_00_08_50.mov,SZTE/video/SZTEN201c.mov,00:08:50,00:10:01,00:01:11,,,,,FP,,2,None,False,False,False,Dusk
+SZTEN201c_00_11_09.mov,SZTE/video/SZTEN201c.mov,00:11:09,00:12:00,00:00:51,,,,,FP,,2,None,False,False,False,Dusk
+SZTEN201c_00_15_31.mov,SZTE/video/SZTEN201c.mov,00:15:31,00:15:31,00:02:01,,,,,FP,Rabbits,2,None,False,False,False,Dusk
+SZTEN201c_00_21_02.mov,SZTE/video/SZTEN201c.mov,00:21:02,00:22:19,00:01:17,,,,,FP,,2,None,False,False,False,Dusk
+SZTEN201c_00_25_40.mov,SZTE/video/SZTEN201c.mov,00:25:40,00:26:32,00:00:52,,,,,FP,,2,None,False,False,False,Dusk
 SZTEN201d_00_04_21.mov,SZTE/video/SZTEN201d.mov,00:04:21,00:04:21,00:00:58,,,,,FP,Rabbits,2,None,False,False,False,Dawn
-SZTEN201d_00_05_33.mov,SZTE/video/SZTEN201d.mov,00:08:20,00:09:01,00:00:41,,,,,FP,Foxes,2,None,False,False,False,Dawn
-SZTEN201d_00_08_20.mov,SZTE/video/SZTEN201d.mov,00:05:33,00:06:18,00:00:45,,,,,FP,,2,None,False,False,False,Dawn
-SZTEN201d_00_16_13.mov,SZTE/video/SZTEN201d.mov,00:18:29,00:19:47,00:01:18,,,,,FP,,2,None,False,False,False,Dawn
-SZTEN201d_00_18_29.mov,SZTE/video/SZTEN201d.mov,00:23:14,00:25:17,00:02:03,,,,,FP,,2,None,False,False,False,Dawn
-SZTEN201d_00_20_50.mov,SZTE/video/SZTEN201d.mov,00:16:13,00:17:19,00:01:06,,,,,FP,,2,None,False,False,False,Dawn
+SZTEN201d_00_05_33.mov,SZTE/video/SZTEN201d.mov,00:05:33,00:06:18,00:00:45,,,,,FP,,2,None,False,False,False,Dawn
+SZTEN201d_00_08_20.mov,SZTE/video/SZTEN201d.mov,00:08:20,00:09:01,00:00:41,,,,,FP,Foxes,2,None,False,False,False,Dawn
+SZTEN201d_00_16_13.mov,SZTE/video/SZTEN201d.mov,00:16:13,00:17:19,00:01:06,,,,,FP,,2,None,False,False,False,Dawn
+SZTEN201d_00_18_29.mov,SZTE/video/SZTEN201d.mov,00:18:29,00:19:47,00:01:18,,,,,FP,,2,None,False,False,False,Dawn
+SZTEN201d_00_20_50.mov,SZTE/video/SZTEN201d.mov,00:20:50,00:22:38,00:01:48,,,,,FP,,2,None,False,False,False,Dawn
 SZTEN201d_00_22_11.mov,SZTE/video/SZTEN201d.mov,00:22:11,00:22:56,00:00:45,,,,,FP,,2,None,False,False,False,Dawn
-SZTEN201d_00_23_14.mov,SZTE/video/SZTEN201d.mov,00:20:50,00:22:38,00:01:48,,,,,FP,,2,None,False,False,False,Dawn
+SZTEN201d_00_23_14.mov,SZTE/video/SZTEN201d.mov,00:23:14,00:25:17,00:02:03,,,,,FP,,2,None,False,False,False,Dawn
 SZTEN201d_00_27_21.mov,SZTE/video/SZTEN201d.mov,00:27:21,00:28:12,00:00:51,,,,,FP,,2,None,False,False,False,Dawn
-SZTEN201e_00_00_08.mov,SZTE/video/SZTEN201e.mov,00:04:25,00:06:52,00:02:27,,,,,FP,,2,,False,False,False,Night
-SZTEN201e_00_04_25.mov,SZTE/video/SZTEN201e.mov,00:00:08,00:01:47,00:01:39,,,,,FP,,2,,False,False,False,Night
+SZTEN201e_00_00_08.mov,SZTE/video/SZTEN201e.mov,00:00:08,00:01:47,00:01:39,,,,,FP,,2,,False,False,False,Night
+SZTEN201e_00_04_25.mov,SZTE/video/SZTEN201e.mov,00:04:25,00:06:52,00:02:27,,,,,FP,,2,,False,False,False,Night
 SZTEN201e_00_11_46.mov,SZTE/video/SZTEN201e.mov,00:11:46,00:12:42,00:00:56,,,,,FP,,2,,False,False,False,Night
-SZTEN202a_00_01_52.mov,SZTE/video/SZTEN202a.mov,00:06:02,00:06:02,00:02:00,,,,,FP,Birds,2,Some,False,False,False,Day
-SZTEN202a_00_06_02.mov,SZTE/video/SZTEN202a.mov,00:18:45,00:20:40,00:01:55,,,,,FP,,2,Some,False,False,False,Day
+SZTEN202a_00_01_52.mov,SZTE/video/SZTEN202a.mov,00:01:52,00:04:06,00:02:14,,,,,FP,,2,Some,False,False,False,Day
+SZTEN202a_00_06_02.mov,SZTE/video/SZTEN202a.mov,00:06:02,00:06:02,00:02:00,,,,,FP,Birds,2,Some,False,False,False,Day
 SZTEN202a_00_10_10.mov,SZTE/video/SZTEN202a.mov,00:10:10,00:12:25,00:02:15,,,,,FP,,2,Some,False,False,False,Day
-SZTEN202a_00_14_56.mov,SZTE/video/SZTEN202a.mov,00:01:52,00:04:06,00:02:14,,,,,FP,,2,Some,False,False,False,Day
-SZTEN202a_00_18_45.mov,SZTE/video/SZTEN202a.mov,00:26:12,00:26:47,00:00:35,,,,,FP,,2,Some,False,False,False,Day
-SZTEN202a_00_26_12.mov,SZTE/video/SZTEN202a.mov,00:14:56,00:16:25,00:01:29,,,,,FP,,2,Some,False,False,False,Day
+SZTEN202a_00_14_56.mov,SZTE/video/SZTEN202a.mov,00:14:56,00:16:25,00:01:29,,,,,FP,,2,Some,False,False,False,Day
+SZTEN202a_00_18_45.mov,SZTE/video/SZTEN202a.mov,00:18:45,00:20:40,00:01:55,,,,,FP,,2,Some,False,False,False,Day
+SZTEN202a_00_26_12.mov,SZTE/video/SZTEN202a.mov,00:26:12,00:26:47,00:00:35,,,,,FP,,2,Some,False,False,False,Day
 SZTEN202a_00_34_45.mov,SZTE/video/SZTEN202a.mov,00:34:45,00:35:53,00:01:08,,,,,FP,,2,Some,False,False,False,Day
-SZTEN202b_00_01_30.mov,SZTE/video/SZTEN202b.mov,00:20:49,00:20:49,00:01:28,,,,,FP,Birds,2,Overcast,False,True,False,Day
-SZTEN202b_00_04_31.mov,SZTE/video/SZTEN202b.mov,00:27:33,00:28:29,00:00:56,,,,,FP,,2,Overcast,False,True,False,Day
+SZTEN202b_00_01_30.mov,SZTE/video/SZTEN202b.mov,00:01:30,00:02:30,00:01:00,,,,,FP,,2,Overcast,False,True,False,Day
+SZTEN202b_00_04_31.mov,SZTE/video/SZTEN202b.mov,00:04:31,00:05:18,00:00:47,,,,,FP,,2,Overcast,False,True,False,Day
 SZTEN202b_00_05_53.mov,SZTE/video/SZTEN202b.mov,00:05:53,00:08:09,00:02:16,,,,,FP,,2,Overcast,False,True,False,Day
-SZTEN202b_00_08_39.mov,SZTE/video/SZTEN202b.mov,00:01:30,00:02:30,00:01:00,,,,,FP,,2,Overcast,False,True,False,Day
+SZTEN202b_00_08_39.mov,SZTE/video/SZTEN202b.mov,00:08:39,00:09:08,00:00:29,,,,,FP,,2,Overcast,False,True,False,Day
 SZTEN202b_00_13_35.mov,SZTE/video/SZTEN202b.mov,00:13:35,00:14:55,00:01:20,,,,,FP,,2,Overcast,False,True,False,Day
 SZTEN202b_00_15_27.mov,SZTE/video/SZTEN202b.mov,00:15:27,00:16:05,00:00:38,,,,,FP,,2,Overcast,False,True,False,Day
-SZTEN202b_00_20_49.mov,SZTE/video/SZTEN202b.mov,00:04:31,00:05:18,00:00:47,,,,,FP,,2,Overcast,False,True,False,Day
-SZTEN202b_00_27_33.mov,SZTE/video/SZTEN202b.mov,00:08:39,00:09:08,00:00:29,,,,,FP,,2,Overcast,False,True,False,Day
-SZTEN202c_00_01_20.mov,SZTE/video/SZTEN202c.mov,00:09:24,00:09:24,00:01:02,,,,,FP,Birds,2,Overcast,False,False,True,Day
-SZTEN202c_00_07_38.mov,SZTE/video/SZTEN202c.mov,00:15:18,00:15:39,00:00:21,,,,,FP,Insect on camera,2,Overcast,False,False,True,Day
-SZTEN202c_00_09_24.mov,SZTE/video/SZTEN202c.mov,00:07:38,00:09:06,00:01:28,,,,,FP,,2,Overcast,False,False,True,Day
-SZTEN202c_00_11_30.mov,SZTE/video/SZTEN202c.mov,00:17:07,00:17:56,00:00:49,,,,,FP,,2,Overcast,False,False,True,Day
-SZTEN202c_00_15_18.mov,SZTE/video/SZTEN202c.mov,00:11:30,00:13:09,00:01:39,,,,,FP,,2,Overcast,False,False,True,Day
-SZTEN202c_00_17_07.mov,SZTE/video/SZTEN202c.mov,00:01:20,00:02:55,00:01:35,,,,,FP,,2,Overcast,False,False,True,Day
-SZTEN202d_00_00_13.mov,SZTE/video/SZTEN202d.mov,00:19:50,00:20:18,00:00:28,,,,,FP,Foxes,2,,False,False,False,Night
-SZTEN202d_00_03_01.mov,SZTE/video/SZTEN202d.mov,00:10:34,00:12:30,00:01:56,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_04_25.mov,SZTE/video/SZTEN202d.mov,00:07:28,00:08:42,00:01:14,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_07_28.mov,SZTE/video/SZTEN202d.mov,00:10:10,00:11:50,00:01:40,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_10_10.mov,SZTE/video/SZTEN202d.mov,00:00:13,00:02:34,00:02:21,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_10_34.mov,SZTE/video/SZTEN202d.mov,00:03:01,00:04:57,00:01:56,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_15_41.mov,SZTE/video/SZTEN202d.mov,00:04:25,00:06:03,00:01:38,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_17_40.mov,SZTE/video/SZTEN202d.mov,00:22:21,00:23:47,00:01:26,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_19_50.mov,SZTE/video/SZTEN202d.mov,00:15:41,00:17:15,00:01:34,,,,,FP,,2,,False,False,False,Night
-SZTEN202d_00_22_21.mov,SZTE/video/SZTEN202d.mov,00:17:40,00:18:21,00:00:41,,,,,FP,,2,,False,False,False,Night
+SZTEN202b_00_20_49.mov,SZTE/video/SZTEN202b.mov,00:20:49,00:20:49,00:01:28,,,,,FP,Birds,2,Overcast,False,True,False,Day
+SZTEN202b_00_27_33.mov,SZTE/video/SZTEN202b.mov,00:27:33,00:28:29,00:00:56,,,,,FP,,2,Overcast,False,True,False,Day
+SZTEN202c_00_01_20.mov,SZTE/video/SZTEN202c.mov,00:01:20,00:02:55,00:01:35,,,,,FP,,2,Overcast,False,False,True,Day
+SZTEN202c_00_07_38.mov,SZTE/video/SZTEN202c.mov,00:07:38,00:09:06,00:01:28,,,,,FP,,2,Overcast,False,False,True,Day
+SZTEN202c_00_09_24.mov,SZTE/video/SZTEN202c.mov,00:09:24,00:09:24,00:01:02,,,,,FP,Birds,2,Overcast,False,False,True,Day
+SZTEN202c_00_11_30.mov,SZTE/video/SZTEN202c.mov,00:11:30,00:13:09,00:01:39,,,,,FP,,2,Overcast,False,False,True,Day
+SZTEN202c_00_15_18.mov,SZTE/video/SZTEN202c.mov,00:15:18,00:15:39,00:00:21,,,,,FP,Insect on camera,2,Overcast,False,False,True,Day
+SZTEN202c_00_17_07.mov,SZTE/video/SZTEN202c.mov,00:17:07,00:17:56,00:00:49,,,,,FP,,2,Overcast,False,False,True,Day
+SZTEN202d_00_00_13.mov,SZTE/video/SZTEN202d.mov,00:00:13,00:02:34,00:02:21,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_03_01.mov,SZTE/video/SZTEN202d.mov,00:03:01,00:04:57,00:01:56,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_04_25.mov,SZTE/video/SZTEN202d.mov,00:04:25,00:06:03,00:01:38,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_07_28.mov,SZTE/video/SZTEN202d.mov,00:07:28,00:08:42,00:01:14,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_10_10.mov,SZTE/video/SZTEN202d.mov,00:10:10,00:11:50,00:01:40,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_10_34.mov,SZTE/video/SZTEN202d.mov,00:10:34,00:12:30,00:01:56,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_15_41.mov,SZTE/video/SZTEN202d.mov,00:15:41,00:17:15,00:01:34,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_17_40.mov,SZTE/video/SZTEN202d.mov,00:17:40,00:18:21,00:00:41,,,,,FP,,2,,False,False,False,Night
+SZTEN202d_00_19_50.mov,SZTE/video/SZTEN202d.mov,00:19:50,00:20:18,00:00:28,,,,,FP,Foxes,2,,False,False,False,Night
+SZTEN202d_00_22_21.mov,SZTE/video/SZTEN202d.mov,00:22:21,00:23:47,00:01:26,,,,,FP,,2,,False,False,False,Night
 SZTEN203a_00_03_33.mov,SZTE/video/SZTEN203a.mov,00:03:33,00:04:18,00:00:45,,,,,FP,,2,,False,False,False,Night
-SZTEN203a_00_09_31.mov,SZTE/video/SZTEN203a.mov,00:36:14,00:37:47,00:01:33,,,,,FP,,2,,False,False,False,Night
-SZTEN203a_00_13_00.mov,SZTE/video/SZTEN203a.mov,00:09:31,00:11:08,00:01:37,,,,,FP,,2,,False,False,False,Night
-SZTEN203a_00_24_20.mov,SZTE/video/SZTEN203a.mov,00:26:18,00:26:53,00:00:35,,,,,FP,,2,,False,False,False,Night
-SZTEN203a_00_26_18.mov,SZTE/video/SZTEN203a.mov,00:31:26,00:32:11,00:00:45,,,,,FP,,2,,False,False,False,Night
+SZTEN203a_00_09_31.mov,SZTE/video/SZTEN203a.mov,00:09:31,00:11:08,00:01:37,,,,,FP,,2,,False,False,False,Night
+SZTEN203a_00_13_00.mov,SZTE/video/SZTEN203a.mov,00:13:00,00:14:16,00:01:16,,,,,FP,,2,,False,False,False,Night
+SZTEN203a_00_24_20.mov,SZTE/video/SZTEN203a.mov,00:24:20,00:26:09,00:01:49,,,,,FP,,2,,False,False,False,Night
+SZTEN203a_00_26_18.mov,SZTE/video/SZTEN203a.mov,00:26:18,00:26:53,00:00:35,,,,,FP,,2,,False,False,False,Night
 SZTEN203a_00_27_35.mov,SZTE/video/SZTEN203a.mov,00:27:35,00:28:43,00:01:08,,,,,FP,,2,,False,False,False,Night
-SZTEN203a_00_31_26.mov,SZTE/video/SZTEN203a.mov,00:13:00,00:14:16,00:01:16,,,,,FP,,2,,False,False,False,Night
-SZTEN203a_00_34_56.mov,SZTE/video/SZTEN203a.mov,00:24:20,00:26:09,00:01:49,,,,,FP,,2,,False,False,False,Night
-SZTEN203a_00_36_14.mov,SZTE/video/SZTEN203a.mov,00:34:56,00:35:19,00:00:23,,,,,FP,,2,,False,False,False,Night
-SZTRA101a01_00_01_04.mov,SZTR/video/SZTRA101a01.mov,00:08:50,00:09:49,00:00:59,15.0,Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
+SZTEN203a_00_31_26.mov,SZTE/video/SZTEN203a.mov,00:31:26,00:32:11,00:00:45,,,,,FP,,2,,False,False,False,Night
+SZTEN203a_00_34_56.mov,SZTE/video/SZTEN203a.mov,00:34:56,00:35:19,00:00:23,,,,,FP,,2,,False,False,False,Night
+SZTEN203a_00_36_14.mov,SZTE/video/SZTEN203a.mov,00:36:14,00:37:47,00:01:33,,,,,FP,,2,,False,False,False,Night
+SZTRA101a01_00_01_04.mov,SZTR/video/SZTRA101a01.mov,00:01:04,00:02:59,00:01:55,,,,,FP,,1,,False,False,False,Night
 SZTRA101a01_00_03_11.mov,SZTR/video/SZTRA101a01.mov,00:03:11,00:05:31,00:02:20,,,,,FP,,1,,False,False,False,Night
-SZTRA101a01_00_07_14.mov,SZTR/video/SZTRA101a01.mov,00:01:04,00:02:59,00:01:55,,,,,FP,,1,,False,False,False,Night
-SZTRA101a01_00_08_50.mov,SZTR/video/SZTRA101a01.mov,00:07:14,00:08:23,00:01:09,,,,,FP,,1,,False,False,False,Night
-SZTRA101a02_00_01_04.mov,SZTR/video/SZTRA101a02.mov,00:01:38,00:02:48,00:01:10,15.0,Walk,Two People,Perpendicular,TP,,1,,False,False,False,Night
-SZTRA101a02_00_01_38.mov,SZTR/video/SZTRA101a02.mov,00:01:04,00:01:30,00:00:26,,,,,FP,,1,,False,False,False,Night
+SZTRA101a01_00_07_14.mov,SZTR/video/SZTRA101a01.mov,00:07:14,00:08:23,00:01:09,,,,,FP,,1,,False,False,False,Night
+SZTRA101a01_00_08_50.mov,SZTR/video/SZTRA101a01.mov,00:08:50,00:09:49,00:00:59,15.0,Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
+SZTRA101a02_00_01_04.mov,SZTR/video/SZTRA101a02.mov,00:01:04,00:01:30,00:00:26,,,,,FP,,1,,False,False,False,Night
+SZTRA101a02_00_01_38.mov,SZTR/video/SZTRA101a02.mov,00:01:38,00:02:48,00:01:10,15.0,Walk,Two People,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a03_00_01_25.mov,SZTR/video/SZTRA101a03.mov,00:01:25,00:02:42,00:01:17,30.0,Creep Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a04_00_00_18.mov,SZTR/video/SZTRA101a04.mov,00:00:18,00:01:31,00:01:13,30.0,Crouch Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a05_00_00_07.mov,SZTR/video/SZTRA101a05.mov,00:00:07,00:01:09,00:01:02,10.0,Crouch Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
@@ -405,29 +405,29 @@ SZTRA101a19_00_00_06.mov,SZTR/video/SZTRA101a19.mov,00:00:06,00:01:06,00:01:00,3
 SZTRA101a19_00_01_17.mov,SZTR/video/SZTRA101a19.mov,00:01:17,00:02:02,00:00:45,,,,,FP,,1,,False,False,False,Night
 SZTRA101a20_00_00_03.mov,SZTR/video/SZTRA101a20.mov,00:00:03,00:01:11,00:01:08,30.0,Crouch Run,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a21_00_00_06.mov,SZTR/video/SZTRA101a21.mov,00:00:06,00:01:12,00:01:06,10.0,Crouch Run,One person,Perpendicular,TP,,1,,False,False,False,Night
-SZTRA101a22_00_00_28.mov,SZTR/video/SZTRA101a22.mov,00:01:11,00:02:06,00:00:55,30.0,Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
-SZTRA101a22_00_01_11.mov,SZTR/video/SZTRA101a22.mov,00:00:28,00:00:46,00:00:18,,,,,FP,,1,,False,False,False,Night
-SZTRA101a23_00_00_09.mov,SZTR/video/SZTRA101a23.mov,00:01:10,00:01:59,00:00:49,30.0,Walk,Two People,Perpendicular,TP,,1,,False,False,False,Night
-SZTRA101a23_00_01_10.mov,SZTR/video/SZTRA101a23.mov,00:00:09,00:00:43,00:00:34,,,,,FP,,1,,False,False,False,Night
+SZTRA101a22_00_00_28.mov,SZTR/video/SZTRA101a22.mov,00:00:28,00:00:46,00:00:18,,,,,FP,,1,,False,False,False,Night
+SZTRA101a22_00_01_11.mov,SZTR/video/SZTRA101a22.mov,00:01:11,00:02:06,00:00:55,30.0,Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
+SZTRA101a23_00_00_09.mov,SZTR/video/SZTRA101a23.mov,00:00:09,00:00:43,00:00:34,,,,,FP,,1,,False,False,False,Night
+SZTRA101a23_00_01_10.mov,SZTR/video/SZTRA101a23.mov,00:01:10,00:01:59,00:00:49,30.0,Walk,Two People,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a24_00_01_14.mov,SZTR/video/SZTRA101a24.mov,00:01:14,00:02:36,00:01:22,15.0,Creep Walk,One person,Diagonal,TP,,1,,False,False,False,Night
-SZTRA101a25_00_00_03.mov,SZTR/video/SZTRA101a25.mov,00:01:14,00:02:53,00:01:39,15.0,Creep Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
-SZTRA101a25_00_01_14.mov,SZTR/video/SZTRA101a25.mov,00:00:03,00:00:47,00:00:44,,,,,FP,,1,,False,False,False,Night
+SZTRA101a25_00_00_03.mov,SZTR/video/SZTRA101a25.mov,00:00:03,00:00:47,00:00:44,,,,,FP,,1,,False,False,False,Night
+SZTRA101a25_00_01_14.mov,SZTR/video/SZTRA101a25.mov,00:01:14,00:02:53,00:01:39,15.0,Creep Walk,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a26_00_01_18.mov,SZTR/video/SZTRA101a26.mov,00:01:18,00:02:19,00:01:01,15.0,Crouch Walk,One person,Perpendicular,TP,,1,,True,False,False,Night
 SZTRA101a27_00_00_34.mov,SZTR/video/SZTRA101a27.mov,00:00:34,00:01:43,00:01:09,30.0,Crawl,One person,Perpendicular,TP,,1,,True,False,False,Night
 SZTRA101a28_00_00_58.mov,SZTR/video/SZTRA101a28.mov,00:00:58,00:02:05,00:01:07,30.0,Log Roll,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a29_00_01_13.mov,SZTR/video/SZTRA101a29.mov,00:01:13,00:02:06,00:00:53,10.0,Run,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a29_00_02_26.mov,SZTR/video/SZTRA101a29.mov,00:02:26,00:02:48,00:00:22,,,,,FP,,1,,False,False,False,Night
-SZTRA101a30_00_00_05.mov,SZTR/video/SZTRA101a30.mov,00:00:54,00:01:48,00:00:54,15.0,Crouch Run,One person,Perpendicular,TP,,1,,False,False,False,Night
-SZTRA101a30_00_00_54.mov,SZTR/video/SZTRA101a30.mov,00:00:05,00:00:42,00:00:37,,,,,FP,,1,,False,False,False,Night
+SZTRA101a30_00_00_05.mov,SZTR/video/SZTRA101a30.mov,00:00:05,00:00:42,00:00:37,,,,,FP,,1,,False,False,False,Night
+SZTRA101a30_00_00_54.mov,SZTR/video/SZTRA101a30.mov,00:00:54,00:01:48,00:00:54,15.0,Crouch Run,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a31_00_01_17.mov,SZTR/video/SZTRA101a31.mov,00:01:17,00:01:53,00:00:36,15.0,Walk With Ladder,One person,Perpendicular,TP,,1,,False,False,False,Night
 SZTRA101a31_00_02_57.mov,SZTR/video/SZTRA101a31.mov,00:02:57,00:03:47,00:00:50,,,,,FP,,1,,False,False,False,Night
-SZTRA102a01_00_01_23.mov,SZTR/video/SZTRA102a01.mov,00:05:36,00:06:42,00:01:06,15.0,Walk,One person,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTRA102a01_00_02_15.mov,SZTR/video/SZTRA102a01.mov,00:02:40,00:04:26,00:01:46,,,,,FP,,1,None,False,False,False,Dawn
-SZTRA102a01_00_02_40.mov,SZTR/video/SZTRA102a01.mov,00:02:55,00:04:17,00:01:22,,,,,FP,,1,None,False,False,False,Dawn
-SZTRA102a01_00_02_55.mov,SZTR/video/SZTRA102a01.mov,00:02:15,00:04:43,00:02:28,,,,,FP,,1,None,False,False,False,Dawn
-SZTRA102a01_00_05_36.mov,SZTR/video/SZTRA102a01.mov,00:01:23,00:03:10,00:01:47,,,,,FP,,1,None,False,False,False,Dawn
-SZTRA102a02_00_00_02.mov,SZTR/video/SZTRA102a02.mov,00:01:50,00:02:42,00:00:52,15.0,Walk,Two People,Perpendicular,TP,,1,None,False,False,False,Dawn
-SZTRA102a02_00_01_50.mov,SZTR/video/SZTRA102a02.mov,00:00:02,00:00:46,00:00:44,,,,,FP,,1,None,False,False,False,Dawn
+SZTRA102a01_00_01_23.mov,SZTR/video/SZTRA102a01.mov,00:01:23,00:03:10,00:01:47,,,,,FP,,1,None,False,False,False,Dawn
+SZTRA102a01_00_02_15.mov,SZTR/video/SZTRA102a01.mov,00:02:15,00:04:43,00:02:28,,,,,FP,,1,None,False,False,False,Dawn
+SZTRA102a01_00_02_40.mov,SZTR/video/SZTRA102a01.mov,00:02:40,00:04:26,00:01:46,,,,,FP,,1,None,False,False,False,Dawn
+SZTRA102a01_00_02_55.mov,SZTR/video/SZTRA102a01.mov,00:02:55,00:04:17,00:01:22,,,,,FP,,1,None,False,False,False,Dawn
+SZTRA102a01_00_05_36.mov,SZTR/video/SZTRA102a01.mov,00:05:36,00:06:42,00:01:06,15.0,Walk,One person,Perpendicular,TP,,1,None,False,False,False,Dawn
+SZTRA102a02_00_00_02.mov,SZTR/video/SZTRA102a02.mov,00:00:02,00:00:46,00:00:44,,,,,FP,,1,None,False,False,False,Dawn
+SZTRA102a02_00_01_50.mov,SZTR/video/SZTRA102a02.mov,00:01:50,00:02:42,00:00:52,15.0,Walk,Two People,Perpendicular,TP,,1,None,False,False,False,Dawn
 SZTRA102a03_00_00_11.mov,SZTR/video/SZTRA102a03.mov,00:00:11,00:01:24,00:01:13,30.0,Crouch Walk,One person,Perpendicular,TP,,1,None,False,False,False,Dawn
 SZTRA102a04_00_00_09.mov,SZTR/video/SZTRA102a04.mov,00:00:09,00:01:08,00:00:59,15.0,Crawl,One person,Perpendicular,TP,,1,None,False,False,False,Dawn
 SZTRA102a05_00_00_20.mov,SZTR/video/SZTRA102a05.mov,00:00:20,00:01:54,00:01:34,15.0,Creep Walk,One person,Perpendicular,TP,,1,None,False,False,False,Dawn
@@ -439,9 +439,9 @@ SZTRA102a08_00_00_17.mov,SZTR/video/SZTRA102a08.mov,00:00:17,00:02:21,00:02:04,1
 SZTRA102a09_00_00_09.mov,SZTR/video/SZTRA102a09.mov,00:00:09,00:00:54,00:00:45,30.0,Run,One person,Perpendicular,TP,,1,,False,False,False,Dawn
 SZTRA102a09_00_01_27.mov,SZTR/video/SZTRA102a09.mov,00:01:27,00:02:21,00:00:54,,,,,FP,,1,,False,False,False,Dawn
 SZTRA102a10_00_00_12.mov,SZTR/video/SZTRA102a10.mov,00:00:12,00:00:58,00:00:46,10.0,Walk With Ladder,One person,Perpendicular,TP,,1,,False,False,False,Dawn
-SZTRA102b01_00_00_50.mov,SZTR/video/SZTRA102b01.mov,00:04:58,00:06:03,00:01:05,10.0,Walk,One person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTRA102b01_00_02_55.mov,SZTR/video/SZTRA102b01.mov,00:00:50,00:02:03,00:01:13,,,,,FP,,1,None,False,False,False,Day
-SZTRA102b01_00_04_58.mov,SZTR/video/SZTRA102b01.mov,00:02:55,00:04:08,00:01:13,,,,,FP,,1,None,False,False,False,Day
+SZTRA102b01_00_00_50.mov,SZTR/video/SZTRA102b01.mov,00:00:50,00:02:03,00:01:13,,,,,FP,,1,None,False,False,False,Day
+SZTRA102b01_00_02_55.mov,SZTR/video/SZTRA102b01.mov,00:02:55,00:04:08,00:01:13,,,,,FP,,1,None,False,False,False,Day
+SZTRA102b01_00_04_58.mov,SZTR/video/SZTRA102b01.mov,00:04:58,00:06:03,00:01:05,10.0,Walk,One person,Perpendicular,TP,,1,None,False,False,False,Day
 SZTRA102b02_00_00_17.mov,SZTR/video/SZTRA102b02.mov,00:00:17,00:01:18,00:01:01,10.0,Walk,Two People,Perpendicular,TP,,1,None,False,False,False,Day
 SZTRA102b03_00_00_14.mov,SZTR/video/SZTRA102b03.mov,00:00:14,00:01:03,00:00:49,10.0,Crouch Walk,One person,Perpendicular,TP,,1,None,False,False,False,Day
 SZTRA102b04_00_00_22.mov,SZTR/video/SZTRA102b04.mov,00:00:22,00:01:11,00:00:49,30.0,Run,One person,Perpendicular,TP,,1,None,False,False,False,Day
@@ -452,17 +452,17 @@ SZTRA102b06_00_00_02.mov,SZTR/video/SZTRA102b06.mov,00:00:02,00:00:54,00:00:52,3
 SZTRA102b07_00_00_49.mov,SZTR/video/SZTRA102b07.mov,00:00:49,00:01:53,00:01:04,10.0,Crawl,One person,Perpendicular,TP,,1,None,False,False,False,Day
 SZTRA102b08_00_00_07.mov,SZTR/video/SZTRA102b08.mov,00:00:07,00:01:35,00:01:28,30.0,Body Drag,One person,Perpendicular,TP,,1,None,False,False,False,Day
 SZTRA102b09_00_00_06.mov,SZTR/video/SZTRA102b09.mov,00:00:06,00:00:51,00:00:45,10.0,Run,One person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTRA102b09_00_01_06.mov,SZTR/video/SZTRA102b09.mov,00:02:06,00:02:24,00:00:18,,,,,FP,,1,None,False,False,False,Day
-SZTRA102b09_00_02_06.mov,SZTR/video/SZTRA102b09.mov,00:01:06,00:02:03,00:00:57,,,,,FP,,1,None,False,False,False,Day
+SZTRA102b09_00_01_06.mov,SZTR/video/SZTRA102b09.mov,00:01:06,00:02:03,00:00:57,,,,,FP,,1,None,False,False,False,Day
+SZTRA102b09_00_02_06.mov,SZTR/video/SZTRA102b09.mov,00:02:06,00:02:24,00:00:18,,,,,FP,,1,None,False,False,False,Day
 SZTRA102b10_00_00_09.mov,SZTR/video/SZTRA102b10.mov,00:00:09,00:02:17,00:02:08,30.0,Creep Walk,One person,Diagonal,TP,,1,None,False,False,False,Day
 SZTRA102b10_00_02_45.mov,SZTR/video/SZTRA102b10.mov,00:02:45,00:03:19,00:00:34,,,,,FP,,1,None,False,False,False,Day
 SZTRA102b11_00_00_12.mov,SZTR/video/SZTRA102b11.mov,00:00:12,00:01:04,00:00:52,30.0,Log Roll,One person,Perpendicular,TP,,1,None,False,False,False,Day
 SZTRA102b12_00_00_11.mov,SZTR/video/SZTRA102b12.mov,00:00:11,00:01:00,00:00:49,10.0,Crouch Run,One person,Perpendicular,TP,,1,None,False,False,False,Day
 SZTRA102b13_00_00_20.mov,SZTR/video/SZTRA102b13.mov,00:00:20,00:00:39,00:00:19,30.0,Walk With Ladder,One person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTRA103a01_00_00_27.mov,SZTR/video/SZTRA103a01.mov,00:05:19,00:06:14,00:00:55,15.0,Walk,One person,Perpendicular,TP,,1,Overcast,False,False,False,Day
+SZTRA103a01_00_00_27.mov,SZTR/video/SZTRA103a01.mov,00:00:27,00:02:01,00:01:34,,,,,FP,,1,Overcast,False,False,False,Day
 SZTRA103a01_00_02_12.mov,SZTR/video/SZTRA103a01.mov,00:02:12,00:03:07,00:00:55,,,,,FP,,1,Overcast,False,False,False,Day
 SZTRA103a01_00_03_17.mov,SZTR/video/SZTRA103a01.mov,00:03:17,00:05:04,00:01:47,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRA103a01_00_05_19.mov,SZTR/video/SZTRA103a01.mov,00:00:27,00:02:01,00:01:34,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRA103a01_00_05_19.mov,SZTR/video/SZTRA103a01.mov,00:05:19,00:06:14,00:00:55,15.0,Walk,One person,Perpendicular,TP,,1,Overcast,False,False,False,Day
 SZTRA103a02_00_00_07.mov,SZTR/video/SZTRA103a02.mov,00:00:07,00:01:14,00:01:07,15.0,Walk,Two People,Perpendicular,TP,,1,Overcast,False,False,False,Day
 SZTRA103a02_00_01_30.mov,SZTR/video/SZTRA103a02.mov,00:01:30,00:01:54,00:00:24,,,,,FP,,1,Overcast,False,False,False,Day
 SZTRA103a03_00_00_12.mov,SZTR/video/SZTRA103a03.mov,00:00:12,00:01:21,00:01:09,15.0,Creep Walk,One person,Perpendicular,TP,,1,Overcast,False,,False,Day
@@ -475,8 +475,8 @@ SZTRA103a07_00_00_11.mov,SZTR/video/SZTRA103a07.mov,00:00:11,00:01:55,00:01:44,1
 SZTRA103a07_00_01_56.mov,SZTR/video/SZTRA103a07.mov,00:01:56,00:02:45,00:00:49,,,,,FP,,1,Overcast,False,False,False,Day
 SZTRA103a08_00_00_04.mov,SZTR/video/SZTRA103a08.mov,00:00:04,00:01:31,00:01:27,15.0,Body Drag,One person,Perpendicular,TP,,1,Overcast,False,False,False,Day
 SZTRA103a09_00_00_15.mov,SZTR/video/SZTRA103a09.mov,00:00:15,00:01:04,00:00:49,10.0,Run,One person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTRA103a09_00_01_21.mov,SZTR/video/SZTRA103a09.mov,00:01:46,00:02:09,00:00:23,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRA103a09_00_01_46.mov,SZTR/video/SZTRA103a09.mov,00:01:21,00:01:44,00:00:23,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRA103a09_00_01_21.mov,SZTR/video/SZTRA103a09.mov,00:01:21,00:01:44,00:00:23,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRA103a09_00_01_46.mov,SZTR/video/SZTRA103a09.mov,00:01:46,00:02:09,00:00:23,,,,,FP,,1,Overcast,False,False,False,Day
 SZTRA103a10_00_00_03.mov,SZTR/video/SZTRA103a10.mov,00:00:03,00:01:02,00:00:59,30.0,Crouch Run,One person,Perpendicular,TP,,1,Overcast,False,False,False,Day
 SZTRA103a11_00_00_14.mov,SZTR/video/SZTRA103a11.mov,00:00:14,00:01:20,00:01:06,15.0,Walk,One person,Diagonal,TP,,1,Overcast,False,False,False,Day
 SZTRA103a11_00_01_44.mov,SZTR/video/SZTRA103a11.mov,00:01:44,00:02:24,00:00:40,,,,,FP,,1,Overcast,False,False,False,Day
@@ -491,13 +491,13 @@ SZTRA103a15_00_01_26.mov,SZTR/video/SZTRA103a15.mov,00:01:26,00:01:55,00:00:29,,
 SZTRA103a16_00_00_07.mov,SZTR/video/SZTRA103a16.mov,00:00:07,00:01:07,00:01:00,30.0,Run,One person,Perpendicular,TP,,1,Overcast,False,False,False,Day
 SZTRA103a16_00_01_14.mov,SZTR/video/SZTRA103a16.mov,00:01:14,00:01:45,00:00:31,,,,,FP,,1,Overcast,False,False,False,Day
 SZTRA103a17_00_00_09.mov,SZTR/video/SZTRA103a17.mov,00:00:09,00:00:36,00:00:27,10.0,Walk With Ladder,One person,Perpendicular,TP,,1,Overcast,False,False,False,Day
-SZTRA103b01_00_00_47.mov,SZTR/video/SZTRA103b01.mov,00:06:13,00:07:13,00:01:00,15.0,Walk,One person,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTRA103b01_00_03_32.mov,SZTR/video/SZTRA103b01.mov,00:00:47,00:02:49,00:02:02,,,,,FP,,1,Some,False,False,False,Day
+SZTRA103b01_00_00_47.mov,SZTR/video/SZTRA103b01.mov,00:00:47,00:02:49,00:02:02,,,,,FP,,1,Some,False,False,False,Day
+SZTRA103b01_00_03_32.mov,SZTR/video/SZTRA103b01.mov,00:03:32,00:05:42,00:02:10,,,,,FP,,1,Some,False,False,False,Day
 SZTRA103b01_00_04_06.mov,SZTR/video/SZTRA103b01.mov,00:04:06,00:05:19,00:01:13,,,,,FP,,1,Some,False,False,False,Day
-SZTRA103b01_00_06_13.mov,SZTR/video/SZTRA103b01.mov,00:03:32,00:05:42,00:02:10,,,,,FP,,1,Some,False,False,False,Day
+SZTRA103b01_00_06_13.mov,SZTR/video/SZTRA103b01.mov,00:06:13,00:07:13,00:01:00,15.0,Walk,One person,Perpendicular,TP,,1,Some,False,False,False,Day
 SZTRA103b02_00_00_12.mov,SZTR/video/SZTRA103b02.mov,00:00:12,00:01:16,00:01:04,15.0,Walk,Two People,Perpendicular,TP,,1,Some,False,False,False,Day
-SZTRA103b02_00_01_20.mov,SZTR/video/SZTRA103b02.mov,00:01:50,00:03:03,00:01:13,,,,,FP,,1,Some,False,False,False,Day
-SZTRA103b02_00_01_50.mov,SZTR/video/SZTRA103b02.mov,00:01:20,00:03:14,00:01:54,,,,,FP,,1,Some,False,False,False,Day
+SZTRA103b02_00_01_20.mov,SZTR/video/SZTRA103b02.mov,00:01:20,00:03:14,00:01:54,,,,,FP,,1,Some,False,False,False,Day
+SZTRA103b02_00_01_50.mov,SZTR/video/SZTRA103b02.mov,00:01:50,00:03:03,00:01:13,,,,,FP,,1,Some,False,False,False,Day
 SZTRA103b03_00_00_11.mov,SZTR/video/SZTRA103b03.mov,00:00:11,00:02:11,00:02:00,10.0,Creep Walk,One person,Perpendicular,TP,,1,Some,False,False,False,Day
 SZTRA103b04_00_00_15.mov,SZTR/video/SZTRA103b04.mov,00:00:15,00:01:12,00:00:57,10.0,Run,One person,Diagonal,TP,,1,Some,False,False,False,Day
 SZTRA103b05_00_02_01.mov,SZTR/video/SZTRA103b05.mov,00:02:01,00:03:01,00:01:00,15.0,Run,One person,Perpendicular,TP,,1,Some,False,False,False,Day
@@ -525,10 +525,10 @@ SZTRA103b15_00_01_18.mov,SZTR/video/SZTRA103b15.mov,00:01:18,00:02:13,00:00:55,,
 SZTRA103b16_00_00_06.mov,SZTR/video/SZTRA103b16.mov,00:00:06,00:00:58,00:00:52,10.0,Crouch Run,One person,Perpendicular,TP,,1,Some,False,False,False,Day
 SZTRA103b16_00_01_26.mov,SZTR/video/SZTRA103b16.mov,00:01:26,00:02:04,00:00:38,,,,,FP,,1,Some,False,False,False,Day
 SZTRA103b17_00_00_12.mov,SZTR/video/SZTRA103b17.mov,00:00:12,00:00:44,00:00:32,10.0,Walk With Ladder,One person,Perpendicular,TP,,1,None,False,False,False,Day
-SZTRA104a01_00_00_33.mov,SZTR/video/SZTRA104a01.mov,00:05:14,00:06:39,00:01:25,30.0,Creep Walk,One person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTRA104a01_00_02_06.mov,SZTR/video/SZTRA104a01.mov,00:04:18,00:05:02,00:00:44,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTRA104a01_00_04_18.mov,SZTR/video/SZTRA104a01.mov,00:00:33,00:01:56,00:01:23,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTRA104a01_00_05_14.mov,SZTR/video/SZTRA104a01.mov,00:02:06,00:02:30,00:00:24,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTRA104a01_00_00_33.mov,SZTR/video/SZTRA104a01.mov,00:00:33,00:01:56,00:01:23,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTRA104a01_00_02_06.mov,SZTR/video/SZTRA104a01.mov,00:02:06,00:02:30,00:00:24,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTRA104a01_00_04_18.mov,SZTR/video/SZTRA104a01.mov,00:04:18,00:05:02,00:00:44,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTRA104a01_00_05_14.mov,SZTR/video/SZTRA104a01.mov,00:05:14,00:06:39,00:01:25,30.0,Creep Walk,One person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
 SZTRA104a02_00_00_17.mov,SZTR/video/SZTRA104a02.mov,00:00:17,00:01:27,00:01:10,15.0,Body Drag,One person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
 SZTRA104a02_00_01_39.mov,SZTR/video/SZTRA104a02.mov,00:01:39,00:01:57,00:00:18,,,,,FP,,1,Overcast,False,False,False,Dusk
 SZTRA104a03_00_00_04.mov,SZTR/video/SZTRA104a03.mov,00:00:04,00:01:04,00:01:00,30.0,Run,One person,Diagonal,TP,,1,Overcast,False,False,False,Dusk
@@ -551,34 +551,34 @@ SZTRA104a13_00_00_28.mov,SZTR/video/SZTRA104a13.mov,00:00:28,00:01:26,00:00:58,3
 SZTRA104a14_00_00_13.mov,SZTR/video/SZTRA104a14.mov,00:00:13,00:01:15,00:01:02,30.0,Crawl,One person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
 SZTRA104a14_00_01_23.mov,SZTR/video/SZTRA104a14.mov,00:01:23,00:01:43,00:00:20,,,,,FP,,1,Overcast,False,False,False,Dusk
 SZTRA104a15_00_00_25.mov,SZTR/video/SZTRA104a15.mov,00:00:25,00:01:03,00:00:38,15.0,Walk With Ladder,One person,Perpendicular,TP,,1,Overcast,False,False,False,Dusk
-SZTRA104b01_00_00_43.mov,SZTR/video/SZTRA104b01.mov,00:09:03,00:10:09,00:01:06,30.0,Creep Walk,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTRA104b01_00_02_46.mov,SZTR/video/SZTRA104b01.mov,00:06:12,00:07:19,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRA104b01_00_03_26.mov,SZTR/video/SZTRA104b01.mov,00:04:06,00:05:10,00:01:04,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRA104b01_00_04_06.mov,SZTR/video/SZTRA104b01.mov,00:02:46,00:03:13,00:00:27,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRA104b01_00_06_12.mov,SZTR/video/SZTRA104b01.mov,00:00:43,00:01:50,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRA104b01_00_09_03.mov,SZTR/video/SZTRA104b01.mov,00:03:26,00:04:01,00:00:35,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b01_00_00_43.mov,SZTR/video/SZTRA104b01.mov,00:00:43,00:01:50,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b01_00_02_46.mov,SZTR/video/SZTRA104b01.mov,00:02:46,00:03:13,00:00:27,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b01_00_03_26.mov,SZTR/video/SZTRA104b01.mov,00:03:26,00:04:01,00:00:35,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b01_00_04_06.mov,SZTR/video/SZTRA104b01.mov,00:04:06,00:05:10,00:01:04,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b01_00_06_12.mov,SZTR/video/SZTRA104b01.mov,00:06:12,00:07:19,00:01:07,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b01_00_09_03.mov,SZTR/video/SZTRA104b01.mov,00:09:03,00:10:09,00:01:06,30.0,Creep Walk,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
 SZTRA104b02_00_01_10.mov,SZTR/video/SZTRA104b02.mov,00:01:10,00:02:25,00:01:15,15.0,Crawl,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
 SZTRA104b03_00_00_39.mov,SZTR/video/SZTRA104b03.mov,00:00:39,00:01:33,00:00:54,10.0,Run,One person,Diagonal,TP,,1,Overcast,False,False,True,Day
 SZTRA104b03_00_01_57.mov,SZTR/video/SZTRA104b03.mov,00:01:57,00:02:18,00:00:21,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRA104b04_00_00_16.mov,SZTR/video/SZTRA104b04.mov,00:00:47,00:01:46,00:00:59,10.0,Walk,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTRA104b04_00_00_47.mov,SZTR/video/SZTRA104b04.mov,00:02:13,00:03:39,00:01:26,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRA104b04_00_02_13.mov,SZTR/video/SZTRA104b04.mov,00:00:16,00:00:37,00:00:21,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b04_00_00_16.mov,SZTR/video/SZTRA104b04.mov,00:00:16,00:00:37,00:00:21,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b04_00_00_47.mov,SZTR/video/SZTRA104b04.mov,00:00:47,00:01:46,00:00:59,10.0,Walk,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTRA104b04_00_02_13.mov,SZTR/video/SZTRA104b04.mov,00:02:13,00:03:39,00:01:26,,,,,FP,,1,Overcast,False,False,True,Day
 SZTRA104b05_00_00_36.mov,SZTR/video/SZTRA104b05.mov,00:00:36,00:01:30,00:00:54,10.0,Walk,Two People,Perpendicular,TP,,1,Overcast,False,False,True,Day
 SZTRA104b06_00_00_10.mov,SZTR/video/SZTRA104b06.mov,00:00:10,00:01:06,00:00:56,30.0,Crouch Walk,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
 SZTRA104b07_00_00_19.mov,SZTR/video/SZTRA104b07.mov,00:00:19,00:01:21,00:01:02,30.0,Crawl,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
 SZTRA104b08_00_00_19.mov,SZTR/video/SZTRA104b08.mov,00:00:19,00:01:16,00:00:57,10.0,Run,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
 SZTRA104b08_00_01_44.mov,SZTR/video/SZTRA104b08.mov,00:01:44,00:02:16,00:00:32,,,,,FP,,1,Overcast,False,False,True,Day
 SZTRA104b09_00_00_22.mov,SZTR/video/SZTRA104b09.mov,00:00:22,00:01:28,00:01:06,15.0,Crouch Run,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTRA104b10_00_00_03.mov,SZTR/video/SZTRA104b10.mov,00:01:22,00:01:44,00:00:22,15.0,Walk With Ladder,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
-SZTRA104b10_00_01_22.mov,SZTR/video/SZTRA104b10.mov,00:00:03,00:00:37,00:00:34,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRA201a01_00_01_06.mov,SZTR/video/SZTRA201a01.mov,00:08:50,00:09:49,00:00:59,15.0,Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
-SZTRA201a01_00_01_52.mov,SZTR/video/SZTRA201a01.mov,00:06:19,00:06:45,00:00:26,,,,,FP,,2,,False,False,False,Night
-SZTRA201a01_00_05_13.mov,SZTR/video/SZTRA201a01.mov,00:01:06,00:01:33,00:00:27,,,,,FP,,2,,False,False,False,Night
-SZTRA201a01_00_06_19.mov,SZTR/video/SZTRA201a01.mov,00:05:13,00:06:39,00:01:26,,,,,FP,,2,,False,False,False,Night
-SZTRA201a01_00_08_50.mov,SZTR/video/SZTRA201a01.mov,00:01:52,00:03:07,00:01:15,,,,,FP,,2,,False,False,False,Night
+SZTRA104b10_00_00_03.mov,SZTR/video/SZTRA104b10.mov,00:00:03,00:00:37,00:00:34,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRA104b10_00_01_22.mov,SZTR/video/SZTRA104b10.mov,00:01:22,00:01:44,00:00:22,15.0,Walk With Ladder,One person,Perpendicular,TP,,1,Overcast,False,False,True,Day
+SZTRA201a01_00_01_06.mov,SZTR/video/SZTRA201a01.mov,00:01:06,00:01:33,00:00:27,,,,,FP,,2,,False,False,False,Night
+SZTRA201a01_00_01_52.mov,SZTR/video/SZTRA201a01.mov,00:01:52,00:03:07,00:01:15,,,,,FP,,2,,False,False,False,Night
+SZTRA201a01_00_05_13.mov,SZTR/video/SZTRA201a01.mov,00:05:13,00:06:39,00:01:26,,,,,FP,,2,,False,False,False,Night
+SZTRA201a01_00_06_19.mov,SZTR/video/SZTRA201a01.mov,00:06:19,00:06:45,00:00:26,,,,,FP,,2,,False,False,False,Night
+SZTRA201a01_00_08_50.mov,SZTR/video/SZTRA201a01.mov,00:08:50,00:09:49,00:00:59,15.0,Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a02_00_01_38.mov,SZTR/video/SZTRA201a02.mov,00:01:38,00:02:47,00:01:09,15.0,Walk,Two People,Perpendicular,TP,,2,,False,False,False,Night
-SZTRA201a03_00_00_27.mov,SZTR/video/SZTRA201a03.mov,00:01:17,00:02:41,00:01:24,10.0,Creep Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
-SZTRA201a03_00_01_17.mov,SZTR/video/SZTRA201a03.mov,00:00:27,00:01:01,00:00:34,,,,,FP,,2,,False,False,False,Night
+SZTRA201a03_00_00_27.mov,SZTR/video/SZTRA201a03.mov,00:00:27,00:01:01,00:00:34,,,,,FP,,2,,False,False,False,Night
+SZTRA201a03_00_01_17.mov,SZTR/video/SZTRA201a03.mov,00:01:17,00:02:41,00:01:24,10.0,Creep Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a04_00_00_16.mov,SZTR/video/SZTRA201a04.mov,00:00:16,00:01:31,00:01:15,10.0,Crouch Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a05_00_00_09.mov,SZTR/video/SZTRA201a05.mov,00:00:09,00:01:09,00:01:00,30.0,Crouch Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a06_00_00_03.mov,SZTR/video/SZTRA201a06.mov,00:00:03,00:01:18,00:01:15,15.0,Crawl,One person,Perpendicular,TP,,2,,False,False,False,Night
@@ -594,8 +594,8 @@ SZTRA201a12_00_00_22.mov,SZTR/video/SZTRA201a12.mov,00:00:22,00:01:29,00:01:07,3
 SZTRA201a13_00_00_26.mov,SZTR/video/SZTRA201a13.mov,00:00:26,00:01:32,00:01:06,30.0,Walk,Two People,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a14_00_00_14.mov,SZTR/video/SZTRA201a14.mov,00:00:14,00:01:37,00:01:23,30.0,Creep Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a14_00_02_06.mov,SZTR/video/SZTRA201a14.mov,00:02:06,00:03:09,00:01:03,,,,,FP,,2,,False,False,False,Night
-SZTRA201a14_00_02_17.mov,SZTR/video/SZTRA201a14.mov,00:02:31,00:03:04,00:00:33,,,,,FP,,2,,False,False,False,Night
-SZTRA201a14_00_02_31.mov,SZTR/video/SZTRA201a14.mov,00:02:17,00:03:00,00:00:43,,,,,FP,,2,,False,False,False,Night
+SZTRA201a14_00_02_17.mov,SZTR/video/SZTRA201a14.mov,00:02:17,00:03:00,00:00:43,,,,,FP,,2,,False,False,False,Night
+SZTRA201a14_00_02_31.mov,SZTR/video/SZTRA201a14.mov,00:02:31,00:03:04,00:00:33,,,,,FP,,2,,False,False,False,Night
 SZTRA201a15_00_00_15.mov,SZTR/video/SZTRA201a15.mov,00:00:15,00:01:34,00:01:19,10.0,Crouch Walk,One person,Diagonal,TP,,2,,False,False,False,Night
 SZTRA201a15_00_01_53.mov,SZTR/video/SZTRA201a15.mov,00:01:53,00:02:26,00:00:33,,,,,FP,,2,,False,False,False,Night
 SZTRA201a16_00_00_15.mov,SZTR/video/SZTRA201a16.mov,00:00:15,00:01:45,00:01:30,10.0,Body Drag,One person,Perpendicular,TP,,2,,False,False,False,Night
@@ -610,21 +610,21 @@ SZTRA201a20_00_01_38.mov,SZTR/video/SZTRA201a20.mov,00:01:38,00:02:07,00:00:29,,
 SZTRA201a21_00_00_06.mov,SZTR/video/SZTRA201a21.mov,00:00:06,00:01:11,00:01:05,30.0,Crouch Run,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a22_00_01_10.mov,SZTR/video/SZTRA201a22.mov,00:01:10,00:02:05,00:00:55,10.0,Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a23_00_01_08.mov,SZTR/video/SZTRA201a23.mov,00:01:08,00:01:59,00:00:51,10.0,Walk,Two People,Perpendicular,TP,,2,,False,False,False,Night
-SZTRA201a24_00_00_25.mov,SZTR/video/SZTRA201a24.mov,00:01:20,00:02:36,00:01:16,15.0,Creep Walk,One person,Diagonal,TP,,2,,False,False,False,Night
-SZTRA201a24_00_01_20.mov,SZTR/video/SZTRA201a24.mov,00:00:25,00:01:09,00:00:44,,,,,FP,,2,,False,False,False,Night
+SZTRA201a24_00_00_25.mov,SZTR/video/SZTRA201a24.mov,00:00:25,00:01:09,00:00:44,,,,,FP,,2,,False,False,False,Night
+SZTRA201a24_00_01_20.mov,SZTR/video/SZTRA201a24.mov,00:01:20,00:02:36,00:01:16,15.0,Creep Walk,One person,Diagonal,TP,,2,,False,False,False,Night
 SZTRA201a25_00_01_14.mov,SZTR/video/SZTRA201a25.mov,00:01:14,00:02:53,00:01:39,15.0,Creep Walk,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a26_00_01_18.mov,SZTR/video/SZTRA201a26.mov,00:01:18,00:02:19,00:01:01,15.0,Crouch Walk,One person,Perpendicular,TP,,2,,True,False,False,Night
 SZTRA201a27_00_00_31.mov,SZTR/video/SZTRA201a27.mov,00:00:31,00:01:43,00:01:12,10.0,Crawl,One person,Perpendicular,TP,,2,,True,False,False,Night
-SZTRA201a28_00_00_20.mov,SZTR/video/SZTRA201a28.mov,00:00:56,00:02:05,00:01:09,10.0,Log Roll,One person,Perpendicular,TP,,2,,True,False,False,Night
-SZTRA201a28_00_00_56.mov,SZTR/video/SZTRA201a28.mov,00:00:20,00:00:52,00:00:32,,,,,FP,,2,,True,False,False,Night
+SZTRA201a28_00_00_20.mov,SZTR/video/SZTRA201a28.mov,00:00:20,00:00:52,00:00:32,,,,,FP,,2,,True,False,False,Night
+SZTRA201a28_00_00_56.mov,SZTR/video/SZTRA201a28.mov,00:00:56,00:02:05,00:01:09,10.0,Log Roll,One person,Perpendicular,TP,,2,,True,False,False,Night
 SZTRA201a29_00_01_13.mov,SZTR/video/SZTRA201a29.mov,00:01:13,00:02:06,00:00:53,30.0,Run,One person,Perpendicular,TP,,2,,False,False,False,Night
 SZTRA201a30_00_00_54.mov,SZTR/video/SZTRA201a30.mov,00:00:54,00:01:48,00:00:54,15.0,Crouch Run,One person,Perpendicular,TP,,2,,False,False,False,Night
-SZTRA201a31_00_00_23.mov,SZTR/video/SZTRA201a31.mov,00:01:17,00:01:53,00:00:36,15.0,Walk With Ladder,One person,Perpendicular,TP,,2,,False,False,False,Night
-SZTRA201a31_00_01_17.mov,SZTR/video/SZTRA201a31.mov,00:02:23,00:04:00,00:01:37,,,,,FP,,2,,False,False,False,Night
-SZTRA201a31_00_02_23.mov,SZTR/video/SZTRA201a31.mov,00:00:23,00:00:44,00:00:21,,,,,FP,,2,,False,False,False,Night
-SZTRA202a01_00_00_42.mov,SZTR/video/SZTRA202a01.mov,00:05:36,00:06:42,00:01:06,15.0,Walk,One person,Perpendicular,TP,,2,None,False,False,False,Dawn
-SZTRA202a01_00_02_17.mov,SZTR/video/SZTRA202a01.mov,00:00:42,00:02:39,00:01:57,,,,,FP,,2,None,False,False,False,Dawn
-SZTRA202a01_00_05_36.mov,SZTR/video/SZTRA202a01.mov,00:02:17,00:03:35,00:01:18,,,,,FP,,2,None,False,False,False,Dawn
+SZTRA201a31_00_00_23.mov,SZTR/video/SZTRA201a31.mov,00:00:23,00:00:44,00:00:21,,,,,FP,,2,,False,False,False,Night
+SZTRA201a31_00_01_17.mov,SZTR/video/SZTRA201a31.mov,00:01:17,00:01:53,00:00:36,15.0,Walk With Ladder,One person,Perpendicular,TP,,2,,False,False,False,Night
+SZTRA201a31_00_02_23.mov,SZTR/video/SZTRA201a31.mov,00:02:23,00:04:00,00:01:37,,,,,FP,,2,,False,False,False,Night
+SZTRA202a01_00_00_42.mov,SZTR/video/SZTRA202a01.mov,00:00:42,00:02:39,00:01:57,,,,,FP,,2,None,False,False,False,Dawn
+SZTRA202a01_00_02_17.mov,SZTR/video/SZTRA202a01.mov,00:02:17,00:03:35,00:01:18,,,,,FP,,2,None,False,False,False,Dawn
+SZTRA202a01_00_05_36.mov,SZTR/video/SZTRA202a01.mov,00:05:36,00:06:42,00:01:06,15.0,Walk,One person,Perpendicular,TP,,2,None,False,False,False,Dawn
 SZTRA202a02_00_01_50.mov,SZTR/video/SZTRA202a02.mov,00:01:50,00:02:42,00:00:52,15.0,Walk,Two People,Perpendicular,TP,,2,None,False,False,False,Dawn
 SZTRA202a03_00_00_09.mov,SZTR/video/SZTRA202a03.mov,00:00:09,00:01:24,00:01:15,10.0,Crouch Walk,One person,Perpendicular,TP,,2,None,False,False,False,Dawn
 SZTRA202a04_00_00_09.mov,SZTR/video/SZTRA202a04.mov,00:00:09,00:01:08,00:00:59,15.0,Crawl,One person,Perpendicular,TP,,2,None,False,False,False,Dawn
@@ -637,10 +637,10 @@ SZTRA202a07_00_00_58.mov,SZTR/video/SZTRA202a07.mov,00:00:58,00:02:03,00:01:05,,
 SZTRA202a08_00_00_17.mov,SZTR/video/SZTRA202a08.mov,00:00:17,00:02:16,00:01:59,30.0,Creep Walk,One person,Diagonal,TP,,2,,False,False,False,Dawn
 SZTRA202a09_00_00_04.mov,SZTR/video/SZTRA202a09.mov,00:00:04,00:00:50,00:00:46,10.0,Run,One person,Perpendicular,TP,,2,,False,False,False,Dawn
 SZTRA202a10_00_00_08.mov,SZTR/video/SZTRA202a10.mov,00:00:08,00:00:52,00:00:44,30.0,Walk With Ladder,One person,Perpendicular,TP,,2,,False,False,False,Dawn
-SZTRA202b01_00_00_41.mov,SZTR/video/SZTRA202b01.mov,00:04:59,00:06:03,00:01:04,30.0,Walk,One person,Perpendicular,TP,,2,None,False,False,False,Day
+SZTRA202b01_00_00_41.mov,SZTR/video/SZTRA202b01.mov,00:00:41,00:00:59,00:00:18,,,,,FP,,2,None,False,False,False,Day
 SZTRA202b01_00_00_43.mov,SZTR/video/SZTRA202b01.mov,00:00:43,00:01:58,00:01:15,,,,,FP,,2,None,False,False,False,Day
-SZTRA202b01_00_01_59.mov,SZTR/video/SZTRA202b01.mov,00:00:41,00:00:59,00:00:18,,,,,FP,,2,None,False,False,False,Day
-SZTRA202b01_00_04_59.mov,SZTR/video/SZTRA202b01.mov,00:01:59,00:03:50,00:01:51,,,,,FP,,2,None,False,False,False,Day
+SZTRA202b01_00_01_59.mov,SZTR/video/SZTRA202b01.mov,00:01:59,00:03:50,00:01:51,,,,,FP,,2,None,False,False,False,Day
+SZTRA202b01_00_04_59.mov,SZTR/video/SZTRA202b01.mov,00:04:59,00:06:03,00:01:04,30.0,Walk,One person,Perpendicular,TP,,2,None,False,False,False,Day
 SZTRA202b02_00_00_19.mov,SZTR/video/SZTRA202b02.mov,00:00:19,00:01:18,00:00:59,30.0,Walk,Two People,Perpendicular,TP,,2,None,False,False,False,Day
 SZTRA202b02_00_01_21.mov,SZTR/video/SZTRA202b02.mov,00:01:21,00:01:48,00:00:27,,,,,FP,,2,None,False,False,False,Day
 SZTRA202b03_00_00_15.mov,SZTR/video/SZTRA202b03.mov,00:00:15,00:01:03,00:00:48,30.0,Crouch Walk,One person,Perpendicular,TP,,2,None,False,False,False,Day
@@ -658,8 +658,8 @@ SZTRA202b11_00_00_08.mov,SZTR/video/SZTRA202b11.mov,00:00:08,00:01:04,00:00:56,1
 SZTRA202b11_00_01_26.mov,SZTR/video/SZTRA202b11.mov,00:01:26,00:01:44,00:00:18,,,,,FP,,2,None,False,False,False,Day
 SZTRA202b12_00_00_12.mov,SZTR/video/SZTRA202b12.mov,00:00:12,00:01:01,00:00:49,30.0,Crouch Run,One person,Perpendicular,TP,,2,None,False,False,False,Day
 SZTRA202b13_00_00_19.mov,SZTR/video/SZTRA202b13.mov,00:00:19,00:00:39,00:00:20,10.0,Walk With Ladder,One person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTRA203a01_00_02_59.mov,SZTR/video/SZTRA203a01.mov,00:05:19,00:06:14,00:00:55,15.0,Walk,One person,Perpendicular,TP,,2,Overcast,False,False,False,Day
-SZTRA203a01_00_05_19.mov,SZTR/video/SZTRA203a01.mov,00:02:59,00:04:22,00:01:23,,,,,FP,,2,Overcast,False,False,False,Day
+SZTRA203a01_00_02_59.mov,SZTR/video/SZTRA203a01.mov,00:02:59,00:04:22,00:01:23,,,,,FP,,2,Overcast,False,False,False,Day
+SZTRA203a01_00_05_19.mov,SZTR/video/SZTRA203a01.mov,00:05:19,00:06:14,00:00:55,15.0,Walk,One person,Perpendicular,TP,,2,Overcast,False,False,False,Day
 SZTRA203a02_00_00_08.mov,SZTR/video/SZTRA203a02.mov,00:00:08,00:01:14,00:01:06,15.0,Walk,Two People,Perpendicular,TP,,2,Overcast,False,False,False,Day
 SZTRA203a03_00_00_12.mov,SZTR/video/SZTRA203a03.mov,00:00:12,00:01:21,00:01:09,15.0,Creep Walk,One person,Perpendicular,TP,,2,Overcast,False,False,False,Day
 SZTRA203a04_00_00_03.mov,SZTR/video/SZTRA203a04.mov,00:00:03,00:01:15,00:01:12,15.0,Run,One person,Perpendicular,TP,,2,Overcast,False,False,False,Day
@@ -681,9 +681,9 @@ SZTRA203a14_00_00_06.mov,SZTR/video/SZTRA203a14.mov,00:00:06,00:01:13,00:01:07,3
 SZTRA203a15_00_00_09.mov,SZTR/video/SZTRA203a15.mov,00:00:09,00:01:05,00:00:56,30.0,Log Roll,One person,Perpendicular,TP,,2,Overcast,False,False,False,Day
 SZTRA203a16_00_00_06.mov,SZTR/video/SZTRA203a16.mov,00:00:06,00:01:07,00:01:01,10.0,Run,One person,Perpendicular,TP,,2,Overcast,False,False,False,Day
 SZTRA203a17_00_00_10.mov,SZTR/video/SZTRA203a17.mov,00:00:10,00:00:36,00:00:26,30.0,Walk With Ladder,One person,Perpendicular,TP,,2,Overcast,False,False,False,Day
-SZTRA203b01_00_02_33.mov,SZTR/video/SZTRA203b01.mov,00:06:13,00:07:13,00:01:00,15.0,Walk,One person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTRA203b01_00_04_13.mov,SZTR/video/SZTRA203b01.mov,00:02:33,00:03:48,00:01:15,,,,,FP,,2,Some,False,False,False,Day
-SZTRA203b01_00_06_13.mov,SZTR/video/SZTRA203b01.mov,00:04:13,00:06:04,00:01:51,,,,,FP,,2,Some,False,False,False,Day
+SZTRA203b01_00_02_33.mov,SZTR/video/SZTRA203b01.mov,00:02:33,00:03:48,00:01:15,,,,,FP,,2,Some,False,False,False,Day
+SZTRA203b01_00_04_13.mov,SZTR/video/SZTRA203b01.mov,00:04:13,00:06:04,00:01:51,,,,,FP,,2,Some,False,False,False,Day
+SZTRA203b01_00_06_13.mov,SZTR/video/SZTRA203b01.mov,00:06:13,00:07:13,00:01:00,15.0,Walk,One person,Perpendicular,TP,,2,Some,False,False,False,Day
 SZTRA203b02_00_00_12.mov,SZTR/video/SZTRA203b02.mov,00:00:12,00:01:16,00:01:04,15.0,Walk,Two People,Perpendicular,TP,,2,None,False,False,False,Day
 SZTRA203b02_00_01_45.mov,SZTR/video/SZTRA203b02.mov,00:01:45,00:02:54,00:01:09,,,,,FP,,2,None,False,False,False,Day
 SZTRA203b03_00_00_26.mov,SZTR/video/SZTRA203b03.mov,00:00:26,00:02:11,00:01:45,30.0,Creep Walk,One person,Perpendicular,TP,,2,Some,False,False,False,Day
@@ -698,8 +698,8 @@ SZTRA203b09_00_00_08.mov,SZTR/video/SZTRA203b09.mov,00:00:08,00:01:15,00:01:07,1
 SZTRA203b09_00_01_53.mov,SZTR/video/SZTRA203b09.mov,00:01:53,00:02:23,00:00:30,,,,,FP,,2,Some,False,False,False,Day
 SZTRA203b10_00_00_17.mov,SZTR/video/SZTRA203b10.mov,00:00:17,00:01:11,00:00:54,10.0,Walk,Two People,Perpendicular,TP,,2,Some,False,False,False,Day
 SZTRA203b11_00_00_13.mov,SZTR/video/SZTRA203b11.mov,00:00:13,00:02:22,00:02:09,10.0,Creep Walk,One person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTRA203b11_00_02_28.mov,SZTR/video/SZTRA203b11.mov,00:02:32,00:03:58,00:01:26,,,,,FP,,2,Some,False,False,False,Day
-SZTRA203b11_00_02_32.mov,SZTR/video/SZTRA203b11.mov,00:02:28,00:04:07,00:01:39,,,,,FP,,2,Some,False,False,False,Day
+SZTRA203b11_00_02_28.mov,SZTR/video/SZTRA203b11.mov,00:02:28,00:04:07,00:01:39,,,,,FP,,2,Some,False,False,False,Day
+SZTRA203b11_00_02_32.mov,SZTR/video/SZTRA203b11.mov,00:02:32,00:03:58,00:01:26,,,,,FP,,2,Some,False,False,False,Day
 SZTRA203b12_00_00_10.mov,SZTR/video/SZTRA203b12.mov,00:00:10,00:01:12,00:01:02,10.0,Crouch Walk,One person,Diagonal,TP,,2,Some,False,False,False,Day
 SZTRA203b12_00_01_47.mov,SZTR/video/SZTRA203b12.mov,00:01:47,00:02:26,00:00:39,,,,,FP,,2,Some,False,False,False,Day
 SZTRA203b12_00_02_06.mov,SZTR/video/SZTRA203b12.mov,00:02:06,00:02:49,00:00:43,,,,,FP,,2,Some,False,False,False,Day
@@ -709,15 +709,15 @@ SZTRA203b13_00_02_22.mov,SZTR/video/SZTRA203b13.mov,00:02:22,00:03:17,00:00:55,,
 SZTRA203b14_00_00_18.mov,SZTR/video/SZTRA203b14.mov,00:00:18,00:01:33,00:01:15,30.0,Body Drag,One person,Perpendicular,TP,,2,Some,False,False,False,Day
 SZTRA203b14_00_02_20.mov,SZTR/video/SZTRA203b14.mov,00:02:20,00:02:41,00:00:21,,,,,FP,,2,Some,False,False,False,Day
 SZTRA203b15_00_00_09.mov,SZTR/video/SZTRA203b15.mov,00:00:09,00:01:14,00:01:05,30.0,Run,One person,Perpendicular,TP,,2,Some,False,False,False,Day
-SZTRA203b15_00_01_40.mov,SZTR/video/SZTRA203b15.mov,00:01:56,00:02:45,00:00:49,,,,,FP,,2,Some,False,False,False,Day
-SZTRA203b15_00_01_56.mov,SZTR/video/SZTRA203b15.mov,00:01:40,00:03:39,00:01:59,,,,,FP,,2,Some,False,False,False,Day
+SZTRA203b15_00_01_40.mov,SZTR/video/SZTRA203b15.mov,00:01:40,00:03:39,00:01:59,,,,,FP,,2,Some,False,False,False,Day
+SZTRA203b15_00_01_56.mov,SZTR/video/SZTRA203b15.mov,00:01:56,00:02:45,00:00:49,,,,,FP,,2,Some,False,False,False,Day
 SZTRA203b16_00_00_06.mov,SZTR/video/SZTRA203b16.mov,00:00:06,00:00:58,00:00:52,30.0,Crouch Run,One person,Perpendicular,TP,,2,None,False,False,False,Day
 SZTRA203b16_00_01_37.mov,SZTR/video/SZTRA203b16.mov,00:01:37,00:02:19,00:00:42,,,,,FP,,2,None,False,False,False,Day
 SZTRA203b17_00_00_13.mov,SZTR/video/SZTRA203b17.mov,00:00:13,00:00:42,00:00:29,30.0,Walk With Ladder,One person,Perpendicular,TP,,2,None,False,False,False,Day
-SZTRA204a01_00_04_23.mov,SZTR/video/SZTRA204a01.mov,00:05:06,00:06:39,00:01:33,10.0,Creep Walk,One person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTRA204a01_00_05_06.mov,SZTR/video/SZTRA204a01.mov,00:07:34,00:07:55,00:00:21,,,,,FP,,2,Overcast,False,False,False,Dusk
-SZTRA204a01_00_06_48.mov,SZTR/video/SZTRA204a01.mov,00:04:23,00:04:44,00:00:21,,,,,FP,,2,Overcast,False,False,False,Dusk
-SZTRA204a01_00_07_34.mov,SZTR/video/SZTRA204a01.mov,00:06:48,00:07:07,00:00:19,,,,,FP,,2,Overcast,False,False,False,Dusk
+SZTRA204a01_00_04_23.mov,SZTR/video/SZTRA204a01.mov,00:04:23,00:04:44,00:00:21,,,,,FP,,2,Overcast,False,False,False,Dusk
+SZTRA204a01_00_05_06.mov,SZTR/video/SZTRA204a01.mov,00:05:06,00:06:39,00:01:33,10.0,Creep Walk,One person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
+SZTRA204a01_00_06_48.mov,SZTR/video/SZTRA204a01.mov,00:06:48,00:07:07,00:00:19,,,,,FP,,2,Overcast,False,False,False,Dusk
+SZTRA204a01_00_07_34.mov,SZTR/video/SZTRA204a01.mov,00:07:34,00:07:55,00:00:21,,,,,FP,,2,Overcast,False,False,False,Dusk
 SZTRA204a02_00_00_17.mov,SZTR/video/SZTRA204a02.mov,00:00:17,00:01:27,00:01:10,15.0,Body Drag,One person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
 SZTRA204a03_00_00_03.mov,SZTR/video/SZTRA204a03.mov,00:00:03,00:01:04,00:01:01,10.0,Run,One person,Diagonal,TP,,2,None,False,False,False,Dusk
 SZTRA204a03_00_01_14.mov,SZTR/video/SZTRA204a03.mov,00:01:14,00:01:51,00:00:37,,,,,FP,,2,None,False,False,False,Dusk
@@ -737,129 +737,129 @@ SZTRA204a11_00_00_06.mov,SZTR/video/SZTRA204a11.mov,00:00:06,00:01:15,00:01:09,3
 SZTRA204a11_00_01_36.mov,SZTR/video/SZTRA204a11.mov,00:01:36,00:01:58,00:00:22,,,,,FP,,2,Overcast,False,False,False,Dusk
 SZTRA204a12_00_00_07.mov,SZTR/video/SZTRA204a12.mov,00:00:07,00:01:10,00:01:03,10.0,Walk,One person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
 SZTRA204a12_00_02_24.mov,SZTR/video/SZTRA204a12.mov,00:02:24,00:02:50,00:00:26,,,,,FP,,2,Overcast,False,False,False,Dusk
-SZTRA204a13_00_00_05.mov,SZTR/video/SZTRA204a13.mov,00:00:27,00:01:26,00:00:59,10.0,Walk,Two People,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTRA204a13_00_00_27.mov,SZTR/video/SZTRA204a13.mov,00:00:05,00:00:23,00:00:18,,,,,FP,,2,Overcast,False,False,False,Dusk
+SZTRA204a13_00_00_05.mov,SZTR/video/SZTRA204a13.mov,00:00:05,00:00:23,00:00:18,,,,,FP,,2,Overcast,False,False,False,Dusk
+SZTRA204a13_00_00_27.mov,SZTR/video/SZTRA204a13.mov,00:00:27,00:01:26,00:00:59,10.0,Walk,Two People,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
 SZTRA204a14_00_00_09.mov,SZTR/video/SZTRA204a14.mov,00:00:09,00:01:15,00:01:06,10.0,Crawl,One person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
 SZTRA204a15_00_00_24.mov,SZTR/video/SZTRA204a15.mov,00:00:24,00:01:03,00:00:39,15.0,Walk With Ladder,One person,Perpendicular,TP,,2,Overcast,False,False,False,Dusk
-SZTRN101a_00_00_42.mov,SZTR/video/SZTRN101a.mov,00:11:10,00:12:31,00:01:21,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN101a_00_00_42.mov,SZTR/video/SZTRN101a.mov,00:00:42,00:02:40,00:01:58,,,,,FP,,1,Overcast,False,False,False,Day
 SZTRN101a_00_06_28.mov,SZTR/video/SZTRN101a.mov,00:06:28,00:07:58,00:01:30,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN101a_00_11_10.mov,SZTR/video/SZTRN101a.mov,00:00:42,00:02:40,00:01:58,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN101b_00_01_57.mov,SZTR/video/SZTRN101b.mov,00:09:51,00:11:11,00:01:20,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_05_32.mov,SZTR/video/SZTRN101b.mov,00:15:56,00:17:36,00:01:40,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_07_39.mov,SZTR/video/SZTRN101b.mov,00:22:01,00:22:23,00:00:22,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_09_51.mov,SZTR/video/SZTRN101b.mov,00:22:39,00:24:26,00:01:47,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_11_42.mov,SZTR/video/SZTRN101b.mov,00:05:32,00:06:06,00:00:34,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_15_56.mov,SZTR/video/SZTRN101b.mov,00:25:57,00:26:48,00:00:51,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_22_01.mov,SZTR/video/SZTRN101b.mov,00:01:57,00:04:23,00:02:26,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_22_39.mov,SZTR/video/SZTRN101b.mov,00:11:42,00:12:43,00:01:01,,,,,FP,,1,None,False,False,False,Day
-SZTRN101b_00_25_57.mov,SZTR/video/SZTRN101b.mov,00:07:39,00:09:17,00:01:38,,,,,FP,,1,None,False,False,False,Day
-SZTRN101c_00_01_18.mov,SZTR/video/SZTRN101c.mov,00:22:00,00:22:30,00:00:30,,,,,FP,,1,None,False,False,False,Dusk
-SZTRN101c_00_07_05.mov,SZTR/video/SZTRN101c.mov,00:17:22,00:19:22,00:02:00,,,,,FP,,1,None,False,False,False,Dusk
-SZTRN101c_00_07_32.mov,SZTR/video/SZTRN101c.mov,00:10:45,00:11:41,00:00:56,,,,,FP,,1,None,False,False,False,Dusk
-SZTRN101c_00_10_45.mov,SZTR/video/SZTRN101c.mov,00:07:05,00:09:26,00:02:21,,,,,FP,,1,None,False,False,False,Dusk
-SZTRN101c_00_15_08.mov,SZTR/video/SZTRN101c.mov,00:07:32,00:08:30,00:00:58,,,,,FP,,1,None,False,False,False,Dusk
-SZTRN101c_00_17_22.mov,SZTR/video/SZTRN101c.mov,00:15:08,00:16:41,00:01:33,,,,,FP,,1,None,False,False,False,Dusk
-SZTRN101c_00_22_00.mov,SZTR/video/SZTRN101c.mov,00:01:18,00:02:23,00:01:05,,,,,FP,,1,None,False,False,False,Dusk
-SZTRN101d_00_05_18.mov,SZTR/video/SZTRN101d.mov,00:25:31,00:26:50,00:01:19,,,,,FP,,1,None,True,False,False,Dawn
-SZTRN101d_00_08_38.mov,SZTR/video/SZTRN101d.mov,00:05:18,00:07:42,00:02:24,,,,,FP,,1,None,True,False,False,Dawn
-SZTRN101d_00_17_41.mov,SZTR/video/SZTRN101d.mov,00:08:38,00:09:39,00:01:01,,,,,FP,,1,None,True,False,False,Dawn
-SZTRN101d_00_19_40.mov,SZTR/video/SZTRN101d.mov,00:17:41,00:19:15,00:01:34,,,,,FP,,1,None,True,False,False,Dawn
-SZTRN101d_00_20_30.mov,SZTR/video/SZTRN101d.mov,00:19:40,00:20:14,00:00:34,,,,,FP,,1,None,True,False,False,Dawn
-SZTRN101d_00_25_31.mov,SZTR/video/SZTRN101d.mov,00:20:30,00:21:38,00:01:08,,,,,FP,,1,None,True,False,False,Dawn
-SZTRN102a_00_09_31.mov,SZTR/video/SZTRN102a.mov,00:36:20,00:38:36,00:02:16,,,,,FP,,1,Some,False,False,False,Day
+SZTRN101a_00_11_10.mov,SZTR/video/SZTRN101a.mov,00:11:10,00:12:31,00:01:21,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN101b_00_01_57.mov,SZTR/video/SZTRN101b.mov,00:01:57,00:04:23,00:02:26,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_05_32.mov,SZTR/video/SZTRN101b.mov,00:05:32,00:06:06,00:00:34,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_07_39.mov,SZTR/video/SZTRN101b.mov,00:07:39,00:09:17,00:01:38,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_09_51.mov,SZTR/video/SZTRN101b.mov,00:09:51,00:11:11,00:01:20,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_11_42.mov,SZTR/video/SZTRN101b.mov,00:11:42,00:12:43,00:01:01,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_15_56.mov,SZTR/video/SZTRN101b.mov,00:15:56,00:17:36,00:01:40,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_22_01.mov,SZTR/video/SZTRN101b.mov,00:22:01,00:22:23,00:00:22,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_22_39.mov,SZTR/video/SZTRN101b.mov,00:22:39,00:24:26,00:01:47,,,,,FP,,1,None,False,False,False,Day
+SZTRN101b_00_25_57.mov,SZTR/video/SZTRN101b.mov,00:25:57,00:26:48,00:00:51,,,,,FP,,1,None,False,False,False,Day
+SZTRN101c_00_01_18.mov,SZTR/video/SZTRN101c.mov,00:01:18,00:02:23,00:01:05,,,,,FP,,1,None,False,False,False,Dusk
+SZTRN101c_00_07_05.mov,SZTR/video/SZTRN101c.mov,00:07:05,00:09:26,00:02:21,,,,,FP,,1,None,False,False,False,Dusk
+SZTRN101c_00_07_32.mov,SZTR/video/SZTRN101c.mov,00:07:32,00:08:30,00:00:58,,,,,FP,,1,None,False,False,False,Dusk
+SZTRN101c_00_10_45.mov,SZTR/video/SZTRN101c.mov,00:10:45,00:11:41,00:00:56,,,,,FP,,1,None,False,False,False,Dusk
+SZTRN101c_00_15_08.mov,SZTR/video/SZTRN101c.mov,00:15:08,00:16:41,00:01:33,,,,,FP,,1,None,False,False,False,Dusk
+SZTRN101c_00_17_22.mov,SZTR/video/SZTRN101c.mov,00:17:22,00:19:22,00:02:00,,,,,FP,,1,None,False,False,False,Dusk
+SZTRN101c_00_22_00.mov,SZTR/video/SZTRN101c.mov,00:22:00,00:22:30,00:00:30,,,,,FP,,1,None,False,False,False,Dusk
+SZTRN101d_00_05_18.mov,SZTR/video/SZTRN101d.mov,00:05:18,00:07:42,00:02:24,,,,,FP,,1,None,True,False,False,Dawn
+SZTRN101d_00_08_38.mov,SZTR/video/SZTRN101d.mov,00:08:38,00:09:39,00:01:01,,,,,FP,,1,None,True,False,False,Dawn
+SZTRN101d_00_17_41.mov,SZTR/video/SZTRN101d.mov,00:17:41,00:19:15,00:01:34,,,,,FP,,1,None,True,False,False,Dawn
+SZTRN101d_00_19_40.mov,SZTR/video/SZTRN101d.mov,00:19:40,00:20:14,00:00:34,,,,,FP,,1,None,True,False,False,Dawn
+SZTRN101d_00_20_30.mov,SZTR/video/SZTRN101d.mov,00:20:30,00:21:38,00:01:08,,,,,FP,,1,None,True,False,False,Dawn
+SZTRN101d_00_25_31.mov,SZTR/video/SZTRN101d.mov,00:25:31,00:26:50,00:01:19,,,,,FP,,1,None,True,False,False,Dawn
+SZTRN102a_00_09_31.mov,SZTR/video/SZTRN102a.mov,00:09:31,00:11:55,00:02:24,,,,,FP,,1,Some,False,False,False,Day
 SZTRN102a_00_15_39.mov,SZTR/video/SZTRN102a.mov,00:15:39,00:17:29,00:01:50,,,,,FP,,1,Some,False,False,False,Day
 SZTRN102a_00_22_21.mov,SZTR/video/SZTRN102a.mov,00:22:21,00:23:49,00:01:28,,,,,FP,,1,Some,False,False,False,Day
-SZTRN102a_00_36_20.mov,SZTR/video/SZTRN102a.mov,00:09:31,00:11:55,00:02:24,,,,,FP,,1,Some,False,False,False,Day
-SZTRN102b_00_04_27.mov,SZTR/video/SZTRN102b.mov,00:27:31,00:28:03,00:00:32,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_05_27.mov,SZTR/video/SZTRN102b.mov,00:15:33,00:16:47,00:01:14,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_05_36.mov,SZTR/video/SZTRN102b.mov,00:09:35,00:10:02,00:00:27,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_08_36.mov,SZTR/video/SZTRN102b.mov,00:20:37,00:22:17,00:01:40,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_09_35.mov,SZTR/video/SZTRN102b.mov,00:05:36,00:07:51,00:02:15,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_12_43.mov,SZTR/video/SZTRN102b.mov,00:05:27,00:06:56,00:01:29,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_15_33.mov,SZTR/video/SZTRN102b.mov,00:08:36,00:09:03,00:00:27,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_17_55.mov,SZTR/video/SZTRN102b.mov,00:04:27,00:04:57,00:00:30,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_20_37.mov,SZTR/video/SZTRN102b.mov,00:17:55,00:18:52,00:00:57,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_22_57.mov,SZTR/video/SZTRN102b.mov,00:12:43,00:14:24,00:01:41,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102b_00_27_31.mov,SZTR/video/SZTRN102b.mov,00:22:57,00:24:22,00:01:25,,,,,FP,,1,Overcast,False,False,False,Day
-SZTRN102c_00_00_24.mov,SZTR/video/SZTRN102c.mov,00:09:08,00:10:48,00:01:40,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN102c_00_02_22.mov,SZTR/video/SZTRN102c.mov,00:26:20,00:27:29,00:01:09,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN102c_00_05_15.mov,SZTR/video/SZTRN102c.mov,00:11:21,00:12:21,00:01:00,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN102c_00_09_08.mov,SZTR/video/SZTRN102c.mov,00:00:24,00:02:03,00:01:39,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN102c_00_11_21.mov,SZTR/video/SZTRN102c.mov,00:05:15,00:05:34,00:00:19,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN102c_00_12_22.mov,SZTR/video/SZTRN102c.mov,00:21:45,00:23:20,00:01:35,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN102c_00_21_45.mov,SZTR/video/SZTRN102c.mov,00:02:22,00:04:27,00:02:05,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN102c_00_26_20.mov,SZTR/video/SZTRN102c.mov,00:12:22,00:14:44,00:02:22,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102a_00_36_20.mov,SZTR/video/SZTRN102a.mov,00:36:20,00:38:36,00:02:16,,,,,FP,,1,Some,False,False,False,Day
+SZTRN102b_00_04_27.mov,SZTR/video/SZTRN102b.mov,00:04:27,00:04:57,00:00:30,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_05_27.mov,SZTR/video/SZTRN102b.mov,00:05:27,00:06:56,00:01:29,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_05_36.mov,SZTR/video/SZTRN102b.mov,00:05:36,00:07:51,00:02:15,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_08_36.mov,SZTR/video/SZTRN102b.mov,00:08:36,00:09:03,00:00:27,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_09_35.mov,SZTR/video/SZTRN102b.mov,00:09:35,00:10:02,00:00:27,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_12_43.mov,SZTR/video/SZTRN102b.mov,00:12:43,00:14:24,00:01:41,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_15_33.mov,SZTR/video/SZTRN102b.mov,00:15:33,00:16:47,00:01:14,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_17_55.mov,SZTR/video/SZTRN102b.mov,00:17:55,00:18:52,00:00:57,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_20_37.mov,SZTR/video/SZTRN102b.mov,00:20:37,00:22:17,00:01:40,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_22_57.mov,SZTR/video/SZTRN102b.mov,00:22:57,00:24:22,00:01:25,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102b_00_27_31.mov,SZTR/video/SZTRN102b.mov,00:27:31,00:28:03,00:00:32,,,,,FP,,1,Overcast,False,False,False,Day
+SZTRN102c_00_00_24.mov,SZTR/video/SZTRN102c.mov,00:00:24,00:02:03,00:01:39,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102c_00_02_22.mov,SZTR/video/SZTRN102c.mov,00:02:22,00:04:27,00:02:05,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102c_00_05_15.mov,SZTR/video/SZTRN102c.mov,00:05:15,00:05:34,00:00:19,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102c_00_09_08.mov,SZTR/video/SZTRN102c.mov,00:09:08,00:10:48,00:01:40,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102c_00_11_21.mov,SZTR/video/SZTRN102c.mov,00:11:21,00:12:21,00:01:00,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102c_00_12_22.mov,SZTR/video/SZTRN102c.mov,00:12:22,00:14:44,00:02:22,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102c_00_21_45.mov,SZTR/video/SZTRN102c.mov,00:21:45,00:23:20,00:01:35,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN102c_00_26_20.mov,SZTR/video/SZTRN102c.mov,00:26:20,00:27:29,00:01:09,,,,,FP,,1,Overcast,False,False,True,Day
 SZTRN102d_00_01_45.mov,SZTR/video/SZTRN102d.mov,00:01:45,00:03:32,00:01:47,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTRN102d_00_07_17.mov,SZTR/video/SZTRN102d.mov,00:12:18,00:13:26,00:01:08,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTRN102d_00_07_17.mov,SZTR/video/SZTRN102d.mov,00:07:17,00:07:36,00:00:19,,,,,FP,,1,Overcast,False,False,False,Dusk
 SZTRN102d_00_09_28.mov,SZTR/video/SZTRN102d.mov,00:09:28,00:10:31,00:01:03,,,,,FP,,1,Overcast,False,False,False,Dusk
-SZTRN102d_00_12_18.mov,SZTR/video/SZTRN102d.mov,00:07:17,00:07:36,00:00:19,,,,,FP,,1,Overcast,False,False,False,Dusk
+SZTRN102d_00_12_18.mov,SZTR/video/SZTRN102d.mov,00:12:18,00:13:26,00:01:08,,,,,FP,,1,Overcast,False,False,False,Dusk
 SZTRN103a_00_07_06.mov,SZTR/video/SZTRN103a.mov,00:07:06,00:09:12,00:02:06,,,,,FP,,1,,False,False,False,Night
-SZTRN103a_00_10_45.mov,SZTR/video/SZTRN103a.mov,00:17:58,00:18:56,00:00:58,,,,,FP,,1,,False,False,False,Night
-SZTRN103a_00_12_17.mov,SZTR/video/SZTRN103a.mov,00:10:45,00:11:11,00:00:26,,,,,FP,,1,,False,False,False,Night
-SZTRN103a_00_14_16.mov,SZTR/video/SZTRN103a.mov,00:12:17,00:13:32,00:01:15,,,,,FP,,1,,False,False,False,Night
-SZTRN103a_00_17_58.mov,SZTR/video/SZTRN103a.mov,00:14:16,00:14:57,00:00:41,,,,,FP,,1,,False,False,False,Night
-SZTRN103b_00_00_24.mov,SZTR/video/SZTRN103b.mov,00:20:12,00:21:38,00:01:26,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN103b_00_02_52.mov,SZTR/video/SZTRN103b.mov,00:04:32,00:06:24,00:01:52,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN103b_00_04_32.mov,SZTR/video/SZTRN103b.mov,00:10:42,00:12:46,00:02:04,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN103a_00_10_45.mov,SZTR/video/SZTRN103a.mov,00:10:45,00:11:11,00:00:26,,,,,FP,,1,,False,False,False,Night
+SZTRN103a_00_12_17.mov,SZTR/video/SZTRN103a.mov,00:12:17,00:13:32,00:01:15,,,,,FP,,1,,False,False,False,Night
+SZTRN103a_00_14_16.mov,SZTR/video/SZTRN103a.mov,00:14:16,00:14:57,00:00:41,,,,,FP,,1,,False,False,False,Night
+SZTRN103a_00_17_58.mov,SZTR/video/SZTRN103a.mov,00:17:58,00:18:56,00:00:58,,,,,FP,,1,,False,False,False,Night
+SZTRN103b_00_00_24.mov,SZTR/video/SZTRN103b.mov,00:00:24,00:01:14,00:00:50,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN103b_00_02_52.mov,SZTR/video/SZTRN103b.mov,00:02:52,00:04:07,00:01:15,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN103b_00_04_32.mov,SZTR/video/SZTRN103b.mov,00:04:32,00:06:24,00:01:52,,,,,FP,,1,Overcast,False,False,True,Day
 SZTRN103b_00_08_41.mov,SZTR/video/SZTRN103b.mov,00:08:41,00:08:59,00:00:18,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN103b_00_10_42.mov,SZTR/video/SZTRN103b.mov,00:12:47,00:14:52,00:02:05,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN103b_00_12_47.mov,SZTR/video/SZTRN103b.mov,00:16:11,00:16:40,00:00:29,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN103b_00_16_11.mov,SZTR/video/SZTRN103b.mov,00:00:24,00:01:14,00:00:50,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN103b_00_20_12.mov,SZTR/video/SZTRN103b.mov,00:02:52,00:04:07,00:01:15,,,,,FP,,1,Overcast,False,False,True,Day
-SZTRN201a_00_00_03.mov,SZTR/video/SZTRN201a.mov,00:03:32,00:04:12,00:00:40,,,,,FP,,2,Overcast,False,False,False,Dawn
-SZTRN201a_00_03_32.mov,SZTR/video/SZTRN201a.mov,00:10:04,00:12:11,00:02:07,,,,,FP,,2,Overcast,False,False,False,Dawn
-SZTRN201a_00_06_16.mov,SZTR/video/SZTRN201a.mov,00:00:03,00:01:14,00:01:11,,,,,FP,,2,Overcast,False,False,False,Dawn
+SZTRN103b_00_10_42.mov,SZTR/video/SZTRN103b.mov,00:10:42,00:12:46,00:02:04,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN103b_00_12_47.mov,SZTR/video/SZTRN103b.mov,00:12:47,00:14:52,00:02:05,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN103b_00_16_11.mov,SZTR/video/SZTRN103b.mov,00:16:11,00:16:40,00:00:29,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN103b_00_20_12.mov,SZTR/video/SZTRN103b.mov,00:20:12,00:21:38,00:01:26,,,,,FP,,1,Overcast,False,False,True,Day
+SZTRN201a_00_00_03.mov,SZTR/video/SZTRN201a.mov,00:00:03,00:01:14,00:01:11,,,,,FP,,2,Overcast,False,False,False,Dawn
+SZTRN201a_00_03_32.mov,SZTR/video/SZTRN201a.mov,00:03:32,00:04:12,00:00:40,,,,,FP,,2,Overcast,False,False,False,Dawn
+SZTRN201a_00_06_16.mov,SZTR/video/SZTRN201a.mov,00:06:16,00:06:57,00:00:41,,,,,FP,,2,Overcast,False,False,False,Dawn
 SZTRN201a_00_07_05.mov,SZTR/video/SZTRN201a.mov,00:07:05,00:08:56,00:01:51,,,,,FP,,2,Overcast,False,False,False,Dawn
-SZTRN201a_00_10_04.mov,SZTR/video/SZTRN201a.mov,00:06:16,00:06:57,00:00:41,,,,,FP,,2,Overcast,False,False,False,Dawn
-SZTRN201b_00_00_42.mov,SZTR/video/SZTRN201b.mov,00:06:15,00:08:21,00:02:06,,,,,FP,,2,None,False,False,False,Day
-SZTRN201b_00_06_15.mov,SZTR/video/SZTRN201b.mov,00:00:42,00:02:00,00:01:18,,,,,FP,,2,None,False,False,False,Day
+SZTRN201a_00_10_04.mov,SZTR/video/SZTRN201a.mov,00:10:04,00:12:11,00:02:07,,,,,FP,,2,Overcast,False,False,False,Dawn
+SZTRN201b_00_00_42.mov,SZTR/video/SZTRN201b.mov,00:00:42,00:02:00,00:01:18,,,,,FP,,2,None,False,False,False,Day
+SZTRN201b_00_06_15.mov,SZTR/video/SZTRN201b.mov,00:06:15,00:08:21,00:02:06,,,,,FP,,2,None,False,False,False,Day
 SZTRN201b_00_11_20.mov,SZTR/video/SZTRN201b.mov,00:11:20,00:13:38,00:02:18,,,,,FP,,2,None,False,False,False,Day
 SZTRN201b_00_18_16.mov,SZTR/video/SZTRN201b.mov,00:18:16,00:20:04,00:01:48,,,,,FP,,2,None,False,False,False,Day
 SZTRN201b_00_23_59.mov,SZTR/video/SZTRN201b.mov,00:23:59,00:26:03,00:02:04,,,,,FP,,2,None,False,False,False,Day
-SZTRN201c_00_03_56.mov,SZTR/video/SZTRN201c.mov,00:18:33,00:19:29,00:00:56,,,,,FP,,2,None,False,False,False,Dusk
-SZTRN201c_00_05_21.mov,SZTR/video/SZTRN201c.mov,00:03:56,00:04:29,00:00:33,,,,,FP,,2,None,False,False,False,Dusk
-SZTRN201c_00_06_57.mov,SZTR/video/SZTRN201c.mov,00:22:34,00:24:47,00:02:13,,,,,FP,,2,None,False,False,False,Dusk
+SZTRN201c_00_03_56.mov,SZTR/video/SZTRN201c.mov,00:03:56,00:04:29,00:00:33,,,,,FP,,2,None,False,False,False,Dusk
+SZTRN201c_00_05_21.mov,SZTR/video/SZTRN201c.mov,00:05:21,00:06:03,00:00:42,,,,,FP,,2,None,False,False,False,Dusk
+SZTRN201c_00_06_57.mov,SZTR/video/SZTRN201c.mov,00:06:57,00:09:18,00:02:21,,,,,FP,,2,None,False,False,False,Dusk
 SZTRN201c_00_09_21.mov,SZTR/video/SZTRN201c.mov,00:09:21,00:10:58,00:01:37,,,,,FP,,2,None,False,False,False,Dusk
-SZTRN201c_00_11_19.mov,SZTR/video/SZTRN201c.mov,00:25:11,00:25:44,00:00:33,,,,,FP,,2,None,False,False,False,Dusk
+SZTRN201c_00_11_19.mov,SZTR/video/SZTRN201c.mov,00:11:19,00:12:52,00:01:33,,,,,FP,,2,None,False,False,False,Dusk
 SZTRN201c_00_16_56.mov,SZTR/video/SZTRN201c.mov,00:16:56,00:17:24,00:00:28,,,,,FP,,2,None,False,False,False,Dusk
-SZTRN201c_00_18_33.mov,SZTR/video/SZTRN201c.mov,00:11:19,00:12:52,00:01:33,,,,,FP,,2,None,False,False,False,Dusk
-SZTRN201c_00_22_34.mov,SZTR/video/SZTRN201c.mov,00:06:57,00:09:18,00:02:21,,,,,FP,,2,None,False,False,False,Dusk
-SZTRN201c_00_25_11.mov,SZTR/video/SZTRN201c.mov,00:05:21,00:06:03,00:00:42,,,,,FP,,2,None,False,False,False,Dusk
-SZTRN201d_00_02_13.mov,SZTR/video/SZTRN201d.mov,00:07:33,00:07:53,00:00:20,,,,,FP,,2,None,True,False,False,Dawn
-SZTRN201d_00_05_27.mov,SZTR/video/SZTRN201d.mov,00:17:04,00:18:42,00:01:38,,,,,FP,,2,None,True,False,False,Dawn
-SZTRN201d_00_07_33.mov,SZTR/video/SZTRN201d.mov,00:05:27,00:06:20,00:00:53,,,,,FP,,2,None,True,False,False,Dawn
-SZTRN201d_00_11_17.mov,SZTR/video/SZTRN201d.mov,00:02:13,00:02:58,00:00:45,,,,,FP,,2,None,True,False,False,Dawn
-SZTRN201d_00_17_04.mov,SZTR/video/SZTRN201d.mov,00:22:12,00:23:22,00:01:10,,,,,FP,,2,None,True,False,False,Dawn
-SZTRN201d_00_22_12.mov,SZTR/video/SZTRN201d.mov,00:11:17,00:11:53,00:00:36,,,,,FP,,2,None,True,False,False,Dawn
+SZTRN201c_00_18_33.mov,SZTR/video/SZTRN201c.mov,00:18:33,00:19:29,00:00:56,,,,,FP,,2,None,False,False,False,Dusk
+SZTRN201c_00_22_34.mov,SZTR/video/SZTRN201c.mov,00:22:34,00:24:47,00:02:13,,,,,FP,,2,None,False,False,False,Dusk
+SZTRN201c_00_25_11.mov,SZTR/video/SZTRN201c.mov,00:25:11,00:25:44,00:00:33,,,,,FP,,2,None,False,False,False,Dusk
+SZTRN201d_00_02_13.mov,SZTR/video/SZTRN201d.mov,00:02:13,00:02:58,00:00:45,,,,,FP,,2,None,True,False,False,Dawn
+SZTRN201d_00_05_27.mov,SZTR/video/SZTRN201d.mov,00:05:27,00:06:20,00:00:53,,,,,FP,,2,None,True,False,False,Dawn
+SZTRN201d_00_07_33.mov,SZTR/video/SZTRN201d.mov,00:07:33,00:07:53,00:00:20,,,,,FP,,2,None,True,False,False,Dawn
+SZTRN201d_00_11_17.mov,SZTR/video/SZTRN201d.mov,00:11:17,00:11:53,00:00:36,,,,,FP,,2,None,True,False,False,Dawn
+SZTRN201d_00_17_04.mov,SZTR/video/SZTRN201d.mov,00:17:04,00:18:42,00:01:38,,,,,FP,,2,None,True,False,False,Dawn
+SZTRN201d_00_22_12.mov,SZTR/video/SZTRN201d.mov,00:22:12,00:23:22,00:01:10,,,,,FP,,2,None,True,False,False,Dawn
 SZTRN201e_00_00_59.mov,SZTR/video/SZTRN201e.mov,00:00:59,00:01:47,00:00:48,,,,,FP,,2,,False,False,False,Night
-SZTRN201e_00_02_22.mov,SZTR/video/SZTRN201e.mov,00:12:47,00:13:54,00:01:07,,,,,FP,,2,,False,False,False,Night
+SZTRN201e_00_02_22.mov,SZTR/video/SZTRN201e.mov,00:02:22,00:03:54,00:01:32,,,,,FP,,2,,False,False,False,Night
 SZTRN201e_00_04_57.mov,SZTR/video/SZTRN201e.mov,00:04:57,00:05:49,00:00:52,,,,,FP,,2,,False,False,False,Night
 SZTRN201e_00_09_07.mov,SZTR/video/SZTRN201e.mov,00:09:07,00:10:31,00:01:24,,,,,FP,,2,,False,False,False,Night
-SZTRN201e_00_12_47.mov,SZTR/video/SZTRN201e.mov,00:02:22,00:03:54,00:01:32,,,,,FP,,2,,False,False,False,Night
-SZTRN202a_00_00_33.mov,SZTR/video/SZTRN202a.mov,00:01:02,00:01:37,00:00:35,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202a_00_01_02.mov,SZTR/video/SZTRN202a.mov,00:11:12,00:11:34,00:00:22,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202a_00_08_29.mov,SZTR/video/SZTRN202a.mov,00:11:46,00:12:06,00:00:20,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202a_00_11_12.mov,SZTR/video/SZTRN202a.mov,00:27:11,00:27:54,00:00:43,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202a_00_11_46.mov,SZTR/video/SZTRN202a.mov,00:08:29,00:10:00,00:01:31,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202a_00_27_11.mov,SZTR/video/SZTRN202a.mov,00:29:35,00:31:48,00:02:13,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202a_00_29_35.mov,SZTR/video/SZTRN202a.mov,00:34:01,00:34:30,00:00:29,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202a_00_34_01.mov,SZTR/video/SZTRN202a.mov,00:00:33,00:00:52,00:00:19,,,,,FP,,2,Some,False,False,False,Day
-SZTRN202b_00_02_21.mov,SZTR/video/SZTRN202b.mov,00:14:30,00:15:21,00:00:51,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202b_00_05_26.mov,SZTR/video/SZTRN202b.mov,00:19:05,00:19:57,00:00:52,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202b_00_09_40.mov,SZTR/video/SZTRN202b.mov,00:02:21,00:04:26,00:02:05,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202b_00_14_30.mov,SZTR/video/SZTRN202b.mov,00:05:26,00:05:48,00:00:22,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202b_00_16_43.mov,SZTR/video/SZTRN202b.mov,00:22:08,00:23:00,00:00:52,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202b_00_19_05.mov,SZTR/video/SZTRN202b.mov,00:16:43,00:18:47,00:02:04,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN201e_00_12_47.mov,SZTR/video/SZTRN201e.mov,00:12:47,00:13:54,00:01:07,,,,,FP,,2,,False,False,False,Night
+SZTRN202a_00_00_33.mov,SZTR/video/SZTRN202a.mov,00:00:33,00:00:52,00:00:19,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202a_00_01_02.mov,SZTR/video/SZTRN202a.mov,00:01:02,00:01:37,00:00:35,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202a_00_08_29.mov,SZTR/video/SZTRN202a.mov,00:08:29,00:10:00,00:01:31,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202a_00_11_12.mov,SZTR/video/SZTRN202a.mov,00:11:12,00:11:34,00:00:22,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202a_00_11_46.mov,SZTR/video/SZTRN202a.mov,00:11:46,00:12:06,00:00:20,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202a_00_27_11.mov,SZTR/video/SZTRN202a.mov,00:27:11,00:27:54,00:00:43,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202a_00_29_35.mov,SZTR/video/SZTRN202a.mov,00:29:35,00:31:48,00:02:13,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202a_00_34_01.mov,SZTR/video/SZTRN202a.mov,00:34:01,00:34:30,00:00:29,,,,,FP,,2,Some,False,False,False,Day
+SZTRN202b_00_02_21.mov,SZTR/video/SZTRN202b.mov,00:02:21,00:04:26,00:02:05,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202b_00_05_26.mov,SZTR/video/SZTRN202b.mov,00:05:26,00:05:48,00:00:22,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202b_00_09_40.mov,SZTR/video/SZTRN202b.mov,00:09:40,00:11:47,00:02:07,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202b_00_14_30.mov,SZTR/video/SZTRN202b.mov,00:14:30,00:15:21,00:00:51,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202b_00_16_43.mov,SZTR/video/SZTRN202b.mov,00:16:43,00:18:47,00:02:04,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202b_00_19_05.mov,SZTR/video/SZTRN202b.mov,00:19:05,00:19:57,00:00:52,,,,,FP,,2,Overcast,False,True,False,Day
 SZTRN202b_00_20_09.mov,SZTR/video/SZTRN202b.mov,00:20:09,00:22:18,00:02:09,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202b_00_22_08.mov,SZTR/video/SZTRN202b.mov,00:09:40,00:11:47,00:02:07,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202c_00_01_51.mov,SZTR/video/SZTRN202c.mov,00:15:00,00:16:26,00:01:26,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202c_00_07_06.mov,SZTR/video/SZTRN202c.mov,00:01:51,00:03:18,00:01:27,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202c_00_08_55.mov,SZTR/video/SZTRN202c.mov,00:27:26,00:28:22,00:00:56,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202c_00_15_00.mov,SZTR/video/SZTRN202c.mov,00:07:06,00:08:00,00:00:54,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202b_00_22_08.mov,SZTR/video/SZTRN202b.mov,00:22:08,00:23:00,00:00:52,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202c_00_01_51.mov,SZTR/video/SZTRN202c.mov,00:01:51,00:03:18,00:01:27,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202c_00_07_06.mov,SZTR/video/SZTRN202c.mov,00:07:06,00:08:00,00:00:54,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202c_00_08_55.mov,SZTR/video/SZTRN202c.mov,00:08:55,00:10:29,00:01:34,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202c_00_15_00.mov,SZTR/video/SZTRN202c.mov,00:15:00,00:16:26,00:01:26,,,,,FP,,2,Overcast,False,True,False,Day
 SZTRN202c_00_17_14.mov,SZTR/video/SZTRN202c.mov,00:17:14,00:18:19,00:01:05,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202c_00_27_26.mov,SZTR/video/SZTRN202c.mov,00:08:55,00:10:29,00:01:34,,,,,FP,,2,Overcast,False,True,False,Day
-SZTRN202d_00_03_13.mov,SZTR/video/SZTRN202d.mov,00:08:18,00:09:29,00:01:11,,,,,FP,,2,,False,False,False,Night
-SZTRN202d_00_08_18.mov,SZTR/video/SZTRN202d.mov,00:10:17,00:11:22,00:01:05,,,,,FP,,2,,False,False,False,Night
-SZTRN202d_00_10_17.mov,SZTR/video/SZTRN202d.mov,00:03:13,00:05:36,00:02:23,,,,,FP,,2,,False,False,False,Night
+SZTRN202c_00_27_26.mov,SZTR/video/SZTRN202c.mov,00:27:26,00:28:22,00:00:56,,,,,FP,,2,Overcast,False,True,False,Day
+SZTRN202d_00_03_13.mov,SZTR/video/SZTRN202d.mov,00:03:13,00:05:36,00:02:23,,,,,FP,,2,,False,False,False,Night
+SZTRN202d_00_08_18.mov,SZTR/video/SZTRN202d.mov,00:08:18,00:09:29,00:01:11,,,,,FP,,2,,False,False,False,Night
+SZTRN202d_00_10_17.mov,SZTR/video/SZTRN202d.mov,00:10:17,00:11:22,00:01:05,,,,,FP,,2,,False,False,False,Night
 SZTRN203a_00_10_40.mov,SZTR/video/SZTRN203a.mov,00:10:40,00:11:53,00:01:13,,,,,FP,,2,,False,False,False,Night
 SZTRN203a_00_34_57.mov,SZTR/video/SZTRN203a.mov,00:34:57,00:37:09,00:02:12,,,,,FP,,2,,False,False,False,Night

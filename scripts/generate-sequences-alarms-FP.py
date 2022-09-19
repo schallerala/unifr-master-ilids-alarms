@@ -336,7 +336,7 @@ new_index_series.head()
 # In[ ]:
 
 
-SEQUENCES = SEQUENCES.set_index(new_index_series.sort_values())
+SEQUENCES = SEQUENCES.set_index(new_index_series).sort_index()
 
 # Make sure to place filename colum first, for readability
 SEQUENCES = SEQUENCES[pd.Index(["filename"]).append(SEQUENCES.columns.drop("filename"))]
