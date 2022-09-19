@@ -256,7 +256,7 @@ def drop_intersect_interval(
     return df
 
 
-# In[19]:
+# In[ ]:
 
 
 TARGET_SEQUENCES = 2 * len(alarms_df)
@@ -281,7 +281,7 @@ while missing_fp > 0:
     progress.update(n=len(fp_df))
 
 
-# In[20]:
+# In[ ]:
 
 
 TARGET_SEQUENCES = 2 * len(alarms_df)
@@ -306,20 +306,20 @@ while missing_fp > 0:
     progress.update(n=len(fp_df))
 
 
-# In[21]:
+# In[ ]:
 
 
 SEQUENCES.tail()
 
 
-# In[22]:
+# In[ ]:
 
 
 SEQUENCES = SEQUENCES.join(clips_df)
 SEQUENCES.index.rename("filename", inplace=True)
 
 
-# In[23]:
+# In[ ]:
 
 
 # Create unique indexes/identifier for later easier extraction of sequences
@@ -333,10 +333,10 @@ new_index_series.rename("id_sequence", inplace=True)
 new_index_series.head()
 
 
-# In[24]:
+# In[ ]:
 
 
-SEQUENCES = SEQUENCES.set_index(new_index_series)
+SEQUENCES = SEQUENCES.set_index(new_index_series.sort_values())
 
 # Make sure to place filename colum first, for readability
 SEQUENCES = SEQUENCES[pd.Index(["filename"]).append(SEQUENCES.columns.drop("filename"))]
@@ -344,7 +344,7 @@ SEQUENCES = SEQUENCES[pd.Index(["filename"]).append(SEQUENCES.columns.drop("file
 SEQUENCES.head()
 
 
-# In[25]:
+# In[ ]:
 
 
 # Change to way time related column will be serialized in the new csv
