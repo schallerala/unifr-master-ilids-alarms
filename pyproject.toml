@@ -6,6 +6,7 @@ authors = ["Alain Schaller <alain.schaller@unifr.ch>"]
 packages = [{include = "ilids", from = "src"}]
 
 [tool.poetry.dependencies]
+aim = "^3.13.3"
 chardet = "<5.0.0"
 decord = {path = "build/decord/python"}
 einops = "^0.4.1"
@@ -16,7 +17,7 @@ matplotlib = "^3.5.3"
 pandas = "^1.4.3"
 Pillow = "^9.2.0"
 pydantic = "^1.9.1"
-python = ">=3.10,<3.12"
+python = ">=3.10,<3.11"
 scikit-learn = "^1.1.2"
 scipy = "^1.9.1"
 towhee = "^0.8.0"

@@ -15,13 +15,13 @@ stages:
       md5: 19ba1181504527ebec65851eb1e125f0
       size: 2883
     - path: src/ilids/preprocessing/sztr
-      md5: 7bcf5151af07929377daecdd6c151e4f.dir
-      size: 7172
+      md5: 00b918f6afcddf1fce83fb63ffc64529.dir
+      size: 7120
       nfiles: 7
     outs:
     - path: data/sztr-metadata
-      md5: dac4e0ea8f57b6e64a47190905b2046e.dir
-      size: 140003
+      md5: db7a2a36eb29a7bdf91ad4cecaec81e6.dir
+      size: 137798
       nfiles: 5
   szte-metadata:
     cmd: make szte
@@ -58,8 +58,8 @@ stages:
       size: 745011617
       nfiles: 238
     - path: src/ilids/commands/ilids_aggregate
-      md5: 263f7c48d0bb76377acf3d8bd8cb86ea.dir
-      size: 15099
+      md5: f218da160ea7912d830d368e08fd67c3.dir
+      size: 14941
       nfiles: 6
     - path: src/ilids/commands/szte
       md5: 577bcac1bc6761771c5d3501ae52b60a.dir
@@ -80,11 +80,11 @@ stages:
       size: 10955
       nfiles: 6
     - path: src/ilids/preprocessing/sztr
-      md5: 7bcf5151af07929377daecdd6c151e4f.dir
-      size: 7172
+      md5: 00b918f6afcddf1fce83fb63ffc64529.dir
+      size: 7120
       nfiles: 7
     outs:
     - path: data/ilids-metadata
-      md5: 834ceca5b506a88d76284bb276a15947.dir
-      size: 186848
+      md5: 55e1442f0d549f6a56f864674aacf266.dir
+      size: 184323
       nfiles: 5

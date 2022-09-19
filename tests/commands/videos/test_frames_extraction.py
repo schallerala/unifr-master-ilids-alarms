@@ -1,7 +1,7 @@
 from pathlib import Path
 
-from hamcrest import *
 import pytest
+from hamcrest import *
 from typer.testing import CliRunner
 
 from ilids.cli.ffprobe import get_stream_info
