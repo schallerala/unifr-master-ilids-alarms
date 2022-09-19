@@ -94,7 +94,7 @@ distractions_df["duration"] = pd.to_timedelta(distractions_df["duration"])
 len(alarms_df), len(distractions_df)
 
 
-# In[ ]:
+# In[9]:
 
 
 alarms_df = alarms_df.rename(columns={"AlarmDuration": "Duration"})
@@ -112,7 +112,7 @@ TP = alarms_df[
 TP["Classification"] = "TP"
 
 
-# In[ ]:
+# In[10]:
 
 
 distractions_df = distractions_df.rename(
@@ -127,20 +127,20 @@ distractions_df = distractions_df[["StartTime", "EndTime", "Duration", "Distract
 distractions_df["Classification"] = "FP"
 
 
-# In[ ]:
+# In[11]:
 
 
 SEQUENCES = pd.concat([TP, distractions_df])
 SEQUENCES.head()
 
 
-# In[ ]:
+# In[12]:
 
 
 SEQUENCES.tail()
 
 
-# In[ ]:
+# In[13]:
 
 
 def apply_interval(df: pd.DataFrame) -> pd.arrays.IntervalArray:
@@ -149,14 +149,14 @@ def apply_interval(df: pd.DataFrame) -> pd.arrays.IntervalArray:
     )
 
 
-# In[ ]:
+# In[14]:
 
 
 SEQUENCES["Interval"] = apply_interval(SEQUENCES)
 SEQUENCES.head()
 
 
-# In[ ]:
+# In[15]:
 
 
 def check_in_sequences(df: pd.DataFrame, reference: pd.DataFrame) -> np.ndarray:
@@ -199,7 +199,7 @@ def check_in_sequences(df: pd.DataFrame, reference: pd.DataFrame) -> np.ndarray:
     return df.apply(check_df_row, axis=1, args=(reference,))
 
 
-# In[ ]:
+# In[16]:
 
 
 def generate_new_false_positive_intervals(N: int) -> pd.DataFrame:
@@ -227,7 +227,7 @@ def generate_new_false_positive_intervals(N: int) -> pd.DataFrame:
     return fp_df
 
 
-# In[ ]:
+# In[17]:
 
 
 def drop_invalid_intervals(df: pd.DataFrame, inplace=True) -> pd.DataFrame:
@@ -241,7 +241,7 @@ def drop_invalid_intervals(df: pd.DataFrame, inplace=True) -> pd.DataFrame:
     return df
 
 
-# In[ ]:
+# In[18]:
 
 
 def drop_intersect_interval(
@@ -256,7 +256,7 @@ def drop_intersect_interval(
     return df
 
 
-# In[ ]:
+# In[19]:
 
 
 TARGET_SEQUENCES = 2 * len(alarms_df)
@@ -281,7 +281,7 @@ while missing_fp > 0:
     progress.update(n=len(fp_df))
 
 
-# In[ ]:
+# In[20]:
 
 
 TARGET_SEQUENCES = 2 * len(alarms_df)
@@ -306,20 +306,45 @@ while missing_fp > 0:
     progress.update(n=len(fp_df))
 
 
-# In[ ]:
+# In[21]:
 
 
 SEQUENCES.tail()
 
 
-# In[ ]:
+# In[22]:
 
 
 SEQUENCES = SEQUENCES.join(clips_df)
 SEQUENCES.index.rename("filename", inplace=True)
 
 
-# In[ ]:
+# In[23]:
+
+
+# Create unique indexes/identifier for later easier extraction of sequences
+filename_series = SEQUENCES.index.to_series()
+SEQUENCES["filename"] = filename_series
+
+new_index_series = filename_series.apply(lambda f: Path(f).stem) + "_" + SEQUENCES["StartTime"].dt.seconds.apply(lambda secs: strftime("%H_%M_%S", gmtime(secs))) + filename_series.apply(lambda f: Path(f).suffix)
+
+new_index_series.rename("id_sequence", inplace=True)
+
+new_index_series.head()
+
+
+# In[24]:
+
+
+SEQUENCES = SEQUENCES.set_index(new_index_series)
+
+# Make sure to place filename colum first, for readability
+SEQUENCES = SEQUENCES[pd.Index(["filename"]).append(SEQUENCES.columns.drop("filename"))]
+
+SEQUENCES.head()
+
+
+# In[25]:
 
 
 # Change to way time related column will be serialized in the new csv
