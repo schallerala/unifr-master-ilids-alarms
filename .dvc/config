@@ -1,2 +1,5 @@
 [core]
     autostage = true
+    remote = aws
+['remote "aws"']
+    url = s3://sandbox-alainschaller-poc-master/ilids-dvcstore
