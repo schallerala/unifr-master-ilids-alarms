@@ -8,15 +8,15 @@ stages:
       size: 745011617
       nfiles: 238
     - path: src/ilids/commands/sztr
-      md5: 20a8d1c2feae64cd66c11f0c99685e6b.dir
-      size: 8767
+      md5: 3afb691a0fe1f7668dcc17294074e92a.dir
+      size: 8782
       nfiles: 6
     - path: src/ilids/models/sztr.py
       md5: 19ba1181504527ebec65851eb1e125f0
       size: 2883
     - path: src/ilids/preprocessing/sztr
-      md5: 00b918f6afcddf1fce83fb63ffc64529.dir
-      size: 7120
+      md5: f955c14424aa659eb00bf39ca6c3dd99.dir
+      size: 7135
       nfiles: 7
     outs:
     - path: data/sztr-metadata
@@ -31,20 +31,20 @@ stages:
       size: 743645624
       nfiles: 67
     - path: src/ilids/commands/szte
-      md5: 577bcac1bc6761771c5d3501ae52b60a.dir
-      size: 10470
+      md5: 74b0ce27d0782a9f8c0ffaa7c1d36ce2.dir
+      size: 10485
       nfiles: 6
     - path: src/ilids/models/szte.py
       md5: f6a2648ba6c57af9e119945edd295e5c
       size: 2918
     - path: src/ilids/preprocessing/szte
-      md5: c2beb2072727405f13a24d15c32ec082.dir
-      size: 10955
+      md5: 75dff93e7335b4cd1401f18fa01608e2.dir
+      size: 10970
       nfiles: 6
     outs:
     - path: data/szte-metadata
-      md5: 0de7afad0e0e838fb9911ed256129363.dir
-      size: 38058
+      md5: 8ee52de6b67c832a2d26fff4f8730d9d.dir
+      size: 37738
       nfiles: 5
   ilids-metadata:
     cmd: make ilids
@@ -58,16 +58,16 @@ stages:
       size: 745011617
       nfiles: 238
     - path: src/ilids/commands/ilids_aggregate
-      md5: f218da160ea7912d830d368e08fd67c3.dir
-      size: 14941
+      md5: b5b3a95715300308ec41cbb769471be7.dir
+      size: 14966
       nfiles: 6
     - path: src/ilids/commands/szte
-      md5: 577bcac1bc6761771c5d3501ae52b60a.dir
-      size: 10470
+      md5: 74b0ce27d0782a9f8c0ffaa7c1d36ce2.dir
+      size: 10485
       nfiles: 6
     - path: src/ilids/commands/sztr
-      md5: 20a8d1c2feae64cd66c11f0c99685e6b.dir
-      size: 8767
+      md5: 3afb691a0fe1f7668dcc17294074e92a.dir
+      size: 8782
       nfiles: 6
     - path: src/ilids/models/szte.py
       md5: f6a2648ba6c57af9e119945edd295e5c
@@ -76,19 +76,19 @@ stages:
       md5: 19ba1181504527ebec65851eb1e125f0
       size: 2883
     - path: src/ilids/preprocessing/szte
-      md5: c2beb2072727405f13a24d15c32ec082.dir
-      size: 10955
+      md5: 75dff93e7335b4cd1401f18fa01608e2.dir
+      size: 10970
       nfiles: 6
     - path: src/ilids/preprocessing/sztr
-      md5: 00b918f6afcddf1fce83fb63ffc64529.dir
-      size: 7120
+      md5: f955c14424aa659eb00bf39ca6c3dd99.dir
+      size: 7135
       nfiles: 7
     outs:
     - path: data/ilids-metadata
       md5: 55e1442f0d549f6a56f864674aacf266.dir
       size: 184323
       nfiles: 5
-  sequences:
+  extract-all-sequences:
     cmd: make -j$(make cpu_count) extract-all-sequences
     deps:
     - path: data/SZTE
@@ -108,6 +108,6 @@ stages:
       size: 2732
     outs:
     - path: data/sequences
-      md5: b1c127feb413fc726700cff63136e504.dir
-      size: 386129
-      nfiles: 3
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864

@@ -31,7 +31,7 @@ stages:
     - src/ilids/preprocessing/sztr
     outs:
     - data/ilids-metadata
-  sequences:
+  extract-all-sequences:
     cmd: make -j$(make cpu_count) extract-all-sequences
     deps:
     - data/SZTE
