@@ -13,6 +13,8 @@ from towhee.models.utils.video_transforms import get_configs, transform_video
 from towhee.operator.base import NNOperator
 from towhee.types.video_frame import VideoFrame
 
+from ilids.towhee_utils.override.movinet_config import get_movinet_transform_config
+
 log = logging.getLogger()
 
 
@@ -86,6 +88,7 @@ class Movinet(NNOperator):
             mean=self.input_mean,
             std=self.input_std,
         )
+        self.transform_cfgs.update(**get_movinet_transform_config(model_name))
         self.model.eval()
 
     def save_model(self):
@@ -133,7 +136,7 @@ class Movinet(NNOperator):
         feats = self.model.forward_features(inputs)
         outs = self.model.head(feats)
 
-        features = outs.flatten(1).to("cpu").squeeze(0).detach().numpy()
+        features = outs.flatten(1).cpu().squeeze(0).detach().numpy()
 
         post_act = torch.nn.Softmax(dim=1)
         preds = post_act(outs)
