@@ -7,7 +7,8 @@ stages:
     - src/ilids/commands/szte
     - src/ilids/preprocessing/szte
     outs:
-    - data/szte-metadata
+    - data/szte-metadata:
+        cache: false
   sztr-metadata:
     cmd: make sztr
     deps:
@@ -16,7 +17,8 @@ stages:
     - src/ilids/commands/sztr
     - src/ilids/preprocessing/sztr
     outs:
-    - data/sztr-metadata
+    - data/sztr-metadata:
+        cache: false
   ilids-metadata:
     cmd: make ilids
     deps:
@@ -30,13 +32,26 @@ stages:
     - src/ilids/preprocessing/szte
     - src/ilids/preprocessing/sztr
     outs:
-    - data/ilids-metadata
+    - data/ilids-metadata:
+        cache: false
+  tp-fp-sequences:
+    cmd: make sequences
+    deps:
+    - data/handcrafted-metadata/szte_distractions.extended.corrected.csv
+    - notebooks/generate-sequences-alarms-FP.ipynb
+    - data/ilids-metadata/alarms.csv
+    - data/ilids-metadata/clips.csv
+    - data/ilids-metadata/videos.csv
+    outs:
+    - data/handcrafted-metadata/tp_fp_sequences.csv:
+        cache: false
   extract-all-sequences:
     cmd: make -j$(make cpu_count) extract-all-sequences
     deps:
     - data/SZTE
     - data/SZTR
-    - data/ilids-metadata
+    - data/handcrafted-metadata/tp_fp_sequences.csv
     - src/ilids/commands/videos/frames_extraction.py
     outs:
-    - data/sequences
+    - data/sequences:
+        persist: true

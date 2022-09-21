@@ -178,7 +178,7 @@ sequences-clean:
 ## (make sequnces must have been run eariler on)
 
 ### Ease pattern matching by "gathering" all videos in a single folder with symbolic links
-VIDEOS_SYMLINK_TARGET_FOLDER := $(DATA_FOLDER)/videos
+VIDEOS_SYMLINK_TARGET_FOLDER := $(DATA_FOLDER)/symlink-videos
 
 $(VIDEOS_SYMLINK_TARGET_FOLDER): | $(DATA_FOLDER)
 	mkdir $@
@@ -230,7 +230,7 @@ define give_requirement_without_start_time
 $(shell echo $(1) | sed -E 's/(_[0-9]{2}){3}//')
 endef
 
-$(SEQUENCES_TARGET_FOLDER)/%.mov: data/videos/$$(call give_requirement_without_start_time,$$(@F)) $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | $(SEQUENCES_TARGET_FOLDER)
+$(SEQUENCES_TARGET_FOLDER)/%.mov: $(VIDEOS_SYMLINK_TARGET_FOLDER)/$$(call give_requirement_without_start_time,$$(@F)) $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | $(SEQUENCES_TARGET_FOLDER)
 	@# -m1: stop reading a file after 1 matching line
 	@grep -m1 '$(@F)' $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | \
 	awk -F',' '{ print "data/" $$2 " " $$3 " " $$4 " 12 -o $@" }' | tee /dev/stderr | \
