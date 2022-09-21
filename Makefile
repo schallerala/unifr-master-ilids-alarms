@@ -24,7 +24,7 @@ SZTE_METADATA_FOLDER := $(DATA_FOLDER)/szte-metadata
 $(SZTE_METADATA_FOLDER): | $(DATA_FOLDER)
 	-mkdir $@
 
-SZTE_METADATA_OUTPUTS := $(shell echo $(SZTE_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
+SZTE_METADATA_OUTPUTS := $(addprefix $(SZTE_METADATA_FOLDER)/,meta.json clips.csv alarms.csv distractions.csv)
 
 $(SZTE_METADATA_OUTPUTS) &:: data/SZTE/index.xml | $(SZTE_METADATA_FOLDER)
 	poetry run ilids_cmd szte index all $< $(SZTE_METADATA_OUTPUTS)
@@ -32,7 +32,7 @@ $(SZTE_METADATA_OUTPUTS) &:: data/SZTE/index.xml | $(SZTE_METADATA_FOLDER)
 	make $(SZTE_METADATA_FOLDER)/videos.csv
 
 	# correct video extension to .mov as in the index.xml, they reference videos with .qtl
-	for file in $(shell echo $(SZTE_METADATA_FOLDER)/*); do \
+	for file in $(SZTE_METADATA_FOLDER)/*; do \
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
@@ -57,7 +57,7 @@ SZTR_METADATA_FOLDER := $(DATA_FOLDER)/sztr-metadata
 $(SZTR_METADATA_FOLDER): | $(DATA_FOLDER)
 	mkdir $@
 
-SZTR_METADATA_OUTPUTS := $(shell echo $(SZTR_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
+SZTR_METADATA_OUTPUTS := $(addprefix $(SZTR_METADATA_FOLDER)/,meta.json clips.csv alarms.csv distractions.csv)
 
 $(SZTR_METADATA_OUTPUTS) &:: data/SZTR/index.xml | $(SZTR_METADATA_FOLDER)
 	poetry run ilids_cmd sztr index all $< $(SZTR_METADATA_OUTPUTS)
@@ -65,7 +65,7 @@ $(SZTR_METADATA_OUTPUTS) &:: data/SZTR/index.xml | $(SZTR_METADATA_FOLDER)
 	make $(SZTR_METADATA_FOLDER)/videos.csv
 
 	# correct video extension to .mov as in the index.xml, they reference videos with .qtl
-	for file in $(shell echo $(SZTR_METADATA_FOLDER)/*); do \
+	for file in $(SZTR_METADATA_FOLDER)/*; do \
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
@@ -118,14 +118,14 @@ ILIDS_METADATA_FOLDER := $(DATA_FOLDER)/ilids-metadata
 $(ILIDS_METADATA_FOLDER): | $(DATA_FOLDER)
 	mkdir $@
 
-ILIDS_METADATA_OUTPUTS := $(shell echo $(ILIDS_METADATA_FOLDER)/{meta.json,clips.csv,alarms.csv,distractions.csv})
+ILIDS_METADATA_OUTPUTS := $(addprefix $(ILIDS_METADATA_FOLDER)/,meta.json clips.csv alarms.csv distractions.csv)
 
 $(ILIDS_METADATA_OUTPUTS) &:: data/SZTE/index.xml data/SZTR/index.xml | $(ILIDS_METADATA_FOLDER)
 	poetry run ilids_cmd ilids indexes all data/SZTE/index.xml data/SZTR/index.xml $(ILIDS_METADATA_OUTPUTS)
 	make $(ILIDS_METADATA_FOLDER)/videos.csv
 
 	# correct video extension to .mov as in the index.xml, they reference videos with .qtl
-	for file in $(shell echo $(ILIDS_METADATA_FOLDER)/*); do \
+	for file in $(ILIDS_METADATA_FOLDER)/*; do \
 		sed -i '' 's/\.qtl/\.mov/g' $$file; \
 	done
 
