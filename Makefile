@@ -80,7 +80,7 @@ sztr: $(SZTR_METADATA_OUTPUTS) $(SZTR_METADATA_FOLDER)/videos.csv  ## extract al
 
 
 ### Extra to extract data/SZTR/SZTR.mdb
-HAS_MDB_TOOLS := $(shell if which -s mdb-tables && which -s mdb-export; then echo "OK"; fi)
+HAS_MDB_TOOLS := $(shell if which mdb-tables > /dev/null && which mdb-export > /dev/null; then echo "OK"; fi)
 
 ifneq ($(strip $(HAS_MDB_TOOLS)),)
 $(SZTR_METADATA_FOLDER)/mdb: data/SZTR/SZTR.mdb | $(SZTR_METADATA_FOLDER)
