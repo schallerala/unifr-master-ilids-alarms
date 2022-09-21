@@ -6,6 +6,7 @@ authors = ["Alain Schaller <alain.schaller@unifr.ch>"]
 packages = [{include = "ilids", from = "src"}]
 
 [tool.poetry.dependencies]
+"towhee.models" = "^0.8.0"
 aim = "^3.13.3"
 chardet = "<5.0.0"
 decord = {path = "build/decord/python"}
@@ -20,6 +21,8 @@ pydantic = "^1.9.1"
 python = ">=3.10,<3.11"
 scikit-learn = "^1.1.2"
 scipy = "^1.9.1"
+torch = "^1.12.1"
+torchvision = "^0.13.1"
 towhee = "^0.8.0"
 tqdm = "^4.64.0"
 typer = {extras = ["all"], version = "^0.6.1"}
