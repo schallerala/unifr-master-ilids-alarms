@@ -2,7 +2,7 @@ import csv
 import logging
 import os
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List
 
 import numpy
 import torch
@@ -14,8 +14,18 @@ from towhee.operator.base import NNOperator
 from towhee.types.video_frame import VideoFrame
 
 from ilids.towhee_utils.override.movinet_config import get_movinet_transform_config
+from ilids.utils.extended_enums import ExtendedEnum
 
 log = logging.getLogger()
+
+
+class MovinetModelName(str, ExtendedEnum):
+    movineta0 = "movineta0"
+    movineta1 = "movineta1"
+    movineta2 = "movineta2"
+    movineta3 = "movineta3"
+    movineta4 = "movineta4"
+    movineta5 = "movineta5"
 
 
 @register(name="ilids/movinet", output_schema=["labels", "scores", "features"])
@@ -97,15 +107,9 @@ class Movinet(NNOperator):
         """
         raise NotImplementedError
 
-    def supported_model_names(self) -> List[str]:
-        return [
-            "movineta0",
-            "movineta1",
-            "movineta2",
-            "movineta3",
-            "movineta4",
-            "movineta5",
-        ]
+    @classmethod
+    def supported_model_names(cls) -> List[str]:
+        return MovinetModelName.list()
 
     def __call__(self, video: List[VideoFrame]):
         """

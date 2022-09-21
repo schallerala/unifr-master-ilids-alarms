@@ -241,6 +241,36 @@ endif
 
 .PHONY: extract-all-sequences
 
+
+
+#########################
+# Features extraction
+#########################
+
+RESULTS_FOLDER := results
+
+
+$(RESULTS_FOLDER):
+	mkdir $@
+
+# MoViNet
+##########
+
+MOVINET_MODEL_NAMES := movineta0 movineta1 movineta2 movineta3 movineta4 movineta5
+MOVINET_RESULTS_FOLDER := $(RESULTS_FOLDER)/movinet
+
+MOVINET_RESULTS_OUTPUT_SUFFIX := .pkl
+MOVINET_FEATURES_TARGETS := $(addprefix $(MOVINET_RESULTS_FOLDER)/,$(addsuffix $(MOVINET_RESULTS_OUTPUT_SUFFIX),$(MOVINET_MODEL_NAMES)))
+
+$(MOVINET_FEATURES_TARGETS): $(MOVINET_RESULTS_FOLDER)/%$(MOVINET_RESULTS_OUTPUT_SUFFIX):
+	echo poetry run ilids_cmd experiments movinet $* 'data/sequences/*.mov' $@
+
+results-features-movinet: $(MOVINET_FEATURES_TARGETS)
+
+.PHONY: results-features-movinet
+
+
+
 #########################
 # Build & Install Decord
 #########################

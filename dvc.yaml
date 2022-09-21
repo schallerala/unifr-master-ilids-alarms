@@ -55,3 +55,10 @@ stages:
     outs:
     - data/sequences:
         persist: true
+
+  results-features-movinet:
+    cmd: make -j$(make cpu_count) results-features-movinet
+    deps:
+    - data/sequences
+    outs:
+    - results/movinet

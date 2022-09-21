@@ -125,7 +125,7 @@ def single(
 
     if not overwrite and output_video.exists():
         raise ValueError(
-            f"Use -y option to overwrite the existing output: {output_video}"
+            f"Use -y option to overwrite the existing output: {str(output_video)}"
         )
 
     returncode = ffmpeg_scale_compress(input_video, output_video, overwrite)

@@ -1,5 +1,6 @@
 import typer
 
+import ilids.commands.experiments as experiments
 import ilids.commands.ilids_aggregate.ilids_indexes as ilids_indexes
 import ilids.commands.ilids_aggregate.ilids_videos as ilids_videos
 import ilids.commands.szte.extract_index_metadata_szte as szte_index
@@ -35,3 +36,4 @@ typer_app.add_typer(szte_typer_app, name="szte")
 typer_app.add_typer(sztr_typer_app, name="sztr")
 typer_app.add_typer(ilids_typer_app, name="ilids")
 typer_app.add_typer(videos_typer_app, name="videos")
+typer_app.add_typer(experiments.typer_app, name="experiments")
