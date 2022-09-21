@@ -2,6 +2,7 @@ stages:
   szte-metadata:
     cmd: make szte
     deps:
+    - data/SZTE
     - src/ilids/models/szte.py
     - src/ilids/commands/szte
     - src/ilids/preprocessing/szte
@@ -11,6 +12,7 @@ stages:
   sztr-metadata:
     cmd: make sztr
     deps:
+    - data/SZTR
     - src/ilids/models/sztr.py
     - src/ilids/commands/sztr
     - src/ilids/preprocessing/sztr
@@ -20,6 +22,8 @@ stages:
   ilids-metadata:
     cmd: make ilids
     deps:
+    - data/SZTE
+    - data/SZTR
     - src/ilids/models/szte.py
     - src/ilids/models/sztr.py
     - src/ilids/commands/sztr
@@ -44,6 +48,8 @@ stages:
   extract-all-sequences:
     cmd: make -j$(make cpu_count) extract-all-sequences
     deps:
+    - data/SZTE
+    - data/SZTR
     - data/handcrafted-metadata/tp_fp_sequences.csv
     - src/ilids/commands/videos/frames_extraction.py
     outs:
