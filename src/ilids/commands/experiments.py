@@ -58,6 +58,9 @@ def movinet(
             f"Use -f option to overwrite the existing output: {str(features_output_path)}"
         )
 
+    assert features_output_path.parent.exists()
+    assert features_output_path.parent.is_dir()
+
     print(f"Starting features extract for {model_name}")
     extract_movinet_features(
         model_name,
