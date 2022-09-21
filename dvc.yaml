@@ -57,8 +57,22 @@ stages:
         persist: true
 
   results-features-movinet:
-    cmd: make -j$(make cpu_count) results-features-movinet
-    deps:
-    - data/sequences
-    outs:
-    - results/movinet
+    foreach:
+      movineta0:
+        model_name: movineta0
+      movineta1:
+        model_name: movineta1
+      movineta2:
+        model_name: movineta2
+      movineta3:
+        model_name: movineta3
+      movineta4:
+        model_name: movineta4
+      movineta5:
+        model_name: movineta5
+    do:
+      cmd: make results/movinet/${item.model_name}.pkl
+      deps:
+      - data/sequences
+      outs:
+      - results/movinet/${item.model_name}.pkl
