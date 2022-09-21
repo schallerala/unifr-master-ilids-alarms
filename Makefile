@@ -275,7 +275,7 @@ results-features-movinet: $(MOVINET_FEATURES_TARGETS)
 # Build & Install Decord
 #########################
 
-DECORD_CMAKE_USER_CUDA := $(shell if which -s nvcc; then echo "ON"; else echo "0"; fi)
+DECORD_CMAKE_USER_CUDA := $(shell if which nvcc > /dev/null; then echo "ON"; else echo "0"; fi)
 
 ifeq ($(OS),Windows_NT)
     # CCFLAGS += -D WIN32
