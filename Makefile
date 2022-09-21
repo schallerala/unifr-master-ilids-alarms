@@ -263,7 +263,7 @@ MOVINET_RESULTS_OUTPUT_SUFFIX := .pkl
 MOVINET_FEATURES_TARGETS := $(addprefix $(MOVINET_RESULTS_FOLDER)/,$(addsuffix $(MOVINET_RESULTS_OUTPUT_SUFFIX),$(MOVINET_MODEL_NAMES)))
 
 $(MOVINET_FEATURES_TARGETS): $(MOVINET_RESULTS_FOLDER)/%$(MOVINET_RESULTS_OUTPUT_SUFFIX):
-	echo poetry run ilids_cmd experiments movinet $* 'data/sequences/*.mov' $@
+	poetry run ilids_cmd experiments movinet $* 'data/sequences/*.mov' $@
 
 results-features-movinet: $(MOVINET_FEATURES_TARGETS)
 
