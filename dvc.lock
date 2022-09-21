@@ -132,3 +132,69 @@ stages:
     - path: data/handcrafted-metadata/tp_fp_sequences.csv
       md5: a917efccda9ef757918b039bbca70b4c
       size: 113974
+  results-features-movinet@movineta1:
+    cmd: make results/movinet/movineta1.pkl
+    deps:
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/movinet/movineta1.pkl
+      md5: a6458fa93c1c9f07d83f0ee4d312681a
+      size: 2111072
+  results-features-movinet@movineta3:
+    cmd: make results/movinet/movineta3.pkl
+    deps:
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/movinet/movineta3.pkl
+      md5: 92892bfb278287dffff19ea0b8891088
+      size: 2111072
+  results-features-movinet@movineta4:
+    cmd: make results/movinet/movineta4.pkl
+    deps:
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/movinet/movineta4.pkl
+      md5: 7d5fa64af17bd14fff37671f58dac81b
+      size: 2111072
+  results-features-movinet@movineta2:
+    cmd: make results/movinet/movineta2.pkl
+    deps:
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/movinet/movineta2.pkl
+      md5: a001a3fc45f571685caa115c68836033
+      size: 2111072
+  results-features-movinet@movineta5:
+    cmd: make results/movinet/movineta5.pkl
+    deps:
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/movinet/movineta5.pkl
+      md5: 3d067ccba09da8f38f4188b65f21bcf0
+      size: 2111072
+  results-features-movinet@movineta0:
+    cmd: make results/movinet/movineta0.pkl
+    deps:
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/movinet/movineta0.pkl
+      md5: 0f9d9b8faff5619aa2e10f460d616895
+      size: 2111072
