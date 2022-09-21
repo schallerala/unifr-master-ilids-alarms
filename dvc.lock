@@ -99,10 +99,9 @@ stages:
       md5: 5d3fdde33c8c9a1cf80ed5d5f5c6d43f.dir
       size: 745011617
       nfiles: 238
-    - path: data/ilids-metadata
-      md5: 55e1442f0d549f6a56f864674aacf266.dir
-      size: 184323
-      nfiles: 5
+    - path: data/handcrafted-metadata/tp_fp_sequences.csv
+      md5: a917efccda9ef757918b039bbca70b4c
+      size: 113974
     - path: src/ilids/commands/videos/frames_extraction.py
       md5: c44a11f8c9a1f8550aa40ecea80dd5ee
       size: 2732
@@ -111,3 +110,25 @@ stages:
       md5: fe9ca5d9f3835610106d71e1acdbae38.dir
       size: 63103057
       nfiles: 864
+  tp-fp-sequences:
+    cmd: make sequences
+    deps:
+    - path: data/handcrafted-metadata/szte_distractions.extended.corrected.csv
+      md5: e4997a165974261da18268e2af23a433
+      size: 2263
+    - path: data/ilids-metadata/alarms.csv
+      md5: f5e908ede0f64ba1886226498a877946
+      size: 40064
+    - path: data/ilids-metadata/clips.csv
+      md5: 7781468e07569d7513ad6e956fbeeced
+      size: 18250
+    - path: data/ilids-metadata/videos.csv
+      md5: 90a1e17183ca0f6e9b8e781fc0cc4485
+      size: 121857
+    - path: notebooks/generate-sequences-alarms-FP.ipynb
+      md5: 2749ec53f72ed6037ec8250c501b91b0
+      size: 28321
+    outs:
+    - path: data/handcrafted-metadata/tp_fp_sequences.csv
+      md5: a917efccda9ef757918b039bbca70b4c
+      size: 113974
