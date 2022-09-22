@@ -56,6 +56,8 @@ min_confidence = 80
 sort_by_size = true
 
 [tool.taskipy.tasks]
+install-kernel = "python -m ipykernel install --user --name ilids-poetry-kernel"
+
 format = "black src notebooks tests && isort src notebooks tests"
 test = "pytest"
 

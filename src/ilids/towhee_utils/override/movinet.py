@@ -137,8 +137,10 @@ class Movinet(NNOperator):
         inputs = data.to(self.device)[None, ...]
 
         self.model.clean_activation_buffers()
-        feats = self.model.forward_features(inputs)
-        outs = self.model.head(feats)
+
+        with torch.no_grad():
+            feats = self.model.forward_features(inputs)
+            outs = self.model.head(feats)
 
         features = outs.flatten(1).cpu().squeeze(0).detach().numpy()
 
