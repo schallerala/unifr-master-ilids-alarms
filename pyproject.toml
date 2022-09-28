@@ -50,7 +50,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
 ilids_cmd = 'ilids.commands:typer_app'
-ilids_sync = 'ilids.synchronization.serve:typer_app'
+ilids_sync = 'ilids.synchronization.share_gpu_command:typer_app'
 
 [tool.isort]
 multi_line_output = 3

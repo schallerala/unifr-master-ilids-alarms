@@ -246,4 +246,4 @@ fabric.properties
 /szte-metadata
 /sztr-metadata
 /results/sztr-metadata/mdb
-/ilids.synchronization.serve.lock
+/ilids.synchronization.share_gpu_command.lock

@@ -272,6 +272,38 @@ results-features-movinet: $(MOVINET_FEATURES_TARGETS)
 
 .PHONY: results-features-movinet
 
+# ActionCLIP
+
+
+ACTIONCLIP_MODEL_NAMES := $(shell seq 45)
+ACTIONCLIP_RESULTS_FOLDER := $(RESULTS_FOLDER)/actionclip
+
+$(ACTIONCLIP_RESULTS_FOLDER): | $(RESULTS_FOLDER)
+	mkdir $@
+
+ACTIONCLIP_RESULTS_OUTPUT_SUFFIX := .pkl
+ACTIONCLIP_FEATURES_TARGETS := $(addprefix $(ACTIONCLIP_RESULTS_FOLDER)/,$(addsuffix $(ACTIONCLIP_RESULTS_OUTPUT_SUFFIX),$(ACTIONCLIP_MODEL_NAMES)))
+
+$(ACTIONCLIP_FEATURES_TARGETS): $(ACTIONCLIP_RESULTS_FOLDER)/%$(ACTIONCLIP_RESULTS_OUTPUT_SUFFIX): ilids.synchronization.serve.lock | $(ACTIONCLIP_RESULTS_FOLDER)
+	# TODO add model name and other param
+	poetry run ilids_cmd experiments actionclip $* 'data/sequences/*.mov' $@ -h localhost -P $(SHARE_GPU_SERVER_PORT)
+
+results-features-actionclip: $(ACTIONCLIP_FEATURES_TARGETS)
+
+.PHONY: results-features-actionclip
+
+
+###### Utils for experiments
+
+SHARE_GPU_SERVER_PORT := 9084
+
+ilids.synchronization.serve.lock: ;
+
+# Define it as a PHONY so it isn't required/called by the "child target"
+spawn-share-gpu-server: ## spawn a sync server to give out GPUs with multiple jobs
+	poetry run ilids_sync 4 $(SHARE_GPU_SERVER_PORT)
+
+.PHONY: spawn-share-gpu-server
 
 
 #########################
