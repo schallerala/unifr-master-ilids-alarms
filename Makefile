@@ -244,6 +244,55 @@ endif
 
 
 #########################
+# checkpoints
+#########################
+
+CHECKPOINTS_FOLDER := ckpt
+
+
+$(CHECKPOINTS_FOLDER):
+	mkdir $@
+
+
+# ActionClip
+
+
+ACTIONCLIP_CHECKPOINT_FOLDER := $(CHECKPOINTS_FOLDER)/actionclip
+
+
+$(ACTIONCLIP_CHECKPOINT_FOLDER): | $(CHECKPOINTS_FOLDER)
+	mkdir $@
+
+
+# Intermediate util to list checkpoints
+list-actionclip-checkpoints:
+ifeq ($(strip $(shell which gdrive > /dev/null && echo "has gdrive cli")),)
+	$(error Expected to list the checkpoints from Google Drive using the 'gdrive' command. Install it first from https://github.com/prasmussen/gdrive)
+else
+	$(info using the Google Drive link in README.md of https://github.com/sallymmx/ActionCLIP)
+	gdrive list --query "'1qs5SzQIl__qo2x9h0YudpGzHhNnPGqK6' in parents" | awk 'NR > 1 { print $$1 }' | xargs -L1 -I{} gdrive list --query "'{}' in parents" | awk 'NR == 1 || $$1 != "Id"'
+endif
+
+.PHONY: list-actionclip-checkpoints
+
+# list produced with target 'list-actionclip-checkpoints'
+ACTIONCLIP_CHECKPOINT_NAMES := vit-b-16-8f.pt vit-b-32-8f.pt vit-b-16-16f.pt vit-b-16-32f.pt
+ACTIONCLIP_CHECKPOINTS := $(addprefix $(ACTIONCLIP_CHECKPOINT_FOLDER)/,$(ACTIONCLIP_CHECKPOINT_NAMES))
+
+# list produced with target 'list-actionclip-checkpoints'
+ACTIONCLIP_CHECKPOINTS_GDRIVE_ID := 1upZawWz_vbvzId8Jh_KWYiDu3EW7WkET 1cjDd1zFHmrNkAds30rBPH0MVgKJIk1y9 1_cZjE8NeC-1bMatVE1ydh3R2BH8HIR0R 1PLaNKiyI5VQoTZi_SG6mxgGDhi6rGoVK
+
+$(ACTIONCLIP_CHECKPOINTS): | $(ACTIONCLIP_CHECKPOINT_FOLDER)
+	poetry run gdown --output $@ $(call lookup,$(@F),$(ACTIONCLIP_CHECKPOINT_NAMES),$(ACTIONCLIP_CHECKPOINTS_GDRIVE_ID))
+
+
+dl-all-checkpoints-actionclip: $(ACTIONCLIP_CHECKPOINTS)
+
+.PHONY: dl-all-checkpoints-actionclip
+
+
+
+#########################
 # Features extraction
 #########################
 
@@ -379,3 +428,24 @@ cpu_count:
 endif
 
 .PHONY: cpu_count
+
+
+## Make utils
+
+### Get index of word in a word list
+### Source: https://stackoverflow.com/a/37483943/3771148
+_pos = $(if $(findstring $1,$2),$(call _pos,$1,\
+       $(wordlist 2,$(words $2),$2),x $3),$3)
+pos = $(words $(call _pos,$1,$2))
+
+### $(call lookup,word_a,wordlist_a,wordlist_b):
+####   find the corresponding word_b in wordlist_b having
+#### the same index as word_a in wordlist_a
+####
+#### Example:
+####    ALPHA := a b c d e f g h i j k l m n o p q r s t u v w x y z
+####    NATO := alpha beta charlie delta echo foxtrot gamma hotel india\
+####            juliet kilo lima mike november oscar papa quebec romeo\
+####            sierra tango uniform victor whisky yankee zulu
+####    to-nato = $(call lookup,$1,$(ALPHA),$(NATO))
+lookup = $(word $(call pos,$1,$2),$3)

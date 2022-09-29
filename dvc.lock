@@ -198,3 +198,27 @@ stages:
     - path: results/movinet/movineta0.pkl
       md5: 0f9d9b8faff5619aa2e10f460d616895
       size: 2111072
+  dl-actionclip-checkpoints@vit-b-16-16f.pt:
+    cmd: make ckpt/actionclip/vit-b-16-16f.pt
+    outs:
+    - path: ckpt/actionclip/vit-b-16-16f.pt
+      md5: d54f0fdb2c68760e0f74606c3e059e0e
+      size: 1775148220
+  dl-actionclip-checkpoints@vit-b-16-32f.pt:
+    cmd: make ckpt/actionclip/vit-b-16-32f.pt
+    outs:
+    - path: ckpt/actionclip/vit-b-16-32f.pt
+      md5: 22e3f7e8bd4775ff1d6879e7870bee41
+      size: 1775148220
+  dl-actionclip-checkpoints@vit-b-32-8f.pt:
+    cmd: make ckpt/actionclip/vit-b-32-8f.pt
+    outs:
+    - path: ckpt/actionclip/vit-b-32-8f.pt
+      md5: f948442149ca7ab350a9c16fc04ee891
+      size: 1791490582
+  dl-actionclip-checkpoints@vit-b-16-8f.pt:
+    cmd: make ckpt/actionclip/vit-b-16-8f.pt
+    outs:
+    - path: ckpt/actionclip/vit-b-16-8f.pt
+      md5: 268fbfa997f0e7647e90efe216c8380f
+      size: 1775148988

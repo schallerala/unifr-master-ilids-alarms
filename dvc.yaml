@@ -56,6 +56,17 @@ stages:
     - data/sequences:
         persist: true
 
+  dl-actionclip-checkpoints:
+    foreach:
+    - vit-b-16-8f.pt
+    - vit-b-32-8f.pt
+    - vit-b-16-16f.pt
+    - vit-b-16-32f.pt
+    do:
+      cmd: make ckpt/actionclip/${item}
+      outs:
+      - ckpt/actionclip/${item}
+
   results-features-movinet:
     foreach:
       movineta0:
