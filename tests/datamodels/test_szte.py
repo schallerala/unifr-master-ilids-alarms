@@ -1,7 +1,7 @@
 import pytest
 from hamcrest import *
 
-from ilids.models.szte import IlidsLibrary
+from ilids.datamodels.szte import IlidsLibrary
 
 
 @pytest.fixture()

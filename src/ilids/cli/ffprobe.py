@@ -2,7 +2,7 @@ import os
 import subprocess
 from pathlib import Path
 
-from ilids.models import FfprobeVideo
+from ilids.datamodels import FfprobeVideo
 
 
 # add information from ffprobe (inspiration: https://gist.github.com/nrk/2286511)

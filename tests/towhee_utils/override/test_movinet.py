@@ -2,7 +2,6 @@ from pathlib import Path
 
 import numpy
 import pytest
-import torch
 import towhee
 from hamcrest import *
 from towhee import ops

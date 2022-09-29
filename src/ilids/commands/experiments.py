@@ -76,7 +76,7 @@ def movinet(
 
 @typer_app.command()
 def actionclip(
-    model_name: str, # TODO
+    model_name: str,  # TODO
     input_glob: str,
     features_output_path: Path,
     sync_server_host: str = typer.Option("localhost", "--sync-sever-host", "--host", "-h"),

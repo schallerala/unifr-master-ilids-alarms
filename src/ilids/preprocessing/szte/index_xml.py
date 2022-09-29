@@ -1,7 +1,7 @@
 """This concentrates on the io of the index.xml file at the root of SZTE folder"""
 from pathlib import Path
 
-from ilids.models.szte import IlidsLibrary
+from ilids.datamodels.szte import IlidsLibrary
 from ilids.utils.dict import deep_get
 from ilids.utils.xml import read_xml
 

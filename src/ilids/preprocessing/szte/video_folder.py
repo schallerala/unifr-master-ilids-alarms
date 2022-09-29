@@ -8,7 +8,7 @@ from typing import List
 
 import pandas as pd
 
-from ilids.models import FfprobeVideo
+from ilids.datamodels import FfprobeVideo
 from ilids.preprocessing.common import ffprobe_videos_to_df
 from ilids.utils.xml import read_xml
 

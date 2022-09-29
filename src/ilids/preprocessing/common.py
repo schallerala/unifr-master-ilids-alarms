@@ -6,7 +6,7 @@ import pandas as pd
 from joblib import Parallel, cpu_count, delayed
 
 from ilids.cli.ffprobe import get_stream_info
-from ilids.models import FfprobeVideo
+from ilids.datamodels import FfprobeVideo
 
 
 def ffprobe_videos(video_folder: Path, video_extension: str) -> List[FfprobeVideo]:
