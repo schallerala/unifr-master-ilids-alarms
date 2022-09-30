@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import pandas as pd
+import torch
 import towhee
 import tqdm
 
@@ -26,17 +27,18 @@ def extract_movinet_features(
         f"Features extraction with {model_name}", total=len(all_sequences.to_list())
     )
 
-    movinet_entites = (
-        all_sequences.video_decode.ffmpeg["path", "frames"]()
-        .stream()
-        .ilids.movinet["frames", ("labels", "scores", "features")](
-            model_name=model_name.value
+    with torch.no_grad():
+        movinet_entites = (
+            all_sequences.video_decode.ffmpeg["path", "frames"]()
+            .stream()
+            .ilids.movinet["frames", ("labels", "scores", "features")](
+                model_name=model_name.value
+            )
+            .select["path", "features"]()
+            .ilids.log_progress(progress)
+            .unstream()
+            .to_list()
         )
-        .select["path", "features"]()
-        .ilids.log_progress(progress)
-        .unstream()
-        .to_list()
-    )
 
     df = pd.DataFrame(
         [[entity.path, *entity.features] for entity in movinet_entites],
