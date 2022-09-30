@@ -1,7 +1,5 @@
 import torch
-
 import tqdm
-
 
 
 class TextCLIP(torch.nn.Module):
@@ -11,6 +9,7 @@ class TextCLIP(torch.nn.Module):
 
     def forward(self, text):
         return self.model.encode_text(text)
+
 
 class ImageCLIP(torch.nn.Module):
     def __init__(self, model):

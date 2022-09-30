@@ -4,7 +4,6 @@ from filelock import FileLock
 
 
 class DeleteFileLock(FileLock):
-
     def _acquire(self) -> None:
         super()._acquire()
 

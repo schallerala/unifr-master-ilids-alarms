@@ -19,10 +19,9 @@ def get_augmentation(input_size):
 
     scale_size = input_size * 256 // 224
 
-    unique = torchvision.transforms.Compose([
-        GroupScale(scale_size),
-        GroupCenterCrop(input_size)
-    ])
+    unique = torchvision.transforms.Compose(
+        [GroupScale(scale_size), GroupCenterCrop(input_size)]
+    )
 
     common = torchvision.transforms.Compose(
         [

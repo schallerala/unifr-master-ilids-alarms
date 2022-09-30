@@ -17,6 +17,7 @@ def szte_path() -> Path:
 def sztr_path() -> Path:
     return Path(os.getcwd()) / "data" / "SZTR"
 
+
 @pytest.fixture()
 def ckpt_path() -> Path:
     return Path(os.getcwd()) / "ckpt"

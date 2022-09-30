@@ -1,13 +1,12 @@
-import torchvision
-import random
-import numpy as np
-import numbers
 import math
-import torch
+import numbers
+import random
 
-
-from PIL import Image, ImageOps, ImageFilter
+import numpy as np
 import PIL
+import torch
+import torchvision
+from PIL import Image, ImageFilter, ImageOps
 from torchvision.transforms import InterpolationMode
 
 
@@ -27,7 +26,7 @@ class GroupRandomCrop(object):
         y1 = random.randint(0, h - th)
 
         for img in img_group:
-            assert(img.size[0] == w and img.size[1] == h)
+            assert img.size[0] == w and img.size[1] == h
             if w == tw and h == th:
                 out_images.append(img)
             else:
@@ -48,21 +47,21 @@ class GroupNormalize1(object):
     def __init__(self, mean, std):
         self.mean = mean
         self.std = std
-        self.worker = torchvision.transforms.Normalize(mean,std)
+        self.worker = torchvision.transforms.Normalize(mean, std)
 
     def __call__(self, img_group):
-        
+
         return [self.worker(img) for img in img_group]
-    
-        
+
+
 class GroupNormalize(object):
     def __init__(self, mean, std):
         self.mean = mean
         self.std = std
 
     def __call__(self, tensor):
-        mean = self.mean * (tensor.size()[0]//len(self.mean))
-        std = self.std * (tensor.size()[0]//len(self.std))
+        mean = self.mean * (tensor.size()[0] // len(self.mean))
+        std = self.std * (tensor.size()[0] // len(self.std))
         mean = torch.Tensor(mean)
         std = torch.Tensor(std)
 
@@ -76,7 +75,7 @@ class GroupNormalize(object):
 
 
 class GroupScale(object):
-    """ Rescales the input PIL.Image to the given 'size'.
+    """Rescales the input PIL.Image to the given 'size'.
     'size' will be the size of the smaller edge.
     For example, if height > width, then image will be
     rescaled to (size * height / width, size)
@@ -93,7 +92,9 @@ class GroupScale(object):
 
 class GroupOverSample(object):
     def __init__(self, crop_size, scale_size=None):
-        self.crop_size = crop_size if not isinstance(crop_size, int) else (crop_size, crop_size)
+        self.crop_size = (
+            crop_size if not isinstance(crop_size, int) else (crop_size, crop_size)
+        )
 
         if scale_size is not None:
             self.scale_worker = GroupScale(scale_size)
@@ -108,7 +109,9 @@ class GroupOverSample(object):
         image_w, image_h = img_group[0].size
         crop_w, crop_h = self.crop_size
 
-        offsets = GroupMultiScaleCrop.fill_fix_offset(False, image_w, image_h, crop_w, crop_h)
+        offsets = GroupMultiScaleCrop.fill_fix_offset(
+            False, image_w, image_h, crop_w, crop_h
+        )
         oversample_group = list()
         for o_w, o_h in offsets:
             normal_group = list()
@@ -118,7 +121,7 @@ class GroupOverSample(object):
                 normal_group.append(crop)
                 flip_crop = crop.copy().transpose(Image.FLIP_LEFT_RIGHT)
 
-                if img.mode == 'L' and i % 2 == 0:
+                if img.mode == "L" and i % 2 == 0:
                     flip_group.append(ImageOps.invert(flip_crop))
                 else:
                     flip_group.append(flip_crop)
@@ -130,7 +133,9 @@ class GroupOverSample(object):
 
 class GroupFCSample(object):
     def __init__(self, crop_size, scale_size=None):
-        self.crop_size = crop_size if not isinstance(crop_size, int) else (crop_size, crop_size)
+        self.crop_size = (
+            crop_size if not isinstance(crop_size, int) else (crop_size, crop_size)
+        )
 
         if scale_size is not None:
             self.scale_worker = GroupScale(scale_size)
@@ -145,7 +150,9 @@ class GroupFCSample(object):
         image_w, image_h = img_group[0].size
         crop_w, crop_h = self.crop_size
 
-        offsets = GroupMultiScaleCrop.fill_fc_fix_offset(image_w, image_h, image_h, image_h)
+        offsets = GroupMultiScaleCrop.fill_fc_fix_offset(
+            image_w, image_h, image_h, image_h
+        )
         oversample_group = list()
 
         for o_w, o_h in offsets:
@@ -158,13 +165,16 @@ class GroupFCSample(object):
 
 
 class GroupMultiScaleCrop(object):
-
-    def __init__(self, input_size, scales=None, max_distort=1, fix_crop=True, more_fix_crop=True):
-        self.scales = scales if scales is not None else [1, .875, .75, .66]
+    def __init__(
+        self, input_size, scales=None, max_distort=1, fix_crop=True, more_fix_crop=True
+    ):
+        self.scales = scales if scales is not None else [1, 0.875, 0.75, 0.66]
         self.max_distort = max_distort
         self.fix_crop = fix_crop
         self.more_fix_crop = more_fix_crop
-        self.input_size = input_size if not isinstance(input_size, int) else [input_size, input_size]
+        self.input_size = (
+            input_size if not isinstance(input_size, int) else [input_size, input_size]
+        )
         self.interpolation = Image.BILINEAR
 
     def __call__(self, img_group):
@@ -172,9 +182,14 @@ class GroupMultiScaleCrop(object):
         im_size = img_group[0].size
 
         crop_w, crop_h, offset_w, offset_h = self._sample_crop_size(im_size)
-        crop_img_group = [img.crop((offset_w, offset_h, offset_w + crop_w, offset_h + crop_h)) for img in img_group]
-        ret_img_group = [img.resize((self.input_size[0], self.input_size[1]), self.interpolation)
-                         for img in crop_img_group]
+        crop_img_group = [
+            img.crop((offset_w, offset_h, offset_w + crop_w, offset_h + crop_h))
+            for img in img_group
+        ]
+        ret_img_group = [
+            img.resize((self.input_size[0], self.input_size[1]), self.interpolation)
+            for img in crop_img_group
+        ]
         return ret_img_group
 
     def _sample_crop_size(self, im_size):
@@ -183,8 +198,14 @@ class GroupMultiScaleCrop(object):
         # find a crop size
         base_size = min(image_w, image_h)
         crop_sizes = [int(base_size * x) for x in self.scales]
-        crop_h = [self.input_size[1] if abs(x - self.input_size[1]) < 3 else x for x in crop_sizes]
-        crop_w = [self.input_size[0] if abs(x - self.input_size[0]) < 3 else x for x in crop_sizes]
+        crop_h = [
+            self.input_size[1] if abs(x - self.input_size[1]) < 3 else x
+            for x in crop_sizes
+        ]
+        crop_w = [
+            self.input_size[0] if abs(x - self.input_size[0]) < 3 else x
+            for x in crop_sizes
+        ]
 
         pairs = []
         for i, h in enumerate(crop_h):
@@ -197,12 +218,16 @@ class GroupMultiScaleCrop(object):
             w_offset = random.randint(0, image_w - crop_pair[0])
             h_offset = random.randint(0, image_h - crop_pair[1])
         else:
-            w_offset, h_offset = self._sample_fix_offset(image_w, image_h, crop_pair[0], crop_pair[1])
+            w_offset, h_offset = self._sample_fix_offset(
+                image_w, image_h, crop_pair[0], crop_pair[1]
+            )
 
         return crop_pair[0], crop_pair[1], w_offset, h_offset
 
     def _sample_fix_offset(self, image_w, image_h, crop_w, crop_h):
-        offsets = self.fill_fix_offset(self.more_fix_crop, image_w, image_h, crop_w, crop_h)
+        offsets = self.fill_fix_offset(
+            self.more_fix_crop, image_w, image_h, crop_w, crop_h
+        )
         return random.choice(offsets)
 
     @staticmethod
@@ -242,6 +267,7 @@ class GroupMultiScaleCrop(object):
 
         return ret
 
+
 class GroupRandomSizedCrop(object):
     """Random crop the given PIL.Image to a random size of (0.08 to 1.0) of the original size
     and and a random aspect ratio of 3/4 to 4/3 of the original aspect ratio
@@ -249,6 +275,7 @@ class GroupRandomSizedCrop(object):
     size: size of the smaller edge
     interpolation: Default: PIL.Image.Resampling.BILINEAR
     """
+
     def __init__(self, size, interpolation=PIL.Image.Resampling.BILINEAR):
         self.size = size
         self.interpolation = interpolation
@@ -257,7 +284,7 @@ class GroupRandomSizedCrop(object):
         for attempt in range(10):
             area = img_group[0].size[0] * img_group[0].size[1]
             target_area = random.uniform(0.08, 1.0) * area
-            aspect_ratio = random.uniform(3. / 4, 4. / 3)
+            aspect_ratio = random.uniform(3.0 / 4, 4.0 / 3)
 
             w = int(round(math.sqrt(target_area * aspect_ratio)))
             h = int(round(math.sqrt(target_area / aspect_ratio)))
@@ -279,7 +306,7 @@ class GroupRandomSizedCrop(object):
             out_group = list()
             for img in img_group:
                 img = img.crop((x1, y1, x1 + w, y1 + h))
-                assert(img.size == (w, h))
+                assert img.size == (w, h)
                 out_group.append(img.resize((self.size, self.size), self.interpolation))
             return out_group
         else:
@@ -290,41 +317,44 @@ class GroupRandomSizedCrop(object):
 
 
 class Stack(object):
-
     def __init__(self, roll=False):
         self.roll = roll
 
     def __call__(self, img_group):
-        if img_group[0].mode == 'L':
+        if img_group[0].mode == "L":
             return np.concatenate([np.expand_dims(x, 2) for x in img_group], axis=2)
-        elif img_group[0].mode == 'RGB':
+        elif img_group[0].mode == "RGB":
             if self.roll:
-                return np.concatenate([np.array(x)[:, :, ::-1] for x in img_group], axis=2)
+                return np.concatenate(
+                    [np.array(x)[:, :, ::-1] for x in img_group], axis=2
+                )
             else:
                 rst = np.concatenate(img_group, axis=2)
                 # plt.imshow(rst[:,:,3:6])
                 # plt.show()
                 return rst
 
-class Stack1(object):
 
+class Stack1(object):
     def __init__(self, roll=False):
         self.roll = roll
 
     def __call__(self, img_group):
-        
+
         if self.roll:
             return np.concatenate([np.array(x)[:, :, ::-1] for x in img_group], axis=2)
         else:
-            
+
             rst = np.concatenate(img_group, axis=0)
             # plt.imshow(rst[:,:,3:6])
             # plt.show()
             return torch.from_numpy(rst)
 
+
 class ToTorchFormatTensor(object):
-    """ Converts a PIL.Image (RGB) or numpy.ndarray (H x W x C) in the range [0, 255]
-    to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0] """
+    """Converts a PIL.Image (RGB) or numpy.ndarray (H x W x C) in the range [0, 255]
+    to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0]"""
+
     def __init__(self, div=True):
         self.div = div
 
@@ -340,57 +370,62 @@ class ToTorchFormatTensor(object):
             # yikes, this transpose takes 80% of the loading time/CPU
             img = img.transpose(0, 1).transpose(0, 2).contiguous()
         return img.float().div(255) if self.div else img.float()
-    
+
 
 class ToTorchFormatTensor1(object):
-    """ Converts a PIL.Image (RGB) or numpy.ndarray (H x W x C) in the range [0, 255]
-    to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0] """
+    """Converts a PIL.Image (RGB) or numpy.ndarray (H x W x C) in the range [0, 255]
+    to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0]"""
+
     def __init__(self, div=True):
         self.worker = torchvision.transforms.ToTensor()
+
     def __call__(self, img_group):
         return [self.worker(img) for img in img_group]
 
-class IdentityTransform(object):
 
+class IdentityTransform(object):
     def __call__(self, data):
         return data
-    
+
+
 # custom transforms
 class GroupRandomColorJitter(object):
-    """Randomly ColorJitter the given PIL.Image with a probability
-    """
-    def __init__(self, p=0.8, brightness=0.4, contrast=0.4,
-                                        saturation=0.2, hue=0.1):
+    """Randomly ColorJitter the given PIL.Image with a probability"""
+
+    def __init__(self, p=0.8, brightness=0.4, contrast=0.4, saturation=0.2, hue=0.1):
         self.p = p
-        self.worker = torchvision.transforms.ColorJitter(brightness=brightness, contrast=contrast,
-                                        saturation=saturation, hue=hue)
+        self.worker = torchvision.transforms.ColorJitter(
+            brightness=brightness, contrast=contrast, saturation=saturation, hue=hue
+        )
 
     def __call__(self, img_group):
-        
+
         v = random.random()
         if v < self.p:
             ret = [self.worker(img) for img in img_group]
-            
+
             return ret
         else:
             return img_group
 
+
 class GroupRandomGrayscale(object):
-    """Randomly Grayscale flips the given PIL.Image with a probability
-    """
+    """Randomly Grayscale flips the given PIL.Image with a probability"""
+
     def __init__(self, p=0.2):
         self.p = p
         self.worker = torchvision.transforms.Grayscale(num_output_channels=3)
 
     def __call__(self, img_group):
-       
+
         v = random.random()
         if v < self.p:
             ret = [self.worker(img) for img in img_group]
-            
+
             return ret
         else:
             return img_group
+
 
 class GroupGaussianBlur(object):
     def __init__(self, p):
@@ -399,9 +434,10 @@ class GroupGaussianBlur(object):
     def __call__(self, img_group):
         if random.random() < self.p:
             sigma = random.random() * 1.9 + 0.1
-            return [img.filter(ImageFilter.GaussianBlur(sigma))  for img in img_group]
+            return [img.filter(ImageFilter.GaussianBlur(sigma)) for img in img_group]
         else:
             return img_group
+
 
 class GroupSolarization(object):
     def __init__(self, p):
@@ -409,6 +445,6 @@ class GroupSolarization(object):
 
     def __call__(self, img_group):
         if random.random() < self.p:
-            return [ImageOps.solarize(img)  for img in img_group]
+            return [ImageOps.solarize(img) for img in img_group]
         else:
             return img_group

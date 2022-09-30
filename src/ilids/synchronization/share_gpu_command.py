@@ -5,7 +5,7 @@ from ilids.synchronization.gpu_sync_manager import get_server_manager
 
 typer_app = typer.Typer()
 
-FILE_LOCK_PATH = f'{__name__}.lock'
+FILE_LOCK_PATH = f"{__name__}.lock"
 
 
 @typer_app.command()

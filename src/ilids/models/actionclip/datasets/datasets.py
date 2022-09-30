@@ -2,14 +2,15 @@
 # arXiv:
 # Mengmeng Wang, Jiazheng Xing, Yong Liu
 
-import torch.utils.data as data
 import os
 import os.path
+
 import numpy as np
-from numpy.random import randint
 import pandas as pd
-from PIL import Image
 import torch
+import torch.utils.data as data
+from numpy.random import randint
+from PIL import Image
 
 
 class GroupTransform(object):
@@ -21,8 +22,9 @@ class GroupTransform(object):
 
 
 class ToTorchFormatTensor(object):
-    """ Converts a PIL.Image (RGB) or numpy.ndarray (H x W x C) in the range [0, 255]
-    to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0] """
+    """Converts a PIL.Image (RGB) or numpy.ndarray (H x W x C) in the range [0, 255]
+    to a torch.FloatTensor of shape (C x H x W) in the range [0.0, 1.0]"""
+
     def __init__(self, div=True):
         self.div = div
 
@@ -37,17 +39,18 @@ class ToTorchFormatTensor(object):
 
 
 class Stack(object):
-
     def __init__(self, roll=False):
         self.roll = roll
 
     def __call__(self, img_group):
-        if img_group[0].mode == 'L':
+        if img_group[0].mode == "L":
             return np.concatenate([np.expand_dims(x, 2) for x in img_group], axis=2)
-        elif img_group[0].mode == 'RGB':
+        elif img_group[0].mode == "RGB":
             if self.roll:
                 print(len(img_group))
-                return np.concatenate([np.array(x)[:, :, ::-1] for x in img_group], axis=2)
+                return np.concatenate(
+                    [np.array(x)[:, :, ::-1] for x in img_group], axis=2
+                )
             else:
                 print(len(img_group))
                 rst = np.concatenate(img_group, axis=2)
@@ -72,10 +75,18 @@ class VideoRecord(object):
 
 
 class Action_DATASETS(data.Dataset):
-    def __init__(self, list_file, labels_file,
-                 num_segments=1, new_length=1,
-                 image_tmpl='img_{:05d}.jpg', transform=None,
-                 random_shift=True, test_mode=False, index_bias=1):
+    def __init__(
+        self,
+        list_file,
+        labels_file,
+        num_segments=1,
+        new_length=1,
+        image_tmpl="img_{:05d}.jpg",
+        transform=None,
+        random_shift=True,
+        test_mode=False,
+        index_bias=1,
+    ):
 
         self.list_file = list_file
         self.num_segments = num_segments  # 8
@@ -84,7 +95,7 @@ class Action_DATASETS(data.Dataset):
         self.transform = transform
         self.random_shift = random_shift
         self.test_mode = test_mode
-        self.loop=False
+        self.loop = False
         self.index_bias = index_bias
         self.labels_file = labels_file
 
@@ -97,7 +108,11 @@ class Action_DATASETS(data.Dataset):
         self.initialized = False
 
     def _load_image(self, directory, idx):
-        return [Image.open(os.path.join(directory, self.image_tmpl.format(idx))).convert('RGB')]
+        return [
+            Image.open(os.path.join(directory, self.image_tmpl.format(idx))).convert(
+                "RGB"
+            )
+        ]
 
     @property
     def total_length(self) -> int:  # always returns 8 * 1 = 8
@@ -109,22 +124,34 @@ class Action_DATASETS(data.Dataset):
         return classes_all.values.tolist()
 
     def _parse_list(self):
-        self.video_list = [VideoRecord(x.strip().split(' ')) for x in open(self.list_file)]
+        self.video_list = [
+            VideoRecord(x.strip().split(" ")) for x in open(self.list_file)
+        ]
 
     def _sample_indices(self, record):
         if record.num_frames <= self.total_length:
             if self.loop:
-                return np.mod(np.arange(
-                    self.total_length) + randint(record.num_frames // 2),
-                    record.num_frames) + self.index_bias
-            offsets = np.concatenate((
-                np.arange(record.num_frames),
-                randint(record.num_frames,
-                        size=self.total_length - record.num_frames)))
+                return (
+                    np.mod(
+                        np.arange(self.total_length) + randint(record.num_frames // 2),
+                        record.num_frames,
+                    )
+                    + self.index_bias
+                )
+            offsets = np.concatenate(
+                (
+                    np.arange(record.num_frames),
+                    randint(
+                        record.num_frames, size=self.total_length - record.num_frames
+                    ),
+                )
+            )
             return np.sort(offsets) + self.index_bias
         offsets = list()
-        ticks = [i * record.num_frames // self.num_segments
-                 for i in range(self.num_segments + 1)]
+        ticks = [
+            i * record.num_frames // self.num_segments
+            for i in range(self.num_segments + 1)
+        ]
 
         for i in range(self.num_segments):
             tick_len = ticks[i + 1] - ticks[i]
@@ -136,21 +163,44 @@ class Action_DATASETS(data.Dataset):
 
     def _get_val_indices(self, record):
         if self.num_segments == 1:
-            return np.array([record.num_frames //2], dtype=np.int) + self.index_bias
+            return np.array([record.num_frames // 2], dtype=np.int) + self.index_bias
 
         if record.num_frames <= self.total_length:
             if self.loop:
-                return np.mod(np.arange(self.total_length), record.num_frames) + self.index_bias
-            return np.array([i * record.num_frames // self.total_length
-                             for i in range(self.total_length)], dtype=np.int) + self.index_bias
+                return (
+                    np.mod(np.arange(self.total_length), record.num_frames)
+                    + self.index_bias
+                )
+            return (
+                np.array(
+                    [
+                        i * record.num_frames // self.total_length
+                        for i in range(self.total_length)
+                    ],
+                    dtype=np.int,
+                )
+                + self.index_bias
+            )
         offset = (record.num_frames / self.num_segments - self.seg_length) / 2.0
-        return np.array([i * record.num_frames / self.num_segments + offset + j
-                         for i in range(self.num_segments)
-                         for j in range(self.seg_length)], dtype=np.int) + self.index_bias
+        return (
+            np.array(
+                [
+                    i * record.num_frames / self.num_segments + offset + j
+                    for i in range(self.num_segments)
+                    for j in range(self.seg_length)
+                ],
+                dtype=np.int,
+            )
+            + self.index_bias
+        )
 
     def __getitem__(self, index):
         record = self.video_list[index]
-        segment_indices = self._sample_indices(record) if self.random_shift else self._get_val_indices(record)
+        segment_indices = (
+            self._sample_indices(record)
+            if self.random_shift
+            else self._get_val_indices(record)
+        )
         return self.get(record, segment_indices)
 
     def __call__(self, img_group):
@@ -164,7 +214,7 @@ class Action_DATASETS(data.Dataset):
                 seg_imgs = self._load_image(record.path, p)
             except OSError:
                 print('ERROR: Could not read image "{}"'.format(record.path))
-                print('invalid indices: {}'.format(indices))
+                print("invalid indices: {}".format(indices))
                 raise
             images.extend(seg_imgs)
         process_data = self.transform(images)

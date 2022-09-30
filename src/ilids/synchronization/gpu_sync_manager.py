@@ -9,7 +9,9 @@ class SharedSetManager(BaseManager):
         pass
 
 
-def get_server_manager(gpu_count: int, port: int, auth_key: bytes = b'16-896-375') -> SharedSetManager:
+def get_server_manager(
+    gpu_count: int, port: int, auth_key: bytes = b"16-896-375"
+) -> SharedSetManager:
     free_gpus = set(range(gpu_count))
 
     def _acquire_gpu() -> int:
@@ -21,17 +23,19 @@ def get_server_manager(gpu_count: int, port: int, auth_key: bytes = b'16-896-375
         free_gpus.add(gpu_id)
         print(f"GPU {gpu_id} is free")
 
-    SharedSetManager.register('acquire_gpu', callable=_acquire_gpu)
-    SharedSetManager.register('release_gpu', callable=_release_gpu)
+    SharedSetManager.register("acquire_gpu", callable=_acquire_gpu)
+    SharedSetManager.register("release_gpu", callable=_release_gpu)
 
-    manager = SharedSetManager(address=('', port), authkey=auth_key)
+    manager = SharedSetManager(address=("", port), authkey=auth_key)
 
     return manager
 
 
-def get_client(host: str, port: int, auth_key: bytes = b'16-896-375') -> SharedSetManager:
-    SharedSetManager.register('acquire_gpu')
-    SharedSetManager.register('release_gpu')
+def get_client(
+    host: str, port: int, auth_key: bytes = b"16-896-375"
+) -> SharedSetManager:
+    SharedSetManager.register("acquire_gpu")
+    SharedSetManager.register("release_gpu")
 
     manager = SharedSetManager(address=(host, port), authkey=auth_key)
 

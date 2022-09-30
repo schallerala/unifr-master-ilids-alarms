@@ -1,11 +1,13 @@
 from contextlib import contextmanager
-from typing import Optional, Generator
+from typing import Generator, Optional
 
 from ilids.synchronization.gpu_sync_manager import get_client
 
 
 @contextmanager
-def acquire_free_gpu(host: str, port: int, auth_key: bytes = b'16-896-375') -> Generator[int, None, None]:
+def acquire_free_gpu(
+    host: str, port: int, auth_key: bytes = b"16-896-375"
+) -> Generator[int, None, None]:
     client = get_client(host, port, auth_key)
     client.connect()
 
