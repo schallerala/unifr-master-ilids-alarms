@@ -166,10 +166,10 @@ sequences: $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv  ## produce sequen
 
 .PHONY: sequences
 
-sequences-clean:
-	rm $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv
 
-.PHONY: sequences-clean
+# Adapt source of truth for actionclip processing
+$(HANDCRAFTED_METADATA_FOLDER)/actionclip_sequences.csv: scripts/generate_data_sequences_actionclip_list_file.py $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv | $(HANDCRAFTED_METADATA_FOLDER)
+	poetry run python scripts/generate_data_sequences_actionclip_list_file.py data/handcrafted-metadata/tp_fp_sequences.csv $@ 25 data/sequences 12
 
 
 #########################

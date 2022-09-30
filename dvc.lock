@@ -11,12 +11,12 @@ stages:
       md5: 82dea2ad200ca3712b0b862e65829fae.dir
       size: 4702
       nfiles: 3
-    - path: src/ilids/models/sztr.py
+    - path: src/ilids/datamodels/sztr.py
       md5: 19ba1181504527ebec65851eb1e125f0
       size: 2883
     - path: src/ilids/preprocessing/sztr
-      md5: 3d530a76a7222ab3299fa0c1a9b7fc50.dir
-      size: 4481
+      md5: 1c1ac3844512719548ed962bde6b9096.dir
+      size: 4485
       nfiles: 4
     outs:
     - path: data/sztr-metadata
@@ -34,17 +34,17 @@ stages:
       md5: e854d52d6922b666c0a12bf4c9d18fcc.dir
       size: 5789
       nfiles: 3
-    - path: src/ilids/models/szte.py
+    - path: src/ilids/datamodels/szte.py
       md5: f6a2648ba6c57af9e119945edd295e5c
       size: 2918
     - path: src/ilids/preprocessing/szte
-      md5: 4043dfddce79a3e1934b391611625791.dir
-      size: 5476
+      md5: 59dfbc2bbac5e07d886d944f42fe9e3a.dir
+      size: 5484
       nfiles: 3
     outs:
     - path: data/szte-metadata
-      md5: 0de7afad0e0e838fb9911ed256129363.dir
-      size: 38058
+      md5: 8ee52de6b67c832a2d26fff4f8730d9d.dir
+      size: 37738
       nfiles: 5
   ilids-metadata:
     cmd: make ilids
@@ -69,19 +69,19 @@ stages:
       md5: 82dea2ad200ca3712b0b862e65829fae.dir
       size: 4702
       nfiles: 3
-    - path: src/ilids/models/szte.py
+    - path: src/ilids/datamodels/szte.py
       md5: f6a2648ba6c57af9e119945edd295e5c
       size: 2918
-    - path: src/ilids/models/sztr.py
+    - path: src/ilids/datamodels/sztr.py
       md5: 19ba1181504527ebec65851eb1e125f0
       size: 2883
     - path: src/ilids/preprocessing/szte
-      md5: 4043dfddce79a3e1934b391611625791.dir
-      size: 5476
+      md5: 59dfbc2bbac5e07d886d944f42fe9e3a.dir
+      size: 5484
       nfiles: 3
     - path: src/ilids/preprocessing/sztr
-      md5: 3d530a76a7222ab3299fa0c1a9b7fc50.dir
-      size: 4481
+      md5: 1c1ac3844512719548ed962bde6b9096.dir
+      size: 4485
       nfiles: 4
     outs:
     - path: data/ilids-metadata
@@ -222,3 +222,16 @@ stages:
     - path: ckpt/actionclip/vit-b-16-8f.pt
       md5: 268fbfa997f0e7647e90efe216c8380f
       size: 1775148988
+  actionclip-sequences:
+    cmd: make data/handcrafted-metadata/actionclip_sequences.csv
+    deps:
+    - path: data/handcrafted-metadata/tp_fp_sequences.csv
+      md5: a917efccda9ef757918b039bbca70b4c
+      size: 113974
+    - path: scripts/generate_data_sequences_actionclip_list_file.py
+      md5: 127a56499f40ffcad93ea68472eea927
+      size: 1486
+    outs:
+    - path: data/handcrafted-metadata/actionclip_sequences.csv
+      md5: 60c9b951f0787b76cf003c39fd570e74
+      size: 46315

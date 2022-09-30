@@ -3,7 +3,7 @@ stages:
     cmd: make szte
     deps:
     - data/SZTE
-    - src/ilids/models/szte.py
+    - src/ilids/datamodels/szte.py
     - src/ilids/commands/szte
     - src/ilids/preprocessing/szte
     outs:
@@ -13,7 +13,7 @@ stages:
     cmd: make sztr
     deps:
     - data/SZTR
-    - src/ilids/models/sztr.py
+    - src/ilids/datamodels/sztr.py
     - src/ilids/commands/sztr
     - src/ilids/preprocessing/sztr
     outs:
@@ -24,8 +24,8 @@ stages:
     deps:
     - data/SZTE
     - data/SZTR
-    - src/ilids/models/szte.py
-    - src/ilids/models/sztr.py
+    - src/ilids/datamodels/szte.py
+    - src/ilids/datamodels/sztr.py
     - src/ilids/commands/sztr
     - src/ilids/commands/szte
     - src/ilids/commands/ilids_aggregate
@@ -45,6 +45,16 @@ stages:
     outs:
     - data/handcrafted-metadata/tp_fp_sequences.csv:
         cache: false
+
+  actionclip-sequences:
+    cmd: make data/handcrafted-metadata/actionclip_sequences.csv
+    deps:
+    - scripts/generate_data_sequences_actionclip_list_file.py
+    - data/handcrafted-metadata/tp_fp_sequences.csv
+    outs:
+    - data/handcrafted-metadata/actionclip_sequences.csv:
+        cache: false
+
   extract-all-sequences:
     cmd: make -j$(make cpu_count) extract-all-sequences
     deps:
