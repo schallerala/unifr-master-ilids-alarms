@@ -19,6 +19,11 @@ def sztr_path() -> Path:
 
 
 @pytest.fixture()
+def handcrafted_data_path() -> Path:
+    return Path(os.getcwd()) / "data" / "handcrafted-metadata"
+
+
+@pytest.fixture()
 def ckpt_path() -> Path:
     return Path(os.getcwd()) / "ckpt"
 
@@ -39,10 +44,17 @@ def _data_file_marker_builder(request, marker_name: str, parent_folder: Path):
 
 
 @pytest.fixture(autouse=True)
-def add_data_files_markers(request, szte_path: Path, sztr_path: Path, ckpt_path: Path):
+def add_data_files_markers(
+    request,
+    szte_path: Path,
+    sztr_path: Path,
+    ckpt_path: Path,
+    handcrafted_data_path: Path,
+):
     _data_file_marker_builder(request, "szte_files", szte_path)
     _data_file_marker_builder(request, "sztr_files", sztr_path)
     _data_file_marker_builder(request, "ckpt_files", ckpt_path)
+    _data_file_marker_builder(request, "handcrafted_files", handcrafted_data_path)
 
 
 def _generate_sample_video(
@@ -118,4 +130,8 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers",
         "ckpt_files(...files): skip test if one of the given file name doesn't exists inside the ./ckpt folder",
+    )
+    config.addinivalue_line(
+        "markers",
+        "handcrafted_files(...files): skip test if one of the given file name doesn't exists inside the ./data/handcrafted-metadata folder",
     )

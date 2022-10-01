@@ -1,11 +1,18 @@
 from enum import Enum
 from pathlib import Path
+from typing import Optional
 
 import torch
 import typer
+from torch.utils.data import DataLoader
 
+from ilids.experiments.actionclip import extract_actionclip_sequences_features
 from ilids.experiments.movinet import extract_movinet_features
+from ilids.models.actionclip.datasets import ActionDataset
+from ilids.models.actionclip.factory import create_models_and_transforms
+from ilids.models.actionclip.transform import get_augmentation
 from ilids.synchronization.acquire_gpu_client import acquire_free_gpu
+from ilids.synchronization.alternate_device import DeviceType, alternate_device
 from ilids.towhee_utils.override.movinet import MovinetModelName
 from ilids.utils.persistence_method import (
     CsvPandasPersistenceMethod,
@@ -77,12 +84,17 @@ def movinet(
 @typer_app.command()
 def actionclip(
     model_name: str,  # TODO
-    input_glob: str,
+    model_pretrained_checkpoint: Path,
+    list_input_sequences_file: Path,
     features_output_path: Path,
-    sync_server_host: str = typer.Option(
-        "localhost", "--sync-sever-host", "--host", "-h"
+    device_type: DeviceType = DeviceType.cpu,
+    distributed: bool = False,
+    sync_server_host: Optional[str] = typer.Option(
+        None, "--sync-sever-host", "--host", "-h"
     ),
-    sync_server_port: int = typer.Option(..., "--sync-server-port", "--port", "-P"),
+    sync_server_port: Optional[int] = typer.Option(
+        None, "--sync-server-port", "--port", "-P"
+    ),
     overwrite: bool = typer.Option(False, "-f", "--force"),
 ):
     if not overwrite and features_output_path.exists():
@@ -95,7 +107,31 @@ def actionclip(
 
     print(f"Starting features extract for {model_name}")
 
-    with acquire_free_gpu(sync_server_host, sync_server_port) as gpu_id:
-        device = torch.device("cuda", gpu_id)
+    with alternate_device(
+        device_type, distributed, sync_server_host, sync_server_port
+    ) as device:
+        (
+            model_image,
+            model_text,
+            fusion_model,
+            preprocess_image,
+        ) = create_models_and_transforms(
+            actionclip_pretrained_ckpt=model_pretrained_checkpoint,
+            openai_model_name="ViT-B-16",
+        )
 
-        # TODO implement
+        ilids_dataset = ActionDataset(
+            list_input_sequences_file, transform=get_augmentation()
+        )
+        batch_size = 64  # 2
+        ilids_loader = DataLoader(
+            ilids_dataset,
+            batch_size=batch_size,
+            num_workers=1,
+            shuffle=False,
+            pin_memory=True,
+        )
+
+        extract_actionclip_sequences_features(
+            model_image, fusion_model, ilids_loader, device
+        )

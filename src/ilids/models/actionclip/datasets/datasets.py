@@ -3,9 +3,9 @@
 # Mengmeng Wang, Jiazheng Xing, Yong Liu
 from pathlib import Path
 
-import PIL
 import numpy as np
 import pandas as pd
+import PIL
 import torch.utils.data as data
 from decord import VideoReader, cpu
 from numpy.random import randint
@@ -16,10 +16,10 @@ class ActionDataset(data.Dataset):
     def __init__(
         self,
         sequences_details_file: Path,
+        transform,
         frames_to_extract: int = 8,
         seg_length: int = 1,  # TODO not sure what it does
-        transform=None,
-        random_shift=True,
+        random_shift: bool = False,
         index_bias: int = 1,
     ):
         self.frames_to_extract = frames_to_extract  # 8
@@ -30,7 +30,14 @@ class ActionDataset(data.Dataset):
 
         self._sequences_df = pd.read_csv(sequences_details_file)
         # require at least those 2 columns
-        assert len(self._sequences_df.columns.intersection(pd.Index("sequence", "frame_count"))) == 2
+        assert (
+            len(
+                self._sequences_df.columns.intersection(
+                    pd.Index(["sequence", "frame_count"])
+                )
+            )
+            == 2
+        )
 
     @property
     def _total_length(self) -> int:
@@ -90,13 +97,15 @@ class ActionDataset(data.Dataset):
         )
 
     def __getitem__(self, index):
-        frame_count = self._sequences_df[index, "frame_count"]
+        frame_count = self._sequences_df.loc[index, "frame_count"]
         sequence_frame_indices = (
             self._random_sample_indices(frame_count)
             if self.random_shift
             else self._sample_indices(frame_count)
         )
-        return self.get(self._sequences_df[index, "sequence"], sequence_frame_indices)
+        return self.get(
+            self._sequences_df.loc[index, "sequence"], sequence_frame_indices
+        )
 
     def __call__(self, img_group):
         return [self.worker(img) for img in img_group]

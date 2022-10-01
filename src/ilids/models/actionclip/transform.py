@@ -13,7 +13,7 @@ class GroupTransform(object):
         return [self.worker(img) for img in img_group]
 
 
-def get_augmentation(input_size):
+def get_augmentation(input_size: int = 224):
     input_mean = [0.48145466, 0.4578275, 0.40821073]
     input_std = [0.26862954, 0.26130258, 0.27577711]
 
