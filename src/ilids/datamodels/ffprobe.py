@@ -89,10 +89,10 @@ class Stream(BaseModel):
     start_pts: int
     start_time: str
     duration_ts: int
-    duration: str
+    duration: float
     bit_rate: str
     bits_per_raw_sample: str
-    nb_frames: str
+    nb_frames: int
     disposition: Disposition
     tags: Tags
 
