@@ -5,6 +5,27 @@ help: ## print this help
 
 
 #########################
+# Utility Variables
+#########################
+
+
+## Has GPUs and if yes, how many?
+HAS_NVIDIA_SMI_CMD := $(shell if which nvidia-smi > /dev/null; then echo "YES"; fi)
+
+ifneq ($(HAS_NVIDIA_SMI_CMD),)
+$(info HAS NVIDIA COMMAND)
+GPU_COUNT := $(shell nvidia-smi --query-gpu=count --format=csv,noheader | wc -l)
+else
+$(info NO NVIDIA GPU)
+GPU_COUNT := 12
+endif
+
+
+# Used in case want to run multiple experiment on different GPUs in parallel
+SHARE_GPU_SERVER_PORT := 9084
+
+
+#########################
 # Data Preparation
 #########################
 
@@ -321,10 +342,15 @@ results-features-movinet: $(MOVINET_FEATURES_TARGETS)
 
 .PHONY: results-features-movinet
 
+
 # ActionCLIP
+#############
 
-
-ACTIONCLIP_MODEL_NAMES := $(shell seq 45)
+# ACTIONCLIP_CHECKPOINT_NAMES := vit-b-16-8f.pt vit-b-32-8f.pt vit-b-16-16f.pt vit-b-16-32f.pt
+ACTIONCLIP_MODEL_NAMES := $(subst .pt,,$(ACTIONCLIP_CHECKPOINT_NAMES))
+ACTIONCLIP_FRAMES_TO_EXTRACT := 8 8 16 32
+ACTIONCLIP_OPENAI_BASE_MODEL_NAMES := ViT-B-16 ViT-B-32 ViT-B-16 ViT-B-16
+# ACTIONCLIP_CHECKPOINTS := ... Defined higher
 ACTIONCLIP_RESULTS_FOLDER := $(RESULTS_FOLDER)/actionclip
 
 $(ACTIONCLIP_RESULTS_FOLDER): | $(RESULTS_FOLDER)
@@ -333,9 +359,15 @@ $(ACTIONCLIP_RESULTS_FOLDER): | $(RESULTS_FOLDER)
 ACTIONCLIP_RESULTS_OUTPUT_SUFFIX := .pkl
 ACTIONCLIP_FEATURES_TARGETS := $(addprefix $(ACTIONCLIP_RESULTS_FOLDER)/,$(addsuffix $(ACTIONCLIP_RESULTS_OUTPUT_SUFFIX),$(ACTIONCLIP_MODEL_NAMES)))
 
-$(ACTIONCLIP_FEATURES_TARGETS): $(ACTIONCLIP_RESULTS_FOLDER)/%$(ACTIONCLIP_RESULTS_OUTPUT_SUFFIX): ilids.synchronization.serve.lock | $(ACTIONCLIP_RESULTS_FOLDER)
-	# TODO add model name and other param
-	poetry run ilids_cmd experiments actionclip $* 'data/sequences/*.mov' $@ -h localhost -P $(SHARE_GPU_SERVER_PORT)
+# argument to parallize ACTIONCLIP_FEATURES_TARGETS
+ifneq ($(GPU_COUNT),)
+ACTIONCLIP_FEATURES_TARGETS_ARGS := --device-type gpu --distributed -h localhost -P $(SHARE_GPU_SERVER_PORT)
+else
+ACTIONCLIP_FEATURES_TARGETS_ARGS := --device-type cpu
+endif
+
+$(ACTIONCLIP_FEATURES_TARGETS): $(ACTIONCLIP_RESULTS_FOLDER)/%$(ACTIONCLIP_RESULTS_OUTPUT_SUFFIX): $(HANDCRAFTED_METADATA_FOLDER)/actionclip_sequences.csv | $(ACTIONCLIP_RESULTS_FOLDER) ilids.synchronization.share_gpu_command.lock
+	poetry run ilids_cmd experiments actionclip $(call lookup,$*,$(ACTIONCLIP_MODEL_NAMES),$(ACTIONCLIP_OPENAI_BASE_MODEL_NAMES)) $(call lookup,$*,$(ACTIONCLIP_MODEL_NAMES),$(ACTIONCLIP_CHECKPOINTS)) $(HANDCRAFTED_METADATA_FOLDER)/actionclip_sequences.csv $(call lookup,$*,$(ACTIONCLIP_MODEL_NAMES),$(ACTIONCLIP_FRAMES_TO_EXTRACT)) $@ --notify $(ACTIONCLIP_FEATURES_TARGETS_ARGS)
 
 results-features-actionclip: $(ACTIONCLIP_FEATURES_TARGETS)
 
@@ -344,13 +376,14 @@ results-features-actionclip: $(ACTIONCLIP_FEATURES_TARGETS)
 
 ###### Utils for experiments
 
-SHARE_GPU_SERVER_PORT := 9084
-
-ilids.synchronization.serve.lock: ;
-
 # Define it as a PHONY so it isn't required/called by the "child target"
 spawn-share-gpu-server: ## spawn a sync server to give out GPUs with multiple jobs
+ifeq ($(GPU_COUNT),)
+	$(warning "Not possible to distribute GPUs, however, still running server for testing purposes!")
 	poetry run ilids_sync 4 $(SHARE_GPU_SERVER_PORT)
+else
+	poetry run ilids_sync $(GPU_COUNT) $(SHARE_GPU_SERVER_PORT)
+endif
 
 .PHONY: spawn-share-gpu-server
 

@@ -87,12 +87,18 @@ def movinet(
 
 @typer_app.command()
 def actionclip(
-    model_name: str,
-    model_pretrained_checkpoint: Path,
-    list_input_sequences_file: Path,
-    features_output_path: Path,
-    device_type: DeviceType = DeviceType.cpu,
-    distributed: bool = False,
+    model_name: str = typer.Argument(
+        ...,
+        help="Provide a model name from OpenAI (for ActionCLIP, expecting 'ViT-B-32' or 'ViT-B-16')",
+    ),
+    model_pretrained_checkpoint: Path = typer.Argument(...),
+    list_input_sequences_file_csv: Path = typer.Argument(
+        ..., help="CSV file expecting at least the columns: 'sequence', 'frame_count'"
+    ),
+    frames_to_extract: int = typer.Argument(8),
+    features_output_path: Path = typer.Argument(...),
+    device_type: DeviceType = typer.Option(DeviceType.cpu, "--device-type"),
+    distributed: bool = typer.Option(False, "--distributed/--single"),
     sync_server_host: Optional[str] = typer.Option(
         None, "--sync-sever-host", "--host", "-h"
     ),
@@ -132,7 +138,9 @@ def actionclip(
         )
 
         ilids_dataset = ActionDataset(
-            list_input_sequences_file, transform=get_augmentation()
+            list_input_sequences_file_csv,
+            frames_to_extract=frames_to_extract,
+            transform=get_augmentation(),
         )
         loader_num_workers = loader_num_workers or cpu_count()
         ilids_loader = DataLoader(

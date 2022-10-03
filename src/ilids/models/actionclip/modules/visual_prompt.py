@@ -152,7 +152,6 @@ class VisualPrompt(nn.Module):
                 self.transformer = TemporalTransformer(
                     width=embed_dim, layers=6, heads=transformer_heads
                 )
-                print("layer=6")
 
             if self.sim_header == "LSTM":
                 self.lstm_visual = nn.LSTM(

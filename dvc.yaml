@@ -97,3 +97,19 @@ stages:
       - data/sequences
       outs:
       - results/movinet/${item.model_name}.pkl
+
+  results-image-features-actionclip:
+    foreach:
+    - vit-b-16-16f
+    - vit-b-16-32f
+    - vit-b-16-8f
+    - vit-b-32-8f
+    do:
+      cmd: make results/actionclip/${item}.pkl
+      deps:
+      - ckpt/actionclip/${item}.pt
+      - data/handcrafted-metadata/actionclip_sequences.csv
+      - data/sequences
+      outs:
+      - results/actionclip/${item}.pkl:
+          persist: true

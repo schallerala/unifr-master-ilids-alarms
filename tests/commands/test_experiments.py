@@ -10,7 +10,7 @@ runner = CliRunner(mix_stderr=False)
 
 
 @pytest.mark.handcrafted_files(("actionclip_sequences.csv", "actionclip_sequences"))
-@pytest.mark.ckpt_files((Path("actionclip") / "vit-b-16-16f.pt", "actionclip_ckpt"))
+@pytest.mark.ckpt_files((Path("actionclip") / "vit-b-16-8f.pt", "actionclip_ckpt"))
 def test_actionclip(actionclip_sequences: Path, actionclip_ckpt: Path, tmp_path: Path):
     output_path = tmp_path / "output.pkl"
 
@@ -26,6 +26,7 @@ def test_actionclip(actionclip_sequences: Path, actionclip_ckpt: Path, tmp_path:
             "ViT-B-16",
             str(actionclip_ckpt),
             str(min_input_path),
+            "8",
             str(output_path),
         ],
     )
