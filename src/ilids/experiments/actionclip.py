@@ -24,15 +24,14 @@ def extract_actionclip_sequences_features(
 
     with torch.no_grad():
         for iii, (frames_batch, paths_batch) in enumerate(tqdm(sequences_dataloader)):
-            if device.type == "cuda":
-                frames_batch = frames_batch.half()
-
             frames_batch = frames_batch.view(
                 (-1, extracted_frames, 3) + frames_batch.size()[-2:]
             )
             b, t, c, h, w = frames_batch.size()
             images_input = frames_batch.to(device).view(-1, c, h, w)
+
             images_features = image_model(images_input).view(b, t, -1)
+
             images_features = fusion_model(images_features)
             images_features /= images_features.norm(
                 dim=-1, keepdim=True
