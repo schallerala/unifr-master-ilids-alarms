@@ -229,9 +229,9 @@ stages:
       md5: a917efccda9ef757918b039bbca70b4c
       size: 113974
     - path: scripts/generate_data_sequences_actionclip_list_file.py
-      md5: 127a56499f40ffcad93ea68472eea927
-      size: 1486
+      md5: b34fa733e6065c3cd887203a7229c63f
+      size: 1510
     outs:
     - path: data/handcrafted-metadata/actionclip_sequences.csv
-      md5: 60c9b951f0787b76cf003c39fd570e74
-      size: 46315
+      md5: 07ee07373bc4757df18393df9f67f587
+      size: 44587

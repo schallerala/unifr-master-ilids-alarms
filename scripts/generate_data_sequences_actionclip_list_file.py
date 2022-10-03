@@ -29,11 +29,11 @@ def main(
 
     df["Duration"] = pd.to_timedelta(df["Duration"])
 
-    # To compute the number of frames: math.ceil((initial_duration * fps) / extracted_frames)
+    # To compute the number of frames: math.ceil((initial_duration * fps) / extracted_frames + 1)
     file_paths = str(extracted_sequences_folder).rstrip("/") + "/" + df.index
     frames_count = (
-        df["Duration"].dt.seconds * initial_fps / extracted_frame_stride
-    ).apply(np.ceil)
+        df["Duration"].dt.seconds * initial_fps / extracted_frame_stride + 1
+    ).apply(np.ceil).astype('int64')
     # To have its time in seconds, same formula as above but lastly divided by the new fps (here same)
     new_duration = (frames_count / new_fps).apply(
         lambda secs: strftime("%H:%M:%S", gmtime(secs))
