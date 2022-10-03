@@ -7,7 +7,6 @@ packages = [{include = "ilids", from = "src"}]
 
 [tool.poetry.dependencies]
 "towhee.models" = "^0.8.0"
-aim = "^3.13.3"
 chardet = "<5.0.0"
 decord = {path = "build/decord/python"}
 einops = "^0.4.1"
@@ -17,6 +16,7 @@ joblib = "^1.1.0"
 jupyter = "^1.0.0"
 jupyter-dash = "^0.4.2"
 matplotlib = "^3.5.3"
+mlnotify = "^1.0.51"
 open-clip-torch = "^2.0.2"
 pandas = "^1.4.3"
 Pillow = "^9.2.0"

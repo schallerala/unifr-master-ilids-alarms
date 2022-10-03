@@ -2,8 +2,8 @@ from enum import Enum
 from pathlib import Path
 from typing import Optional
 
-import torch
 import typer
+from joblib import cpu_count
 from torch.utils.data import DataLoader
 
 from ilids.experiments.actionclip import extract_actionclip_sequences_features
@@ -11,9 +11,9 @@ from ilids.experiments.movinet import extract_movinet_features
 from ilids.models.actionclip.datasets import ActionDataset
 from ilids.models.actionclip.factory import create_models_and_transforms
 from ilids.models.actionclip.transform import get_augmentation
-from ilids.synchronization.acquire_gpu_client import acquire_free_gpu
 from ilids.synchronization.alternate_device import DeviceType, alternate_device
 from ilids.towhee_utils.override.movinet import MovinetModelName
+from ilids.utils.notify import notify_context
 from ilids.utils.persistence_method import (
     CsvPandasPersistenceMethod,
     PicklePandasPersistenceMethod,
@@ -61,6 +61,9 @@ def movinet(
     input_glob: str,
     features_output_path: Path,
     overwrite: bool = typer.Option(False, "-f", "--force"),
+    notify: bool = typer.Option(
+        False, "--notify", help="notify using ML Notify by Aporia"
+    ),
 ):
     if not overwrite and features_output_path.exists():
         raise ValueError(
@@ -70,20 +73,21 @@ def movinet(
     assert features_output_path.parent.exists()
     assert features_output_path.parent.is_dir()
 
-    print(f"Starting features extract for {model_name}")
-    extract_movinet_features(
-        model_name,
-        input_glob,
-        features_output_path,
+    with notify_context(enable=notify):
+        print(f"Starting features extract for {model_name}...")
+        features_df = extract_movinet_features(
+            model_name,
+            input_glob,
+        )
+
         PersistenceMethod.get_from_extension(features_output_path).get_persistence_impl(
             PersistenceMethodSource.pandas
-        ),
-    )
+        ).persist(features_output_path, features_df)
 
 
 @typer_app.command()
 def actionclip(
-    model_name: str,  # TODO
+    model_name: str,
     model_pretrained_checkpoint: Path,
     list_input_sequences_file: Path,
     features_output_path: Path,
@@ -96,6 +100,13 @@ def actionclip(
         None, "--sync-server-port", "--port", "-P"
     ),
     overwrite: bool = typer.Option(False, "-f", "--force"),
+    batch_size: int = typer.Option(2 << 3, "-b", "--batch-size"),
+    loader_num_workers: Optional[int] = typer.Option(
+        None, "-w", "--workers", help="Number of workers for the Torch.DataLoader"
+    ),
+    notify: bool = typer.Option(
+        False, "--notify", help="notify using ML Notify by Aporia"
+    ),
 ):
     if not overwrite and features_output_path.exists():
         raise ValueError(
@@ -105,33 +116,38 @@ def actionclip(
     assert features_output_path.parent.exists()
     assert features_output_path.parent.is_dir()
 
-    print(f"Starting features extract for {model_name}")
+    with notify_context(enable=notify):
+        print(f"Starting features extract for {model_name}...")
 
-    with alternate_device(
-        device_type, distributed, sync_server_host, sync_server_port
-    ) as device:
-        (
-            model_image,
-            model_text,
-            fusion_model,
-            preprocess_image,
-        ) = create_models_and_transforms(
-            actionclip_pretrained_ckpt=model_pretrained_checkpoint,
-            openai_model_name="ViT-B-16",
-        )
+        with alternate_device(
+            device_type, distributed, sync_server_host, sync_server_port
+        ) as device:
+            (
+                model_image,
+                model_text,
+                fusion_model,
+                preprocess_image,
+            ) = create_models_and_transforms(
+                actionclip_pretrained_ckpt=model_pretrained_checkpoint,
+                openai_model_name=model_name,
+            )
 
-        ilids_dataset = ActionDataset(
-            list_input_sequences_file, transform=get_augmentation()
-        )
-        batch_size = 64  # 2
-        ilids_loader = DataLoader(
-            ilids_dataset,
-            batch_size=batch_size,
-            num_workers=1,
-            shuffle=False,
-            pin_memory=True,
-        )
+            ilids_dataset = ActionDataset(
+                list_input_sequences_file, transform=get_augmentation()
+            )
+            loader_num_workers = loader_num_workers or cpu_count()
+            ilids_loader = DataLoader(
+                ilids_dataset,
+                batch_size=batch_size,
+                num_workers=loader_num_workers,
+                shuffle=False,
+                pin_memory=True,
+            )
 
-        extract_actionclip_sequences_features(
-            model_image, fusion_model, ilids_loader, device
-        )
+            features_df = extract_actionclip_sequences_features(
+                model_image, fusion_model, ilids_loader, device
+            )
+
+        PersistenceMethod.get_from_extension(features_output_path).get_persistence_impl(
+            PersistenceMethodSource.pandas
+        ).persist(features_output_path, features_df)

@@ -2,10 +2,12 @@
 # arXiv:
 # Mengmeng Wang, Jiazheng Xing, Yong Liu
 from pathlib import Path
+from typing import Tuple
 
 import numpy as np
 import pandas as pd
 import PIL
+import torch
 import torch.utils.data as data
 from decord import VideoReader, cpu
 from numpy.random import randint
@@ -96,19 +98,19 @@ class ActionDataset(data.Dataset):
             + self.index_bias
         )
 
-    def __getitem__(self, index):
+    def __getitem__(self, index) -> Tuple[torch.Tensor, str]:
         frame_count = self._sequences_df.loc[index, "frame_count"]
         sequence_frame_indices = (
             self._random_sample_indices(frame_count)
             if self.random_shift
             else self._sample_indices(frame_count)
         )
-        return self.get(
-            self._sequences_df.loc[index, "sequence"], sequence_frame_indices
-        )
 
-    def __call__(self, img_group):
-        return [self.worker(img) for img in img_group]
+        sequence_path = self._sequences_df.loc[index, "sequence"]
+
+        # Tensor of Size (self.frames_to_extract x Channel, input_size, input_size)
+        # Example: (8 * 3, 224, 224) = (24, 224, 224)
+        return self.get(sequence_path, sequence_frame_indices), sequence_path
 
     def get(self, sequence_path: str, sequence_frame_indices: np.ndarray):
         """Extract the frames for the record, transform them as PIL.Images and transform them with

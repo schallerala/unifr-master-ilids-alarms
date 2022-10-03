@@ -11,7 +11,7 @@ from ilids.models.actionclip.transform import get_augmentation
 
 def create_models_and_transforms(
     actionclip_pretrained_ckpt: Path,
-    openai_model_name: str,  # TODO ViT-B-32 ViT-B-16 (the ones that have a checkpoint for actionclip
+    openai_model_name: str,  # ViT-B-32 ViT-B-16 (the ones that have a checkpoint for actionclip)
     device: torch.device = torch.device("cpu"),
     jit: bool = False,
 ):

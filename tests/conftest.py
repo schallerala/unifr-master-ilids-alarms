@@ -19,6 +19,11 @@ def sztr_path() -> Path:
 
 
 @pytest.fixture()
+def sequences_path() -> Path:
+    return Path(os.getcwd()) / "data" / "sequences"
+
+
+@pytest.fixture()
 def handcrafted_data_path() -> Path:
     return Path(os.getcwd()) / "data" / "handcrafted-metadata"
 
@@ -48,11 +53,13 @@ def add_data_files_markers(
     request,
     szte_path: Path,
     sztr_path: Path,
+    sequences_path: Path,
     ckpt_path: Path,
     handcrafted_data_path: Path,
 ):
     _data_file_marker_builder(request, "szte_files", szte_path)
     _data_file_marker_builder(request, "sztr_files", sztr_path)
+    _data_file_marker_builder(request, "sequences_files", sequences_path)
     _data_file_marker_builder(request, "ckpt_files", ckpt_path)
     _data_file_marker_builder(request, "handcrafted_files", handcrafted_data_path)
 
@@ -126,6 +133,10 @@ def pytest_configure(config):
     config.addinivalue_line(
         "markers",
         "sztr_files(...files): skip test if one of the given file name doesn't exists",
+    )
+    config.addinivalue_line(
+        "markers",
+        "sequences_files(...files): skip test if one of the given file name doesn't exists inside the ./data/sequences folder",
     )
     config.addinivalue_line(
         "markers",
