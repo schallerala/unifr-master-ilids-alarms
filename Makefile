@@ -361,7 +361,7 @@ ACTIONCLIP_FEATURES_TARGETS := $(addprefix $(ACTIONCLIP_RESULTS_FOLDER)/,$(addsu
 
 # argument to parallize ACTIONCLIP_FEATURES_TARGETS
 ifneq ($(GPU_COUNT),)
-ACTIONCLIP_FEATURES_TARGETS_ARGS := --device-type gpu --distributed -h localhost -P $(SHARE_GPU_SERVER_PORT)
+ACTIONCLIP_FEATURES_TARGETS_ARGS := --device-type cuda --distributed -h localhost -P $(SHARE_GPU_SERVER_PORT)
 else
 ACTIONCLIP_FEATURES_TARGETS_ARGS := --device-type cpu
 endif
