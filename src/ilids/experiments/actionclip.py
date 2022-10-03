@@ -24,6 +24,10 @@ def extract_actionclip_sequences_features(
 
     with torch.no_grad():
         for iii, (frames_batch, paths_batch) in enumerate(tqdm(sequences_dataloader)):
+            # On CUDA, half precision
+            if device.type == "cuda":
+                frames_batch = frames_batch.half()
+
             frames_batch = frames_batch.view(
                 (-1, extracted_frames, 3) + frames_batch.size()[-2:]
             )
