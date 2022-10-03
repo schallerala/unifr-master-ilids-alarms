@@ -14,6 +14,7 @@ def extract_actionclip_sequences_features(
     image_model: ImageCLIP,
     fusion_model: VisualPrompt,
     sequences_dataloader: DataLoader,
+    extracted_frames: int,
     device: torch.device,
 ) -> pd.DataFrame:
     image_model.eval()
@@ -23,9 +24,11 @@ def extract_actionclip_sequences_features(
 
     with torch.no_grad():
         for iii, (frames_batch, paths_batch) in enumerate(tqdm(sequences_dataloader)):
-            extracted_frames_config = 8
+            if device.type == "cuda":
+                frames_batch = frames_batch.half()
+
             frames_batch = frames_batch.view(
-                (-1, extracted_frames_config, 3) + frames_batch.size()[-2:]
+                (-1, extracted_frames, 3) + frames_batch.size()[-2:]
             )
             b, t, c, h, w = frames_batch.size()
             images_input = frames_batch.to(device).view(-1, c, h, w)

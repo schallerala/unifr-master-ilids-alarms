@@ -153,7 +153,7 @@ def actionclip(
         )
 
         features_df = extract_actionclip_sequences_features(
-            model_image, fusion_model, ilids_loader, device
+            model_image, fusion_model, ilids_loader, extracted_frames=frames_to_extract, device=device
         )
 
         PersistenceMethod.get_from_extension(features_output_path).get_persistence_impl(
