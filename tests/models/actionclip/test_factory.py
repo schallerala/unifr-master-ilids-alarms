@@ -17,7 +17,9 @@ def test_create_models_and_transforms(actionclip_ckpt: Path):
         fusion_model,
         preprocess_image,
     ) = create_models_and_transforms(
-        actionclip_pretrained_ckpt=actionclip_ckpt, openai_model_name="ViT-B-16"
+        actionclip_pretrained_ckpt=actionclip_ckpt,
+        openai_model_name="ViT-B-16",
+        extracted_frames=16,
     )
 
     assert_that(model_image, is_(all_of(not_(None), instance_of(torch.nn.Module))))

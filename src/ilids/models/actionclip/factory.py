@@ -13,6 +13,7 @@ from ilids.models.utils import fix_convert_weights_to_fp16
 def create_models_and_transforms(
     actionclip_pretrained_ckpt: Path,
     openai_model_name: str,  # ViT-B-32 ViT-B-16 (the ones that have a checkpoint for actionclip)
+    extracted_frames: int,
     device: torch.device = torch.device("cpu"),
     jit: bool = False,
 ):
@@ -22,9 +23,10 @@ def create_models_and_transforms(
 
     input_size = 224  # TODO
     sim_header = "Transf"  # Transf   meanP  LSTM  Conv_1D  Transf_cls # TODO
-    num_segments = 8  # TODO
 
-    fusion_model = VisualPrompt(sim_header, model.state_dict(), num_segments)
+    fusion_model = VisualPrompt(sim_header, model.state_dict(), extracted_frames).to(
+        device=device
+    )
 
     model_text = TextCLIP(model)
     model_image = ImageCLIP(model)

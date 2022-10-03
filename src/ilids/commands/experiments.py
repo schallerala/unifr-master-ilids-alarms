@@ -135,6 +135,7 @@ def actionclip(
         ) = create_models_and_transforms(
             actionclip_pretrained_ckpt=model_pretrained_checkpoint,
             openai_model_name=model_name,
+            extracted_frames=frames_to_extract,
             device=device,
         )
 
