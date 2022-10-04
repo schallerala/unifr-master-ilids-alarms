@@ -21,7 +21,7 @@ def load_from_checkpoint(
     checkpoint = torch.load(ckpt_file, map_location=device)
 
     # As the Fusion Model has been persisted to the disk while wrapped in a torch.nn.DataParallel module,
-    # all the state dict keys have an additionnal "parent" level (or prefix).
+    # all the state dict keys have an additional "parent" level (or prefix).
     # Example:
     #   Expected: 'frame_position_embeddings.weight'
     #   Actual:   'module.frame_position_embeddings.weight'
