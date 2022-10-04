@@ -11,8 +11,17 @@ runner = CliRunner()
 
 
 @pytest.mark.szte_files((Path("video") / "SZTEA101a.mov", "input_sequence"))
-@pytest.mark.parametrize("start_time,end_time,output_nb_frames", [("00:27:58", "00:28:59", 128), ("00:17:01", "00:17:48", 99)])
-def test_extract__SZTEA101a_issue_frame_count(input_sequence: Path, tmp_path: Path, start_time: str, end_time: str, output_nb_frames: int):
+@pytest.mark.parametrize(
+    "start_time,end_time,output_nb_frames",
+    [("00:27:58", "00:28:59", 128), ("00:17:01", "00:17:48", 99)],
+)
+def test_extract__SZTEA101a_issue_frame_count(
+    input_sequence: Path,
+    tmp_path: Path,
+    start_time: str,
+    end_time: str,
+    output_nb_frames: int,
+):
     output_file = tmp_path / "output.mov"
 
     result = runner.invoke(
