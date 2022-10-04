@@ -4,6 +4,7 @@ from typing import Optional
 
 import typer
 from joblib import cpu_count
+from pytorch_lightning import seed_everything
 from torch.utils.data import DataLoader
 
 from ilids.experiments.actionclip import extract_actionclip_sequences_features
@@ -107,6 +108,7 @@ def actionclip(
     ),
     overwrite: bool = typer.Option(False, "-f", "--force"),
     batch_size: int = typer.Option(2 << 3, "-b", "--batch-size"),
+    seed: int = typer.Option(16896375, "--seed"),
     loader_num_workers: Optional[int] = typer.Option(
         None, "-w", "--workers", help="Number of workers for the Torch.DataLoader"
     ),
@@ -114,6 +116,8 @@ def actionclip(
         False, "--notify", help="notify using ML Notify by Aporia"
     ),
 ):
+    seed_everything(seed)
+
     if not overwrite and features_output_path.exists():
         raise ValueError(
             f"Use -f option to overwrite the existing output: {str(features_output_path)}"
