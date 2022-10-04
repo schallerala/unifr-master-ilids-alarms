@@ -111,5 +111,4 @@ stages:
       - data/handcrafted-metadata/actionclip_sequences.csv
       - data/sequences
       outs:
-      - results/actionclip/${item}.pkl:
-          persist: true
+      - results/actionclip/${item}.pkl
