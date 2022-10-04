@@ -19,7 +19,7 @@ class ActionDataset(data.Dataset):
         self,
         sequences_details_file: Path,
         transform,
-        frames_to_extract: int = 8,
+        frames_to_extract: int,  # Example: 8, 16, 32
         seg_length: int = 1,  # TODO not sure what it does
         random_shift: bool = False,
         index_bias: int = 1,
@@ -40,6 +40,10 @@ class ActionDataset(data.Dataset):
             )
             == 2
         )
+
+        # remove all sequences with not enough frames
+        self._sequences_df = self._sequences_df[self._sequences_df["frame_count"] >= self.frames_to_extract]
+        self._sequences_df.reset_index(inplace=True)
 
     @property
     def _total_length(self) -> int:
@@ -93,7 +97,7 @@ class ActionDataset(data.Dataset):
                     for i in range(self.frames_to_extract)
                     for j in range(self.seg_length)
                 ],
-                dtype=np.int,
+                dtype=np.int64,
             )
             + self.index_bias
         )
