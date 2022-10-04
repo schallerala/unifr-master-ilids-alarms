@@ -235,3 +235,71 @@ stages:
     - path: data/handcrafted-metadata/actionclip_sequences.csv
       md5: b7fb242f78ce7a2e7d038c983a0029dc
       size: 44587
+  results-image-features-actionclip@vit-b-16-16f:
+    cmd: make results/actionclip/vit-b-16-16f.pkl
+    deps:
+    - path: ckpt/actionclip/vit-b-16-16f.pt
+      md5: d54f0fdb2c68760e0f74606c3e059e0e
+      size: 1775148220
+    - path: data/handcrafted-metadata/actionclip_sequences.csv
+      md5: b7fb242f78ce7a2e7d038c983a0029dc
+      size: 44587
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/actionclip/vit-b-16-16f.pkl
+      md5: 39537905da451cfc082803d4c5b1be49
+      size: 919630
+  results-image-features-actionclip@vit-b-16-32f:
+    cmd: make results/actionclip/vit-b-16-32f.pkl
+    deps:
+    - path: ckpt/actionclip/vit-b-16-32f.pt
+      md5: 22e3f7e8bd4775ff1d6879e7870bee41
+      size: 1775148220
+    - path: data/handcrafted-metadata/actionclip_sequences.csv
+      md5: b7fb242f78ce7a2e7d038c983a0029dc
+      size: 44587
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/actionclip/vit-b-16-32f.pkl
+      md5: 4bff7ab9eddb46fa9501e3ce45e5b37b
+      size: 915374
+  results-image-features-actionclip@vit-b-32-8f:
+    cmd: make results/actionclip/vit-b-32-8f.pkl
+    deps:
+    - path: ckpt/actionclip/vit-b-32-8f.pt
+      md5: f948442149ca7ab350a9c16fc04ee891
+      size: 1791490582
+    - path: data/handcrafted-metadata/actionclip_sequences.csv
+      md5: b7fb242f78ce7a2e7d038c983a0029dc
+      size: 44587
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/actionclip/vit-b-32-8f.pkl
+      md5: 2ba306943ab955cf0e977075fc39ecfb
+      size: 920694
+  results-image-features-actionclip@vit-b-16-8f:
+    cmd: make results/actionclip/vit-b-16-8f.pkl
+    deps:
+    - path: ckpt/actionclip/vit-b-16-8f.pt
+      md5: 268fbfa997f0e7647e90efe216c8380f
+      size: 1775148988
+    - path: data/handcrafted-metadata/actionclip_sequences.csv
+      md5: b7fb242f78ce7a2e7d038c983a0029dc
+      size: 44587
+    - path: data/sequences
+      md5: fe9ca5d9f3835610106d71e1acdbae38.dir
+      size: 63103057
+      nfiles: 864
+    outs:
+    - path: results/actionclip/vit-b-16-8f.pkl
+      md5: 36589cae9308f129d8a160f431f08eac
+      size: 920694
