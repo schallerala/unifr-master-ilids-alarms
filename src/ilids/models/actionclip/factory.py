@@ -31,12 +31,6 @@ def create_models_and_transforms(
     model_text = TextCLIP(model)
     model_image = ImageCLIP(model)
 
-    # val_data = Action_DATASETS(config.data.val_list, config.data.label_list, num_segments=config.data.num_segments,
-    #                     image_tmpl=config.data.image_tmpl,
-    #                     transform=transform_val, random_shift=config.random_shift)
-    # val_loader = DataLoader(val_data, batch_size=config.data.batch_size, num_workers=config.data.workers, shuffle=False,
-    #                         pin_memory=True, drop_last=True)
-
     if device == torch.device("cpu"):
         model_text.float()
         model_image.float()
