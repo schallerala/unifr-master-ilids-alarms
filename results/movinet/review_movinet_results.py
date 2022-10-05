@@ -50,6 +50,13 @@ SEQUENCES_DF = SEQUENCES_DF[
 # Fix index prefix for join
 SEQUENCES_DF = SEQUENCES_DF.set_index("data/sequences/" + SEQUENCES_DF.index)
 
+N = 15
+# 11 - logspace := this is to "reverse the logscale to have it on the end instead at the beginning of the scale"
+# Or manually:
+# cost_fn = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.99, 0.999, 0.9999, 0.99999]
+
+COST_FN = ((11 - np.logspace(0.000001, 1, N, endpoint=True)) / 10)[::-1]
+
 
 def load_variation_df(movinet_variation):
     pickle_file = SOURCE_PATH / f"{movinet_variation}.pkl"
@@ -101,29 +108,6 @@ def get_rates_cost_df(movinet_variation: str) -> pd.DataFrame:
     return expanded_rates_df
 
 
-ALL_DF = {
-    variation_name: load_variation_df(variation_name)
-    for variation_name in VARIATION_NAMES
-}
-ALL_PREDICTIONS = {
-    variation_name: get_predictions(ALL_DF[variation_name])
-    for variation_name in VARIATION_NAMES
-}
-ALL_ROC_CURVES = {
-    variation_name: roc_curve(*ALL_PREDICTIONS[variation_name])
-    for variation_name in VARIATION_NAMES
-}
-
-COST_LHS = 0.9
-COST_RHS = 1.0 - COST_LHS
-
-app = Dash(__name__)
-
-expanded_rates_df = pd.concat(
-    [get_rates_cost_df(movinet_variation) for movinet_variation in VARIATION_NAMES]
-)
-
-
 def get_conf_matrix_with_threshold(
     threshold: float, y_true: np.ndarray, df: pd.DataFrame
 ) -> np.ndarray:
@@ -137,16 +121,81 @@ def get_conf_matrix_with_threshold(
     return conf_matrix
 
 
-def confusion_matrix_to_str(confusion_matrix: np.ndarray) -> str:
-    TP, FN, FP, TN = confusion_matrix.ravel()
-    return f"TP={TP}, FN={FN}, FP={FP}, TN={TN}"
+def get_cost_matrix(cost_ratio: float) -> np.ndarray:
+    return np.array([[0, cost_ratio], [1 - cost_ratio, 0]])
 
 
-N = 15
-# 11 - logspace := this is to "reverse the logscale to have it on the end instead at the beginning of the scale"
-COST_FN = ((11 - np.logspace(0.000001, 1, N, endpoint=True)) / 10)[::-1]
-# Or manually:
-# cost_fn = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 0.99, 0.999, 0.9999, 0.99999]
+def get_cost_function(cost_matrix, confusion_vector) -> np.ndarray:
+    nb_thresholds = int(len(confusion_vector) / 4)
+
+    tiled_cost_vector = np.tile(cost_matrix.ravel(), nb_thresholds)
+
+    return (
+        np.multiply(confusion_vector, tiled_cost_vector)
+        .reshape((nb_thresholds, -1))
+        .sum(axis=1)
+    )
+
+
+def get_confusion_vector(df, reversed_thresholds, y_true) -> np.ndarray:
+    return np.array(
+        [
+            get_conf_matrix_with_threshold(threshold, y_true, df)
+            for threshold in reversed_thresholds
+        ]
+    ).ravel()
+
+
+def get_3d_cost_function(confusion_vector) -> np.ndarray:
+    # Considering confusion matrix of the shape:
+    # [[TP, FN],  X  [[C(TP) = 0,     C(FN) = X],   = Cost(T)
+    #  [FP, TN]]      [C(FP) = 1 - X, c(TN) = 0]]
+
+    z = np.array(
+        [
+            get_cost_function(get_cost_matrix(cost_ratio), confusion_vector)
+            for cost_ratio in COST_FN
+        ]
+    )
+
+    return z
+
+
+ALL_DF = {
+    variation_name: load_variation_df(variation_name)
+    for variation_name in VARIATION_NAMES
+}
+ALL_PREDICTIONS = {
+    variation_name: get_predictions(ALL_DF[variation_name])
+    for variation_name in VARIATION_NAMES
+}
+ALL_ROC_CURVES = {
+    variation_name: roc_curve(*ALL_PREDICTIONS[variation_name])
+    for variation_name in VARIATION_NAMES
+}
+ALL_CONFUSION_VECTOR_FOR_ALL_THRESHOLDS = {
+    variation_name: get_confusion_vector(
+        ALL_DF[variation_name],
+        ALL_ROC_CURVES[variation_name][2][::-1],
+        ALL_PREDICTIONS[variation_name][0],
+    )
+    for variation_name in VARIATION_NAMES
+}
+ALL_COST_FUNCTION_Z = {
+    variation_name: get_3d_cost_function(
+        ALL_CONFUSION_VECTOR_FOR_ALL_THRESHOLDS[variation_name],
+    )
+    for variation_name in VARIATION_NAMES
+}
+
+COST_LHS = 0.9
+COST_RHS = 1.0 - COST_LHS
+
+app = Dash(__name__)
+
+expanded_rates_df = pd.concat(
+    [get_rates_cost_df(movinet_variation) for movinet_variation in VARIATION_NAMES]
+)
 
 
 app.layout = html.Div(
@@ -194,10 +243,22 @@ app.layout = html.Div(
                 ),
                 cost_func_confusion_matrix_graph := dcc.Graph(
                     id="cost-func-confusion-matrix-graph",
-                    style={"gridColumn": "5 / span 2"},
+                    style={"gridColumn": "5 / span 3"},
                 ),
             ],
             style={"display": "grid", "gridTemplateColumns": "66px repeat(6, auto)"},
+        ),
+        html.Div(
+            [
+                contour_cost_func_graph := dcc.Graph(
+                    id="contour-cost-func-graph", style={"gridColumn": "1 / span 3"}
+                ),
+                contour_cost_func_confusion_matrix_graph := dcc.Graph(
+                    id="contour-cost-func-confusion-matrix-graph",
+                    style={"gridColumn": "4 / span 3"},
+                ),
+            ],
+            style={"display": "grid", "gridTemplateColumns": "repeat(6, auto)"},
         ),
     ]
 )
@@ -211,34 +272,20 @@ app.layout = html.Div(
 def get_elementwise_cost_function(
     movinet_variation: str, cost_ratio_idx: int
 ) -> go.Figure:
-    df = ALL_DF[movinet_variation]
     reversed_thresholds = ALL_ROC_CURVES[movinet_variation][2][::-1]
-    y_true = ALL_PREDICTIONS[movinet_variation][0]
 
     fig = go.Figure()
 
-    # Considering confusion matrix of the shape:
-    # [[TP, FN],  X  [[C(TP) = 0,     C(FN) = X],   = Cost(T)
-    #  [FP, TN]]      [C(FP) = 1 - X, c(TN) = 0]]
-
     cost_ratio = COST_FN[cost_ratio_idx]
-    cost_matrix = np.array([[0, cost_ratio], [1 - cost_ratio, 0]])
 
-
-    cost_function_y = np.array(
-        [
-            np.multiply(
-                get_conf_matrix_with_threshold(threshold, y_true, df), cost_matrix
-            ).sum()
-            for threshold in reversed_thresholds
-        ]
-    )
-
+    cost_function_y = ALL_COST_FUNCTION_Z[movinet_variation][cost_ratio_idx]
     fig.add_trace(
         go.Scatter(
             x=reversed_thresholds,
             y=cost_function_y,
-            name="Cost(T)"
+            name="Cost(T)",
+            mode="lines+markers",
+            marker=go.scatter.Marker(size=5),
         )
     )
 
@@ -253,20 +300,78 @@ def get_elementwise_cost_function(
             name="Minimum",
             text=f"Min Cost(T) = {y_min:.3f}",
             marker=go.scatter.Marker(
-                symbol="line-ns",
+                symbol="x-thin",
                 line=go.scatter.marker.Line(width=4, color="orange"),
-                size=25,
+                size=14,
                 color="orange",
             ),
         )
     )
 
-    fig.update_layout(title_text=f"Cost(T) of {movinet_variation}")
+    fig.update_layout(
+        title_text=f"Cost(T), with Cost(FN) = {trunc(cost_ratio * 1000) / 1000:.3f} of {movinet_variation}"
+    )
 
     fig.update_xaxes(type="log")
 
-    # adjust margins to make room for y, x axis title
-    fig.update_layout(margin=dict(t=90, l=120))
+    return fig
+
+
+@app.callback(
+    Output(contour_cost_func_graph, "figure"),
+    Input(variation_items, "value"),
+)
+def get_elementwise_3d_cost_function(movinet_variation: str) -> go.Figure:
+    reversed_thresholds = ALL_ROC_CURVES[movinet_variation][2][::-1]
+
+    fig = go.Figure()
+
+    z = ALL_COST_FUNCTION_Z[movinet_variation]
+
+    y_vals = list(range(len(COST_FN)))
+    fig.add_trace(
+        go.Contour(
+            x=reversed_thresholds,
+            y=y_vals,
+            z=z,
+            name="Cost(T)",
+        )
+    )
+
+    mins_x_idx = z.argmin(axis=1)
+    min_costs = np.take_along_axis(z, np.expand_dims(mins_x_idx, axis=1), axis=1)
+
+    fig.add_trace(
+        go.Scatter(
+            x=reversed_thresholds[mins_x_idx],
+            y=y_vals,
+            customdata=min_costs,
+            name="Min for FN factor",
+            texttemplate="%{customdata[0]:.2f}",
+            textposition="middle right",
+            textfont=dict(color="white"),
+            marker=go.scatter.Marker(
+                symbol="x-thin",
+                line=go.scatter.marker.Line(width=2, color="white"),
+                size=7,
+                color="white",
+            ),
+            mode="lines+markers+text",
+        )
+    )
+
+    fig.update_layout(title_text=f"Cost(T) of {movinet_variation}")
+
+    fig.update_xaxes(
+        range=[np.log10(reversed_thresholds[0]), np.log10(reversed_thresholds[-1])],
+        type="log",
+    )
+    fig.update_yaxes(
+        range=[y_vals[0], y_vals[-1]],
+        tickmode="array",
+        tickvals=y_vals,
+        ticktext=[f"{trunc(cost_ratio * 1000) / 1000:.3f}" for cost_ratio in COST_FN],
+    )
 
     return fig
 
@@ -284,7 +389,9 @@ def display_cost_function_confusion_matrix(
     if not (movinet_variation and hoverData):
         return fig
 
-    threshold = hoverData["points"][0]["x"]
+    point = hoverData["points"][0]
+    cost = point["y"]
+    threshold = point["x"]
 
     df = ALL_DF[movinet_variation]
     y_true = ALL_PREDICTIONS[movinet_variation][0]
@@ -335,7 +442,84 @@ def display_cost_function_confusion_matrix(
     )
 
     fig.update_layout(
-        title_text=f"Confusion Matrix (threshold: {trunc(threshold * 1000) / 1000} of {movinet_variation})"
+        title_text=f"Confusion Matrix (Cost(T = {trunc(threshold * 1000) / 1000}) = {trunc(cost * 1000) / 1000:.3f} of {movinet_variation})"
+    )
+
+    # adjust margins to make room for y, x axis title
+    fig.update_layout(margin=dict(t=90, l=120))
+
+    # add colorbar
+    fig["data"][0]["showscale"] = True
+
+    return fig
+
+
+@app.callback(
+    Output(contour_cost_func_confusion_matrix_graph, "figure"),
+    Input(variation_items, "value"),
+    Input(contour_cost_func_graph, "hoverData"),
+)
+def display_cost_function_confusion_matrix_from_contour(
+    movinet_variation: str, hoverData: Dict
+) -> go.Figure:
+    fig = go.Figure()
+
+    if not (movinet_variation and hoverData):
+        return fig
+
+    point = hoverData["points"][0]
+    threshold = point["x"]
+    cost = point["z"] if "z" in point else point["customdata"][0]
+
+    df = ALL_DF[movinet_variation]
+    y_true = ALL_PREDICTIONS[movinet_variation][0]
+
+    confusion_matrix_population = get_conf_matrix_with_threshold(threshold, y_true, df)
+    TN, FP, FN, TP = confusion_matrix_population.ravel()
+
+    Z = [[TN, FP], [FN, TP]]
+
+    X_LABELS = ["Positive (Alarm)", "Negative"]
+    Y_LABELS = ["Negative", "Positive (Alarm)"]
+
+    fig.add_trace(
+        go.Heatmap(
+            z=Z,
+            x=X_LABELS,
+            y=Y_LABELS,
+            texttemplate="%{z}",
+            colorscale="Viridis",
+        )
+    )
+
+    # add custom xaxis title
+    fig.add_annotation(
+        dict(
+            font=dict(color="black", size=14),
+            x=0.5,
+            y=1.1,
+            showarrow=False,
+            text="Predicted value",
+            xref="paper",
+            yref="paper",
+        )
+    )
+
+    # add custom yaxis title
+    fig.add_annotation(
+        dict(
+            font=dict(color="black", size=14),
+            x=-0.05,
+            y=0.5,
+            showarrow=False,
+            text="Real value",
+            textangle=-90,
+            xref="paper",
+            yref="paper",
+        )
+    )
+    fig.update_layout(
+        title_text=f"Confusion Matrix (Cost(T = {trunc(threshold * 1000) / 1000}) = {trunc(cost * 1000) / 1000:.3f} of {movinet_variation})"
     )
 
     # adjust margins to make room for y, x axis title
