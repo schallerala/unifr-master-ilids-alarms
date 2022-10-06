@@ -83,7 +83,7 @@ model_text = create_models_and_transforms(
 app.layout = html.Div(
     children=[
         texts_local_store := dcc.Store(id="texts-local-store", storage_type="local"),
-        new_text_input := dcc.Input(id="new-text-input", type="search", debounce=True),
+        new_text_input := dcc.Input(id="new-text-input", type="search", value="", debounce=True),
         submit_new_text_input := html.Button("Add", id="submit-new-text-btn"),
         input_text_data_table := dash_table.DataTable(
             id="input-text-data-table",
