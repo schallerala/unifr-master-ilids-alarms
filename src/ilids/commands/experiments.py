@@ -98,6 +98,7 @@ def actionclip(
     ),
     frames_to_extract: int = typer.Argument(8),
     features_output_path: Path = typer.Argument(...),
+    normalize_features: bool = typer.Option(False, "--normalize"),
     device_type: DeviceType = typer.Option(DeviceType.cpu, "--device-type"),
     distributed: bool = typer.Option(False, "--distributed/--single"),
     sync_server_host: Optional[str] = typer.Option(
@@ -162,6 +163,7 @@ def actionclip(
             fusion_model,
             ilids_loader,
             extracted_frames=frames_to_extract,
+            normalize_features=normalize_features,
             device=device,
         )
 

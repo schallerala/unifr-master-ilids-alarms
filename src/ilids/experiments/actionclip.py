@@ -15,6 +15,7 @@ def extract_actionclip_sequences_features(
     fusion_model: VisualPrompt,
     sequences_dataloader: DataLoader,
     extracted_frames: int,
+    normalize_features: bool,
     device: torch.device,
 ) -> pd.DataFrame:
     image_model.eval()
@@ -34,12 +35,13 @@ def extract_actionclip_sequences_features(
             b, t, c, h, w = frames_batch.size()
             images_input = frames_batch.to(device).view(-1, c, h, w)
 
-            images_features = image_model(images_input).view(b, t, -1)
+            images_features = image_model(images_input).view(b, t, -1)   # Tensor: (B, Features), Features = 512
 
-            images_features = fusion_model(images_features)
-            images_features /= images_features.norm(
-                dim=-1, keepdim=True
-            )  # Tensor: (T, Features), Features = 512
+            images_features = fusion_model(images_features)  # Tensor: (B, Features), Features = 512
+            if normalize_features:
+                images_features /= images_features.norm(
+                    dim=-1, keepdim=True
+                )  # Tensor: (T, Features), Features = 512
 
             images_features = images_features.detach().cpu().numpy()
 
