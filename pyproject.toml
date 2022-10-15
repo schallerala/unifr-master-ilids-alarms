@@ -12,6 +12,7 @@ dash = "^2.6.2"
 decord = {path = "build/decord/python"}
 einops = "^0.4.1"
 filelock = "^3.8.0"
+Flask = "^2.2.2"
 ipykernel = "^6.15.1"
 joblib = "^1.1.0"
 jupyter = "^1.0.0"

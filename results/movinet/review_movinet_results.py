@@ -1,5 +1,15 @@
+import functools
 import glob
+import hashlib
+import http
+import io
 import os
+from email.utils import formatdate
+
+import flask
+import math
+from decord import VideoReader, cpu
+from flask import Flask
 from math import trunc
 from typing import Tuple, Dict
 
@@ -8,12 +18,14 @@ import plotly.express as px
 import pandas as pd
 from itertools import permutations
 from pathlib import Path
+from PIL import Image
 
 import numpy as np
 
 from sklearn.metrics import (
     roc_curve,
     confusion_matrix,
+    roc_auc_score,
 )
 
 import plotly.graph_objects as go
@@ -58,12 +70,20 @@ N = 15
 COST_FN = ((11 - np.logspace(0.000001, 1, N, endpoint=True)) / 10)[::-1]
 
 
+ILIDS_PATH = Path(os.path.dirname(os.getcwd())).parent
+assert ILIDS_PATH.exists() and ILIDS_PATH.is_dir()
+
+
 def load_variation_df(movinet_variation):
     pickle_file = SOURCE_PATH / f"{movinet_variation}.pkl"
     features_df = pd.read_pickle(pickle_file)
 
+    # features = features_df[FEATURES_COLUMNS_INDEXES].to_numpy()
+    # features_df[FEATURES_COLUMNS_INDEXES] = (features / np.linalg.norm(features, axis=-1, keepdims=True)).tolist()
+
     df = SEQUENCES_DF.join(features_df)
 
+    df["Clip"] = df.index
     df["Alarm"] = df["Classification"] == "TP"
     # For each sample, get the highest feature/signal
     df["Activation"] = df[FEATURES_COLUMNS_INDEXES].max(axis=1)
@@ -173,6 +193,21 @@ ALL_ROC_CURVES = {
     variation_name: roc_curve(*ALL_PREDICTIONS[variation_name])
     for variation_name in VARIATION_NAMES
 }
+ALL_ROC_CURVES_DF = {
+    variation_name: pd.DataFrame(
+        {
+            "False Positive Rate": ALL_ROC_CURVES[variation_name][0],
+            "True Positive Rate": ALL_ROC_CURVES[variation_name][1],
+        },
+        columns=pd.Index(["False Positive Rate", "True Positive Rate"], name="Rate"),
+        index=pd.Index(ALL_ROC_CURVES[variation_name][2], name="Thresholds"),
+    )
+    for variation_name in VARIATION_NAMES
+}
+ALL_AUC_SCORES = {
+    variation_name: roc_auc_score(*ALL_PREDICTIONS[variation_name])
+    for variation_name in VARIATION_NAMES
+}
 ALL_CONFUSION_VECTOR_FOR_ALL_THRESHOLDS = {
     variation_name: get_confusion_vector(
         ALL_DF[variation_name],
@@ -191,7 +226,97 @@ ALL_COST_FUNCTION_Z = {
 COST_LHS = 0.9
 COST_RHS = 1.0 - COST_LHS
 
-app = Dash(__name__)
+
+flask_app = Flask(__name__)
+
+
+# Taken from: https://github.com/encode/starlette/blob/master/starlette/_compat.py
+# ------------
+# Compat wrapper to always include the `usedforsecurity=...` parameter,
+# which is only added from Python 3.9 onwards.
+# We use this flag to indicate that we use `md5` hashes only for non-security
+# cases (our ETag checksums).
+# If we don't indicate that we're using MD5 for non-security related reasons,
+# then attempting to use this function will raise an error when used
+# environments which enable a strict "FIPs mode".
+#
+# See issue: https://github.com/encode/starlette/issues/1365
+try:
+
+    # check if the Python version supports the parameter
+    # using usedforsecurity=False to avoid an exception on FIPS systems
+    # that reject usedforsecurity=True
+    hashlib.md5(b"data", usedforsecurity=False)  # type: ignore[call-arg]
+
+    def md5_hexdigest(
+        data: bytes, *, usedforsecurity: bool = True
+    ) -> str:  # pragma: no cover
+        return hashlib.md5(  # type: ignore[call-arg]
+            data, usedforsecurity=usedforsecurity
+        ).hexdigest()
+
+except TypeError:  # pragma: no cover
+
+    def md5_hexdigest(data: bytes, *, usedforsecurity: bool = True) -> str:
+        return hashlib.md5(data).hexdigest()
+
+
+def get_image_path(image_name: str) -> Path:
+    return ILIDS_PATH / "data" / "sequences" / image_name
+
+
+@functools.cache
+def get_image_array(name: str) -> np.ndarray:
+    vr = VideoReader(str(get_image_path(name)), cpu(0))
+    center_frame_idx = math.floor(len(vr) / 2)
+
+    return vr[center_frame_idx].asnumpy()  # W, H, C
+
+
+@functools.cache
+def get_image_headers(image_name: str) -> Dict[str, str]:
+    stat_result = os.stat(get_image_path(image_name))
+
+    # content_length = str(stat_result.st_size)
+    last_modified = formatdate(stat_result.st_mtime, usegmt=True)
+    etag_base = str(stat_result.st_mtime) + "-" + str(stat_result.st_size)
+    etag = md5_hexdigest(etag_base.encode(), usedforsecurity=False)
+
+    return {
+        # "content-length": content_length,
+        "last-modified": last_modified,
+        "etag": etag,
+    }
+
+
+@functools.cache
+def get_cached_image_response(image_name: str) -> flask.Response:
+    im = Image.fromarray(get_image_array(image_name))
+
+    # save image to an in-memory bytes buffer
+    with io.BytesIO() as buf:
+        im.save(buf, format="PNG")
+        im_bytes = buf.getvalue()
+
+    headers = {
+        "Content-Disposition": f'inline; filename="{image_name}"',
+        **get_image_headers(image_name),
+    }
+    return flask.Response(im_bytes, headers=headers, mimetype="image/png")
+
+
+@flask_app.route("/img/<image_name>")
+def get_clip_middle_frame(image_name: str):
+    if not (
+        get_image_path(image_name).exists() and get_image_path(image_name).is_file()
+    ):
+        return flask.Response(status=http.HTTPStatus.NOT_FOUND)
+
+    return get_cached_image_response(image_name)
+
+
+app = Dash(server=flask_app, name=__name__)
+
 
 expanded_rates_df = pd.concat(
     [get_rates_cost_df(movinet_variation) for movinet_variation in VARIATION_NAMES]
@@ -200,6 +325,7 @@ expanded_rates_df = pd.concat(
 
 app.layout = html.Div(
     children=[
+        html.H1("Without normalized features!"),
         grid_facet_rate_costs_graph := dcc.Graph(
             id="grid-facet-rate-costs-graph",
             figure=px.line(
@@ -214,7 +340,8 @@ app.layout = html.Div(
                     "rate1": ["tpr", "fnr", "fpr", "tnr"],
                     "rate2": ["tpr", "fnr", "fpr", "tnr"],
                 },
-                height=1000,
+                # height=1000,
+                height=500,
                 # height=60,
             ),
         ),
@@ -223,6 +350,22 @@ app.layout = html.Div(
             options=VARIATION_NAMES,
             value=VARIATION_NAMES[0],
             inline=True,
+        ),
+        html.Div(
+            [
+                histo_graph := dcc.Graph(id="histo-graph", style={"flex": 1}),
+                rates_graph := dcc.Graph(id="rates-graph", style={"flex": 1}),
+            ],
+            style={"display": "flex"},
+        ),
+        html.Div(
+            [
+                roc_graph := dcc.Graph(
+                    id="roc-graph",
+                ),
+                # TODO show FN
+            ],
+            style={"display": "flex"},
         ),
         html.Div(
             [
@@ -238,30 +381,63 @@ app.layout = html.Div(
                     },
                     value=len(COST_FN) - 1,
                 ),
-                cost_func_graph := dcc.Graph(
-                    id="cost-func-graph", style={"gridColumn": "2 / span 3"}
-                ),
+                cost_func_graph := dcc.Graph(id="cost-func-graph", style={"flex": "1"}),
                 cost_func_confusion_matrix_graph := dcc.Graph(
-                    id="cost-func-confusion-matrix-graph",
-                    style={"gridColumn": "5 / span 3"},
+                    id="cost-func-confusion-matrix-graph", style={"flex": "1"}
                 ),
             ],
-            style={"display": "grid", "gridTemplateColumns": "66px repeat(6, auto)"},
+            style={"display": "flex"},
         ),
         html.Div(
             [
                 contour_cost_func_graph := dcc.Graph(
-                    id="contour-cost-func-graph", style={"gridColumn": "1 / span 3"}
+                    id="contour-cost-func-graph", style={"flex": "1"}
                 ),
                 contour_cost_func_confusion_matrix_graph := dcc.Graph(
                     id="contour-cost-func-confusion-matrix-graph",
-                    style={"gridColumn": "4 / span 3"},
+                    style={"flex": "1"},
                 ),
             ],
-            style={"display": "grid", "gridTemplateColumns": "repeat(6, auto)"},
+            style={"display": "flex"},
         ),
     ]
 )
+
+
+@app.callback(Output(histo_graph, "figure"), Input(variation_items, "value"))
+def get_histogram_by_thresholds(movinet_variation: str) -> go.Figure:
+    return px.histogram(
+        ALL_DF[movinet_variation],
+        x="Activation",
+        color="Alarm",
+        marginal="rug",
+        hover_name="Clip",
+        nbins=50,
+    )
+
+
+@app.callback(Output(rates_graph, "figure"), Input(variation_items, "value"))
+def get_true_false_rates(movinet_variation: str) -> go.Figure:
+    return px.line(
+        ALL_ROC_CURVES_DF[movinet_variation],
+        title="TPR and FPR at every threshold",
+        log_x=True,
+    )
+
+
+@app.callback(Output(roc_graph, "figure"), Input(variation_items, "value"))
+def get_roc(movinet_variation: str) -> go.Figure:
+    return px.line(
+        ALL_ROC_CURVES_DF[movinet_variation],
+        x="False Positive Rate",
+        y="True Positive Rate",
+        title=f"{movinet_variation} - AUC: {ALL_AUC_SCORES[movinet_variation]:.3f}",
+        color_discrete_sequence=["orange"],
+        range_x=[0, 1],
+        range_y=[0, 1],
+        width=600,
+        height=450,
+    ).add_shape(type="line", line=dict(dash="dash"), x0=0, x1=1, y0=0, y1=1)
 
 
 @app.callback(
