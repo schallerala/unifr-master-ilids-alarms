@@ -573,9 +573,9 @@ def display_cost_function_confusion_matrix(
     y_true = ALL_PREDICTIONS[movinet_variation][0]
 
     confusion_matrix_population = get_conf_matrix_with_threshold(threshold, y_true, df)
-    TN, FP, FN, TP = confusion_matrix_population.ravel()
+    TP, FN, FP, TN = confusion_matrix_population.ravel()
 
-    Z = [[TN, FP], [FN, TP]]
+    Z = [[FP, TN], [TP, FN]]
 
     X_LABELS = ["Positive (Alarm)", "Negative"]
     Y_LABELS = ["Negative", "Positive (Alarm)"]
@@ -651,9 +651,9 @@ def display_cost_function_confusion_matrix_from_contour(
     y_true = ALL_PREDICTIONS[movinet_variation][0]
 
     confusion_matrix_population = get_conf_matrix_with_threshold(threshold, y_true, df)
-    TN, FP, FN, TP = confusion_matrix_population.ravel()
+    TP, FN, FP, TN = confusion_matrix_population.ravel()
 
-    Z = [[TN, FP], [FN, TP]]
+    Z = [[FP, TN], [TP, FN]]
 
     X_LABELS = ["Positive (Alarm)", "Negative"]
     Y_LABELS = ["Negative", "Positive (Alarm)"]
