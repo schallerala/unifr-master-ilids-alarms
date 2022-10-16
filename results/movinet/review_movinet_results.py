@@ -6,14 +6,16 @@ import io
 import os
 from email.utils import formatdate
 
+import dash.development.base_component
 import flask
 import math
+from dash.exceptions import PreventUpdate
 from decord import VideoReader, cpu
 from flask import Flask
 from math import trunc
-from typing import Tuple, Dict
+from typing import Tuple, Dict, List, Optional
 
-from dash import Dash, html, dcc, Output, Input
+from dash import Dash, html, dcc, Output, Input, State
 import plotly.express as px
 import pandas as pd
 from itertools import permutations
@@ -360,10 +362,10 @@ app.layout = html.Div(
         ),
         html.Div(
             [
-                roc_graph := dcc.Graph(
-                    id="roc-graph",
+                roc_graph := dcc.Graph(id="roc-graph", style={"width": "600px"}),
+                fn_preview_container := html.Div(
+                    id="div-fn-preview", style={"flex": 1, "width": "100%"}
                 ),
-                # TODO show FN
             ],
             style={"display": "flex"},
         ),
@@ -438,6 +440,58 @@ def get_roc(movinet_variation: str) -> go.Figure:
         width=600,
         height=450,
     ).add_shape(type="line", line=dict(dash="dash"), x0=0, x1=1, y0=0, y1=1)
+
+
+@app.callback(
+    Output(fn_preview_container, "children"),
+    Input(roc_graph, "hoverData"),
+    State(variation_items, "value"),
+)
+def preview_fn_on_roc_hover(
+    hoverData: Optional[Dict], variation_name: str
+) -> List[dash.development.base_component.Component]:
+    if not hoverData:
+        raise PreventUpdate
+
+    point = hoverData["points"][0]
+    # corresponds to the threshold index
+    point_idx = point["pointIndex"]
+
+    # get all TN from -Inf to threshold[idx]
+    threshold = ALL_ROC_CURVES[variation_name][2][point_idx]
+
+    FN_df = ALL_DF[variation_name][
+        (threshold > ALL_DF[variation_name]["Activation"])
+        & ALL_DF[variation_name]["Alarm"]
+    ]
+
+    def _get_fn_div(clip_name: str) -> html.Div:
+        return html.Div(
+            [
+                html.Div([html.Img(src=f"/img/{clip_name}", style={"width": "180px"})]),
+                html.Div([html.Span(f"{clip_name}")]),
+            ]
+        )
+
+    return [
+        html.H4(
+            f"FN clips at this rate: {len(FN_df)}/{len(ALL_DF[variation_name])} with threshold: {threshold:.2f} on {variation_name}"
+        ),
+        html.Div(
+            [
+                _get_fn_div(index.lstrip("data/sequences/"))
+                for index, row_s in list(FN_df.sort_values("Activation").iterrows())[
+                    :80
+                ]
+            ],
+            style={
+                "width": "100%",
+                "display": "grid",
+                "gridTemplateColumns": "repeat(4, auto)",
+                "gap": "4px",
+            },
+        ),
+    ]
 
 
 @app.callback(
