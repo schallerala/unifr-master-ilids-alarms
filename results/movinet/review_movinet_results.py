@@ -72,7 +72,7 @@ N = 15
 COST_FN = ((11 - np.logspace(0.000001, 1, N, endpoint=True)) / 10)[::-1]
 
 
-ILIDS_PATH = Path(os.path.dirname(os.getcwd())).parent
+ILIDS_PATH = SOURCE_PATH.parent.parent
 assert ILIDS_PATH.exists() and ILIDS_PATH.is_dir()
 
 
