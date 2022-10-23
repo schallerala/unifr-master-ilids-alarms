@@ -30,8 +30,12 @@ def extract_actionclip_sequences_features(
         b, t, c, h, w = frames_batch.size()
         images_input = frames_batch.to(device).view(-1, c, h, w)
 
+        # To speed up computation with cuda, during the model creation, we initialise its
+        # weight to float16.
+        # But for other device, like CPU, nothing is done. Therefore, no need to autocast.
         # autocast: https://github.com/mlfoundations/open_clip/pull/80#issuecomment-1118621323
-        with torch.autocast(device_type=device.type), torch.no_grad():
+        enable_autocast = False if device == torch.device("cpu") else True
+        with torch.autocast(device_type=device.type, enabled=enable_autocast), torch.no_grad():
             images_features = image_model(images_input).view(b, t, -1)   # Tensor: (B, Features), Features = 512
 
             images_features = fusion_model(images_features)  # Tensor: (B, Features), Features = 512
