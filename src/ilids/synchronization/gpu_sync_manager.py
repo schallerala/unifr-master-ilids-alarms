@@ -1,4 +1,5 @@
 from multiprocessing.managers import BaseManager
+from typing import Set
 
 
 class SharedSetManager(BaseManager):
@@ -10,10 +11,8 @@ class SharedSetManager(BaseManager):
 
 
 def get_server_manager(
-    gpu_count: int, port: int, auth_key: bytes = b"16-896-375"
+    free_gpus: Set[int], port: int, auth_key: bytes = b"16-896-375"
 ) -> SharedSetManager:
-    free_gpus = set(range(gpu_count))
-
     def _acquire_gpu() -> int:
         free_gpu = free_gpus.pop()
         print(f"Giving free GPU {free_gpu}")

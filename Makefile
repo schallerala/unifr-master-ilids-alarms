@@ -378,9 +378,9 @@ results-features-actionclip: $(ACTIONCLIP_FEATURES_TARGETS)
 spawn-share-gpu-server: ## spawn a sync server to give out GPUs with multiple jobs
 ifeq ($(GPU_COUNT),)
 	$(warning "Not possible to distribute GPUs, however, still running server for testing purposes!")
-	poetry run ilids_sync 4 $(SHARE_GPU_SERVER_PORT)
+	poetry run ilids_sync --port $(SHARE_GPU_SERVER_PORT) --count 4
 else
-	poetry run ilids_sync $(GPU_COUNT) $(SHARE_GPU_SERVER_PORT)
+	poetry run ilids_sync --port $(SHARE_GPU_SERVER_PORT) --count $(GPU_COUNT)
 endif
 
 .PHONY: spawn-share-gpu-server
