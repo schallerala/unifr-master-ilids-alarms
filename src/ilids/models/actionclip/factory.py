@@ -7,7 +7,6 @@ from ilids.models.actionclip.model import ImageCLIP, TextCLIP
 from ilids.models.actionclip.modules.visual_prompt import VisualPrompt
 from ilids.models.actionclip.pretrained import load_from_checkpoint
 from ilids.models.actionclip.transform import get_augmentation
-from ilids.models.utils import fix_convert_weights_to_fp16
 
 
 def create_models_and_transforms(
@@ -39,8 +38,6 @@ def create_models_and_transforms(
             model_text
         )  # Actually this line is unnecessary since clip by default already on float16
         open_clip.model.convert_weights_to_fp16(model_image)
-        fix_convert_weights_to_fp16(model_text)
-        fix_convert_weights_to_fp16(model_image)
 
     state_dicts = load_from_checkpoint(actionclip_pretrained_ckpt, device=device)
 

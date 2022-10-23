@@ -23,29 +23,27 @@ def extract_actionclip_sequences_features(
 
     extracted_features: Dict[str, np.ndarray] = dict()
 
-    with torch.no_grad():
-        for iii, (frames_batch, paths_batch) in enumerate(tqdm(sequences_dataloader)):
-            # On CUDA, half precision
-            if device.type == "cuda":
-                frames_batch = frames_batch.half()
+    for iii, (frames_batch, paths_batch) in enumerate(tqdm(sequences_dataloader)):
+        frames_batch = frames_batch.view(
+            (-1, extracted_frames, 3) + frames_batch.size()[-2:]
+        )
+        b, t, c, h, w = frames_batch.size()
+        images_input = frames_batch.to(device).view(-1, c, h, w)
 
-            frames_batch = frames_batch.view(
-                (-1, extracted_frames, 3) + frames_batch.size()[-2:]
-            )
-            b, t, c, h, w = frames_batch.size()
-            images_input = frames_batch.to(device).view(-1, c, h, w)
-
+        # autocast: https://github.com/mlfoundations/open_clip/pull/80#issuecomment-1118621323
+        with torch.autocast(device_type=device.type), torch.no_grad():
             images_features = image_model(images_input).view(b, t, -1)   # Tensor: (B, Features), Features = 512
 
             images_features = fusion_model(images_features)  # Tensor: (B, Features), Features = 512
-            if normalize_features:
-                images_features /= images_features.norm(
-                    dim=-1, keepdim=True
-                )  # Tensor: (T, Features), Features = 512
 
-            images_features = images_features.detach().cpu().numpy()
+        if normalize_features:
+            images_features /= images_features.norm(
+                dim=-1, keepdim=True
+            )  # Tensor: (T, Features), Features = 512
 
-            for path, image_features in zip(paths_batch, images_features):
-                extracted_features[path] = image_features
+        images_features = images_features.detach().cpu().numpy()
+
+        for path, image_features in zip(paths_batch, images_features):
+            extracted_features[path] = image_features
 
     return pd.DataFrame.from_dict(extracted_features, orient="index")
