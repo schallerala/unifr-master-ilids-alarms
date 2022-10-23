@@ -35,10 +35,16 @@ def extract_actionclip_sequences_features(
         # But for other device, like CPU, nothing is done. Therefore, no need to autocast.
         # autocast: https://github.com/mlfoundations/open_clip/pull/80#issuecomment-1118621323
         enable_autocast = False if device == torch.device("cpu") else True
-        with torch.autocast(device_type=device.type, enabled=enable_autocast), torch.no_grad():
-            images_features = image_model(images_input).view(b, t, -1)   # Tensor: (B, Features), Features = 512
+        with torch.autocast(
+            device_type=device.type, enabled=enable_autocast
+        ), torch.no_grad():
+            images_features = image_model(images_input).view(
+                b, t, -1
+            )  # Tensor: (B, Features), Features = 512
 
-            images_features = fusion_model(images_features)  # Tensor: (B, Features), Features = 512
+            images_features = fusion_model(
+                images_features
+            )  # Tensor: (B, Features), Features = 512
 
         if normalize_features:
             images_features /= images_features.norm(

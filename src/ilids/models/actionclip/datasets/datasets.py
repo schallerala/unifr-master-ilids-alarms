@@ -42,7 +42,9 @@ class ActionDataset(data.Dataset):
         )
 
         # remove all sequences with not enough frames
-        self._sequences_df = self._sequences_df[self._sequences_df["frame_count"] >= self.frames_to_extract]
+        self._sequences_df = self._sequences_df[
+            self._sequences_df["frame_count"] >= self.frames_to_extract
+        ]
         self._sequences_df.reset_index(inplace=True)
 
     @property
