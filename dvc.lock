@@ -250,7 +250,7 @@ stages:
       nfiles: 864
     outs:
     - path: results/actionclip/vit-b-16-16f.pkl
-      md5: f5879197c83e542f3637c6049b73b3ab
+      md5: 7e88afca0076a81038451dbe007d7fce
       size: 919630
   results-image-features-actionclip@vit-b-16-32f:
     cmd: make results/actionclip/vit-b-16-32f.pkl
@@ -267,7 +267,7 @@ stages:
       nfiles: 864
     outs:
     - path: results/actionclip/vit-b-16-32f.pkl
-      md5: e34de4fd659aa97be333dfb906a6e51a
+      md5: 6e483b75110339001a9862070c0a1164
       size: 915374
   results-image-features-actionclip@vit-b-32-8f:
     cmd: make results/actionclip/vit-b-32-8f.pkl
@@ -284,7 +284,7 @@ stages:
       nfiles: 864
     outs:
     - path: results/actionclip/vit-b-32-8f.pkl
-      md5: 39a11a34843ceffd2d41aca0ae96f08c
+      md5: 086b6151a20f8c0924c293f5bfaff4ab
       size: 920694
   results-image-features-actionclip@vit-b-16-8f:
     cmd: make results/actionclip/vit-b-16-8f.pkl
@@ -301,5 +301,5 @@ stages:
       nfiles: 864
     outs:
     - path: results/actionclip/vit-b-16-8f.pkl
-      md5: d6360e2a0f020ee41ad3933b890c43f1
+      md5: ff93698f56002f91c8249d58565794d7
       size: 920694
