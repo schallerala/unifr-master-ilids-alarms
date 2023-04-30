@@ -147,7 +147,7 @@ def actionclip(
         ilids_dataset = ActionDataset(
             list_input_sequences_file_csv,
             frames_to_extract=frames_to_extract,
-            transform=get_augmentation(),
+            transform=get_augmentation(), # could also be replaced by preprocess_image
         )
         loader_num_workers = loader_num_workers or cpu_count()
         ilids_loader = DataLoader(

@@ -21,7 +21,10 @@ def create_models_and_transforms(
     )  # Must set jit=False for training  ViT-B/32 TODO: try jit=True
 
     input_size = 224  # TODO
-    sim_header = "Transf"  # Transf   meanP  LSTM  Conv_1D  Transf_cls # TODO
+    # Possible sim_header:
+    #   Transf meanP  LSTM  Conv_1D  Transf_cls
+    # However, choosing the one that worked the best in their work and apply it here too
+    sim_header = "Transf"
 
     fusion_model = VisualPrompt(sim_header, model.state_dict(), extracted_frames).to(
         device=device
