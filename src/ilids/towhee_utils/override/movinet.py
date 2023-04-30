@@ -20,6 +20,7 @@ log = logging.getLogger()
 
 
 class MovinetModelName(str, ExtendedEnum):
+    """Declare a list of all models supported by Movinet."""
     movineta0 = "movineta0"
     movineta1 = "movineta1"
     movineta2 = "movineta2"
@@ -31,6 +32,16 @@ class MovinetModelName(str, ExtendedEnum):
 @register(name="ilids/movinet", output_schema=["labels", "scores", "features"])
 class Movinet(NNOperator):
     """
+    Source: https://towhee.io/action-classification/movinet/src/branch/main/movinet.py
+
+    "Extended" the Movinet NNOperator to fix:
+    - the returned `features` of "`forward`" method didn't go through the last layer
+      (the classifier head).
+    - fix the `labels` and `scores` were not the result of the last layer!
+    - fix the preprocessing of the video frames which used configuration based on constant
+      while they should be based on the selected/given model name!
+    - different documentation inconsistencies and replaced a couple of constants.
+
     Generate a list of class labels given a video input data.
     Default labels are from [Kinetics600 Dataset](https://deepmind.com/research/open-source/kinetics).
     Args:
@@ -119,15 +130,16 @@ class Movinet(NNOperator):
 
         Returns:
             (labels, scores, features)
-                A tuple of lists (labels, scores, features, head_output).
+                A tuple of lists (labels, scores, features).
         """
         # Convert list of towhee.types.Image to numpy.ndarray in float32
         video = numpy.stack(
             [img.astype(numpy.float32) / 255.0 for img in video], axis=0
         )
         assert len(video.shape) == 4
-        video = rearrange(video, "t w h c -> c t w h")
+        # re-write the following line using einops for readability
         # video = video.transpose(3, 0, 1, 2)  # twhc -> ctwh
+        video = rearrange(video, "t w h c -> c t w h")
 
         # Transform video data given configs
         if self.skip_preprocess:

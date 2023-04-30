@@ -10,7 +10,17 @@ logger = getLogger(__name__)
 
 @register(name="ilids/cached_video_decoder")
 class CachedVideoDecoder(PyOperator):
-    """Directly decode the video and keep them in memory"""
+    """
+    Directly decode the video and keep them in memory.
+
+    As the 'well-known' 'video_decode.ffmpeg' operator produces an iterator once
+    of the input video file and yields frame after frame.
+    Therefore, if it is expected to be reused in a downstream operator, consuming
+    the 'video_decode.ffmpeg' operator will result in a error.
+
+    This operator can be used as a checkpoint to serve multiple times the list of frames
+    of a decoded video file.
+    """
 
     def __init__(self):
         super().__init__()

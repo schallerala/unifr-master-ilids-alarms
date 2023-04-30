@@ -5,7 +5,6 @@ logger = logging.getLogger(__name__)
 
 # Inspired from: https://github.com/Atze00/MoViNet-pytorch
 # But also: https://github.com/tensorflow/models/tree/master/official/projects/movinet/configs/yaml
-# TODO Make those configs configurable from the cli (and/or through a config file)
 _movinet_transform_cfgs = dict(
     # tensorflow MoViNet validation input feature shape
     # - 50
