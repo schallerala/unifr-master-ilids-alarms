@@ -81,9 +81,11 @@ def movinet(
             input_glob,
         )
 
-        PersistenceMethod.get_from_extension(features_output_path).get_persistence_impl(
-            PersistenceMethodSource.pandas
-        ).persist(features_output_path, features_df)
+        (
+            PersistenceMethod.get_from_extension(features_output_path)
+            .get_persistence_impl(PersistenceMethodSource.pandas)
+            .persist(features_output_path, features_df)
+        )
 
 
 @typer_app.command()
@@ -109,7 +111,7 @@ def actionclip(
     ),
     overwrite: bool = typer.Option(False, "-f", "--force"),
     batch_size: int = typer.Option(2 << 3, "-b", "--batch-size"),
-    seed: int = typer.Option(16896375, "--seed"),
+    seed: int = typer.Option(16896375, "--seed"),  # default to student number
     loader_num_workers: Optional[int] = typer.Option(
         None, "-w", "--workers", help="Number of workers for the Torch.DataLoader"
     ),
@@ -147,7 +149,7 @@ def actionclip(
         ilids_dataset = ActionDataset(
             list_input_sequences_file_csv,
             frames_to_extract=frames_to_extract,
-            transform=get_augmentation(), # could also be replaced by preprocess_image
+            transform=get_augmentation(),  # could also be replaced by preprocess_image
         )
         loader_num_workers = loader_num_workers or cpu_count()
         ilids_loader = DataLoader(

@@ -21,6 +21,7 @@ log = logging.getLogger()
 
 class MovinetModelName(str, ExtendedEnum):
     """Declare a list of all models supported by Movinet."""
+
     movineta0 = "movineta0"
     movineta1 = "movineta1"
     movineta2 = "movineta2"

@@ -50,6 +50,7 @@ vulture = "^2.5"
 
 [tool.poetry.group.dev.dependencies]
 gdown = "^4.5.1"
+papermill = "^2.4.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
