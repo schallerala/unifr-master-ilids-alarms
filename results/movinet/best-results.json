@@ -1,0 +1,10 @@
+{
+  "max-roc": {
+    "best": "movineta3",
+    "value": 0.643491726680384
+  },
+  "max-pr": {
+    "best": "movineta3-normalized",
+    "value": 0.6341288133390419
+  }
+}

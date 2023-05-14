@@ -1,0 +1,26 @@
+{
+  "movineta0-normalized": {
+    "roc-auc": 0.5055673439643348,
+    "pr-auc": 0.5598346211596357
+  },
+  "movineta1-normalized": {
+    "roc-auc": 0.5599494170096022,
+    "pr-auc": 0.5606670976890789
+  },
+  "movineta2-normalized": {
+    "roc-auc": 0.4825799468449931,
+    "pr-auc": 0.4735527083722386
+  },
+  "movineta3-normalized": {
+    "roc-auc": 0.5936106824417009,
+    "pr-auc": 0.6341288133390419
+  },
+  "movineta4-normalized": {
+    "roc-auc": 0.4977682398834019,
+    "pr-auc": 0.5157763251854826
+  },
+  "movineta5-normalized": {
+    "roc-auc": 0.4907568158436213,
+    "pr-auc": 0.5101499002315038
+  }
+}

@@ -81,17 +81,7 @@ class Movinet(NNOperator):
         self.topk = topk
         self.dataset_name = "kinetics_600"
         if classmap is None:
-            class_file = os.path.join(
-                str(Path(__file__).parent), "kinetics_600" + ".csv"
-            )
-            csvFile = open(class_file, "r")
-            reader = csv.reader(csvFile)
-            self.classmap = {}
-            for item in reader:
-                if reader.line_num == 1:
-                    continue
-                self.classmap[int(item[0])] = item[1]
-            csvFile.close()
+            self.classmap = read_kinetics_600_classmap()
         else:
             self.classmap = classmap
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -151,15 +141,34 @@ class Movinet(NNOperator):
 
         self.model.clean_activation_buffers()
 
-        feats = self.model.forward_features(inputs)
-        outs = self.model.head(feats)
+        feats = self.model.forward_features(inputs)  # 1, 480, 1, 1, 1 (480 might change between model variation)
+        outs = self.model.head(feats)  # 1, 600
 
-        features = outs.flatten(1).cpu().squeeze(0).detach().numpy()
+        features = outs.flatten(1).cpu().squeeze(0).detach().numpy()  # 600
 
         post_act = torch.nn.Softmax(dim=1)
-        preds = post_act(outs)
-        pred_scores, pred_classes = preds.topk(k=self.topk)
-        labels = [self.classmap[int(i)] for i in pred_classes[0]]
-        scores = [round(float(x), 5) for x in pred_scores[0]]
+        preds = post_act(outs)  # 1, 600 (sum of each element_i = 1.0)
+        pred_scores, pred_classes = preds.topk(k=self.topk)  # both returned tuple have shape: 1, topk
+        labels = [self.classmap[int(i)] for i in pred_classes[0]]  # list of string with topk elements
+        scores = [round(float(x), 5) for x in pred_scores[0]]  # float percentages (e.g. 0.34 -> 34%; sum doesn't sum to 1, as topk from preds)
 
         return labels, scores, features
+
+
+def read_kinetics_600_classmap() -> Dict[int, str]:
+    """Read the Kinetics 600 CSV in this folder and produce a class map {class_idx: class_name}."""
+    class_file = os.path.join(
+        str(Path(__file__).parent), "kinetics_600" + ".csv"
+    )
+    csvFile = open(class_file, "r")
+    reader = csv.reader(csvFile)
+
+    classmap = {}
+    for item in reader:
+        if reader.line_num == 1:
+            continue
+        classmap[int(item[0])] = item[1]
+
+    csvFile.close()
+
+    return classmap
