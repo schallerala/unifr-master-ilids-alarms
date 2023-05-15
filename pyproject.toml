@@ -22,7 +22,7 @@ mlnotify = "^1.0.51"
 open-clip-torch = "^2.0.2"
 pandas = "^1.4.3"
 Pillow = "^9.2.0"
-plotly = "^5.10.0"
+plotly = "^5.14.1"
 pydantic = "^1.9.1"
 pynvml = "^11.4.1"
 python = ">=3.10,<3.11"
@@ -51,6 +51,9 @@ vulture = "^2.5"
 [tool.poetry.group.dev.dependencies]
 gdown = "^4.5.1"
 papermill = "^2.4.0"
+
+[tool.poetry.group.doc.dependencies]
+kaleido = "0.2.1"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

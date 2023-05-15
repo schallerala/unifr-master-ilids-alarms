@@ -7,6 +7,12 @@ JSON_FILES := $(patsubst %.pkl,%.json,$(PKL_FILES))
 CLASSES_NOTEBOOK_FILES := $(patsubst %.pkl,%-classes-for-walk-with-ladder.ipynb,$(PKL_FILES))
 
 
+# Set the default plotly renderer to notebook_connected
+#
+# For example, in case wishes to extract all images as png, pass this variable
+# as env variable as so:
+#    $ make all PLOTLY_RENDERER=png
+PLOTLY_RENDERER := notebook_connected
 
 
 # All
@@ -36,7 +42,7 @@ clean:
 
 %.ipynb: %.pkl _template_movinet_results.ipynb
 	@echo "Producing $@ from $< using template file"
-	poetry run papermill _template_movinet_results.ipynb $@ -p movinet_variation $* -p normalize_features False
+	poetry run papermill _template_movinet_results.ipynb $@ -p movinet_variation $* -p normalize_features False -p plotly_renderer $(PLOTLY_RENDERER)
 
 
 %.json: %.ipynb
@@ -69,7 +75,7 @@ all-results.json: $(JSON_FILES)
 
 %-normalized.ipynb: %.pkl _template_movinet_results.ipynb
 	@echo "Producing $@ from $< using template file"
-	poetry run papermill _template_movinet_results.ipynb $@ -p movinet_variation $* -p normalize_features True
+	poetry run papermill _template_movinet_results.ipynb $@ -p movinet_variation $* -p normalize_features True -p plotly_renderer $(PLOTLY_RENDERER)
 
 all-results-normalized.json: $(patsubst %.pkl,%-normalized.json,$(PKL_FILES))
 	jq '{(input_filename | sub(".json$$"; "")): .}' $(patsubst %.pkl,%-normalized.json,$(PKL_FILES)) | jq 'reduce inputs as $$s (.; . += $$s)' > $@
@@ -98,18 +104,28 @@ best-results.json: $(wildcard all-results*.json)
 
 %-classes-for-walk-with-ladder.ipynb: %.pkl _template_predicted_classes_for_walk_with_ladder.ipynb
 	@echo "Producing $@ from $< using template file"
-	poetry run papermill _template_predicted_classes_for_walk_with_ladder.ipynb $@ -p movinet_variation $* -p normalize_features False
+	poetry run papermill _template_predicted_classes_for_walk_with_ladder.ipynb $@ -p movinet_variation $* -p normalize_features False -p plotly_renderer $(PLOTLY_RENDERER)
 
 
 %-classes-for-walk-with-ladder-normalized.ipynb: %.pkl _template_predicted_classes_for_walk_with_ladder.ipynb
 	@echo "Producing $@ from $< using template file"
-	poetry run papermill _template_predicted_classes_for_walk_with_ladder.ipynb $@ -p movinet_variation $* -p normalize_features True
+	poetry run papermill _template_predicted_classes_for_walk_with_ladder.ipynb $@ -p movinet_variation $* -p normalize_features True -p plotly_renderer $(PLOTLY_RENDERER)
 
 %.csv: %.ipynb
 	jq -r '.cells[] | select(.metadata.tags[]? | select(startswith("result-"))) | .outputs | map(.text | join("")) | join("\n")' $< > $@
 
 
 
+##### extract all images #####
+
+images: *.ipynb extract_decode_images_from_notebook.sh
+	-mkdir -p images/normalized/movineta{0..5}
+	-mkdir -p images/movineta{0..5}
+	for i in {0..5}; do \
+		./extract_decode_images_from_notebook.sh movineta$$i-normalized.ipynb images/normalized/movineta$$i-; \
+		./extract_decode_images_from_notebook.sh movineta$$i.ipynb images/movineta$$i-; \
+		./extract_decode_images_from_notebook.sh movineta$$i-classes-for-walk-with-ladder.ipynb images/movineta$$i-; \
+	done
 
 
 ##### more phony targets #####
