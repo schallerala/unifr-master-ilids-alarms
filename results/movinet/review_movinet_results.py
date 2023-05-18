@@ -3,34 +3,26 @@ import glob
 import hashlib
 import http
 import io
+import math
 import os
 from email.utils import formatdate
+from itertools import permutations
+from math import trunc
+from pathlib import Path
+from typing import Dict, List, Optional, Tuple
 
 import dash.development.base_component
 import flask
-import math
+import numpy as np
+import pandas as pd
+import plotly.express as px
+import plotly.graph_objects as go
+from dash import Dash, Input, Output, State, dcc, html
 from dash.exceptions import PreventUpdate
 from decord import VideoReader, cpu
 from flask import Flask
-from math import trunc
-from typing import Tuple, Dict, List, Optional
-
-from dash import Dash, html, dcc, Output, Input, State
-import plotly.express as px
-import pandas as pd
-from itertools import permutations
-from pathlib import Path
 from PIL import Image
-
-import numpy as np
-
-from sklearn.metrics import (
-    roc_curve,
-    confusion_matrix,
-    roc_auc_score,
-)
-
-import plotly.graph_objects as go
+from sklearn.metrics import confusion_matrix, roc_auc_score, roc_curve
 
 SOURCE_PATH = Path(os.path.dirname(os.path.abspath(__file__)))
 

@@ -38,7 +38,7 @@ all: all-not-normalized all-normalized best-results.json
 all-not-normalized: $(NOTEBOOK_FILES) $(JSON_FILES) all-results.json $(CSV_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_FILES) $(CLASSES_CSV_FILES)
 
 .PHONY: all-normalized
-all-normalized: $(NOTEBOOK_NORM_FILES) $(JSON_NORM_FILES) all-results.json $(CSV_NORM_FILES) all-results-FN-equals-0-normaliezd.csv $(CLASSES_NOTEBOOK_NORM_FILES) $(CLASSES_CSV_NORM_FILES)
+all-normalized: $(NOTEBOOK_NORM_FILES) $(JSON_NORM_FILES) all-results.json $(CSV_NORM_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_NORM_FILES) $(CLASSES_CSV_NORM_FILES)
 
 
 # Clean

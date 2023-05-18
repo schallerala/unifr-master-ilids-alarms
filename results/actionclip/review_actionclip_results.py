@@ -1,19 +1,17 @@
 import glob
 import os
 from math import trunc
+from pathlib import Path
 from typing import Dict, List, Tuple
 
 import dash
-import open_clip
-import torch
-from dash import Dash, html, dcc, Output, Input, dash_table, State
-import plotly.express as px
-import pandas as pd
-from pathlib import Path
-
 import numpy as np
-
+import open_clip
+import pandas as pd
+import plotly.express as px
 import plotly.graph_objects as go
+import torch
+from dash import Dash, Input, Output, State, dash_table, dcc, html
 
 from ilids.models.actionclip.factory import create_models_and_transforms
 
@@ -83,7 +81,9 @@ model_text = create_models_and_transforms(
 app.layout = html.Div(
     children=[
         texts_local_store := dcc.Store(id="texts-local-store", storage_type="local"),
-        new_text_input := dcc.Input(id="new-text-input", type="search", value="", debounce=True),
+        new_text_input := dcc.Input(
+            id="new-text-input", type="search", value="", debounce=True
+        ),
         submit_new_text_input := html.Button("Add", id="submit-new-text-btn"),
         input_text_data_table := dash_table.DataTable(
             id="input-text-data-table",
