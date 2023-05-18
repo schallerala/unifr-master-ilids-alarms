@@ -171,14 +171,10 @@ HANDCRAFTED_METADATA_FOLDER := $(DATA_FOLDER)/handcrafted-metadata
 $(HANDCRAFTED_METADATA_FOLDER): | $(DATA_FOLDER)
 	mkdir $@
 
-scripts/generate-sequences-alarms-FP.py: notebooks/generate-sequences-alarms-FP.ipynb
-	poetry run jupyter nbconvert notebooks/generate-sequences-alarms-FP.ipynb --stdout --to python > $@
-
-
-$(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv: scripts/generate-sequences-alarms-FP.py $(HANDCRAFTED_METADATA_FOLDER)/szte_distractions.extended.corrected.csv $(ILIDS_METADATA_FOLDER)/alarms.csv $(ILIDS_METADATA_FOLDER)/clips.csv $(ILIDS_METADATA_FOLDER)/videos.csv | $(HANDCRAFTED_METADATA_FOLDER)
+$(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv: notebooks/generate-sequences-alarms-FP.ipynb $(HANDCRAFTED_METADATA_FOLDER)/szte_distractions.extended.corrected.csv $(ILIDS_METADATA_FOLDER)/alarms.csv $(ILIDS_METADATA_FOLDER)/clips.csv $(ILIDS_METADATA_FOLDER)/videos.csv | $(HANDCRAFTED_METADATA_FOLDER)
 	@# as the paths are hardcoded in the jupyter notebook, need to mimic the same paths
-	@# by changing to the scripts directory
-	cd scripts && poetry run python generate-sequences-alarms-FP.py
+	@# by changing to the notebooks directory
+	cd notebooks && poetry run papermill --progress-bar $(notdir $<) - > /dev/null
 
 
 sequences: $(HANDCRAFTED_METADATA_FOLDER)/tp_fp_sequences.csv  ## produce sequences of short clips to feed into a model

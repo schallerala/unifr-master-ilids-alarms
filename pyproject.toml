@@ -36,21 +36,19 @@ tqdm = "^4.64.0"
 typer = {extras = ["all"], version = "^0.6.1"}
 xmltodict = "^0.13.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 black = {extras = ["jupyter"], version = "^22.8.0"}
 datamodel-code-generator = "^0.13.0"
+gdown = "^4.5.1"
 isort = "^5.10.1"
 mypy = "^0.971"
+papermill = "^2.4.0"
 PyHamcrest = "^2.0.4"
 pylint = "^2.15.0"
 pytest = "^7.1.2"
 pytest-cov = "^3.0.0"
 taskipy = "^1.10.2"
 vulture = "^2.5"
-
-[tool.poetry.group.dev.dependencies]
-gdown = "^4.5.1"
-papermill = "^2.4.0"
 
 [tool.poetry.group.doc.dependencies]
 kaleido = "0.2.1"
