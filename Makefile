@@ -421,7 +421,7 @@ build/decord: build
 build/decord/build: build/decord
 	test -d $@ || mkdir $@
 	@# https://github.com/dmlc/decord
-	cd $@ && cmake .. $(DECORD_CMAKE_FLAGS) -DCMAKE_BUILD_TYPE=Release
+	cd $@ && cmake .. $(DECORD_CMAKE_FLAGS) -DFFMPEG_DIR=/usr/local/opt/ffmpeg@5 -DCMAKE_BUILD_TYPE=Release
 
 clean-decord:  ## clean everything related to decord and remove it from the depencendies
 	-rm -rf build/decord
