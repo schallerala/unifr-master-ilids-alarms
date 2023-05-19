@@ -1,18 +1,133 @@
-class,score,model_name
-cosplaying,0.10085543760886559,movineta1
-archery,0.0604677264793561,movineta1
-jogging,0.047630908397527844,movineta1
-stretching arm,0.038461538461538464,movineta1
-finger snapping,0.038461538461538464,movineta1
-cleaning windows,0.03501779786669291,movineta1
-trimming shrubs,0.03419041433013403,movineta1
-golf putting,0.027874349401547358,movineta1
-playing dominoes,0.02372337132692337,movineta1
-delivering mail,0.02244101522060541,movineta1
-throwing knife,0.01909672196667928,movineta1
-mowing lawn,0.013434332580520557,movineta1
-shooting goal (soccer),0.011423709300848154,movineta1
-playing cricket,0.009122701791616587,movineta1
-building shed,0.009065534632939558,movineta1
+class,score,model_name,normalize_features
+jogging,1.0,movineta1,False
+archery,1.0,movineta1,False
+cosplaying,1.0,movineta1,False
+finger snapping,1.0,movineta1,False
+stretching arm,1.0,movineta1,False
+cosplaying,1.0,movineta1,False
+cosplaying,0.62224,movineta1,False
+playing dominoes,0.47717,movineta1,False
+golf putting,0.42292,movineta1,False
+cleaning windows,0.35531,movineta1,False
+trimming shrubs,0.33953,movineta1,False
+cleaning windows,0.33326,movineta1,False
+jogging,0.2384,movineta1,False
+playing cricket,0.23719,movineta1,False
+trimming shrubs,0.21048,movineta1,False
+throwing knife,0.18781,movineta1,False
+trimming shrubs,0.18705,movineta1,False
+cleaning windows,0.17347,movineta1,False
+playing didgeridoo,0.17104,movineta1,False
+delivering mail,0.16939,movineta1,False
+golf putting,0.15534,movineta1,False
+mowing lawn,0.13898,movineta1,False
+shooting goal (soccer),0.13199,movineta1,False
+mowing lawn,0.12203,movineta1,False
+singing,0.11484,movineta1,False
+archery,0.11425,movineta1,False
+playing squash or racquetball,0.09925,movineta1,False
+spray painting,0.09646,movineta1,False
+tiptoeing,0.0943,movineta1,False
+playing dominoes,0.08352,movineta1,False
+shooting goal (soccer),0.08147,movineta1,False
+throwing knife,0.08068,movineta1,False
+throwing knife,0.07937,movineta1,False
+archery,0.07671,movineta1,False
+delivering mail,0.07483,movineta1,False
+archery,0.07291,movineta1,False
+riding unicycle,0.06926,movineta1,False
+building shed,0.06805,movineta1,False
+building shed,0.06682,movineta1,False
+jaywalking,0.06398,movineta1,False
+archery,0.06259,movineta1,False
+singing,0.06086,movineta1,False
+delivering mail,0.05897,movineta1,False
+delivering mail,0.05894,movineta1,False
+delivering mail,0.05862,movineta1,False
+delivering mail,0.05774,movineta1,False
+playing dominoes,0.05612,movineta1,False
+golf putting,0.05585,movineta1,False
+archery,0.05523,movineta1,False
+javelin throw,0.05367,movineta1,False
+throwing knife,0.05272,movineta1,False
+longboarding,0.05131,movineta1,False
+archery,0.05022,movineta1,False
+trimming shrubs,0.0502,movineta1,False
+playing squash or racquetball,0.0502,movineta1,False
+archery,0.04941,movineta1,False
+mowing lawn,0.04864,movineta1,False
+building shed,0.04853,movineta1,False
+cleaning windows,0.04842,movineta1,False
+golf putting,0.04753,movineta1,False
+hurling (sport),0.0474,movineta1,False
+archery,0.04713,movineta1,False
+training dog,0.04534,movineta1,False
+archery,0.04372,movineta1,False
+golf putting,0.0431,movineta1,False
+shooting goal (soccer),0.04301,movineta1,False
+trimming shrubs,0.04185,movineta1,False
+throwing knife,0.04158,movineta1,False
+cheerleading,0.04082,movineta1,False
+delivering mail,0.04068,movineta1,False
+shooting goal (soccer),0.04054,movineta1,False
+mowing lawn,0.03964,movineta1,False
+bending back,0.03866,movineta1,False
+trimming shrubs,0.03585,movineta1,False
+dancing ballet,0.03488,movineta1,False
+playing field hockey,0.03394,movineta1,False
+delivering mail,0.03268,movineta1,False
+delivering mail,0.03161,movineta1,False
+moon walking,0.03022,movineta1,False
+tossing coin,0.02917,movineta1,False
+building shed,0.02822,movineta1,False
+throwing knife,0.02808,movineta1,False
+recording music,0.02737,movineta1,False
+weaving basket,0.02634,movineta1,False
+throwing knife,0.02628,movineta1,False
+weaving basket,0.02516,movineta1,False
+hoverboarding,0.02515,movineta1,False
+building shed,0.02408,movineta1,False
+trimming shrubs,0.024,movineta1,False
+hurdling,0.0231,movineta1,False
+wrapping present,0.02253,movineta1,False
+gymnastics tumbling,0.02143,movineta1,False
+trapezing,0.02108,movineta1,False
+bull fighting,0.02107,movineta1,False
+photobombing,0.02073,movineta1,False
+brush painting,0.02026,movineta1,False
+weaving fabric,0.01989,movineta1,False
+bouncing on bouncy castle,0.0197,movineta1,False
+decorating the christmas tree,0.01745,movineta1,False
+yawning,0.01723,movineta1,False
+swinging baseball bat,0.01565,movineta1,False
+using a sledge hammer,0.01425,movineta1,False
+contorting,0.0141,movineta1,False
+installing carpet,0.01331,movineta1,False
+tying shoe laces,0.01096,movineta1,False
+playing saxophone,0.00969,movineta1,False
+pumping fist,0.0,movineta1,False
+abseiling,0.0,movineta1,False
+adjusting glasses,0.0,movineta1,False
+alligator wrestling,0.0,movineta1,False
+acting in play,0.0,movineta1,False
+abseiling,0.0,movineta1,False
+alligator wrestling,0.0,movineta1,False
+adjusting glasses,0.0,movineta1,False
+abseiling,0.0,movineta1,False
+acting in play,0.0,movineta1,False
+abseiling,0.0,movineta1,False
+running on treadmill,0.0,movineta1,False
+adjusting glasses,0.0,movineta1,False
+alligator wrestling,0.0,movineta1,False
+acting in play,0.0,movineta1,False
+abseiling,0.0,movineta1,False
+alligator wrestling,0.0,movineta1,False
+adjusting glasses,0.0,movineta1,False
+acting in play,0.0,movineta1,False
+adjusting glasses,0.0,movineta1,False
+headbutting,0.0,movineta1,False
+beatboxing,0.0,movineta1,False
+skipping rope,0.0,movineta1,False
+alligator wrestling,0.0,movineta1,False
 
 

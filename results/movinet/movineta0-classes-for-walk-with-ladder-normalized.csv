@@ -1,18 +1,133 @@
-class,score,model_name
-golf putting,0.0008958707420545879,movineta0
-stretching leg,0.000575781695780458,movineta0
-presenting weather forecast,0.0005181604512777739,movineta0
-stretching arm,0.00043472671468329103,movineta0
-shooting goal (soccer),0.0003762632562743774,movineta0
-golf chipping,0.0003750589799987369,movineta0
-using a paint roller,0.0003670722363090684,movineta0
-archery,0.00036553197083049926,movineta0
-cleaning windows,0.0003594250827868312,movineta0
-headbutting,0.00029043592561351896,movineta0
-hurling (sport),0.0002281333948269598,movineta0
-swinging baseball bat,0.00022106709813632752,movineta0
-news anchoring,0.0002203202650009739,movineta0
-shaking hands,0.00021991027002807005,movineta0
-pirouetting,0.0002191641828241355,movineta0
+class,score,model_name,normalize_features
+golf putting,0.00206,movineta0,True
+golf putting,0.00203,movineta0,True
+golf chipping,0.00202,movineta0,True
+shooting goal (soccer),0.00201,movineta0,True
+golf chipping,0.00201,movineta0,True
+slapping,0.00201,movineta0,True
+golf putting,0.002,movineta0,True
+golf putting,0.002,movineta0,True
+using a paint roller,0.002,movineta0,True
+presenting weather forecast,0.002,movineta0,True
+golf driving,0.00199,movineta0,True
+hurling (sport),0.00199,movineta0,True
+hurling (sport),0.00198,movineta0,True
+shooting goal (soccer),0.00198,movineta0,True
+golf putting,0.00198,movineta0,True
+golf driving,0.00197,movineta0,True
+golf chipping,0.00196,movineta0,True
+shooting goal (soccer),0.00196,movineta0,True
+hurling (sport),0.00196,movineta0,True
+golf putting,0.00195,movineta0,True
+presenting weather forecast,0.00195,movineta0,True
+shooting goal (soccer),0.00195,movineta0,True
+swinging baseball bat,0.00194,movineta0,True
+finger snapping,0.00194,movineta0,True
+pirouetting,0.00194,movineta0,True
+passing soccer ball,0.00194,movineta0,True
+shaking hands,0.00193,movineta0,True
+casting fishing line,0.00193,movineta0,True
+presenting weather forecast,0.00193,movineta0,True
+trapezing,0.00193,movineta0,True
+presenting weather forecast,0.00193,movineta0,True
+playing didgeridoo,0.00193,movineta0,True
+stretching arm,0.00193,movineta0,True
+hitting baseball,0.00193,movineta0,True
+mowing lawn,0.00192,movineta0,True
+mopping floor,0.00192,movineta0,True
+stretching arm,0.00192,movineta0,True
+ice climbing,0.00192,movineta0,True
+side kick,0.00192,movineta0,True
+news anchoring,0.00192,movineta0,True
+playing cricket,0.00192,movineta0,True
+shaking head,0.00191,movineta0,True
+archery,0.00191,movineta0,True
+news anchoring,0.00191,movineta0,True
+swinging baseball bat,0.00191,movineta0,True
+headbutting,0.00191,movineta0,True
+archery,0.00191,movineta0,True
+archery,0.00191,movineta0,True
+using a paint roller,0.00191,movineta0,True
+golf putting,0.00191,movineta0,True
+presenting weather forecast,0.00191,movineta0,True
+presenting weather forecast,0.00191,movineta0,True
+shaking hands,0.00191,movineta0,True
+ice climbing,0.00191,movineta0,True
+golf putting,0.00191,movineta0,True
+swinging baseball bat,0.0019,movineta0,True
+headbutting,0.0019,movineta0,True
+finger snapping,0.0019,movineta0,True
+slapping,0.0019,movineta0,True
+playing field hockey,0.0019,movineta0,True
+sword fighting,0.0019,movineta0,True
+golf chipping,0.0019,movineta0,True
+news anchoring,0.0019,movineta0,True
+stretching arm,0.0019,movineta0,True
+cleaning windows,0.0019,movineta0,True
+zumba,0.0019,movineta0,True
+pole vault,0.0019,movineta0,True
+archery,0.00189,movineta0,True
+belly dancing,0.00189,movineta0,True
+shooting goal (soccer),0.00189,movineta0,True
+bowling,0.00189,movineta0,True
+headbutting,0.00189,movineta0,True
+stretching leg,0.00189,movineta0,True
+stretching leg,0.00189,movineta0,True
+sweeping floor,0.00189,movineta0,True
+using a paint roller,0.00189,movineta0,True
+shaking hands,0.00189,movineta0,True
+stretching leg,0.00188,movineta0,True
+pirouetting,0.00188,movineta0,True
+pirouetting,0.00188,movineta0,True
+archery,0.00188,movineta0,True
+stretching leg,0.00188,movineta0,True
+using a paint roller,0.00188,movineta0,True
+punching person (boxing),0.00188,movineta0,True
+cleaning windows,0.00188,movineta0,True
+front raises,0.00187,movineta0,True
+yoga,0.00187,movineta0,True
+golf putting,0.00187,movineta0,True
+yoga,0.00187,movineta0,True
+golf chipping,0.00187,movineta0,True
+using a paint roller,0.00187,movineta0,True
+cleaning windows,0.00187,movineta0,True
+golf putting,0.00187,movineta0,True
+bungee jumping,0.00187,movineta0,True
+winking,0.00187,movineta0,True
+laughing,0.00187,movineta0,True
+golf putting,0.00186,movineta0,True
+stretching arm,0.00186,movineta0,True
+situp,0.00186,movineta0,True
+stretching leg,0.00186,movineta0,True
+front raises,0.00186,movineta0,True
+playing didgeridoo,0.00186,movineta0,True
+golf putting,0.00186,movineta0,True
+stretching leg,0.00186,movineta0,True
+cleaning windows,0.00186,movineta0,True
+bowling,0.00186,movineta0,True
+using circular saw,0.00186,movineta0,True
+side kick,0.00186,movineta0,True
+riding a bike,0.00186,movineta0,True
+stretching leg,0.00186,movineta0,True
+talking on cell phone,0.00186,movineta0,True
+massaging neck,0.00186,movineta0,True
+mowing lawn,0.00186,movineta0,True
+presenting weather forecast,0.00185,movineta0,True
+mountain climber (exercise),0.00185,movineta0,True
+lunge,0.00185,movineta0,True
+smoking,0.00185,movineta0,True
+stretching leg,0.00185,movineta0,True
+hammer throw,0.00185,movineta0,True
+laughing,0.00185,movineta0,True
+historical reenactment,0.00185,movineta0,True
+headbutting,0.00185,movineta0,True
+stretching arm,0.00185,movineta0,True
+situp,0.00185,movineta0,True
+cleaning windows,0.00185,movineta0,True
+situp,0.00185,movineta0,True
+winking,0.00184,movineta0,True
+bending back,0.00184,movineta0,True
+tiptoeing,0.00184,movineta0,True
+stretching arm,0.00183,movineta0,True
 
 

@@ -35,10 +35,10 @@ PLOTLY_RENDERER := notebook_connected
 all: all-not-normalized all-normalized best-results.json
 
 .PHONY: all-not-normalized
-all-not-normalized: $(NOTEBOOK_FILES) $(JSON_FILES) all-results.json $(CSV_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_FILES) $(CLASSES_CSV_FILES)
+all-not-normalized: $(NOTEBOOK_FILES) $(JSON_FILES) all-results.json $(CSV_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_FILES) $(CLASSES_CSV_FILES) all-classes-for-walk-with-ladder.csv
 
 .PHONY: all-normalized
-all-normalized: $(NOTEBOOK_NORM_FILES) $(JSON_NORM_FILES) all-results.json $(CSV_NORM_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_NORM_FILES) $(CLASSES_CSV_NORM_FILES)
+all-normalized: $(NOTEBOOK_NORM_FILES) $(JSON_NORM_FILES) all-results.json $(CSV_NORM_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_NORM_FILES) $(CLASSES_CSV_NORM_FILES) all-classes-for-walk-with-ladder.csv
 
 
 # Clean
@@ -133,8 +133,11 @@ best-results.json: $(wildcard all-results*.json)
 all-results-FN-equals-0.csv: $(CSV_FILES) $(CSV_NORM_FILES)
 	awk 'FNR==1 && NR != 1{next} \
 		FNR==1 && NR == 1{printf $$0 ", model_name\n"; next} \
-		NF{sub(/\.csv$$/, "", FILENAME); printf $$0 ", " FILENAME "\n"}' $^ | sort -k5 -n -r -t, > $@
+		NF{sub(/\.csv$$/, "", FILENAME); printf $$0 ", " FILENAME "\n"}' $^ > $@
 
+
+all-classes-for-walk-with-ladder.csv: $(CLASSES_CSV_FILES) $(CLASSES_CSV_NORM_FILES)
+	awk 'FNR==1 && NR != 1{next}NF{print}' $^ > $@
 
 
 
@@ -176,17 +179,48 @@ HAS_CLICKHOUSE_TOOLS := $(shell if which clickhouse > /dev/null; then echo "OK";
 
 ifneq ($(strip $(HAS_CLICKHOUSE_TOOLS)),) # when clickhouse is installed
 
-display-sorted-best-working-classes-for-walk-with-ladder:
-	awk 'FNR==1 && NR != 1{next}NF{print}' *.csv \
-		| sort -t, -k1 -n \
-		| clickhouse local --input-format "CSV" -q "SELECT model_name, class, score, bar(score, 0, 1, 100) FROM table FORMAT PrettyCompact"
+display-sorted-best-working-classes-for-walk-with-ladder: all-classes-for-walk-with-ladder.csv
+	clickhouse local -q "SELECT model_name, normalize_features, class, score, bar(score, 0, 1, 100) FROM file('$<') ORDER BY score FORMAT PrettyCompact" \
 
-display-sorted-best-working-classes-for-walk-with-ladder-mean-class:
-	awk 'FNR==1 && NR != 1{next}NF{print}' *.csv \
-		| sort -t, -k1 -n \
-		| clickhouse local --input-format "CSV" -q "SELECT class, avg(score), bar(avg(score), 0, 1, 300), groupArray(model_name) FROM table GROUP BY class ORDER BY avg(score) FORMAT PrettyCompact"
+display-sorted-best-working-classes-for-walk-with-ladder-mean-class: all-classes-for-walk-with-ladder.csv
+	clickhouse local -q "SELECT class, count(*), avg(score), bar(avg(score), 0, 1, 300), groupArray(CONCAT(model_name, '-', normalize_features)) FROM file('$<') GROUP BY class ORDER BY avg(score) FORMAT PrettyCompact" \
+
+display-sorted-best-working-classes-for-walk-with-ladder-mean-class-by-count: all-classes-for-walk-with-ladder.csv
+	clickhouse local -q "SELECT class, count(*), avg(score), bar(avg(score), 0, 1, 300), groupArray(CONCAT(model_name, '-', normalize_features)) FROM file('$<') GROUP BY class ORDER BY count(*) FORMAT PrettyCompact" \
 
 else # when clickhouse is not installed
 display-sorted-best-working-classes-for-walk-with-ladder:
-	awk 'FNR==1 && NR != 1{next}NF{print}' *.csv | sort -t, -k1 -n
+	$(warning "clickhouse is not installed, cannot display sorted best working classes for walk with ladder")
+endif
+
+
+HAS_CSVQ_TOOLS := $(shell if which csvq > /dev/null; then echo "OK"; fi)
+
+ifneq ($(strip $(HAS_CSVQ_TOOLS)),) # when csvq is installed
+
+
+display-highest-class-presence-by-variation: all-classes-for-walk-with-ladder.csv
+	# order by count
+	csvq -q 'SELECT model_name, normalize_features, class, count(*), min(score), avg(score), max(score) FROM `$<` WHERE score > 0 GROUP BY model_name, normalize_features, class ORDER BY count(*);'
+display-highest-avg-by-variation: all-classes-for-walk-with-ladder.csv
+	# highest avg with count by model variation > 1
+	csvq -q 'SELECT model_name, normalize_features, class, count(*), min(score), avg(score), max(score) FROM `$<` WHERE score > 0 GROUP BY model_name, normalize_features, class HAVING count(*) > 1 ORDER BY avg(score);'
+display-highest-class-presence: all-classes-for-walk-with-ladder.csv
+	# most present classes across all models variations
+	csvq -q 'SELECT class, count(*), min(score), avg(score), max(score) FROM `$<` WHERE score > 0 GROUP BY class ORDER BY count(*);'
+display-highest-avg: all-classes-for-walk-with-ladder.csv
+	# highest avg with count by model variation > 1 and score > 0.1 across all models variations
+	csvq -q 'SELECT class, count(*), min(score), avg(score), max(score) FROM `$<` WHERE score > 0.1 GROUP BY class HAVING count(*) > 1 ORDER BY avg(score);'
+
+display-all-csvq: display-highest-class-presence-by-variation display-highest-avg-by-variation display-highest-class-presence display-highest-avg
+
+else # when csvq is not installed
+display-highest-class-presence-by-variation:
+	$(warning "csvq is not installed, cannot display sorted best working classes for walk with ladder")
+display-highest-avg-by-variation:
+	$(warning "csvq is not installed, cannot display sorted best working classes for walk with ladder")
+display-highest-class-presence:
+	$(warning "csvq is not installed, cannot display sorted best working classes for walk with ladder")
+display-highest-avg:
+	$(warning "csvq is not installed, cannot display sorted best working classes for walk with ladder")
 endif

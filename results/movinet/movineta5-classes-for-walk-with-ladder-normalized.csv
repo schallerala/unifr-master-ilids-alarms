@@ -1,18 +1,133 @@
-class,score,model_name
-tossing coin,0.0005937214017101386,movineta5
-playing marbles,0.000587199503698259,movineta5
-singing,0.00042996996369899825,movineta5
-jogging,0.00036870202488987266,movineta5
-pumping fist,0.0003606836196789701,movineta5
-beatboxing,0.0003567784853433266,movineta5
-hopscotch,0.0002985590013467382,movineta5
-robot dancing,0.0002932431945032434,movineta5
-throwing knife,0.0002931309256408152,movineta5
-air drumming,0.00029205955316203306,movineta5
-golf chipping,0.00022374474287455154,movineta5
-photobombing,0.00021939009677924344,movineta5
-bending metal,0.00021778803541461602,movineta5
-headbanging,0.0002158755221377451,movineta5
-mowing lawn,0.00015657613720188442,movineta5
+class,score,model_name,normalize_features
+archery,0.00208,movineta5,True
+mowing lawn,0.00206,movineta5,True
+rolling pastry,0.00205,movineta5,True
+blowing bubble gum,0.00205,movineta5,True
+petting cat,0.00204,movineta5,True
+making pizza,0.00204,movineta5,True
+tossing coin,0.00203,movineta5,True
+mowing lawn,0.00201,movineta5,True
+shaping bread dough,0.002,movineta5,True
+tossing coin,0.00199,movineta5,True
+jogging,0.00198,movineta5,True
+laying tiles,0.00198,movineta5,True
+playing marbles,0.00198,movineta5,True
+robot dancing,0.00198,movineta5,True
+hopscotch,0.00197,movineta5,True
+hopscotch,0.00197,movineta5,True
+throwing knife,0.00197,movineta5,True
+brush painting,0.00197,movineta5,True
+playing marbles,0.00196,movineta5,True
+golf chipping,0.00196,movineta5,True
+air drumming,0.00196,movineta5,True
+hopscotch,0.00195,movineta5,True
+disc golfing,0.00195,movineta5,True
+golf chipping,0.00195,movineta5,True
+doing jigsaw puzzle,0.00195,movineta5,True
+clean and jerk,0.00195,movineta5,True
+jogging,0.00194,movineta5,True
+tossing coin,0.00194,movineta5,True
+throwing knife,0.00193,movineta5,True
+petting animal (not cat),0.00193,movineta5,True
+driving tractor,0.00193,movineta5,True
+throwing tantrum,0.00193,movineta5,True
+tossing coin,0.00193,movineta5,True
+spray painting,0.00193,movineta5,True
+photobombing,0.00193,movineta5,True
+huddling,0.00192,movineta5,True
+playing marbles,0.00192,movineta5,True
+golf putting,0.00192,movineta5,True
+installing carpet,0.00192,movineta5,True
+headbanging,0.00192,movineta5,True
+photobombing,0.00191,movineta5,True
+playing marbles,0.00191,movineta5,True
+tossing coin,0.00191,movineta5,True
+ski jumping,0.00191,movineta5,True
+tossing coin,0.00191,movineta5,True
+jogging,0.00191,movineta5,True
+playing marbles,0.00191,movineta5,True
+golf chipping,0.00191,movineta5,True
+air drumming,0.0019,movineta5,True
+unloading truck,0.0019,movineta5,True
+bending metal,0.0019,movineta5,True
+golf putting,0.0019,movineta5,True
+jogging,0.0019,movineta5,True
+washing dishes,0.0019,movineta5,True
+pumping fist,0.0019,movineta5,True
+opening wine bottle,0.0019,movineta5,True
+bending metal,0.0019,movineta5,True
+using bagging machine,0.00189,movineta5,True
+singing,0.00189,movineta5,True
+robot dancing,0.00189,movineta5,True
+pumping fist,0.00189,movineta5,True
+making bubbles,0.00189,movineta5,True
+robot dancing,0.00189,movineta5,True
+playing ukulele,0.00189,movineta5,True
+cutting apple,0.00189,movineta5,True
+throwing knife,0.00188,movineta5,True
+assembling bicycle,0.00188,movineta5,True
+beatboxing,0.00188,movineta5,True
+repairing puncture,0.00188,movineta5,True
+playing marbles,0.00188,movineta5,True
+sneezing,0.00188,movineta5,True
+opening refrigerator,0.00188,movineta5,True
+driving tractor,0.00188,movineta5,True
+snatch weight lifting,0.00188,movineta5,True
+tiptoeing,0.00188,movineta5,True
+pumping fist,0.00188,movineta5,True
+throwing axe,0.00188,movineta5,True
+catching or throwing frisbee,0.00188,movineta5,True
+throwing tantrum,0.00188,movineta5,True
+dancing macarena,0.00188,movineta5,True
+air drumming,0.00188,movineta5,True
+tossing coin,0.00188,movineta5,True
+unloading truck,0.00188,movineta5,True
+photobombing,0.00187,movineta5,True
+playing marbles,0.00187,movineta5,True
+hopscotch,0.00187,movineta5,True
+inflating balloons,0.00187,movineta5,True
+changing gear in car,0.00187,movineta5,True
+crying,0.00187,movineta5,True
+repairing puncture,0.00187,movineta5,True
+driving car,0.00187,movineta5,True
+singing,0.00187,movineta5,True
+petting animal (not cat),0.00187,movineta5,True
+folding clothes,0.00187,movineta5,True
+singing,0.00186,movineta5,True
+shaking hands,0.00186,movineta5,True
+air drumming,0.00186,movineta5,True
+changing gear in car,0.00186,movineta5,True
+playing marbles,0.00186,movineta5,True
+smashing,0.00186,movineta5,True
+beatboxing,0.00186,movineta5,True
+acting in play,0.00186,movineta5,True
+bending metal,0.00186,movineta5,True
+stretching arm,0.00186,movineta5,True
+smashing,0.00186,movineta5,True
+pinching,0.00186,movineta5,True
+robot dancing,0.00186,movineta5,True
+pumping fist,0.00186,movineta5,True
+stretching leg,0.00186,movineta5,True
+singing,0.00186,movineta5,True
+crossing river,0.00186,movineta5,True
+rock scissors paper,0.00185,movineta5,True
+pumping fist,0.00185,movineta5,True
+beatboxing,0.00185,movineta5,True
+karaoke,0.00185,movineta5,True
+giving or receiving award,0.00185,movineta5,True
+jogging,0.00185,movineta5,True
+beatboxing,0.00185,movineta5,True
+singing,0.00185,movineta5,True
+disc golfing,0.00185,movineta5,True
+singing,0.00185,movineta5,True
+recording music,0.00185,movineta5,True
+crying,0.00185,movineta5,True
+tossing coin,0.00185,movineta5,True
+headbanging,0.00185,movineta5,True
+cleaning pool,0.00184,movineta5,True
+assembling bicycle,0.00184,movineta5,True
+headbanging,0.00184,movineta5,True
+throwing knife,0.00184,movineta5,True
+beatboxing,0.00183,movineta5,True
 
 

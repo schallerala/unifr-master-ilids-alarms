@@ -1,18 +1,133 @@
-class,score,model_name
-shucking oysters,0.11145696731714103,movineta4
-shaking hands,0.07692309108552181,movineta4
-cutting apple,0.07692307692307693,movineta4
-throwing ball (not baseball or American football),0.03846153846153847,movineta4
-hugging (not baby),0.038461538461538464,movineta4
-cleaning toilet,0.038461538461538464,movineta4
-reading newspaper,0.038461538461538464,movineta4
-pumping gas,0.038461538461538464,movineta4
-playing cymbals,0.038461538461538464,movineta4
-lunge,0.038461538461538464,movineta4
-laughing,0.038461538461538464,movineta4
-finger snapping,0.038461538461538464,movineta4
-using atm,0.038461538461538464,movineta4
-beatboxing,0.038461538461538464,movineta4
-huddling,0.03846152470662044,movineta4
+class,score,model_name,normalize_features
+laughing,1.0,movineta4,False
+hugging (not baby),1.0,movineta4,False
+lunge,1.0,movineta4,False
+finger snapping,1.0,movineta4,False
+shucking oysters,1.0,movineta4,False
+playing cymbals,1.0,movineta4,False
+cutting apple,1.0,movineta4,False
+pumping gas,1.0,movineta4,False
+shaking hands,1.0,movineta4,False
+reading newspaper,1.0,movineta4,False
+using atm,1.0,movineta4,False
+cleaning toilet,1.0,movineta4,False
+shucking oysters,1.0,movineta4,False
+huddling,1.0,movineta4,False
+cutting apple,1.0,movineta4,False
+throwing ball (not baseball or American football),1.0,movineta4,False
+beatboxing,1.0,movineta4,False
+shaking hands,1.0,movineta4,False
+tai chi,0.83845,movineta4,False
+singing,0.80964,movineta4,False
+shucking oysters,0.33691,movineta4,False
+rolling pastry,0.2903,movineta4,False
+shucking oysters,0.28332,movineta4,False
+shucking oysters,0.27765,movineta4,False
+golf driving,0.27041,movineta4,False
+swinging baseball bat,0.2507,movineta4,False
+pouring beer,0.24596,movineta4,False
+flipping pancake,0.22905,movineta4,False
+making pizza,0.2286,movineta4,False
+smashing,0.19036,movineta4,False
+golf driving,0.16532,movineta4,False
+sharpening pencil,0.16155,movineta4,False
+changing oil,0.13624,movineta4,False
+hitting baseball,0.08738,movineta4,False
+blowing glass,0.08554,movineta4,False
+golf driving,0.08504,movineta4,False
+golf putting,0.06633,movineta4,False
+baking cookies,0.06544,movineta4,False
+archery,0.06511,movineta4,False
+pouring beer,0.05746,movineta4,False
+ski jumping,0.05159,movineta4,False
+archery,0.04572,movineta4,False
+swinging baseball bat,0.04462,movineta4,False
+archery,0.04456,movineta4,False
+catching or throwing softball,0.04178,movineta4,False
+archery,0.0409,movineta4,False
+golf chipping,0.04012,movineta4,False
+bull fighting,0.03081,movineta4,False
+rolling pastry,0.02682,movineta4,False
+ski jumping,0.02363,movineta4,False
+swinging baseball bat,0.02267,movineta4,False
+shining flashlight,0.02251,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+breaking boards,0.0,movineta4,False
+catching or throwing baseball,0.0,movineta4,False
+massaging neck,0.0,movineta4,False
+photobombing,0.0,movineta4,False
+massaging person's head,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+shaking hands,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+contact juggling,0.0,movineta4,False
+grooming horse,0.0,movineta4,False
+tai chi,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+tiptoeing,0.0,movineta4,False
+throwing ball (not baseball or American football),0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+smashing,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+adjusting glasses,0.0,movineta4,False
+acting in play,0.0,movineta4,False
+abseiling,0.0,movineta4,False
+alligator wrestling,0.0,movineta4,False
+acting in play,0.0,movineta4,False
 
 

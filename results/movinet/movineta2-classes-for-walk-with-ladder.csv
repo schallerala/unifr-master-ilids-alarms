@@ -1,18 +1,133 @@
-class,score,model_name
-twiddling fingers,0.11538461538461539,movineta2
-waving hand,0.07692337879073491,movineta2
-stretching arm,0.04691284364346652,movineta2
-riding unicycle,0.03918209299445152,movineta2
-whistling,0.03846842920756899,movineta2
-shaking hands,0.038461538461538464,movineta2
-chewing gum,0.038461538461538464,movineta2
-photobombing,0.038461538461538464,movineta2
-playing harp,0.038461538461538464,movineta2
-pumping fist,0.038461538461538464,movineta2
-hugging (not baby),0.038461538461538464,movineta2
-headbutting,0.038461538461538464,movineta2
-beatboxing,0.038461538461538464,movineta2
-reading book,0.03846152012164776,movineta2
-situp,0.0384536454310784,movineta2
+class,score,model_name,normalize_features
+waving hand,1.0,movineta2,False
+chewing gum,1.0,movineta2,False
+headbutting,1.0,movineta2,False
+riding unicycle,1.0,movineta2,False
+playing harp,1.0,movineta2,False
+twiddling fingers,1.0,movineta2,False
+photobombing,1.0,movineta2,False
+beatboxing,1.0,movineta2,False
+reading book,1.0,movineta2,False
+pumping fist,1.0,movineta2,False
+waving hand,1.0,movineta2,False
+hugging (not baby),1.0,movineta2,False
+shaking hands,1.0,movineta2,False
+whistling,1.0,movineta2,False
+twiddling fingers,1.0,movineta2,False
+twiddling fingers,1.0,movineta2,False
+stretching arm,0.99999,movineta2,False
+situp,0.99979,movineta2,False
+cracking neck,0.95153,movineta2,False
+playing cymbals,0.82083,movineta2,False
+snowkiting,0.2592,movineta2,False
+stretching arm,0.21974,movineta2,False
+eating carrots,0.18761,movineta2,False
+tie dying,0.16712,movineta2,False
+catching or throwing frisbee,0.13037,movineta2,False
+sanding floor,0.12772,movineta2,False
+snowkiting,0.11363,movineta2,False
+mountain climber (exercise),0.10901,movineta2,False
+sled dog racing,0.10798,movineta2,False
+yoga,0.09516,movineta2,False
+fidgeting,0.07281,movineta2,False
+yoga,0.06916,movineta2,False
+using remote controller (not gaming),0.06857,movineta2,False
+tossing coin,0.06287,movineta2,False
+shucking oysters,0.05887,movineta2,False
+card throwing,0.05758,movineta2,False
+doing laundry,0.0528,movineta2,False
+ice climbing,0.05161,movineta2,False
+sled dog racing,0.04703,movineta2,False
+brush painting,0.04701,movineta2,False
+cracking back,0.04654,movineta2,False
+throwing knife,0.04515,movineta2,False
+hand washing clothes,0.04469,movineta2,False
+cosplaying,0.03806,movineta2,False
+yoga,0.03288,movineta2,False
+playing didgeridoo,0.03185,movineta2,False
+yoga,0.02837,movineta2,False
+ice climbing,0.02523,movineta2,False
+playing didgeridoo,0.0238,movineta2,False
+riding snow blower,0.02171,movineta2,False
+snowkiting,0.02162,movineta2,False
+bending back,0.01903,movineta2,False
+riding unicycle,0.01873,movineta2,False
+sled dog racing,0.01839,movineta2,False
+punching person (boxing),0.0134,movineta2,False
+massaging neck,0.00193,movineta2,False
+whistling,0.00018,movineta2,False
+finger snapping,2e-05,movineta2,False
+waving hand,1e-05,movineta2,False
+adjusting glasses,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+carrying baby,0.0,movineta2,False
+staring,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+tiptoeing,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+stretching leg,0.0,movineta2,False
+exercising with an exercise ball,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+singing,0.0,movineta2,False
+staring,0.0,movineta2,False
+moon walking,0.0,movineta2,False
+riding a bike,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+stretching arm,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+adjusting glasses,0.0,movineta2,False
+alligator wrestling,0.0,movineta2,False
+spray painting,0.0,movineta2,False
+waving hand,0.0,movineta2,False
+laughing,0.0,movineta2,False
+singing,0.0,movineta2,False
+abseiling,0.0,movineta2,False
+acting in play,0.0,movineta2,False
+hugging (not baby),0.0,movineta2,False
 
 

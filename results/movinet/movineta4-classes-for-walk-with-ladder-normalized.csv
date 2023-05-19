@@ -1,18 +1,133 @@
-class,score,model_name
-shaking hands,0.0006542764122253088,movineta4
-shucking oysters,0.00037654320162117745,movineta4
-finger snapping,0.0003656906217703619,movineta4
-smashing,0.0003611547656174677,movineta4
-archery,0.00029701396522880394,movineta4
-sharpening pencil,0.0002909690542435123,movineta4
-singing,0.0002900440395323187,movineta4
-rock scissors paper,0.00028903755169696016,movineta4
-golf driving,0.00023039080402147518,movineta4
-swinging baseball bat,0.00022407826262023427,movineta4
-throwing ball (not baseball or American football),0.00021745088206922417,movineta4
-tai chi,0.00021730425324184381,movineta4
-air drumming,0.00021693490880027465,movineta4
-pouring beer,0.000151174673345214,movineta4
-rolling pastry,0.00014880792241891974,movineta4
+class,score,model_name,normalize_features
+swinging baseball bat,0.00203,movineta4,True
+golf driving,0.00203,movineta4,True
+golf driving,0.00201,movineta4,True
+pouring beer,0.002,movineta4,True
+shucking oysters,0.002,movineta4,True
+shucking oysters,0.00199,movineta4,True
+flipping pancake,0.00198,movineta4,True
+making pizza,0.00198,movineta4,True
+playing cymbals,0.00198,movineta4,True
+pumping gas,0.00197,movineta4,True
+finger snapping,0.00197,movineta4,True
+hitting baseball,0.00197,movineta4,True
+changing oil,0.00197,movineta4,True
+rolling pastry,0.00196,movineta4,True
+shucking oysters,0.00196,movineta4,True
+ski jumping,0.00195,movineta4,True
+blowing glass,0.00195,movineta4,True
+golf driving,0.00195,movineta4,True
+using atm,0.00195,movineta4,True
+golf putting,0.00195,movineta4,True
+rock scissors paper,0.00195,movineta4,True
+archery,0.00194,movineta4,True
+throwing ball (not baseball or American football),0.00194,movineta4,True
+shaking hands,0.00194,movineta4,True
+archery,0.00194,movineta4,True
+swinging baseball bat,0.00193,movineta4,True
+pouring beer,0.00193,movineta4,True
+shaking hands,0.00192,movineta4,True
+shucking oysters,0.00192,movineta4,True
+tai chi,0.00192,movineta4,True
+air drumming,0.00192,movineta4,True
+sharpening pencil,0.00192,movineta4,True
+golf chipping,0.00192,movineta4,True
+shaking hands,0.00192,movineta4,True
+archery,0.00192,movineta4,True
+beatboxing,0.00192,movineta4,True
+shucking oysters,0.00192,movineta4,True
+archery,0.00192,movineta4,True
+rolling pastry,0.00191,movineta4,True
+whistling,0.00191,movineta4,True
+finger snapping,0.00191,movineta4,True
+cutting apple,0.00191,movineta4,True
+playing drums,0.00191,movineta4,True
+playing maracas,0.00191,movineta4,True
+baking cookies,0.00191,movineta4,True
+singing,0.00191,movineta4,True
+finger snapping,0.00191,movineta4,True
+photobombing,0.00191,movineta4,True
+massaging person's head,0.00191,movineta4,True
+twiddling fingers,0.0019,movineta4,True
+massaging neck,0.0019,movineta4,True
+cartwheeling,0.0019,movineta4,True
+shaking hands,0.0019,movineta4,True
+singing,0.0019,movineta4,True
+smashing,0.0019,movineta4,True
+huddling,0.0019,movineta4,True
+reading newspaper,0.0019,movineta4,True
+cutting apple,0.00189,movineta4,True
+sharpening pencil,0.00189,movineta4,True
+cleaning toilet,0.00189,movineta4,True
+smashing,0.00189,movineta4,True
+shaking hands,0.00189,movineta4,True
+delivering mail,0.00189,movineta4,True
+laughing,0.00189,movineta4,True
+catching or throwing softball,0.00189,movineta4,True
+shaking hands,0.00189,movineta4,True
+playing bagpipes,0.00189,movineta4,True
+cutting pineapple,0.00189,movineta4,True
+breaking boards,0.00189,movineta4,True
+punching person (boxing),0.00189,movineta4,True
+shaking hands,0.00188,movineta4,True
+sharpening pencil,0.00188,movineta4,True
+rock scissors paper,0.00188,movineta4,True
+sharpening pencil,0.00188,movineta4,True
+grooming horse,0.00188,movineta4,True
+smashing,0.00188,movineta4,True
+brushing teeth,0.00188,movineta4,True
+lunge,0.00188,movineta4,True
+bull fighting,0.00188,movineta4,True
+cutting pineapple,0.00188,movineta4,True
+tiptoeing,0.00187,movineta4,True
+answering questions,0.00187,movineta4,True
+shining flashlight,0.00187,movineta4,True
+playing xylophone,0.00187,movineta4,True
+throwing ball (not baseball or American football),0.00187,movineta4,True
+peeling potatoes,0.00187,movineta4,True
+smashing,0.00187,movineta4,True
+swinging baseball bat,0.00187,movineta4,True
+tai chi,0.00187,movineta4,True
+ski jumping,0.00187,movineta4,True
+singing,0.00187,movineta4,True
+pinching,0.00187,movineta4,True
+peeling potatoes,0.00187,movineta4,True
+spray painting,0.00186,movineta4,True
+making a sandwich,0.00186,movineta4,True
+hugging (not baby),0.00186,movineta4,True
+eating burger,0.00186,movineta4,True
+plastering,0.00186,movineta4,True
+finger snapping,0.00186,movineta4,True
+situp,0.00186,movineta4,True
+slapping,0.00186,movineta4,True
+playing darts,0.00186,movineta4,True
+sawing wood,0.00186,movineta4,True
+smashing,0.00186,movineta4,True
+air drumming,0.00186,movineta4,True
+finger snapping,0.00186,movineta4,True
+pinching,0.00186,movineta4,True
+singing,0.00186,movineta4,True
+rock scissors paper,0.00186,movineta4,True
+air drumming,0.00186,movineta4,True
+hugging (not baby),0.00186,movineta4,True
+tai chi,0.00186,movineta4,True
+building shed,0.00185,movineta4,True
+spray painting,0.00185,movineta4,True
+golf chipping,0.00185,movineta4,True
+stretching leg,0.00185,movineta4,True
+catching or throwing baseball,0.00185,movineta4,True
+throwing tantrum,0.00185,movineta4,True
+cleaning windows,0.00185,movineta4,True
+shaking hands,0.00185,movineta4,True
+headbanging,0.00185,movineta4,True
+kicking soccer ball,0.00184,movineta4,True
+waving hand,0.00184,movineta4,True
+whistling,0.00184,movineta4,True
+contact juggling,0.00184,movineta4,True
+throwing ball (not baseball or American football),0.00184,movineta4,True
+acting in play,0.00184,movineta4,True
+rock scissors paper,0.00183,movineta4,True
+poking bellybutton,0.00183,movineta4,True
+shaking hands,0.00182,movineta4,True
 
 

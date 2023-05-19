@@ -1,18 +1,133 @@
-class,score,model_name
-tossing coin,0.1163293851333527,movineta5
-playing marbles,0.07824996944803458,movineta5
-photobombing,0.07692307692307693,movineta5
-robot dancing,0.07692307692307693,movineta5
-hopscotch,0.07692307692307693,movineta5
-rolling pastry,0.038461538461538464,movineta5
-singing,0.038461538461538464,movineta5
-laying tiles,0.038461538461538464,movineta5
-bending metal,0.038461538461538464,movineta5
-blowing bubble gum,0.038461538461538464,movineta5
-catching or throwing frisbee,0.038461538461538464,movineta5
-clean and jerk,0.038461538461538464,movineta5
-opening wine bottle,0.038461538461538464,movineta5
-driving tractor,0.038461538461538464,movineta5
-air drumming,0.038461538461538464,movineta5
+class,score,model_name,normalize_features
+tossing coin,1.0,movineta5,False
+hopscotch,1.0,movineta5,False
+clean and jerk,1.0,movineta5,False
+hopscotch,1.0,movineta5,False
+singing,1.0,movineta5,False
+air drumming,1.0,movineta5,False
+rolling pastry,1.0,movineta5,False
+driving tractor,1.0,movineta5,False
+huddling,1.0,movineta5,False
+laying tiles,1.0,movineta5,False
+robot dancing,1.0,movineta5,False
+blowing bubble gum,1.0,movineta5,False
+tossing coin,1.0,movineta5,False
+tossing coin,1.0,movineta5,False
+photobombing,1.0,movineta5,False
+robot dancing,1.0,movineta5,False
+catching or throwing frisbee,1.0,movineta5,False
+bending metal,1.0,movineta5,False
+photobombing,1.0,movineta5,False
+opening wine bottle,1.0,movineta5,False
+playing marbles,0.99939,movineta5,False
+playing marbles,0.99797,movineta5,False
+petting cat,0.56879,movineta5,False
+mowing lawn,0.39334,movineta5,False
+archery,0.26547,movineta5,False
+mowing lawn,0.2562,movineta5,False
+jogging,0.10218,movineta5,False
+golf chipping,0.07071,movineta5,False
+jogging,0.06588,movineta5,False
+throwing knife,0.06097,movineta5,False
+brush painting,0.06039,movineta5,False
+petting animal (not cat),0.06011,movineta5,False
+disc golfing,0.05391,movineta5,False
+installing carpet,0.05093,movineta5,False
+golf putting,0.04689,movineta5,False
+golf chipping,0.04304,movineta5,False
+golf chipping,0.03739,movineta5,False
+playing marbles,0.03714,movineta5,False
+ski jumping,0.02746,movineta5,False
+tossing coin,0.02227,movineta5,False
+throwing knife,0.02196,movineta5,False
+golf putting,0.02105,movineta5,False
+tossing coin,0.00169,movineta5,False
+tossing coin,0.00061,movineta5,False
+throwing knife,0.00035,movineta5,False
+alligator wrestling,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+stretching leg,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+jogging,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+stretching arm,0.0,movineta5,False
+petting animal (not cat),0.0,movineta5,False
+throwing axe,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+abseiling,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+adjusting glasses,0.0,movineta5,False
+alligator wrestling,0.0,movineta5,False
+acting in play,0.0,movineta5,False
+acting in play,0.0,movineta5,False
 
 
