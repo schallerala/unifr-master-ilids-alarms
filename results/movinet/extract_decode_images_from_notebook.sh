@@ -19,7 +19,7 @@ notebook="$1"
 # if a second argument is given, use it as a prefix for the images
 image_prefix="$2"
 
-# go through all cells, check for metadata tags to have "image-"
+# go through all cells, check for metadata tags to have "image-" and outputs of type image/png
 #    if so, print the cell index and the image name
 #       plus the number of output of type image/png
 # Produces something like:
@@ -32,7 +32,10 @@ image_prefix="$2"
 get_images_from_notebook_as_csv() {
     jq -r '.cells
         | to_entries | .[]
-        | select(.value.metadata.tags[]? | select(startswith("image-")))
+        | select(
+            (.value.metadata.tags[]? | select(startswith("image-")))
+            and (.value.outputs[]? | select(.data."image/png"))
+        )
         | {cell_index: .key, image_name: .value.metadata.tags[0], outputs: .value.outputs} as $cell_obj
         | $cell_obj.outputs
         | to_entries | .[]

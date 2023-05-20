@@ -1,133 +1,133 @@
 class,score,model_name,normalize_features
-cleaning windows,0.00208,movineta1,True
-golf putting,0.00207,movineta1,True
-playing dominoes,0.00206,movineta1,True
-cleaning windows,0.00205,movineta1,True
-playing cricket,0.00205,movineta1,True
-cosplaying,0.00204,movineta1,True
-jogging,0.00202,movineta1,True
-shooting goal (soccer),0.00202,movineta1,True
-trimming shrubs,0.00201,movineta1,True
-trimming shrubs,0.00201,movineta1,True
-spray painting,0.002,movineta1,True
-cleaning windows,0.002,movineta1,True
-throwing knife,0.00199,movineta1,True
-mowing lawn,0.00199,movineta1,True
-trimming shrubs,0.00199,movineta1,True
-jogging,0.00199,movineta1,True
-golf putting,0.00198,movineta1,True
-archery,0.00198,movineta1,True
-archery,0.00197,movineta1,True
-delivering mail,0.00197,movineta1,True
-delivering mail,0.00197,movineta1,True
-mowing lawn,0.00197,movineta1,True
-pumping fist,0.00196,movineta1,True
-shooting goal (soccer),0.00196,movineta1,True
-delivering mail,0.00196,movineta1,True
-throwing knife,0.00195,movineta1,True
-throwing knife,0.00195,movineta1,True
-playing dominoes,0.00195,movineta1,True
-golf putting,0.00195,movineta1,True
-riding unicycle,0.00195,movineta1,True
-throwing knife,0.00194,movineta1,True
-trimming shrubs,0.00194,movineta1,True
-jaywalking,0.00194,movineta1,True
-singing,0.00194,movineta1,True
-playing squash or racquetball,0.00194,movineta1,True
-archery,0.00194,movineta1,True
-building shed,0.00194,movineta1,True
-playing didgeridoo,0.00194,movineta1,True
-shooting goal (soccer),0.00194,movineta1,True
-delivering mail,0.00194,movineta1,True
-throwing knife,0.00193,movineta1,True
-building shed,0.00193,movineta1,True
-archery,0.00193,movineta1,True
-golf putting,0.00193,movineta1,True
-delivering mail,0.00193,movineta1,True
-longboarding,0.00193,movineta1,True
-archery,0.00193,movineta1,True
-playing field hockey,0.00193,movineta1,True
-cheerleading,0.00193,movineta1,True
-playing squash or racquetball,0.00193,movineta1,True
-playing dominoes,0.00193,movineta1,True
-trimming shrubs,0.00192,movineta1,True
-archery,0.00192,movineta1,True
-golf putting,0.00192,movineta1,True
-hurling (sport),0.00192,movineta1,True
-tiptoeing,0.00192,movineta1,True
-mowing lawn,0.00192,movineta1,True
-archery,0.00192,movineta1,True
-training dog,0.00192,movineta1,True
-building shed,0.00192,movineta1,True
-finger snapping,0.00192,movineta1,True
-archery,0.00192,movineta1,True
-archery,0.00192,movineta1,True
-delivering mail,0.00192,movineta1,True
-cosplaying,0.00192,movineta1,True
-headbutting,0.00192,movineta1,True
-delivering mail,0.00191,movineta1,True
-tossing coin,0.00191,movineta1,True
-running on treadmill,0.00191,movineta1,True
-mowing lawn,0.00191,movineta1,True
-shooting goal (soccer),0.00191,movineta1,True
-hugging (not baby),0.00191,movineta1,True
-weaving basket,0.00191,movineta1,True
-singing,0.00191,movineta1,True
-slapping,0.00191,movineta1,True
-archery,0.00191,movineta1,True
-cosplaying,0.0019,movineta1,True
-headbutting,0.0019,movineta1,True
-throwing knife,0.0019,movineta1,True
-shaking hands,0.0019,movineta1,True
-trimming shrubs,0.0019,movineta1,True
-cleaning windows,0.0019,movineta1,True
-stretching arm,0.0019,movineta1,True
-skipping rope,0.0019,movineta1,True
-slapping,0.0019,movineta1,True
-brush painting,0.00189,movineta1,True
-shaking hands,0.00189,movineta1,True
-javelin throw,0.00189,movineta1,True
-trapezing,0.00189,movineta1,True
-bull fighting,0.00189,movineta1,True
-gymnastics tumbling,0.00189,movineta1,True
-hurdling,0.00189,movineta1,True
-delivering mail,0.00189,movineta1,True
-weaving basket,0.00189,movineta1,True
-building shed,0.00189,movineta1,True
-trimming shrubs,0.00189,movineta1,True
-beatboxing,0.00189,movineta1,True
-counting money,0.00189,movineta1,True
-cosplaying,0.00189,movineta1,True
-dancing ballet,0.00189,movineta1,True
-stretching arm,0.00188,movineta1,True
-headbutting,0.00188,movineta1,True
-playing harp,0.00188,movineta1,True
-bending back,0.00188,movineta1,True
-hoverboarding,0.00188,movineta1,True
-licking,0.00188,movineta1,True
-building shed,0.00187,movineta1,True
-moon walking,0.00187,movineta1,True
-finger snapping,0.00187,movineta1,True
-hugging (not baby),0.00187,movineta1,True
-recording music,0.00187,movineta1,True
-delivering mail,0.00187,movineta1,True
-crying,0.00187,movineta1,True
-installing carpet,0.00187,movineta1,True
-throwing knife,0.00187,movineta1,True
-robot dancing,0.00187,movineta1,True
-driving car,0.00186,movineta1,True
-waving hand,0.00186,movineta1,True
-contorting,0.00186,movineta1,True
-using a sledge hammer,0.00186,movineta1,True
-swinging baseball bat,0.00186,movineta1,True
-weaving fabric,0.00186,movineta1,True
-bouncing on bouncy castle,0.00185,movineta1,True
-texting,0.00185,movineta1,True
-photobombing,0.00185,movineta1,True
-wrapping present,0.00185,movineta1,True
-yawning,0.00184,movineta1,True
-decorating the christmas tree,0.00184,movineta1,True
-tying shoe laces,0.00184,movineta1,True
-playing saxophone,0.00183,movineta1,True
+cleaning windows,0.99953,movineta1,True
+cosplaying,0.99711,movineta1,True
+playing dominoes,0.99297,movineta1,True
+golf putting,0.98768,movineta1,True
+cleaning windows,0.98574,movineta1,True
+trimming shrubs,0.95317,movineta1,True
+jogging,0.93096,movineta1,True
+throwing knife,0.89262,movineta1,True
+trimming shrubs,0.89078,movineta1,True
+playing cricket,0.85006,movineta1,True
+singing,0.83821,movineta1,True
+jogging,0.82483,movineta1,True
+playing didgeridoo,0.7152,movineta1,True
+mowing lawn,0.70807,movineta1,True
+delivering mail,0.70595,movineta1,True
+singing,0.67168,movineta1,True
+golf putting,0.63043,movineta1,True
+cheerleading,0.61281,movineta1,True
+throwing knife,0.55901,movineta1,True
+finger snapping,0.53307,movineta1,True
+trimming shrubs,0.49073,movineta1,True
+cosplaying,0.42688,movineta1,True
+headbutting,0.39832,movineta1,True
+cleaning windows,0.39195,movineta1,True
+archery,0.35145,movineta1,True
+mowing lawn,0.31249,movineta1,True
+stretching arm,0.28906,movineta1,True
+slapping,0.25529,movineta1,True
+slapping,0.24918,movineta1,True
+archery,0.23724,movineta1,True
+cosplaying,0.23629,movineta1,True
+delivering mail,0.18495,movineta1,True
+hugging (not baby),0.18414,movineta1,True
+tiptoeing,0.17087,movineta1,True
+golf putting,0.16682,movineta1,True
+playing squash or racquetball,0.16521,movineta1,True
+stretching arm,0.16484,movineta1,True
+tossing coin,0.16408,movineta1,True
+shaking hands,0.15151,movineta1,True
+headbutting,0.14914,movineta1,True
+shooting goal (soccer),0.14214,movineta1,True
+playing harp,0.14111,movineta1,True
+throwing knife,0.13966,movineta1,True
+pumping fist,0.13958,movineta1,True
+shooting goal (soccer),0.12954,movineta1,True
+archery,0.12936,movineta1,True
+building shed,0.1224,movineta1,True
+delivering mail,0.1216,movineta1,True
+shaking hands,0.12031,movineta1,True
+cosplaying,0.11901,movineta1,True
+counting money,0.11585,movineta1,True
+licking,0.11343,movineta1,True
+archery,0.11272,movineta1,True
+playing dominoes,0.10338,movineta1,True
+delivering mail,0.09351,movineta1,True
+headbutting,0.08982,movineta1,True
+training dog,0.08762,movineta1,True
+finger snapping,0.07044,movineta1,True
+hugging (not baby),0.06985,movineta1,True
+hurdling,0.06569,movineta1,True
+mowing lawn,0.06555,movineta1,True
+recording music,0.06061,movineta1,True
+delivering mail,0.05378,movineta1,True
+throwing knife,0.05154,movineta1,True
+gymnastics tumbling,0.04898,movineta1,True
+trimming shrubs,0.04804,movineta1,True
+building shed,0.04767,movineta1,True
+bull fighting,0.04582,movineta1,True
+javelin throw,0.04408,movineta1,True
+wrapping present,0.03373,movineta1,True
+playing squash or racquetball,0.03314,movineta1,True
+archery,0.03118,movineta1,True
+building shed,0.03108,movineta1,True
+crying,0.02854,movineta1,True
+archery,0.02692,movineta1,True
+riding unicycle,0.02523,movineta1,True
+robot dancing,0.02522,movineta1,True
+bouncing on bouncy castle,0.02254,movineta1,True
+driving car,0.02251,movineta1,True
+trimming shrubs,0.02119,movineta1,True
+golf putting,0.02095,movineta1,True
+bending back,0.02002,movineta1,True
+jaywalking,0.02002,movineta1,True
+waving hand,0.01936,movineta1,True
+archery,0.01772,movineta1,True
+shooting goal (soccer),0.01507,movineta1,True
+running on treadmill,0.01465,movineta1,True
+spray painting,0.01319,movineta1,True
+archery,0.0126,movineta1,True
+texting,0.0122,movineta1,True
+mowing lawn,0.01146,movineta1,True
+moon walking,0.01108,movineta1,True
+longboarding,0.01051,movineta1,True
+delivering mail,0.00974,movineta1,True
+dancing ballet,0.00964,movineta1,True
+cleaning windows,0.00893,movineta1,True
+skipping rope,0.0076,movineta1,True
+archery,0.00654,movineta1,True
+delivering mail,0.00627,movineta1,True
+photobombing,0.00614,movineta1,True
+delivering mail,0.00534,movineta1,True
+delivering mail,0.00533,movineta1,True
+golf putting,0.00488,movineta1,True
+beatboxing,0.00417,movineta1,True
+decorating the christmas tree,0.00375,movineta1,True
+yawning,0.00362,movineta1,True
+throwing knife,0.00318,movineta1,True
+hoverboarding,0.00317,movineta1,True
+playing dominoes,0.0031,movineta1,True
+building shed,0.00245,movineta1,True
+weaving fabric,0.00209,movineta1,True
+throwing knife,0.00206,movineta1,True
+hurling (sport),0.00198,movineta1,True
+throwing knife,0.00171,movineta1,True
+shooting goal (soccer),0.00123,movineta1,True
+archery,0.00117,movineta1,True
+building shed,0.00108,movineta1,True
+trimming shrubs,0.00083,movineta1,True
+playing field hockey,0.00074,movineta1,True
+trimming shrubs,0.00038,movineta1,True
+weaving basket,0.00028,movineta1,True
+trapezing,0.00015,movineta1,True
+weaving basket,0.00015,movineta1,True
+brush painting,0.00013,movineta1,True
+contorting,0.00011,movineta1,True
+using a sledge hammer,0.00011,movineta1,True
+swinging baseball bat,5e-05,movineta1,True
+installing carpet,2e-05,movineta1,True
+tying shoe laces,2e-05,movineta1,True
+playing saxophone,1e-05,movineta1,True
 
 

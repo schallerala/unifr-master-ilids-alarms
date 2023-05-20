@@ -73,7 +73,7 @@ def load_variation_df(movinet_variation):
     features_df = pd.read_pickle(pickle_file)
 
     # features = features_df[FEATURES_COLUMNS_INDEXES].to_numpy()
-    # features_df[FEATURES_COLUMNS_INDEXES] = (features / np.linalg.norm(features, axis=-1, keepdims=True)).tolist()
+    # features_df[FEATURES_COLUMNS_INDEXES] = (features / np.linalg.norm(features, axis=-1, keepdims=True) * 100).tolist()
 
     df = SEQUENCES_DF.join(features_df)
 

@@ -1,133 +1,133 @@
 class,score,model_name,normalize_features
-trimming shrubs,0.00214,movineta3,True
-golf putting,0.0021,movineta3,True
-golf putting,0.00209,movineta3,True
-shining flashlight,0.00208,movineta3,True
-spray painting,0.00207,movineta3,True
-spray painting,0.00206,movineta3,True
-golf chipping,0.00205,movineta3,True
-cleaning pool,0.00203,movineta3,True
-golf putting,0.00203,movineta3,True
-trimming shrubs,0.00203,movineta3,True
-using a paint roller,0.00203,movineta3,True
-golf putting,0.00203,movineta3,True
-mowing lawn,0.00201,movineta3,True
-trimming shrubs,0.00201,movineta3,True
-spray painting,0.00201,movineta3,True
-golf putting,0.00201,movineta3,True
-cleaning windows,0.00201,movineta3,True
-spray painting,0.00201,movineta3,True
-finger snapping,0.002,movineta3,True
-trimming shrubs,0.002,movineta3,True
-mowing lawn,0.002,movineta3,True
-cleaning windows,0.002,movineta3,True
-using a paint roller,0.002,movineta3,True
-shooting goal (soccer),0.00199,movineta3,True
-shining flashlight,0.00199,movineta3,True
-cleaning pool,0.00199,movineta3,True
-laying concrete,0.00199,movineta3,True
-golf chipping,0.00198,movineta3,True
-cleaning windows,0.00198,movineta3,True
-golf chipping,0.00197,movineta3,True
-shining flashlight,0.00197,movineta3,True
-archery,0.00197,movineta3,True
-spray painting,0.00197,movineta3,True
-cleaning pool,0.00197,movineta3,True
-cleaning windows,0.00197,movineta3,True
-playing cricket,0.00197,movineta3,True
-ski jumping,0.00196,movineta3,True
-golf putting,0.00196,movineta3,True
-spray painting,0.00196,movineta3,True
-finger snapping,0.00196,movineta3,True
-golf chipping,0.00195,movineta3,True
-swinging on something,0.00195,movineta3,True
-mowing lawn,0.00195,movineta3,True
-playing cricket,0.00195,movineta3,True
-ski jumping,0.00195,movineta3,True
-golf putting,0.00195,movineta3,True
-golf chipping,0.00195,movineta3,True
-mowing lawn,0.00195,movineta3,True
-cleaning windows,0.00195,movineta3,True
-catching or throwing frisbee,0.00194,movineta3,True
-spray painting,0.00194,movineta3,True
-playing cricket,0.00194,movineta3,True
-spray painting,0.00194,movineta3,True
-cleaning windows,0.00194,movineta3,True
-cleaning gutters,0.00194,movineta3,True
-cleaning windows,0.00193,movineta3,True
-sweeping floor,0.00193,movineta3,True
-hitting baseball,0.00193,movineta3,True
-waving hand,0.00193,movineta3,True
-shining flashlight,0.00193,movineta3,True
-ski jumping,0.00193,movineta3,True
-singing,0.00193,movineta3,True
-finger snapping,0.00193,movineta3,True
-eating watermelon,0.00193,movineta3,True
-sword fighting,0.00192,movineta3,True
-archery,0.00192,movineta3,True
-using a paint roller,0.00192,movineta3,True
-answering questions,0.00192,movineta3,True
-golf putting,0.00192,movineta3,True
-mowing lawn,0.00192,movineta3,True
-playing polo,0.00192,movineta3,True
-golf putting,0.00192,movineta3,True
-whistling,0.00192,movineta3,True
-cumbia,0.00192,movineta3,True
-celebrating,0.00192,movineta3,True
-dancing ballet,0.00192,movineta3,True
-mopping floor,0.00192,movineta3,True
-golf chipping,0.00192,movineta3,True
-archery,0.00191,movineta3,True
-laughing,0.00191,movineta3,True
-spray painting,0.00191,movineta3,True
-shaking hands,0.00191,movineta3,True
-shucking oysters,0.00191,movineta3,True
-finger snapping,0.00191,movineta3,True
-pumping fist,0.00191,movineta3,True
-playing cricket,0.00191,movineta3,True
-mopping floor,0.00191,movineta3,True
-finger snapping,0.0019,movineta3,True
-tango dancing,0.0019,movineta3,True
-blowing bubble gum,0.0019,movineta3,True
-stomping grapes,0.0019,movineta3,True
-recording music,0.0019,movineta3,True
-spray painting,0.0019,movineta3,True
-laughing,0.0019,movineta3,True
-cleaning windows,0.00189,movineta3,True
-playing cricket,0.00189,movineta3,True
-answering questions,0.00189,movineta3,True
-mopping floor,0.00189,movineta3,True
-recording music,0.00189,movineta3,True
-spray painting,0.00189,movineta3,True
-celebrating,0.00189,movineta3,True
-celebrating,0.00189,movineta3,True
-shaking hands,0.00189,movineta3,True
-tossing coin,0.00188,movineta3,True
-whistling,0.00188,movineta3,True
-cleaning pool,0.00188,movineta3,True
-bowling,0.00188,movineta3,True
-shining flashlight,0.00188,movineta3,True
-finger snapping,0.00188,movineta3,True
-tai chi,0.00187,movineta3,True
-sucking lolly,0.00187,movineta3,True
-shaking hands,0.00187,movineta3,True
-dancing ballet,0.00187,movineta3,True
-clapping,0.00187,movineta3,True
-throwing knife,0.00187,movineta3,True
-pumping fist,0.00187,movineta3,True
-feeding birds,0.00187,movineta3,True
-sucking lolly,0.00186,movineta3,True
-tossing coin,0.00186,movineta3,True
-sticking tongue out,0.00186,movineta3,True
-bench pressing,0.00186,movineta3,True
-breakdancing,0.00186,movineta3,True
-needle felting,0.00186,movineta3,True
-waving hand,0.00186,movineta3,True
-hand washing clothes,0.00186,movineta3,True
-holding snake,0.00185,movineta3,True
-eating hotdog,0.00185,movineta3,True
-shaking hands,0.00185,movineta3,True
-running on treadmill,0.00184,movineta3,True
-singing,0.00184,movineta3,True
+golf putting,0.9973,movineta3,True
+trimming shrubs,0.99399,movineta3,True
+finger snapping,0.99133,movineta3,True
+spray painting,0.9769,movineta3,True
+using a paint roller,0.95726,movineta3,True
+golf putting,0.91707,movineta3,True
+spray painting,0.88832,movineta3,True
+golf putting,0.86481,movineta3,True
+trimming shrubs,0.8449,movineta3,True
+finger snapping,0.80256,movineta3,True
+laying concrete,0.78948,movineta3,True
+using a paint roller,0.74293,movineta3,True
+shining flashlight,0.71772,movineta3,True
+golf putting,0.70009,movineta3,True
+shining flashlight,0.62197,movineta3,True
+golf putting,0.61292,movineta3,True
+eating watermelon,0.6122,movineta3,True
+trimming shrubs,0.58373,movineta3,True
+dancing ballet,0.56887,movineta3,True
+golf putting,0.55035,movineta3,True
+blowing bubble gum,0.47176,movineta3,True
+golf putting,0.46278,movineta3,True
+playing cricket,0.41366,movineta3,True
+mowing lawn,0.38145,movineta3,True
+cleaning windows,0.37514,movineta3,True
+cleaning windows,0.36157,movineta3,True
+finger snapping,0.33791,movineta3,True
+spray painting,0.33771,movineta3,True
+finger snapping,0.32733,movineta3,True
+pumping fist,0.3151,movineta3,True
+golf putting,0.30327,movineta3,True
+spray painting,0.2821,movineta3,True
+spray painting,0.26949,movineta3,True
+singing,0.26816,movineta3,True
+mopping floor,0.24667,movineta3,True
+finger snapping,0.22848,movineta3,True
+laughing,0.22399,movineta3,True
+trimming shrubs,0.21788,movineta3,True
+cleaning windows,0.21672,movineta3,True
+shucking oysters,0.21193,movineta3,True
+cumbia,0.18804,movineta3,True
+mowing lawn,0.18685,movineta3,True
+mowing lawn,0.15414,movineta3,True
+ski jumping,0.1527,movineta3,True
+tango dancing,0.13933,movineta3,True
+golf chipping,0.13474,movineta3,True
+whistling,0.12553,movineta3,True
+waving hand,0.12325,movineta3,True
+spray painting,0.09814,movineta3,True
+shining flashlight,0.09376,movineta3,True
+cleaning pool,0.08726,movineta3,True
+sucking lolly,0.08674,movineta3,True
+feeding birds,0.07984,movineta3,True
+shooting goal (soccer),0.07712,movineta3,True
+cleaning windows,0.06786,movineta3,True
+golf chipping,0.06616,movineta3,True
+cleaning pool,0.06063,movineta3,True
+tossing coin,0.05926,movineta3,True
+finger snapping,0.05505,movineta3,True
+shining flashlight,0.05496,movineta3,True
+sticking tongue out,0.05299,movineta3,True
+ski jumping,0.04869,movineta3,True
+recording music,0.04844,movineta3,True
+spray painting,0.04485,movineta3,True
+eating hotdog,0.04378,movineta3,True
+laughing,0.04297,movineta3,True
+archery,0.04291,movineta3,True
+throwing knife,0.04063,movineta3,True
+bowling,0.0381,movineta3,True
+clapping,0.03744,movineta3,True
+golf chipping,0.03317,movineta3,True
+sweeping floor,0.03307,movineta3,True
+tai chi,0.03221,movineta3,True
+hand washing clothes,0.0317,movineta3,True
+golf chipping,0.03108,movineta3,True
+spray painting,0.02706,movineta3,True
+tossing coin,0.02676,movineta3,True
+golf putting,0.0241,movineta3,True
+sucking lolly,0.02397,movineta3,True
+needle felting,0.02377,movineta3,True
+shining flashlight,0.02218,movineta3,True
+golf chipping,0.02146,movineta3,True
+dancing ballet,0.01943,movineta3,True
+bench pressing,0.01868,movineta3,True
+spray painting,0.01847,movineta3,True
+waving hand,0.0175,movineta3,True
+cleaning gutters,0.01703,movineta3,True
+cleaning windows,0.01639,movineta3,True
+mopping floor,0.01549,movineta3,True
+breakdancing,0.01526,movineta3,True
+cleaning windows,0.01397,movineta3,True
+swinging on something,0.01382,movineta3,True
+shaking hands,0.01174,movineta3,True
+whistling,0.00964,movineta3,True
+answering questions,0.00664,movineta3,True
+playing cricket,0.00652,movineta3,True
+pumping fist,0.00636,movineta3,True
+sword fighting,0.00578,movineta3,True
+stomping grapes,0.00577,movineta3,True
+cleaning pool,0.00573,movineta3,True
+archery,0.00562,movineta3,True
+shaking hands,0.00502,movineta3,True
+hitting baseball,0.00377,movineta3,True
+using a paint roller,0.00284,movineta3,True
+recording music,0.0027,movineta3,True
+archery,0.0026,movineta3,True
+cleaning pool,0.0026,movineta3,True
+celebrating,0.00161,movineta3,True
+spray painting,0.0012,movineta3,True
+playing cricket,0.00119,movineta3,True
+mopping floor,0.00099,movineta3,True
+playing cricket,0.00078,movineta3,True
+golf chipping,0.00074,movineta3,True
+holding snake,0.00062,movineta3,True
+ski jumping,0.00058,movineta3,True
+celebrating,0.00052,movineta3,True
+catching or throwing frisbee,0.00033,movineta3,True
+singing,0.00024,movineta3,True
+running on treadmill,0.00023,movineta3,True
+mowing lawn,0.00018,movineta3,True
+playing polo,0.00018,movineta3,True
+spray painting,0.00014,movineta3,True
+mowing lawn,0.00011,movineta3,True
+answering questions,0.00011,movineta3,True
+shaking hands,0.0001,movineta3,True
+cleaning windows,5e-05,movineta3,True
+playing cricket,4e-05,movineta3,True
+celebrating,4e-05,movineta3,True
+cleaning windows,3e-05,movineta3,True
+shaking hands,2e-05,movineta3,True
 
 
