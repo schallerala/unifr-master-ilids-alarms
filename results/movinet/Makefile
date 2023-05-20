@@ -164,6 +164,7 @@ images: *.ipynb extract_decode_images_from_notebook.sh
 		./extract_decode_images_from_notebook.sh movineta$$i.ipynb images/movineta$$i-; \
 		./extract_decode_images_from_notebook.sh movineta$$i-classes-for-walk-with-ladder.ipynb images/movineta$$i-; \
 	done
+	./extract_decode_images_from_notebook.sh all-classes-for-walk-with-ladder.ipynb images/;
 
 
 
