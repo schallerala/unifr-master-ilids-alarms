@@ -38,7 +38,7 @@ all: all-not-normalized all-normalized best-results.json all-classes-for-walk-wi
 all-not-normalized: $(NOTEBOOK_FILES) $(JSON_FILES) all-results.json $(CSV_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_FILES) $(CLASSES_CSV_FILES) all-classes-for-walk-with-ladder.csv
 
 .PHONY: all-normalized
-all-normalized: $(NOTEBOOK_NORM_FILES) $(JSON_NORM_FILES) all-results.json $(CSV_NORM_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_NORM_FILES) $(CLASSES_CSV_NORM_FILES) all-classes-for-walk-with-ladder.csv
+all-normalized: $(NOTEBOOK_NORM_FILES) $(JSON_NORM_FILES) all-results-normalized.json $(CSV_NORM_FILES) all-results-FN-equals-0.csv $(CLASSES_NOTEBOOK_NORM_FILES) $(CLASSES_CSV_NORM_FILES) all-classes-for-walk-with-ladder.csv
 
 
 # "Round Trip" images and interactive plots
@@ -117,6 +117,11 @@ all-results-normalized.json: $(patsubst %.pkl,%-normalized.json,$(PKL_FILES))
 	jq '{(input_filename | sub(".json$$"; "")): .}' $(patsubst %.pkl,%-normalized.json,$(PKL_FILES)) | jq 'reduce inputs as $$s (.; . += $$s)' > $@
 
 
+
+
+##### all not- and normalized results csv #####
+display-all-results-csv: all-results.json all-results-normalized.json
+	jq 'reduce inputs as $$s (.; . += $$s)' $^
 
 
 ##### best results json #####
