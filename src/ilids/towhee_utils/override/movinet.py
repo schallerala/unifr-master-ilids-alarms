@@ -38,7 +38,6 @@ class Movinet(NNOperator):
     "Extended" the Movinet NNOperator to fix:
     - the returned `features` of "`forward`" method didn't go through the last layer
       (the classifier head).
-    - fix the `labels` and `scores` were not the result of the last layer!
     - fix the preprocessing of the video frames which used configuration based on constant
       while they should be based on the selected/given model name!
     - different documentation inconsistencies and replaced a couple of constants.
