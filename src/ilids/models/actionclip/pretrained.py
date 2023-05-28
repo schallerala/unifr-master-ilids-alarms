@@ -22,9 +22,12 @@ def load_from_checkpoint(
 
     # As the Fusion Model has been persisted to the disk while wrapped in a torch.nn.DataParallel module,
     # all the state dict keys have an additional "parent" level (or prefix).
+    #
     # Example:
     #   Expected: 'frame_position_embeddings.weight'
     #   Actual:   'module.frame_position_embeddings.weight'
+    #
+    # Therefore, strip it off.
     fusion_model_state_dict = OrderedDict(
         {
             key.lstrip("module."): value

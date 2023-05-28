@@ -9,6 +9,7 @@ from torch.utils.data import DataLoader
 
 from ilids.experiments.actionclip import extract_actionclip_sequences_features
 from ilids.experiments.movinet import extract_movinet_features
+from ilids.models.actionclip.constants import get_base_model_name_from_ckpt_path, get_input_frames_from_ckpt_path
 from ilids.models.actionclip.datasets import ActionDataset
 from ilids.models.actionclip.factory import create_models_and_transforms
 from ilids.models.actionclip.transform import get_augmentation
@@ -90,15 +91,10 @@ def movinet(
 
 @typer_app.command()
 def actionclip(
-    model_name: str = typer.Argument(
-        ...,
-        help="Provide a model name from OpenAI (for ActionCLIP, expecting 'ViT-B-32' or 'ViT-B-16')",
-    ),
     model_pretrained_checkpoint: Path = typer.Argument(...),
     list_input_sequences_file_csv: Path = typer.Argument(
         ..., help="CSV file expecting at least the columns: 'sequence', 'frame_count'"
     ),
-    frames_to_extract: int = typer.Argument(8),
     features_output_path: Path = typer.Argument(...),
     normalize_features: bool = typer.Option(False, "--normalize"),
     device_type: DeviceType = typer.Option(DeviceType.cpu, "--device-type"),
@@ -129,10 +125,13 @@ def actionclip(
     assert features_output_path.parent.exists()
     assert features_output_path.parent.is_dir()
 
+    openai_model_name = get_base_model_name_from_ckpt_path(model_pretrained_checkpoint)
+    frames_to_extract = get_input_frames_from_ckpt_path(model_pretrained_checkpoint)
+
     with notify_context(enable=notify), alternate_device(
         device_type, distributed, sync_server_host, sync_server_port
     ) as device:
-        print(f"Starting features extract for {model_name}...")
+        print(f"Starting features extract for {model_pretrained_checkpoint}...")
 
         (
             model_image,
@@ -141,7 +140,7 @@ def actionclip(
             preprocess_image,
         ) = create_models_and_transforms(
             actionclip_pretrained_ckpt=model_pretrained_checkpoint,
-            openai_model_name=model_name,
+            openai_model_name=openai_model_name,
             extracted_frames=frames_to_extract,
             device=device,
         )

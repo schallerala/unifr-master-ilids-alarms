@@ -31,14 +31,12 @@ image_prefix="$2"
 #   ...
 get_images_from_notebook_as_csv() {
     jq -r '.cells
-        | to_entries | .[]
-        | select(
-            (.value.metadata.tags[]? | select(startswith("image-")))
-            and (.value.outputs[]? | select(.data."image/png"))
-        )
+        | to_entries[]
+        | select(.value.metadata.tags[]? | select(startswith("image-")))
         | {cell_index: .key, image_name: .value.metadata.tags[0], outputs: .value.outputs} as $cell_obj
         | $cell_obj.outputs
-        | to_entries | .[]
+        | to_entries[]
+        | select(.value.data."image/png" != null)
         | {cell_index: $cell_obj.cell_index | tostring, image_name: $cell_obj.image_name, image_index: .key | tostring}
         | .cell_index + "," + .image_name + "," + .image_index' "$notebook"
 }

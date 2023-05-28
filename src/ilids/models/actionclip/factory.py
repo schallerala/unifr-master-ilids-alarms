@@ -14,13 +14,12 @@ def create_models_and_transforms(
     openai_model_name: str,  # ViT-B-32 ViT-B-16 (the ones that have a checkpoint for actionclip)
     extracted_frames: int,
     device: torch.device = torch.device("cpu"),
-    jit: bool = False,
 ):
     model = open_clip.load_openai_model(
-        openai_model_name, device=device, jit=jit
-    )  # Must set jit=False for training  ViT-B/32 TODO: try jit=True
+        openai_model_name, device=device
+    )
 
-    input_size = 224  # TODO
+    input_size = 224
     # Possible sim_header:
     #   Transf meanP  LSTM  Conv_1D  Transf_cls
     # However, choosing the one that worked the best in their work and apply it here too
