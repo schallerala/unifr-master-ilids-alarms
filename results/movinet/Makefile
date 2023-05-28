@@ -49,7 +49,6 @@ all-round-images:
 	make -j9 --always-make all
 
 
-# Clean
 clean:
 	@rm -f \
 		$(NOTEBOOK_FILES) \
@@ -160,7 +159,7 @@ all-classes-for-walk-with-ladder.csv: $(CLASSES_CSV_FILES) $(CLASSES_CSV_NORM_FI
 all-classes-for-walk-with-ladder.ipynb: all-classes-for-walk-with-ladder.csv
 	poetry run papermill $@ $@.running -p plotly_renderer $(PLOTLY_RENDERER)
 	mv $@.running $@
-	./extract_decode_images_from_notebook.sh $@ images/;
+	../extract_decode_images_from_notebook.sh $@ images/;
 
 
 
@@ -181,13 +180,13 @@ all-classes-for-walk-with-ladder.ipynb: all-classes-for-walk-with-ladder.csv
 
 ##### extract all images #####
 
-images: *.ipynb extract_decode_images_from_notebook.sh
+images: *.ipynb ../extract_decode_images_from_notebook.sh
 	-mkdir -p images/normalized
 	for i in {0..5}; do \
-		./extract_decode_images_from_notebook.sh movineta$$i.ipynb images/movineta$$i-; \
-		./extract_decode_images_from_notebook.sh movineta$$i-normalized.ipynb images/normalized/movineta$$i-; \
-		./extract_decode_images_from_notebook.sh movineta$$i-classes-for-walk-with-ladder.ipynb images/movineta$$i-; \
-		./extract_decode_images_from_notebook.sh movineta$$i-classes-for-walk-with-ladder-normalized.ipynb images/normalized/movineta$$i-; \
+		../extract_decode_images_from_notebook.sh movineta$$i.ipynb images/movineta$$i-; \
+		../extract_decode_images_from_notebook.sh movineta$$i-normalized.ipynb images/normalized/movineta$$i-; \
+		../extract_decode_images_from_notebook.sh movineta$$i-classes-for-walk-with-ladder.ipynb images/movineta$$i-; \
+		../extract_decode_images_from_notebook.sh movineta$$i-classes-for-walk-with-ladder-normalized.ipynb images/normalized/movineta$$i-; \
 	done
 
 

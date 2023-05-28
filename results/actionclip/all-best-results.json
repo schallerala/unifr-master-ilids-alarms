@@ -1,0 +1,108 @@
+[
+  {
+    "FN": 0,
+    "FP": 421,
+    "TN": 10,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.7130864647334471,
+    "roc_auc": 0.662756724241643,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 427,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "minus_similarity_weight": 0.3676517862898283,
+      "similarity": "dot product (negative texts similarity minus human similarity * 0.367652)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.6972189426184819,
+    "roc_auc": 0.6767119871628069,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 423,
+    "TN": 9,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.7309752010324124,
+    "roc_auc": 0.6946855709876543,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 378,
+    "TN": 54,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.7839093149345,
+    "roc_auc": 0.8194605195473251,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "empty scene",
+      "fence",
+      "field",
+      "insects",
+      "rabbits",
+      "wall"
+    ],
+    "text_true": [
+      "adult",
+      "human",
+      "person",
+      "terrorist",
+      "thief"
+    ]
+  }
+]
