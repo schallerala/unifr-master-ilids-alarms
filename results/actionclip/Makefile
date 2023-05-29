@@ -71,10 +71,9 @@ clean:
 #### Aggregate targets
 
 all-best-results.json: $(JSON_FILES)
-	clear
 	jq '[ \
 			reduce inputs as $$s (.; . += $$s) \
 		| .[] \
 		| select(.best != null) \
 		| .best \
-	]' $(JSON_FILES) > $@
+	] | sort_by(.roc_auc)' $(JSON_FILES) > $@

@@ -29,13 +29,13 @@
     "TN": 0,
     "TP": 432,
     "method": {
-      "minus_similarity_weight": 0.3676517862898283,
-      "similarity": "dot product (negative texts similarity minus human similarity * 0.367652)",
+      "minus_similarity_weight": 0.3673165570074986,
+      "similarity": "dot product (negative texts similarity minus human similarity * 0.367317)",
       "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
     },
     "model_name": "vit-b-16-32f",
-    "pr_auc": 0.6972189426184819,
-    "roc_auc": 0.6767119871628069,
+    "pr_auc": 0.6972112814271607,
+    "roc_auc": 0.6767336716107208,
     "text_false": [
       "animals",
       "birds flying",
