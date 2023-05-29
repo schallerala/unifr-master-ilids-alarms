@@ -1,0 +1,1070 @@
+[
+  {
+    "FN": 0,
+    "FP": 427,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.6600408718328574,
+    "roc_auc": 0.5998514615317894,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "empty scene",
+      "fence",
+      "field",
+      "insects",
+      "rabbits",
+      "wall"
+    ],
+    "text_true": [
+      "adult",
+      "human",
+      "person",
+      "terrorist",
+      "thief"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 427,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/1 (constant)"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.5675085354745124,
+    "roc_auc": 0.5329278341573424,
+    "text_false": [],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 427,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "minus_similarity_weight": 0.3673165570074986,
+      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.6972112814271607,
+    "roc_auc": 0.6767336716107208,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 432,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.7267146762072272,
+    "roc_auc": 0.6745059585048011,
+    "text_false": [
+      "birds flying",
+      "foxes",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching a fence",
+      "human cutting a fence",
+      "human going through a fence",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 432,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.590850406335829,
+    "roc_auc": 0.5557645318930041,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "empty scene",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 432,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.6186580009935804,
+    "roc_auc": 0.5904653206447188,
+    "text_false": [
+      "bird flying around",
+      "black and white picture",
+      "black and white scene of horror movie",
+      "change of colorimetry",
+      "cloudy field with a fence",
+      "field at midnight",
+      "field with green grass",
+      "grayscale picture of a fence",
+      "horror movie scene",
+      "insect flying",
+      "picture with artefacts",
+      "plastic bag flying",
+      "plastic bag laying on the floor",
+      "video with artefacts"
+    ],
+    "text_true": [
+      "a human running",
+      "a person running",
+      "a picture of a human climbing a ladder",
+      "a video of a human approaching a fence",
+      "an adult running",
+      "black and white picture of a human",
+      "going through a fence",
+      "grayscale picture of a human",
+      "human against a wall",
+      "human approaching a fence",
+      "human bending down",
+      "human climbing a ladder on a fence",
+      "human climbing a ladder",
+      "human cutting a fence",
+      "human discretely moving towards a fence",
+      "human holding a ladder",
+      "human kneeling down",
+      "human making small steps",
+      "human pick locking",
+      "human stepping down",
+      "human unlocking a door",
+      "human walking",
+      "human wearing a coat",
+      "human wearing dark clothes",
+      "human wearing light cloths",
+      "human wearing white cloths",
+      "ladder leaning against a fence",
+      "one person",
+      "person creep walking",
+      "person crip walking",
+      "putting a knee down",
+      "ripping a fence"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 432,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.4274140382394709,
+    "roc_auc": 0.3635438100137175,
+    "text_false": [
+      "birds flying",
+      "foxes",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching a fence",
+      "human cutting a fence",
+      "human going through a fence",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 432,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.4857773134010823,
+    "roc_auc": 0.5496077674897119,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "empty scene",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 432,
+    "TN": 0,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/1 (constant)"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.38004845407458043,
+    "roc_auc": 0.31211419753086417,
+    "text_false": [],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 430,
+    "TN": 1,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.5107626302047374,
+    "roc_auc": 0.5342388502191286,
+    "text_false": [
+      "bird flying around",
+      "black and white picture",
+      "black and white scene of horror movie",
+      "change of colorimetry",
+      "cloudy field with a fence",
+      "field at midnight",
+      "field with green grass",
+      "grayscale picture of a fence",
+      "horror movie scene",
+      "insect flying",
+      "picture with artefacts",
+      "plastic bag flying",
+      "plastic bag laying on the floor",
+      "video with artefacts"
+    ],
+    "text_true": [
+      "a human running",
+      "a person running",
+      "a picture of a human climbing a ladder",
+      "a video of a human approaching a fence",
+      "an adult running",
+      "black and white picture of a human",
+      "going through a fence",
+      "grayscale picture of a human",
+      "human against a wall",
+      "human approaching a fence",
+      "human bending down",
+      "human climbing a ladder on a fence",
+      "human climbing a ladder",
+      "human cutting a fence",
+      "human discretely moving towards a fence",
+      "human holding a ladder",
+      "human kneeling down",
+      "human making small steps",
+      "human pick locking",
+      "human stepping down",
+      "human unlocking a door",
+      "human walking",
+      "human wearing a coat",
+      "human wearing dark clothes",
+      "human wearing light cloths",
+      "human wearing white cloths",
+      "ladder leaning against a fence",
+      "one person",
+      "person creep walking",
+      "person crip walking",
+      "putting a knee down",
+      "ripping a fence"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 426,
+    "TN": 1,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.6791915638225657,
+    "roc_auc": 0.6503220140515222,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 426,
+    "TN": 1,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product (negative texts minus human features)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.6670421000491997,
+    "roc_auc": 0.6468416601613324,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 431,
+    "TN": 1,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.6360129602733571,
+    "roc_auc": 0.613517018175583,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "empty scene",
+      "fence",
+      "field",
+      "insects",
+      "rabbits",
+      "wall"
+    ],
+    "text_true": [
+      "adult",
+      "human",
+      "person",
+      "terrorist",
+      "thief"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 431,
+    "TN": 1,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/1 (constant)"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.3610146289443503,
+    "roc_auc": 0.26526598936899864,
+    "text_false": [],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 425,
+    "TN": 2,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.627092775708418,
+    "roc_auc": 0.6631754705525197,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 430,
+    "TN": 2,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.48337582403967394,
+    "roc_auc": 0.5385856052812071,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 430,
+    "TN": 2,
+    "TP": 432,
+    "method": {
+      "minus_similarity_weight": 0.10016127817895723,
+      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.47983448872082174,
+    "roc_auc": 0.5331736539780522,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 428,
+    "TN": 3,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.6420965208025304,
+    "roc_auc": 0.6277391080175303,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 428,
+    "TN": 3,
+    "TP": 432,
+    "method": {
+      "minus_similarity_weight": 0.10002893994170575,
+      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.6358749883619814,
+    "roc_auc": 0.6154722007390221,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 423,
+    "TN": 4,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.7012832074809915,
+    "roc_auc": 0.6379835631884812,
+    "text_false": [
+      "birds flying",
+      "foxes",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching a fence",
+      "human cutting a fence",
+      "human going through a fence",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 428,
+    "TN": 4,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product (negative texts minus human features)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.5673395322268627,
+    "roc_auc": 0.6302779921124828,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 422,
+    "TN": 5,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.6066198554797384,
+    "roc_auc": 0.6254716367421285,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "empty scene",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 427,
+    "TN": 5,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product (negative texts minus human features)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.7117157303759944,
+    "roc_auc": 0.6776298868312757,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 424,
+    "TN": 7,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.5953846044302498,
+    "roc_auc": 0.5853796081464295,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "empty scene",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 423,
+    "TN": 8,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.6732538293277802,
+    "roc_auc": 0.5876353441608662,
+    "text_false": [
+      "birds flying",
+      "foxes",
+      "insects",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching a fence",
+      "human cutting a fence",
+      "human going through a fence",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 424,
+    "TN": 8,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.5856559564278148,
+    "roc_auc": 0.6486304012345679,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 422,
+    "TN": 9,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product (negative texts minus human features)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.6941964970045142,
+    "roc_auc": 0.6488087565523761,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 423,
+    "TN": 9,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.5117306231270399,
+    "roc_auc": 0.5545535408093278,
+    "text_false": [
+      "bird flying around",
+      "black and white picture",
+      "black and white scene of horror movie",
+      "change of colorimetry",
+      "cloudy field with a fence",
+      "field at midnight",
+      "field with green grass",
+      "grayscale picture of a fence",
+      "horror movie scene",
+      "insect flying",
+      "picture with artefacts",
+      "plastic bag flying",
+      "plastic bag laying on the floor",
+      "video with artefacts"
+    ],
+    "text_true": [
+      "a human running",
+      "a person running",
+      "a picture of a human climbing a ladder",
+      "a video of a human approaching a fence",
+      "an adult running",
+      "black and white picture of a human",
+      "going through a fence",
+      "grayscale picture of a human",
+      "human against a wall",
+      "human approaching a fence",
+      "human bending down",
+      "human climbing a ladder on a fence",
+      "human climbing a ladder",
+      "human cutting a fence",
+      "human discretely moving towards a fence",
+      "human holding a ladder",
+      "human kneeling down",
+      "human making small steps",
+      "human pick locking",
+      "human stepping down",
+      "human unlocking a door",
+      "human walking",
+      "human wearing a coat",
+      "human wearing dark clothes",
+      "human wearing light cloths",
+      "human wearing white cloths",
+      "ladder leaning against a fence",
+      "one person",
+      "person creep walking",
+      "person crip walking",
+      "putting a knee down",
+      "ripping a fence"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 423,
+    "TN": 9,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.7309752010324124,
+    "roc_auc": 0.6946855709876543,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 421,
+    "TN": 10,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.7130864647334471,
+    "roc_auc": 0.662756724241643,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "insects",
+      "rabbits"
+    ],
+    "text_true": [
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 420,
+    "TN": 11,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.5323235540670097,
+    "roc_auc": 0.5822323193262868,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "empty scene",
+      "fence",
+      "field",
+      "insects",
+      "rabbits",
+      "wall"
+    ],
+    "text_true": [
+      "adult",
+      "human",
+      "person",
+      "terrorist",
+      "thief"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 419,
+    "TN": 13,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.6243505333483375,
+    "roc_auc": 0.6111111111111112,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 418,
+    "TN": 14,
+    "TP": 432,
+    "method": {
+      "minus_similarity_weight": 0.10012934754464818,
+      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-8f",
+    "pr_auc": 0.6157502223168305,
+    "roc_auc": 0.598031335733882,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 412,
+    "TN": 15,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.5438214776147201,
+    "roc_auc": 0.6084005551218665,
+    "text_false": [
+      "bird flying around",
+      "black and white picture",
+      "black and white scene of horror movie",
+      "change of colorimetry",
+      "cloudy field with a fence",
+      "field at midnight",
+      "field with green grass",
+      "grayscale picture of a fence",
+      "horror movie scene",
+      "insect flying",
+      "picture with artefacts",
+      "plastic bag flying",
+      "plastic bag laying on the floor",
+      "video with artefacts"
+    ],
+    "text_true": [
+      "a human running",
+      "a person running",
+      "a picture of a human climbing a ladder",
+      "a video of a human approaching a fence",
+      "an adult running",
+      "black and white picture of a human",
+      "going through a fence",
+      "grayscale picture of a human",
+      "human against a wall",
+      "human approaching a fence",
+      "human bending down",
+      "human climbing a ladder on a fence",
+      "human climbing a ladder",
+      "human cutting a fence",
+      "human discretely moving towards a fence",
+      "human holding a ladder",
+      "human kneeling down",
+      "human making small steps",
+      "human pick locking",
+      "human stepping down",
+      "human unlocking a door",
+      "human walking",
+      "human wearing a coat",
+      "human wearing dark clothes",
+      "human wearing light cloths",
+      "human wearing white cloths",
+      "ladder leaning against a fence",
+      "one person",
+      "person creep walking",
+      "person crip walking",
+      "putting a knee down",
+      "ripping a fence"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 412,
+    "TN": 19,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/1 (constant)"
+    },
+    "model_name": "vit-b-16-16f",
+    "pr_auc": 0.3651166451071226,
+    "roc_auc": 0.2768325169717281,
+    "text_false": [],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
+    "FP": 378,
+    "TN": 54,
+    "TP": 432,
+    "method": {
+      "similarity": "dot product",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-32-8f",
+    "pr_auc": 0.7839093149345,
+    "roc_auc": 0.8194605195473251,
+    "text_false": [
+      "animals",
+      "bag",
+      "barbed wire",
+      "birds flying",
+      "empty scene",
+      "fence",
+      "field",
+      "insects",
+      "rabbits",
+      "wall"
+    ],
+    "text_true": [
+      "adult",
+      "human",
+      "person",
+      "terrorist",
+      "thief"
+    ]
+  }
+]

@@ -22,7 +22,7 @@ PLOTLY_RENDERER := notebook_connected
 
 
 .PHONY: all
-all: $(NOTEBOOK_FILES) $(JSON_FILES) $(IMAGES_FOLDERS) all-best-results.json
+all: $(NOTEBOOK_FILES) $(JSON_FILES) $(IMAGES_FOLDERS) all-results.json all-best-results.json
 
 
 
@@ -70,6 +70,14 @@ clean:
 
 #### Aggregate targets
 
+all-results.json: $(JSON_FILES)
+	jq '[ \
+			reduce inputs as $$s (.; . += $$s) \
+		| .[] \
+		| select(has("best") | not) \
+	] | sort_by(.TN)' $(JSON_FILES) > $@
+
+
 all-best-results.json: $(JSON_FILES)
 	jq '[ \
 			reduce inputs as $$s (.; . += $$s) \
@@ -77,3 +85,8 @@ all-best-results.json: $(JSON_FILES)
 		| select(.best != null) \
 		| .best \
 	] | sort_by(.roc_auc)' $(JSON_FILES) > $@
+
+
+
+gen-result-table: all-results.json
+	@node scripts/join-results.js all-results.json
