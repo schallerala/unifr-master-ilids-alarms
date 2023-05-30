@@ -1,0 +1,96 @@
+{{#colorsDefinitions}}
+\definecolor{%
+{{colorDef}}%
+}{HTML}{%
+{{colorHex}}%
+}
+{{/colorsDefinitions}}
+
+
+{{#symbolsCommands}}
+\newcommand*{\{{command}}}{\tikz[node distance=0pt]{%
+\node (SYMBOL) [draw=black!60, {{{properties}}}, inner sep=2pt, yshift=-4pt] {};%
+\node [anchor=west, right=of SYMBOL.east, inner sep=0pt, yshift=-4pt, scale=0.8] {$_{ {{index}} }$};}}
+{{/symbolsCommands}}
+
+
+
+\begin{table}[H]
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{c||ccc|cc|cc|cccc}
+\hline
+Model Name & \multicolumn{3}{c|}{Methods}    & \multicolumn{2}{c|}{Texts} & ROC-AUC & PR-AUC & TP & FN & FP & TN \\
+        & similarity & y\_score & weight & positive    & negative    &         &        &    &    &    &
+\\\hline
+
+{{#rows}}
+
+% true: [{{trueTexts}}]
+% false: [{{falseTexts}}]
+{{modelName}} & $\bigodot {}_{{simiMethod}}$ & $y_{\text{pred-}{{scoreMethod}}}$ & {{methodWeight}} & \{{positiveSymbol}}{} & \{{negativeSymbol}}{} & {{rocAucScore}} & {{prAucScore}} & {{TP}} & {{FN}} & {{FP}} & {{TN}} \\
+{{/rows}}
+
+\hline
+\end{tabular}
+\end{adjustbox}
+\caption{Results with \emph{ActionClip} models\label{tab:actionclip-results}}
+\end{table}
+
+
+
+\begin{table}[H]
+
+\center
+
+\begin{tabular}{cc|p{0.78\textwidth}}
+\hline
+$y$ & symbol & \textbf{Encoded texts} \\\hline
+
+{{#positiveTextsSymbols}}
++ & \{{command}}{} & {{texts}} \\
+{{/positiveTextsSymbols}}
+\hline
+\hline
+
+{{#negativeTextsSymbols}}
+- & \{{command}}{} & {{texts}} \\
+{{/negativeTextsSymbols}}
+
+\hline
+\end{tabular}
+\caption{Used \emph{texts} for \emph{ActionClip} experiments with the symbols in \simpleref{tab:actionclip-results}\label{tab:actionclip-results-texts}}
+\end{table}
+
+
+
+\begin{table}[H]
+\center
+\begin{tabular}{c|l}
+\hline
+ & \textbf{Similarity method} \\\hline
+
+{{#simiMethods}}
+$\bigodot {}_{{num}}$ & {{method}} \\
+{{/simiMethods}}
+\hline
+\end{tabular}
+\caption{Used \emph{similarity} method for \emph{ActionClip} experiments with the symbols in \simpleref{tab:actionclip-results}\label{tab:actionclip-results-simi}}
+\end{table}
+
+
+\begin{table}[H]
+\center
+\begin{tabular}{c|l}
+\hline
+ & \textbf{Score method} \\\hline
+
+{{#scoreMethods}}
+$y_{\text{pred-}{{num}}}$ & {{{method}}} \\
+{{/scoreMethods}}
+\hline
+\end{tabular}
+\caption{Used \emph{score} method for \emph{ActionClip} experiments with the symbols in \simpleref{tab:actionclip-results}\label{tab:actionclip-results-simi}}
+\end{table}
+
+
+
