@@ -1,6 +1,5 @@
 from pathlib import Path
 
-
 OPENAI_BASE_MODEL_NAMES = {
     "vit-b-16-16f": "ViT-B-16",
     "vit-b-16-32f": "ViT-B-16",
@@ -14,6 +13,7 @@ The key is the stem name of the checkpoint file, and the value is the base model
 to be used in the `open_clip.load_openai_model` or
 `ilids.models.actionclip.factory.create_models_and_transforms` function.
 """
+
 
 def get_base_model_name_from_ckpt_path(ckpt_path: Path) -> str:
     """

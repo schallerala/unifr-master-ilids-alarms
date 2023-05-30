@@ -9,7 +9,10 @@ from torch.utils.data import DataLoader
 
 from ilids.experiments.actionclip import extract_actionclip_sequences_features
 from ilids.experiments.movinet import extract_movinet_features
-from ilids.models.actionclip.constants import get_base_model_name_from_ckpt_path, get_input_frames_from_ckpt_path
+from ilids.models.actionclip.constants import (
+    get_base_model_name_from_ckpt_path,
+    get_input_frames_from_ckpt_path,
+)
 from ilids.models.actionclip.datasets import ActionDataset
 from ilids.models.actionclip.factory import create_models_and_transforms
 from ilids.models.actionclip.transform import get_augmentation
