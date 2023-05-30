@@ -49,7 +49,7 @@ def extract(
     start_time: str,
     end_time: str,
     frame_stride: int,
-    fps: Optional[int] = typer.Option(None, "--fps", "-r"),
+    fps: Optional[float] = typer.Option(None, "--fps", "-r"),
     output: Optional[Path] = typer.Option(None, "--output", "-o"),
     overwrite: bool = typer.Option(False, "--overwrite", "-y"),
 ) -> None:
@@ -73,7 +73,7 @@ def extract(
         raise ValueError(f"Use -y option to overwrite the existing {str(output)}")
 
     fps = fps or _get_fps(input_video)
-    assert fps > 0
+    assert fps is not None and fps > 0
 
     frames_sequence_to_extract_0_shifted = _trivial_frame_selection(
         frame_stride, math.ceil(total_seconds * fps)

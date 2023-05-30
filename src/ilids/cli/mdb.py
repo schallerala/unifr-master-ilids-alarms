@@ -21,7 +21,7 @@ def mdb_tables(mdb: Path) -> List[str]:
 
     assert (
         mdb_tables_process.returncode == 0
-    ), f"mdb-tables didn't run successfully {stderr}"
+    ), f"mdb-tables didn't run successfully {stderr.decode()}"
 
     return stdout.decode().splitlines()
 
@@ -35,7 +35,7 @@ def mdb_export_table(mdb: Path, table_name: str) -> DataFrame:
 
     assert (
         mdb_export_process.returncode == 0
-    ), f"mdb-export didn't run successfully {stderr}"
+    ), f"mdb-export didn't run successfully {stderr.decode()}"
 
     return pd.read_csv(io.StringIO(stdout.decode()))
 

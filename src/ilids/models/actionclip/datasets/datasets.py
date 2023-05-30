@@ -78,7 +78,7 @@ class ActionDataset(data.Dataset):
 
     def _sample_indices(self, record_num_frames: int) -> np.ndarray:
         if self.frames_to_extract == 1:
-            return np.array([record_num_frames // 2], dtype=np.int) + self.index_bias
+            return np.array([record_num_frames // 2], dtype=np.uint) + self.index_bias
 
         if record_num_frames <= self._total_length:
             return (
@@ -87,7 +87,7 @@ class ActionDataset(data.Dataset):
                         i * record_num_frames // self._total_length
                         for i in range(self._total_length)
                     ],
-                    dtype=np.int,
+                    dtype=np.uint,
                 )
                 + self.index_bias
             )

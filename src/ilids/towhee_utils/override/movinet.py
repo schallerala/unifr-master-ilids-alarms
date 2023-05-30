@@ -2,7 +2,7 @@ import csv
 import logging
 import os
 from pathlib import Path
-from typing import Dict, List
+from typing import Dict, List, Optional
 
 import numpy
 import torch
@@ -70,7 +70,7 @@ class Movinet(NNOperator):
         model_name: str = "movineta0",
         causal: bool = False,
         skip_preprocess: bool = False,
-        classmap: Dict[int, str] = None,
+        classmap: Optional[Dict[int, str]] = None,
         topk: int = 5,
     ):
         super().__init__(framework="pytorch")
@@ -123,7 +123,7 @@ class Movinet(NNOperator):
                 A tuple of lists (labels, scores, features).
         """
         # Convert list of towhee.types.Image to numpy.ndarray in float32
-        video = numpy.stack(
+        video: numpy.ndarray = numpy.stack(
             [img.astype(numpy.float32) / 255.0 for img in video], axis=0
         )
         assert len(video.shape) == 4

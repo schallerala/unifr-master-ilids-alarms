@@ -7,7 +7,7 @@ import pandas as pd
 
 class PersistenceMethod(ABC):
     @abstractmethod
-    def persist(self, path: Path, obj: Any):
+    def persist(self, path: Path, df: pd.DataFrame):
         raise NotImplementedError()
 
 
