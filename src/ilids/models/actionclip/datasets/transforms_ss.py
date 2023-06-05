@@ -1,3 +1,10 @@
+# Code from "ActionCLIP: ActionCLIP: A New Paradigm for Action Recognition"
+# arXiv:
+# Mengmeng Wang, Jiazheng Xing, Yong Liu
+"""
+Code reduced to the bar minimum to extract features from video from the i-LIDS dataset.
+"""
+
 import numpy as np
 import torch
 import torchvision

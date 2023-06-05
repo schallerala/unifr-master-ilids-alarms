@@ -1,6 +1,7 @@
-# Code for "ActionCLIP: ActionCLIP: A New Paradigm for Action Recognition"
+# Code from "ActionCLIP: ActionCLIP: A New Paradigm for Action Recognition"
 # arXiv:
 # Mengmeng Wang, Jiazheng Xing, Yong Liu
+"""Adapted code to work with the open_clip library."""
 
 import open_clip
 import torch
