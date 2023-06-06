@@ -53,32 +53,6 @@
   },
   {
     "FN": 0,
-    "FP": 427,
-    "TN": 0,
-    "TP": 432,
-    "method": {
-      "minus_similarity_weight": 0.3673165570074986,
-      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
-      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
-    },
-    "model_name": "vit-b-16-32f",
-    "pr_auc": 0.6972112814271607,
-    "roc_auc": 0.6767336716107208,
-    "text_false": [
-      "animals",
-      "birds flying",
-      "plastic bag laying on the floor",
-      "rabbits"
-    ],
-    "text_true": [
-      "a video of a human approaching",
-      "human cutting",
-      "human going through",
-      "human"
-    ]
-  },
-  {
-    "FN": 0,
     "FP": 432,
     "TN": 0,
     "TP": 432,
@@ -456,6 +430,32 @@
   },
   {
     "FN": 0,
+    "FP": 425,
+    "TN": 2,
+    "TP": 432,
+    "method": {
+      "minus_similarity_weight": 0.3673165570074986,
+      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
+      "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
+    },
+    "model_name": "vit-b-16-32f",
+    "pr_auc": 0.6581322970406999,
+    "roc_auc": 0.6781485818371065,
+    "text_false": [
+      "animals",
+      "birds flying",
+      "plastic bag laying on the floor",
+      "rabbits"
+    ],
+    "text_true": [
+      "a video of a human approaching",
+      "human cutting",
+      "human going through",
+      "human"
+    ]
+  },
+  {
+    "FN": 0,
     "FP": 430,
     "TN": 2,
     "TP": 432,
@@ -490,8 +490,8 @@
       "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
     },
     "model_name": "vit-b-32-8f",
-    "pr_auc": 0.47983448872082174,
-    "roc_auc": 0.5331736539780522,
+    "pr_auc": 0.4878151804566382,
+    "roc_auc": 0.5454978995198903,
     "text_false": [
       "animals",
       "birds flying",
@@ -541,8 +541,8 @@
       "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
     },
     "model_name": "vit-b-16-16f",
-    "pr_auc": 0.6358749883619814,
-    "roc_auc": 0.6154722007390221,
+    "pr_auc": 0.6480185479286997,
+    "roc_auc": 0.6331260204520065,
     "text_false": [
       "animals",
       "birds flying",
@@ -928,8 +928,8 @@
   },
   {
     "FN": 0,
-    "FP": 418,
-    "TN": 14,
+    "FP": 419,
+    "TN": 13,
     "TP": 432,
     "method": {
       "minus_similarity_weight": 0.10012934754464818,
@@ -937,8 +937,8 @@
       "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
     },
     "model_name": "vit-b-16-8f",
-    "pr_auc": 0.6157502223168305,
-    "roc_auc": 0.598031335733882,
+    "pr_auc": 0.6362141604233706,
+    "roc_auc": 0.6206543638545954,
     "text_false": [
       "animals",
       "birds flying",

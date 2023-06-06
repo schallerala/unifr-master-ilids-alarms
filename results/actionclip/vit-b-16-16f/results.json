@@ -247,12 +247,12 @@
     "TP": 432,
     "method": {
       "minus_similarity_weight": 0.10002893994170575,
-      "similarity": "dot product (negative texts similarity minus human similarity * 0.100029)",
+      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
       "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
     },
     "model_name": "vit-b-16-16f",
-    "pr_auc": 0.6358749883619814,
-    "roc_auc": 0.6154722007390221,
+    "pr_auc": 0.6480185479286997,
+    "roc_auc": 0.6331260204520065,
     "text_false": [
       "animals",
       "birds flying",

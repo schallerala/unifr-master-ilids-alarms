@@ -242,17 +242,17 @@
   },
   {
     "FN": 0,
-    "FP": 418,
-    "TN": 14,
+    "FP": 419,
+    "TN": 13,
     "TP": 432,
     "method": {
       "minus_similarity_weight": 0.10012934754464818,
-      "similarity": "dot product (negative texts similarity minus human similarity * 0.100129)",
+      "similarity": "dot product (negative texts similarity minus weighted human similarity)",
       "y_score": "ratio mean similarity of positive texts/mean similarity of negative texts"
     },
     "model_name": "vit-b-16-8f",
-    "pr_auc": 0.6157502223168305,
-    "roc_auc": 0.598031335733882,
+    "pr_auc": 0.6362141604233706,
+    "roc_auc": 0.6206543638545954,
     "text_false": [
       "animals",
       "birds flying",
