@@ -31,7 +31,6 @@ def alternate_device(
             if sync_server_port is None:
                 raise ValueError("sync_server_port must be provided when distributed")
 
-
             with acquire_free_gpu(sync_server_host, sync_server_port) as gpu_id:
                 device = torch.device("cuda", gpu_id)
                 yield device

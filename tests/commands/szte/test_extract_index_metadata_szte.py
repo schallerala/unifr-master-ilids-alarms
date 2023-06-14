@@ -97,7 +97,6 @@ def test_force_and_overwrite(
     distractions_tmp_file: Path,
     force_arg,
 ):
-
     meta_tmp_file.touch()
     clips_tmp_file.touch()
     alarms_tmp_file.touch()

@@ -26,7 +26,9 @@ def _get_stream_info_with_ffprobe(video_path: Path) -> str:
 
     stdout, stderr = ffprobe_process.communicate()
 
-    assert ffprobe_process.returncode == 0, f"ffprobe didn't run successfully {stderr.decode()}"
+    assert (
+        ffprobe_process.returncode == 0
+    ), f"ffprobe didn't run successfully {stderr.decode()}"
 
     return stdout.decode()
 

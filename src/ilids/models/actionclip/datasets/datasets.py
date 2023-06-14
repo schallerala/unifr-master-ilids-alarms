@@ -23,6 +23,7 @@ class ActionDataset(data.Dataset):
     don't use the Pillow module, but rather the decord module to extract the set
     of desired frames in one go.
     """
+
     def __init__(
         self,
         sequences_details_file: Path,
@@ -120,8 +121,8 @@ class ActionDataset(data.Dataset):
             np.array(
                 [
                     i * record_num_frames / self.frames_to_extract + offset + j
-                    for i in range(self.frames_to_extract) # 0, 1, 2, 4
-                    for j in range(self.seg_length) # 0, 1
+                    for i in range(self.frames_to_extract)  # 0, 1, 2, 4
+                    for j in range(self.seg_length)  # 0, 1
                 ],
                 dtype=np.int64,
             )
