@@ -3,3 +3,7 @@
 /vit-b-32-8f.pkl
 /vit-b-16-8f.pkl
 /*/actionclip-eval-notebook.ipynb
+
+# add the logs of the hparam search
+!/vit-b-*/hparam.log
+!/vit-b-*/hparam-trials.log

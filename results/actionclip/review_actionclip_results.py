@@ -148,7 +148,6 @@ def update_texts_dataframe(
     ts,
     local_storage_text_data: List[Dict],
 ) -> Tuple[List[Dict], str]:
-
     ctx = dash.callback_context
     trigger_id = ctx.triggered[0]["prop_id"].split(".")[0]
     current_text_data = (

@@ -1,5 +1,5 @@
+import random
 from itertools import combinations
-
 
 POSITIVE_TEXTS = [
     "a human running",
@@ -73,10 +73,23 @@ NEGATIVE_TEXTS = [
     "wall",
 ]
 
-def get_all_composition(lst):
+
+def _pick_random_elements(iterable, x):
+    lst = list(iterable)
+    if len(lst) <= x:
+        raise ValueError("Iterable size should be bigger than X.")
+    return random.sample(lst, x)
+
+
+def get_all_composition(lst, pick_in_each_combinations, max_range=-1):
     compositions = []
     length = len(lst)
-    for r in range(1, length + 1):
-        for combination in combinations(lst, r):
+
+    range_end = length + 1 if max_range == -1 else min(max_range, length + 1)
+
+    for r in range(4, range_end):
+        for combination in _pick_random_elements(
+            combinations(lst, r), pick_in_each_combinations
+        ):
             compositions.append(list(combination))
     return compositions

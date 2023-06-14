@@ -90,3 +90,14 @@ all-best-results.json: $(JSON_FILES)
 
 gen-result-table: all-results.json
 	@node scripts/join-results.js all-results.json
+
+
+
+
+# hparam search
+
+all-hparam: $(patsubst %, %/hparam.log, $(EXPERIMENT_NAMES)) $(patsubst %, %/hparam-trials.log, $(EXPERIMENT_NAMES))
+
+
+%/hparam.log %/hparam-trials.log: %.pkl hparam.py hparam
+	poetry run python hparam.py $* > $*/hparam.log 2> $*/hparam-trials.log
