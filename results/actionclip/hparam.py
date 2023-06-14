@@ -221,7 +221,11 @@ def encode_text(model_text, texts):
         return model_text(tokenized_texts)
 
 
-def run(model_name: str):
+def run(model_name: str, plot_study: bool = True, trials: int = 200):
+    if plot_study:
+        if not optuna.visualization.is_available():
+            raise RuntimeError("Visualization library is not available!")
+
     random.seed(SEED)
 
     # load true data
@@ -239,7 +243,7 @@ def run(model_name: str):
         direction="maximize",
         sampler=optuna.samplers.TPESampler(seed=SEED),  # student number as seed
     )
-    study.optimize(objective_builder(model_text, y_true, visual_features), n_trials=200)
+    study.optimize(objective_builder(model_text, y_true, visual_features), n_trials=trials)
 
     # Print the best value and parameters
     print("Best value:")
@@ -249,7 +253,7 @@ def run(model_name: str):
     print("Best trial user attributes:")
     print(study.best_trial.user_attrs)
 
-    if optuna.visualization.is_available():
+    if plot_study:  # should have checked previously if the visualization library is available
         path = Path(model_name) / "images"
         optuna.visualization.plot_contour(study).write_image(str(path / "optuna_contour.png"))
         optuna.visualization.plot_edf(study).write_image(str(path / "optuna_edf.png"))
@@ -259,7 +263,6 @@ def run(model_name: str):
         optuna.visualization.plot_param_importances(study).write_image(str(path / "optuna_param_importances.png"))
         optuna.visualization.plot_rank(study).write_image(str(path / "optuna_rank.png"))
         optuna.visualization.plot_slice(study).write_image(str(path / "optuna_slice.png"))
-
 
 
 if __name__ == "__main__":
