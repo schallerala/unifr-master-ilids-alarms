@@ -28,11 +28,8 @@ SOURCE_PATH = Path().resolve()
 warnings.filterwarnings("ignore", category=UserWarning, module="optuna.distributions")
 
 
-def objective_builder(model_text, y_true, visual_features):
+def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS, persist_y = False):
     y_true = y_true.to_numpy()
-
-    ALL_POSITIVE_TEXTS_COMBINATIONS = get_all_composition(POSITIVE_TEXTS, 12, 8)
-    ALL_NEGATIVE_TEXTS_COMBINATIONS = get_all_composition(NEGATIVE_TEXTS, 12, 8)
 
     normalized_visual_features = normalize(visual_features)
 
@@ -123,6 +120,7 @@ def objective_builder(model_text, y_true, visual_features):
                         FP=FP,
                         TN=TN,
                         topK=topK,
+                        trail_number=trial.number,
                         **trial.params,
                     )
                 )
@@ -131,9 +129,19 @@ def objective_builder(model_text, y_true, visual_features):
                     best_roc = roc
                     best_topK = topK
 
-            # return best roc-auc
-            trial.set_user_attr("best_topK", best_topK)
+                    trial.set_user_attr("roc_auc", roc)
+                    trial.set_user_attr("pr_auc", pr)
+                    trial.set_user_attr("TP", TP)
+                    trial.set_user_attr("FN", FN)
+                    trial.set_user_attr("FP", FP)
+                    trial.set_user_attr("TN", TN)
+                    trial.set_user_attr("best_topK", best_topK)
 
+                    if persist_y:
+                        np.save(f_y, y)
+                        np.save(f_y_true, y_true)
+
+            # return best roc-auc
             return best_roc
 
         # otherwise, for a ratio score, just compute the score
@@ -149,8 +157,18 @@ def objective_builder(model_text, y_true, visual_features):
 
             # print
             print(
-                dict(roc_auc=roc, pr_auc=pr, TP=TP, FN=FN, FP=FP, TN=TN, **trial.params)
+                dict(roc_auc=roc, pr_auc=pr, TP=TP, FN=FN, FP=FP, TN=TN, trail_number=trial.number, **trial.params)
             )
+            trial.set_user_attr("roc_auc", roc)
+            trial.set_user_attr("pr_auc", pr)
+            trial.set_user_attr("TP", TP)
+            trial.set_user_attr("FN", FN)
+            trial.set_user_attr("FP", FP)
+            trial.set_user_attr("TN", TN)
+
+            if persist_y:
+                np.save('y.npy', y)
+                np.save('y_true.npy', y_true)
 
             # return roc-auc
             return roc
@@ -221,7 +239,7 @@ def encode_text(model_text, texts):
         return model_text(tokenized_texts)
 
 
-def run(model_name: str, plot_study: bool = True, trials: int = 200):
+def run(model_name: str, plot_study: bool = False, trials: int = 200):
     if plot_study:
         if not optuna.visualization.is_available():
             raise RuntimeError("Visualization library is not available!")
@@ -238,12 +256,16 @@ def run(model_name: str, plot_study: bool = True, trials: int = 200):
     # load model
     model_text = load_model_text_encoder(model_name)
 
+    # pick positive and negative prompts and create compositions
+    ALL_POSITIVE_TEXTS_COMBINATIONS = get_all_composition(POSITIVE_TEXTS, 12, 8)
+    ALL_NEGATIVE_TEXTS_COMBINATIONS = get_all_composition(NEGATIVE_TEXTS, 12, 8)
+
     # Create a study object and optimize the objective function.
     study = optuna.create_study(
         direction="maximize",
         sampler=optuna.samplers.TPESampler(seed=SEED),  # student number as seed
     )
-    study.optimize(objective_builder(model_text, y_true, visual_features), n_trials=trials)
+    study.optimize(objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS), n_trials=trials)
 
     # Print the best value and parameters
     print("Best value:")
@@ -252,6 +274,8 @@ def run(model_name: str, plot_study: bool = True, trials: int = 200):
     print(study.best_params)
     print("Best trial user attributes:")
     print(study.best_trial.user_attrs)
+
+    objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS, persist_y=True)(study.best_trial)
 
     if plot_study:  # should have checked previously if the visualization library is available
         path = Path(model_name) / "images"

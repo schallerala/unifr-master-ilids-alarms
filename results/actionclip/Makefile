@@ -63,7 +63,7 @@ clean:
 
 %/images: %/actionclip-eval-notebook.ipynb
 	@-mkdir -p $@
-	@echo "Extracting images from cells with tag 'result-image-...' and output metadata of type 'image/png' and metadata tags 'extract-image'"
+	@echo "Extracting images from cells with tag 'image-...' and output metadata of type 'image/png' and metadata tags 'extract-image'"
 	../extract_decode_images_from_notebook.sh $< $@/
 
 
@@ -101,3 +101,16 @@ all-hparam: $(patsubst %, %/hparam.log, $(EXPERIMENT_NAMES)) $(patsubst %, %/hpa
 
 %/hparam.log %/hparam-trials.log: %.pkl hparam.py hparam
 	poetry run python hparam.py $* > $*/hparam.log 2> $*/hparam-trials.log
+
+
+.PHONY: best-results-tail
+best-results-tail:
+	tail -6 vit-b-*f/hparam.log
+
+.PHONY: watch-hparam-progress
+watch-hparam-progress:
+	watch wc -l "vit-b-*f/hparam-trials.log"
+
+.PHONY: sort-TN-param
+sort-TN-hparam:
+	egrep -o ''\''TN'\'': \d+' vit-b-*f/hparam.log | sort -k2n
