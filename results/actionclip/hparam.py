@@ -138,8 +138,8 @@ def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_CO
                     trial.set_user_attr("best_topK", best_topK)
 
                     if persist_y:
-                        np.save(f_y, y)
-                        np.save(f_y_true, y_true)
+                        np.save('y.npy', y)
+                        np.save('y_true.npy', y_true)
 
             # return best roc-auc
             return best_roc
