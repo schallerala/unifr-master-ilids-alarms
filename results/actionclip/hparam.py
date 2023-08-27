@@ -2,6 +2,7 @@ import random
 import warnings
 from pathlib import Path
 
+from aim import Run, Text
 import numpy as np
 import open_clip
 import optuna
@@ -27,13 +28,23 @@ SOURCE_PATH = Path().resolve()
 
 warnings.filterwarnings("ignore", category=UserWarning, module="optuna.distributions")
 
+# object that will replace Aim's logger as a noop, when "re-running" the objective function
+# with the best parameters found
+class DoNothing:
+    def __getattr__(self, name):
+        return self  # Return the DoNothing object itself
+    def __call__(self, *args, **kwargs):
+        return self  # Return the DoNothing object itself
 
-def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS, persist_y = False):
+
+def objective_builder(model_name, model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS, persist_y = False, log_run = False):
     y_true = y_true.to_numpy()
 
     normalized_visual_features = normalize(visual_features)
 
     human_text_features = encode_text(model_text, ["human"])
+
+    run = Run(experiment=model_name) if log_run else DoNothing()
 
     # Define the objective function to optimize
     def objective(trial: optuna.Trial):
@@ -43,10 +54,13 @@ def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_CO
         positive_texts = trial.suggest_categorical(
             "positive_texts", ALL_POSITIVE_TEXTS_COMBINATIONS
         )
+        run.track(Text(', '.join(positive_texts)), name="positive_texts", step=trial.number)
+
         ### negative
         negative_texts = trial.suggest_categorical(
             "negative_texts", ALL_NEGATIVE_TEXTS_COMBINATIONS
         )
+        run.track(Text(', '.join(negative_texts)), name="negative_texts", step=trial.number)
         ### reference text classes
         texts_classes = [True] * len(positive_texts) + [False] * len(negative_texts)
 
@@ -59,11 +73,14 @@ def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_CO
                 SimilarityMethod.minus_human_similarity,
             ],
         )
+        run.track(Text(similarity_method.value), name="similarity_method", step=trial.number)
         minus_similarity_weight = (
             trial.suggest_float("minus_similarity_weight", 0.1, 0.9)
             if similarity_method == SimilarityMethod.minus_human_similarity
             else None
         )
+        if minus_similarity_weight:
+            run.track(minus_similarity_weight, name="minus_similarity_weight", step=trial.number)
 
         ## get score method
         score_method = trial.suggest_categorical(
@@ -76,6 +93,7 @@ def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_CO
                 TopClassificationMethod.max_sum,
             ],
         )
+        run.track(Text(score_method.value), name="score_method", step=trial.number)
 
         # encode texts
         positive_text_features = encode_text(model_text, positive_texts)
@@ -124,6 +142,15 @@ def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_CO
                         **trial.params,
                     )
                 )
+                run.track(dict(
+                        roc_auc=roc,
+                        pr_auc=pr,
+                        TP=TP,
+                        FN=FN,
+                        FP=FP,
+                        TN=TN,
+                        topK=topK,
+                    ), step=trial.number)
 
                 if roc > best_roc:
                     best_roc = roc
@@ -158,6 +185,10 @@ def objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_CO
             # print
             print(
                 dict(roc_auc=roc, pr_auc=pr, TP=TP, FN=FN, FP=FP, TN=TN, trail_number=trial.number, **trial.params)
+            )
+            run.track(
+                dict(roc_auc=roc, pr_auc=pr, TP=TP, FN=FN, FP=FP, TN=TN),
+                step=trial.number
             )
             trial.set_user_attr("roc_auc", roc)
             trial.set_user_attr("pr_auc", pr)
@@ -239,7 +270,7 @@ def encode_text(model_text, texts):
         return model_text(tokenized_texts)
 
 
-def run(model_name: str, plot_study: bool = False, trials: int = 200):
+def run(model_name: str, plot_study: bool = typer.Argument(default=False), trials: int = typer.Argument(default=200)):
     if plot_study:
         if not optuna.visualization.is_available():
             raise RuntimeError("Visualization library is not available!")
@@ -265,7 +296,7 @@ def run(model_name: str, plot_study: bool = False, trials: int = 200):
         direction="maximize",
         sampler=optuna.samplers.TPESampler(seed=SEED),  # student number as seed
     )
-    study.optimize(objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS), n_trials=trials)
+    study.optimize(objective_builder(model_name, model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS, log_run=True), n_trials=trials)
 
     # Print the best value and parameters
     print("Best value:")
@@ -275,18 +306,25 @@ def run(model_name: str, plot_study: bool = False, trials: int = 200):
     print("Best trial user attributes:")
     print(study.best_trial.user_attrs)
 
-    objective_builder(model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS, persist_y=True)(study.best_trial)
+    objective_builder(model_name, model_text, y_true, visual_features, ALL_POSITIVE_TEXTS_COMBINATIONS, ALL_NEGATIVE_TEXTS_COMBINATIONS, persist_y=True)(study.best_trial)
 
     if plot_study:  # should have checked previously if the visualization library is available
         path = Path(model_name) / "images"
-        optuna.visualization.plot_contour(study).write_image(str(path / "optuna_contour.png"))
-        optuna.visualization.plot_edf(study).write_image(str(path / "optuna_edf.png"))
-        optuna.visualization.plot_optimization_history(study).write_image(str(path / "optuna_optimization_history.png"))
+        plt = optuna.visualization.plot_contour(study)
+        plt.write_image(str(path / "optuna_contour.png"), width=3500, height=3500)
+        plt = optuna.visualization.plot_edf(study)
+        plt.write_image(str(path / "optuna_edf.png"))
+        plt = optuna.visualization.plot_optimization_history(study)
+        plt.write_image(str(path / "optuna_optimization_history.png"))
         # TODO Doesn't handle lists, therefore comment out. Should change suggestion
-        # optuna.visualization.plot_parallel_coordinate(study).write_image(str(path / "optuna_parallel_coordinate.png"))
-        optuna.visualization.plot_param_importances(study).write_image(str(path / "optuna_param_importances.png"))
-        optuna.visualization.plot_rank(study).write_image(str(path / "optuna_rank.png"))
-        optuna.visualization.plot_slice(study).write_image(str(path / "optuna_slice.png"))
+        # plt = optuna.visualization.plot_parallel_coordinate(study)
+        # plt.write_image(str(path / "optuna_parallel_coordinate.png"), width=3500, height=2500)
+        # plt = optuna.visualization.plot_param_importances(study)
+        # plt.write_image(str(path / "optuna_param_importances.png"), width=3500, height=2500)
+        plt = optuna.visualization.plot_rank(study)
+        plt.write_image(str(path / "optuna_rank.png"), width=3500, height=2500)
+        plt = optuna.visualization.plot_slice(study)
+        plt.write_image(str(path / "optuna_slice.png"), width=3500, height=2500)
 
 
 if __name__ == "__main__":

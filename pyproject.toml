@@ -7,6 +7,7 @@ packages = [{include = "ilids", from = "src"}]
 
 [tool.poetry.dependencies]
 "towhee.models" = "^0.8.0"
+aim = "^3.17.5"
 chardet = "<5.0.0"
 dash = "^2.6.2"
 decord = {path = "build/decord/python"}

@@ -100,7 +100,7 @@ all-hparam: $(patsubst %, %/hparam.log, $(EXPERIMENT_NAMES)) $(patsubst %, %/hpa
 
 
 %/hparam.log %/hparam-trials.log: %.pkl hparam.py hparam
-	poetry run python hparam.py $* > $*/hparam.log 2> $*/hparam-trials.log
+	poetry run python hparam.py $* true > $*/hparam.log 2> $*/hparam-trials.log
 
 
 .PHONY: best-results-tail
