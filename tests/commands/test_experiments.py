@@ -23,10 +23,8 @@ def test_actionclip(actionclip_sequences: Path, actionclip_ckpt: Path, tmp_path:
         typer_app,
         [
             "actionclip",
-            "ViT-B-16",
             str(actionclip_ckpt),
             str(min_input_path),
-            "8",
             str(output_path),
         ],
     )
